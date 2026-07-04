@@ -1,11 +1,7 @@
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { CustomCursor } from "@/components/CustomCursor";
 import pharmasysImg from "@/assets/pharmasys.png";
-import apmsDashboardImg from "@/assets/apms_dashboard.png";
-import apmsInventoryImg from "@/assets/apms_inventory.png";
-import apmsAiCenterImg from "@/assets/apms_ai_center.png";
-import apmsRoshettyImg from "@/assets/apms_roshetty.png";
 
 export default function APMSCaseStudy() {
   return (
@@ -31,181 +27,213 @@ export default function APMSCaseStudy() {
         <div className="relative z-10 max-w-4xl mx-auto">
           <div className="inline-flex items-center gap-2 bg-primary/10 border border-primary/20 text-primary px-5 py-2 rounded-full font-mono text-xs font-semibold tracking-widest uppercase mb-8 backdrop-blur-sm shadow-[0_0_15px_rgba(var(--primary),0.1)]">
             <span className="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
-            Enterprise Healthcare · UX/UI Design
+            Reinventing pharmacy operations
           </div>
           
           <h1 className="text-5xl md:text-7xl font-display font-bold tracking-tight mb-6 drop-shadow-sm">
-            <span className="text-gradient">APMS</span> Prototype
+            PharmaSys & Roshetty
           </h1>
           
-          <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto font-light leading-relaxed mb-10">
-            Designing an intuitive ecosystem for pharmacists to manage inventory, AI insights, and robotics effortlessly.
+          <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto font-light leading-relaxed mb-10">
+            UX, app design, and the human-hardware connection.
           </p>
           
-          <div className="flex flex-wrap justify-center items-center gap-x-8 gap-y-4 text-sm text-muted-foreground glass rounded-2xl py-4 px-6 inline-flex mx-auto">
-            <span className="flex items-center gap-2"><span className="opacity-70">Tools:</span> <strong className="text-foreground font-medium">Figma, FigJam, Adobe Illustrator</strong></span>
-            <div className="w-1 h-1 rounded-full bg-border hidden md:block"></div>
-            <span className="flex items-center gap-2"><span className="opacity-70">Role:</span> <strong className="text-foreground font-medium">Lead UX/UI Designer</strong></span>
-            <div className="w-1 h-1 rounded-full bg-border hidden md:block"></div>
-            <span className="flex items-center gap-2">
-              <span className="opacity-70">Status:</span> 
-              <span className="bg-primary/20 text-primary px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider border border-primary/30">High-Fidelity Prototype</span>
-            </span>
+          <div className="flex flex-wrap justify-center items-center gap-x-8 gap-y-4 text-sm text-muted-foreground glass rounded-2xl py-4 px-6 inline-flex mx-auto text-left">
+            <div className="flex flex-col gap-2">
+              <span className="flex items-center gap-2"><span className="opacity-70 w-20">Role:</span> <strong className="text-foreground font-medium">Product/UX Designer & Connections Engineer</strong></span>
+              <span className="flex items-center gap-2"><span className="opacity-70 w-20">Team:</span> <strong className="text-foreground font-medium">Graduation project (AI team built robot/models; I owned UX/App/Connection)</strong></span>
+              <span className="flex items-center gap-2"><span className="opacity-70 w-20">Timeline:</span> <strong className="text-foreground font-medium">8 months, senior year</strong></span>
+              <span className="flex items-center gap-2"><span className="opacity-70 w-20">Tools:</span> <strong className="text-foreground font-medium">Figma, Flutter, Node.js, PostgreSQL</strong></span>
+            </div>
           </div>
         </div>
       </header>
 
-      <main className="max-w-4xl mx-auto px-6 py-12 space-y-10 relative z-10">
+      <main className="max-w-4xl mx-auto px-6 py-12 space-y-12 relative z-10">
         
-        <img src={pharmasysImg} alt="APMS Hero Mockup" className="w-full rounded-3xl shadow-glow border border-border" />
+        <img src={pharmasysImg} alt="PharmaSys & Roshetty Hero Mockup" className="w-full rounded-3xl shadow-glow border border-border" />
 
         <section className="glass rounded-3xl p-8 md:p-10">
           <h2 className="text-2xl font-display font-bold mb-6 flex items-center gap-3">
             <span className="inline-flex items-center justify-center w-8 h-8 bg-primary text-primary-foreground rounded-lg text-sm font-semibold">1</span>
-            Executive Summary
+            The Problem
           </h2>
-          <p className="text-lg leading-relaxed text-muted-foreground mb-4">
-            The <strong className="text-foreground">Advanced Pharmacy Management System (APMS)</strong> is a comprehensive digital prototype aimed at revolutionizing how pharmacies operate. Traditional healthcare software is often rigid, visually overwhelming, and requires high cognitive effort from staff in fast-paced environments.
+          <p className="text-lg leading-relaxed text-foreground font-medium mb-6">
+            Most independent and mid-sized pharmacies still run on paper. Inventory is tracked in manual ledgers, prescriptions are read and entered by hand, and the few automated/robotic dispensing solutions that exist are built for large hospitals — expensive, hardware-heavy, and out of reach for the pharmacies that actually need them most.
           </p>
-          <p className="text-lg leading-relaxed text-muted-foreground">
-            My goal was to design an intuitive, human-centered ecosystem spanning across a Staff Dashboard, an AI-powered Insights Hub, and a Patient-facing mobile application (Roshetty) ensuring a seamless end-to-end experience.
-          </p>
+          <div className="space-y-4 text-lg text-muted-foreground">
+            <p>
+              This isn't just inefficient. Manual dispensing causes real errors, and misread handwriting on prescriptions is a direct patient-safety risk.
+            </p>
+            <p>
+              We validated this wasn't a guess: in our user survey, <strong>83% of respondents reported pharmacy wait times over 15 minutes</strong>, and a clear majority rated a localized, mobile-first interface as "extremely valuable" — confirming both the operational pain and the appetite for a digital solution, in Arabic-first, local context.
+            </p>
+          </div>
         </section>
 
         <section className="glass rounded-3xl p-8 md:p-10">
           <h2 className="text-2xl font-display font-bold mb-6 flex items-center gap-3">
             <span className="inline-flex items-center justify-center w-8 h-8 bg-primary text-primary-foreground rounded-lg text-sm font-semibold">2</span>
-            User Research & Problem Definition
+            Why Existing Solutions Fall Short
           </h2>
-          <p className="text-lg leading-relaxed text-muted-foreground mb-6">Before pushing any pixels, I conducted empathy mapping and user interviews to understand our two primary user groups:</p>
+          <p className="text-lg text-muted-foreground mb-8">
+            We mapped the competitive landscape early, which shaped our whole approach:
+          </p>
 
-          <div className="grid md:grid-cols-2 gap-4">
-            <div className="bg-secondary/30 border border-border rounded-xl p-5 hover:bg-secondary/50 transition-smooth">
-               <h4 className="font-semibold mb-3 text-lg">Persona A: The Pharmacist</h4>
-               <ul className="list-disc ml-4 space-y-2 text-sm text-muted-foreground">
-                 <li><strong className="text-foreground">Pain Point:</strong> Overwhelmed by dense spreadsheets of expiration dates and stock numbers.</li>
-                 <li><strong className="text-foreground">Pain Point:</strong> Constantly moving around the pharmacy, making desktop-only tools highly restrictive.</li>
-                 <li><strong className="text-foreground">Goal:</strong> Needs to process prescriptions and locate medicine instantly without cognitive friction.</li>
-               </ul>
-            </div>
-            <div className="bg-secondary/30 border border-border rounded-xl p-5 hover:bg-secondary/50 transition-smooth">
-               <h4 className="font-semibold mb-3 text-lg">Persona B: The Patient</h4>
-               <ul className="list-disc ml-4 space-y-2 text-sm text-muted-foreground">
-                 <li><strong className="text-foreground">Pain Point:</strong> Forgets to refill chronic medications on time.</li>
-                 <li><strong className="text-foreground">Pain Point:</strong> Often arrives at the pharmacy only to find out a drug is out of stock.</li>
-                 <li><strong className="text-foreground">Goal:</strong> Wants a simple way to track prescriptions, request refills remotely, and know pricing upfront.</li>
-               </ul>
-            </div>
+          <div className="overflow-x-auto mb-6">
+            <table className="w-full text-left border-collapse">
+              <thead>
+                <tr className="border-b border-border text-foreground">
+                  <th className="py-4 px-4 font-semibold"></th>
+                  <th className="py-4 px-4 font-semibold">Workflow Automation</th>
+                  <th className="py-4 px-4 font-semibold">Hardware Cost</th>
+                  <th className="py-4 px-4 font-semibold">Integration</th>
+                  <th className="py-4 px-4 font-semibold">Fit</th>
+                </tr>
+              </thead>
+              <tbody className="text-muted-foreground">
+                <tr className="border-b border-border/50">
+                  <td className="py-4 px-4 font-medium text-foreground">Commercial pharmacy software</td>
+                  <td className="py-4 px-4">Manual entry required</td>
+                  <td className="py-4 px-4">Low</td>
+                  <td className="py-4 px-4">Low</td>
+                  <td className="py-4 px-4">Generic</td>
+                </tr>
+                <tr className="border-b border-border/50">
+                  <td className="py-4 px-4 font-medium text-foreground">Standard robotics (hospital-grade)</td>
+                  <td className="py-4 px-4">Automated</td>
+                  <td className="py-4 px-4">High ($$$$)</td>
+                  <td className="py-4 px-4">High complexity</td>
+                  <td className="py-4 px-4">Industrial only</td>
+                </tr>
+                <tr className="bg-primary/5">
+                  <td className="py-4 px-4 font-bold text-foreground">Our system</td>
+                  <td className="py-4 px-4 font-bold text-foreground">Automated</td>
+                  <td className="py-4 px-4 font-bold text-foreground">Low-cost ($)</td>
+                  <td className="py-4 px-4 font-bold text-foreground">Seamless / custom</td>
+                  <td className="py-4 px-4 font-bold text-foreground">Optimized for independent pharmacies</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
+          
+          <p className="text-lg leading-relaxed text-foreground font-medium">
+            The gap was clear: nobody was building automation <em>and</em> keeping it affordable and usable for the pharmacy that isn't a hospital.
+          </p>
         </section>
 
         <section className="glass rounded-3xl p-8 md:p-10">
           <h2 className="text-2xl font-display font-bold mb-6 flex items-center gap-3">
             <span className="inline-flex items-center justify-center w-8 h-8 bg-primary text-primary-foreground rounded-lg text-sm font-semibold">3</span>
-            Information Architecture & Wireframing
+            The Solution: A Two-Sided Ecosystem
           </h2>
+          <p className="text-lg text-muted-foreground mb-6">
+            We designed PharmaSys & Roshetty as a connected ecosystem with three audiences, not one app:
+          </p>
           
-          <div className="space-y-6">
-            <p className="text-lg leading-relaxed text-muted-foreground mb-4">
-               To solve these complex flows, I mapped out the entire ecosystem architecture using FigJam. I established a clear hierarchy to ensure that whether a pharmacist was checking out a patient or viewing an AI demand forecast, they were never more than two clicks away from their destination.
-            </p>
-            
-            <div className="bg-secondary/50 border border-border rounded-2xl p-6 text-center">
-               <div className="flex flex-wrap items-center justify-center gap-2 mb-6">
-                  <div className="bg-background border border-border rounded-xl py-3 px-4 shadow-sm min-w-[120px]">
-                    <div className="font-semibold text-sm">Roshetty Mobile</div>
-                    <div className="text-xs text-muted-foreground mt-1">Patient Portal</div>
-                  </div>
-                  <div className="text-primary font-bold px-2">Data Sync</div>
-                  <div className="bg-background border border-border rounded-xl py-3 px-4 shadow-sm min-w-[120px]">
-                    <div className="font-semibold text-sm">Main Dashboard</div>
-                    <div className="text-xs text-muted-foreground mt-1">Staff Overview</div>
-                  </div>
-               </div>
-               <div className="flex flex-wrap items-center justify-center gap-2">
-                  <div className="bg-background border border-border rounded-xl py-3 px-4 shadow-sm min-w-[120px]">
-                    <div className="font-semibold text-sm">Inventory UI</div>
-                    <div className="text-xs text-muted-foreground mt-1">Stock Management</div>
-                  </div>
-                  <div className="text-primary font-bold px-2">Alerts</div>
-                  <div className="bg-primary/10 border border-primary/20 rounded-xl py-3 px-4 shadow-sm min-w-[120px]">
-                    <div className="font-semibold text-sm text-primary">AI Insights UI</div>
-                    <div className="text-xs text-primary/70 mt-1">Predictive Analytics</div>
-                  </div>
-               </div>
-            </div>
-          </div>
+          <ul className="space-y-4 text-lg text-muted-foreground mb-8">
+            <li className="flex items-start gap-3">
+              <span className="text-primary mt-1">•</span>
+              <span><strong>Roshetty (Patient App)</strong> — upload a prescription, track order status, scan and submit refills</span>
+            </li>
+            <li className="flex items-start gap-3">
+              <span className="text-primary mt-1">•</span>
+              <span><strong>PharmaSys (Pharmacist/Manager Dashboard)</strong> — review incoming prescriptions, manage inventory, trigger and monitor the dispensing robot, view AI-driven demand forecasting and financial reports</span>
+            </li>
+            <li className="flex items-start gap-3">
+              <span className="text-primary mt-1">•</span>
+              <span><strong>Dispensing Robot</strong> — physically picks and dispenses medication once a prescription is verified</span>
+            </li>
+          </ul>
+
+          <p className="text-lg leading-relaxed text-foreground font-medium italic border-l-4 border-primary pl-4 py-2 bg-primary/5 rounded-r-xl">
+            My job was making sure these three pieces felt like one coherent system to the humans using them — not three disconnected tools bolted together.
+          </p>
         </section>
 
         <section className="glass rounded-3xl p-8 md:p-10">
           <h2 className="text-2xl font-display font-bold mb-6 flex items-center gap-3">
             <span className="inline-flex items-center justify-center w-8 h-8 bg-primary text-primary-foreground rounded-lg text-sm font-semibold">4</span>
-            Design System & Visual Language
+            Process
           </h2>
-          <p className="text-lg leading-relaxed text-muted-foreground mb-8">
-            Healthcare interfaces demand clarity and precision. I built a comprehensive atomic design system in Figma to maintain consistency across the massive dashboard and mobile applications.
-          </p>
 
-          <img src={apmsAiCenterImg} alt="AI Command Center Dashboard" className="w-full rounded-2xl shadow-glow border border-border mb-8" />
+          <div className="space-y-8">
+            <div>
+               <h4 className="font-semibold mb-3 text-lg text-foreground">Defining the actors and what each one actually needs</h4>
+               <p className="text-muted-foreground leading-relaxed">
+                 Before any screens, I mapped out every role in the ecosystem — Patient, Pharmacist, Pharmacy Manager, plus the non-human actors (AI Engine, Dispensing Robot) — and what each interaction needed to trigger downstream. This use-case mapping is what let the manual prescription-to-dispensing flow get fully automated without losing a human checkpoint where it mattered (verification before dispensing).
+               </p>
+            </div>
+            
+            <div>
+               <h4 className="font-semibold mb-3 text-lg text-foreground">Low-fidelity first</h4>
+               <p className="text-muted-foreground leading-relaxed">
+                 Started with low-fidelity wireframes to lock the information architecture — filter/list/detail pattern for inventory on the dashboard side, and a simple linear flow (scan → confirm → track) for the patient side — before touching visual design. Patients needed near-zero friction (they're often not at full attention, possibly unwell); pharmacists needed information density and control, since they're managing inventory, revenue, and a robot simultaneously.
+               </p>
+            </div>
 
-          <div className="overflow-x-auto">
-            <table className="w-full text-left border-collapse text-sm">
-               <thead>
-                 <tr>
-                   <th className="bg-secondary/50 p-3 font-semibold border-b-2 border-border rounded-tl-xl">Design Element</th>
-                   <th className="bg-secondary/50 p-3 font-semibold border-b-2 border-border rounded-tr-xl">Rationale & Accessibility</th>
-                 </tr>
-               </thead>
-               <tbody className="text-muted-foreground divide-y divide-border/50">
-                 <tr className="hover:bg-secondary/30 transition-smooth">
-                   <td className="p-3"><strong className="text-foreground font-medium">Typography (Inter)</strong></td>
-                   <td className="p-3">Chosen for its high legibility on digital screens, ensuring numbers (dosages, prices) are unmistakable to prevent medical errors.</td>
-                 </tr>
-                 <tr className="hover:bg-secondary/30 transition-smooth">
-                   <td className="p-3"><strong className="text-foreground font-medium">Color Palette</strong></td>
-                   <td className="p-3">Utilized a calming, clinical blue as the primary brand color, reserving stark reds and oranges strictly for critical stock alerts and errors.</td>
-                 </tr>
-                 <tr className="hover:bg-secondary/30 transition-smooth">
-                   <td className="p-3"><strong className="text-foreground font-medium">Component States</strong></td>
-                   <td className="p-3">Designed robust hover, active, and disabled states for buttons and inputs to provide immediate tactile feedback to staff working rapidly.</td>
-                 </tr>
-               </tbody>
-            </table>
+            <div>
+               <h4 className="font-semibold mb-3 text-lg text-foreground">Designing for two very different cognitive loads in one system</h4>
+               <p className="text-muted-foreground leading-relaxed">
+                 This was the core UX problem. The patient app strips everything down — one primary action per screen, large touch targets, status shown as a simple visual state (hourglass → checkmark) rather than technical jargon. The manager dashboard is the opposite: it needs to surface a lot — pending prescriptions, expiring stock, revenue trends, AI alerts — without becoming overwhelming, so I used clear visual hierarchy (color-coded action cards: red for risk, blue for action-required, green for stable) so a pharmacist can triage at a glance instead of reading every row.
+               </p>
+            </div>
+
+            <div>
+               <h4 className="font-semibold mb-3 text-lg text-foreground">A defined visual system</h4>
+               <p className="text-muted-foreground leading-relaxed">
+                 Built a color and component schema (primary blues, neutral inks, and a semantic status palette — teal/amber/red/green/violet) so the dashboard's alerts and statuses are instantly readable without needing a legend, which matters in a fast-paced pharmacy environment.
+               </p>
+            </div>
+
+            <div>
+               <h4 className="font-semibold mb-3 text-lg text-foreground">Role-based access, not one-size-fits-all login</h4>
+               <p className="text-muted-foreground leading-relaxed">
+                 Designed the sign-in flow to split Manager (full access) from Staff (scan-only), since not every pharmacy employee should be able to touch revenue or robot controls — a small detail, but one that reflects real pharmacy operations rather than treating all staff as equal.
+               </p>
+            </div>
           </div>
         </section>
 
         <section className="glass rounded-3xl p-8 md:p-10">
           <h2 className="text-2xl font-display font-bold mb-6 flex items-center gap-3">
             <span className="inline-flex items-center justify-center w-8 h-8 bg-primary text-primary-foreground rounded-lg text-sm font-semibold">5</span>
-            Human-Computer Interaction (HCI) Solutions
+            My Specific Contribution: The Connection Layer
           </h2>
-          <p className="text-lg leading-relaxed text-muted-foreground mb-6">By applying cognitive psychology principles, I transformed the heavy data backend into an accessible, scannable interface.</p>
-
-          <div className="grid md:grid-cols-2 gap-6 mb-8">
-            <div className="bg-secondary/30 border border-border rounded-xl p-5 hover:bg-secondary/50 transition-smooth">
-               <h4 className="font-semibold mb-2 text-foreground">Preattentive Processing</h4>
-               <p className="text-sm text-muted-foreground">Instead of forcing users to read raw expiration dates, the UI utilizes status enums (Healthy, Warning, Critical) with color-coded badges. This allows pharmacists to visually scan a list of 500 items in milliseconds without conscious reading effort.</p>
-            </div>
-            <div className="bg-secondary/30 border border-border rounded-xl p-5 hover:bg-secondary/50 transition-smooth">
-               <h4 className="font-semibold mb-2 text-foreground">Thumb-Reach Navigation</h4>
-               <p className="text-sm text-muted-foreground">For the mobile/tablet views—often used by pharmacists walking between shelves—the primary actions were shifted to a bottom Navigation Bar, ensuring optimal one-handed ergonomic operation.</p>
-            </div>
+          
+          <div className="space-y-6 text-lg text-muted-foreground">
+            <p>
+              Beyond UX and UI, I designed and built the layer that makes the ecosystem actually function as one system: the Flutter apps (patient + dashboard) communicate through a Node.js/Express API gateway, which talks to PostgreSQL, the OCR/forecasting AI services, and — over serial protocol — the robotic arm itself.
+            </p>
+            <p>
+              I'm not claiming the AI models or the robot hardware (that was the AI team's work), but the architecture connecting a tablet dashboard to live hardware over USB serial, with WebSocket-based real-time status updates flowing back to the UI, was mine to design and implement.
+            </p>
+            <p className="text-foreground font-medium p-6 bg-secondary/50 rounded-2xl border border-border">
+              This is the detail worth highlighting in interviews: I didn't just design screens, I designed how a human's tap on a screen becomes a physical action in the real world, and how that physical action's status gets back to the human in a way they can trust at a glance.
+            </p>
           </div>
+        </section>
+        
+        <section className="glass rounded-3xl p-8 md:p-10 mb-10">
+          <h2 className="text-2xl font-display font-bold mb-6 flex items-center gap-3">
+            <span className="inline-flex items-center justify-center w-8 h-8 bg-primary text-primary-foreground rounded-lg text-sm font-semibold">6</span>
+            Outcome
+          </h2>
+          
+          <p className="text-lg text-muted-foreground leading-relaxed">
+            A working, demoed prototype across patient app, pharmacist dashboard, and physical robotic dispensing — showing that low-cost, accessible automation for independent pharmacies isn't just theoretical. The project successfully integrated physical robotics with user-centric apps, achieving a fully automated, low-latency workflow that dramatically reduced manual intervention.
+          </p>
 
-          <div className="space-y-6">
-            <div className="grid md:grid-cols-2 gap-6">
-               <img src={apmsDashboardImg} alt="Desktop Dashboard" className="w-full rounded-2xl shadow-glow border border-border object-cover" />
-               <img src={apmsInventoryImg} alt="Inventory Interface" className="w-full rounded-2xl shadow-glow border border-border object-cover" />
-            </div>
-            <div className="bg-secondary/30 border border-border rounded-xl p-6 flex flex-col md:flex-row items-center gap-8 hover:bg-secondary/50 transition-smooth">
-                <div className="flex-1">
-                  <h4 className="font-semibold text-lg mb-2 text-foreground">The Patient Journey (Roshetty App)</h4>
-                  <p className="text-base text-muted-foreground">The patient-facing mobile application was designed to feel like a modern consumer app rather than a clinical tool. It features large tap targets for elderly users, a clean onboarding flow, and a simplified prescription scanning experience that immediately syncs with the pharmacy's APMS system.</p>
-                </div>
-                <div className="max-w-[200px] shrink-0">
-                  <img src={apmsRoshettyImg} alt="Roshetty Mobile App Prototype" className="w-full rounded-[2rem] shadow-glow border-4 border-border" />
-                </div>
-            </div>
+          <div className="mt-12 flex justify-center">
+            <a 
+              href="https://github.com/nadiahossny" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground px-8 py-4 rounded-full font-semibold text-lg transition-all hover:bg-primary/90 hover:scale-105 active:scale-95 shadow-[0_0_20px_rgba(var(--primary),0.3)] hover:shadow-[0_0_30px_rgba(var(--primary),0.5)]"
+            >
+              View More Projects on GitHub
+              <ArrowRight className="w-5 h-5" />
+            </a>
           </div>
         </section>
 

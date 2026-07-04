@@ -2,13 +2,9 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 import { useLang } from "../contexts/LanguageContext";
 import { ArrowUpRight, ExternalLink, X, Plus } from "lucide-react";
-import bloombookImg from "@/assets/bloombook_enhanced.png";
-import ecommerceImg from "@/assets/ecommerce.png";
-import ieeeImg from "@/assets/ieee.png";
 import pharmasysImg from "@/assets/pharmasys.png";
 import tasklyImg from "@/assets/taskly.png";
 import studybuddyImg from "@/assets/studybuddy_enhanced.png";
-import auraleafImg from "@/assets/auraleaf.png";
 
 type Project = {
   id: string;
@@ -26,88 +22,40 @@ type Project = {
 const getProjects = (t: (en: string, ar: string) => string): Project[] => [
   {
     id: "pharmasys",
-    title: t("PharmaSys (APMS)", "فارما سيس"),
-    niche: t("Enterprise Healthcare · AI & Robotics", "رعاية صحية للمؤسسات · ذكاء اصطناعي وروبوتات"),
+    title: t("Roshetety (PharmaSys)", "روشيتتي (فارماسيس)"),
+    niche: t("Healthcare UX · Hardware Integration", "تجربة مستخدم الرعاية الصحية · تكامل الأجهزة"),
     image: pharmasysImg,
-    tags: ["Flutter", "Node.js", "Postgres", "Robotics"],
+    tags: ["UX Strategy", "Hardware Layer", "Flutter", "Node.js"],
     liveUrl: "/case-study/apms",
-    problem: t("Traditional pharmacy software lacks physical dispensing integration and struggles with 'phantom stock' discrepancies, leading to life-threatening inventory errors and financial losses.", "تفتقر برامج الصيدليات التقليدية إلى دمج الصرف المادي وتعاني من تناقضات المخزون، مما يؤدي إلى خسائر مالية."),
-    solution: t("Architected a robust microservices ecosystem integrating a Node.js/WebSocket gateway, a Python AI engine (XGBoost/Q-Learning) for predictive restocking, and an ESP32-controlled robotic dispensing arm.", "تصميم نظام مصغر قوي يدمج بوابة Node.js/WebSocket ومحرك ذكاء اصطناعي للتنبؤ وذراع صرف روبوتية متحكم بها بواسطة ESP32."),
-    techStack: ["Flutter", "Node.js", "Python", "PostgreSQL", "ESP32"],
-    role: t("Lead Systems Architect & Frontend Engineer. Designed the fault-tolerant communication protocol and built the highly responsive, HCI-compliant staff dashboard.", "مهندس أنظمة وواجهات أمامية رئيسي. صممت بروتوكول اتصال متسامح مع الأخطاء وبنيت لوحة تحكم سريعة الاستجابة للموظفين."),
+    problem: t("The pharmacy ecosystem is fundamentally broken: traditional software relies on dense grids and data entry, pushing cognitive burden onto pharmacists and leading to life-threatening dispensing errors.", "النظام البيئي للصيدليات معطل أساسًا: تعتمد البرامج التقليدية على شبكات كثيفة وإدخال البيانات، مما يلقي بالعبء المعرفي على الصيادلة ويؤدي إلى أخطاء صرف مهددة للحياة."),
+    solution: t("Redesigned the entire workflow to reduce conscious decisions. Architected a microservices ecosystem connecting a highly visual, HCI-compliant interface to an ESP32-controlled robotic dispensing arm.", "أعدت تصميم سير العمل بالكامل لتقليل القرارات الواعية. صممت نظام خدمات مصغرة يربط بين واجهة مرئية عالية الجودة وذراع صرف آلي."),
+    techStack: ["Figma", "HCI Principles", "Flutter", "Node.js", "ESP32"],
+    role: t("Owned the UX judgment and the hardware connection layer. Mapped pharmacist mental models and built the fault-tolerant serial communication protocol for physical dispensing.", "امتلكت قرارات تجربة المستخدم وطبقة الاتصال بالأجهزة. حددت النماذج الذهنية للصيدلي وبنيت بروتوكول الاتصال المتسامح مع الأخطاء."),
   },
   {
     id: "taskly",
     title: t("Taskly - Productivity App", "تاسكلي - تطبيق إنتاجية"),
-    niche: t("UI/UX Design · Product Strategy", "تصميم واجهة وتجربة المستخدم · استراتيجية المنتج"),
+    niche: t("Product Design · Cognitive Load", "تصميم المنتج · العبء المعرفي"),
     image: tasklyImg,
-    tags: ["Figma", "Strategy"],
-    liveUrl: "https://www.behance.net/gallery/221757475/Taskly-Simplify-Your-Productivity",
-    problem: t("High cognitive load in existing task management applications caused user fatigue and poor onboarding completion rates.", "تسبب العبء المعرفي العالي في تطبيقات إدارة المهام الحالية في إرهاق المستخدمين وضعف معدلات إكمال الإعداد."),
-    solution: t("Executed comprehensive user research to design a hyper-intuitive, minimalist task management interface focused on preattentive processing and seamless navigation.", "تنفيذ بحث مستخدم شامل لتصميم واجهة مبسطة وبديهية للغاية تركز على المعالجة المسبقة للانتباه والتنقل السلس."),
-    techStack: ["Figma", "UI/UX Design", "User Research"],
-    role: t("Lead Product Designer. Managed the entire product design lifecycle from user interviews to high-fidelity, interactive Figma prototyping.", "مصمم منتج رئيسي. أدرت دورة حياة تصميم المنتج بأكملها من مقابلات المستخدمين إلى النماذج الأولية التفاعلية عالية الدقة."),
+    tags: ["Figma", "UX Bet", "Prototyping"],
+    liveUrl: "/case-study/taskly",
+    problem: t("Oversaturated task management market where existing apps cause severe cognitive overload by crowding subtasks, timers, and tags into a single cramped viewport.", "سوق إدارة مهام مشبع حيث تسبب التطبيقات الحالية عبئًا معرفيًا شديدًا عن طريق تكديس المهام الفرعية والمؤقتات والعلامات في عرض ضيق واحد."),
+    solution: t("Made a contrarian UX bet: hide complex features until explicitly invoked. Created a hyper-minimalist interface that handles nested subtasks and timers through progressive disclosure.", "راهنت على تصميم معاكس: إخفاء الميزات المعقدة حتى يتم استدعاؤها صراحة. أنشأت واجهة مبسطة للغاية تتعامل مع المهام الفرعية والمؤقتات من خلال الكشف التدريجي."),
+    techStack: ["Figma", "User Research", "Wireframing"],
+    role: t("Lead Product Designer. Orchestrated the design strategy, rejected overly complex flows, and delivered a high-fidelity prototype focused on preattentive processing.", "مصمم منتج رئيسي. نسقت استراتيجية التصميم، ورفضت التدفقات المعقدة للغاية، وقدمت نموذجًا أوليًا عالي الدقة."),
   },
   {
-    id: "aura-leaf",
-    title: t("Aura Leaf", "أورا ليف"),
-    niche: t("Interactive Web App · Frontend Architecture", "تطبيق ويب تفاعلي · بنية الواجهات الأمامية"),
-    image: auraleafImg,
-    tags: ["React", "Web Audio API", "TailwindCSS"],
-    liveUrl: "https://auraleaf1.netlify.app",
-    problem: t("Modern productivity apps often suffer from sterile interfaces that fail to delight users, leading to high churn rates and low engagement during deep-focus sessions.", "غالباً ما تعاني تطبيقات الإنتاجية الحديثة من واجهات باهتة تفشل في إسعاد المستخدمين، مما يؤدي إلى انخفاض التفاعل."),
-    solution: t("Engineered a highly interactive, state-driven productivity web app utilizing the Web Audio API for hardware interaction (microphone blow detection) and fluid React-based UI adaptations.", "هندسة تطبيق ويب تفاعلي للإنتاجية باستخدام Web Audio API للتفاعل مع الأجهزة وتعديلات واجهة مستخدم مرنة تعتمد على React."),
-    techStack: ["React", "Web Audio API", "TailwindCSS"],
-    role: t("Lead Frontend Engineer. Architected the custom audio-reactive hooks and implemented a responsive, glassmorphism-based design system.", "مهندس واجهات أمامية رئيسي. صممت خطافات تفاعلية صوتية مخصصة ونفذت نظام تصميم متجاوب."),
-  },
-  {
-    id: "study-buddy",
-    title: t("Study Buddy", "رفيق الدراسة"),
-    niche: t("EdTech · React Ecosystem", "تقنية تعليمية · بيئة React"),
+    id: "byto-academy",
+    title: t("Byto Academy", "أكاديمية بايتو"),
+    niche: t("EdTech · Kids Media UX", "تقنية تعليمية · تجربة مستخدم للأطفال"),
     image: studybuddyImg,
-    tags: ["React", "Performance"],
-    liveUrl: "https://studybuddy4u.netlify.app",
-    problem: t("The legacy educational platform suffered from severe performance bottlenecks and a clunky UX, resulting in poor student retention and low user satisfaction.", "عانت المنصة التعليمية القديمة من اختناقات شديدة في الأداء وواجهة مستخدم معقدة، مما أدى إلى ضعف احتفاظ الطلاب."),
-    solution: t("Spearheaded a complete architectural migration to a modern React stack, integrating Framer Motion for fluid transitions and drastically improving Time-to-Interactive (TTI).", "قيادة انتقال معماري كامل إلى بيئة React حديثة، مع دمج Framer Motion لتحسين وقت التفاعل بشكل كبير."),
-    techStack: ["React.js", "Framer Motion", "Vite"],
-    role: t("Lead Frontend Developer & UX Designer. Directed the end-to-end redesign process from initial Figma prototypes to high-performance component delivery.", "مطور واجهات ومصمم تجربة مستخدم رئيسي. أدرت عملية إعادة التصميم من النماذج الأولية إلى التسليم عالي الأداء."),
-  },
-  {
-    id: "bloom-book",
-    title: t("Bloom Book", "بلوم بوك"),
-    niche: t("E-Commerce · Collaborative Tech", "تجارة إلكترونية · تقنيات تعاونية"),
-    image: bloombookImg,
-    tags: ["React", "Architecture"],
-    liveUrl: "https://bloombookgift.netlify.app",
-    problem: t("The digital gifting space lacked seamless multi-user collaboration, making collective purchasing and personalized gift curation overly complex for users.", "افتقر مجال الإهداء الرقمي إلى تعاون سلس بين مستخدمين متعددين، مما جعل الشراء الجماعي معقدًا للغاية."),
-    solution: t("Developed a scalable digital commerce platform enabling real-time collaborative curation and a frictionless checkout experience using modular CSS architecture.", "تطوير منصة تجارة رقمية قابلة للتوسع تتيح التنسيق التعاوني في الوقت الفعلي وتجربة دفع سلسة."),
-    techStack: ["React.js", "CSS Modules", "Node.js"],
-    role: t("Frontend Developer. Engineered the core collaborative gifting engine and optimized the component rendering lifecycle for maximum performance.", "مطور واجهات أمامية. هندست محرك الإهداء التعاوني الأساسي وحسنت دورة حياة تصيير المكونات لأقصى أداء."),
-  },
-  {
-    id: "ecomm",
-    title: t("E-Commerce App", "تطبيق متجر إلكتروني"),
-    niche: t("Mobile Engineering · Cross-Platform", "هندسة الجوال · عبر المنصات"),
-    image: ecommerceImg,
-    tags: ["Flutter", "Architecture"],
-    liveUrl: "https://github.com/nadiahossny/ecomm",
-    problem: t("Fragmented mobile shopping experiences across iOS and Android were causing high cart abandonment rates and difficult code maintainability.", "تسببت تجارب التسوق المجزأة عبر أنظمة التشغيل في ارتفاع معدلات التخلي عن سلة التسوق وصعوبة الصيانة."),
-    solution: t("Built a high-performance, cross-platform mobile application using Flutter and Dart, backed by a real-time Firebase database for instant inventory synchronization.", "بناء تطبيق عالي الأداء عبر المنصات باستخدام Flutter، مدعوم بقاعدة بيانات Firebase لمزامنة المخزون الفورية."),
-    techStack: ["Flutter", "Dart", "Firebase"],
-    role: t("Mobile Engineer. Single-handedly developed the application architecture, implemented complex state management, and integrated secure payment APIs.", "مهندس جوال. طورت بنية التطبيق بمفردي، ونفذت إدارة حالة معقدة، ودمجت واجهات برمجة التطبيقات."),
-  },
-  {
-    id: "ieee",
-    title: t("IEEE PUA Platform", "منصة IEEE PUA"),
-    niche: t("Full-Stack Web App · Admin Systems", "تطبيق ويب متكامل · أنظمة الإدارة"),
-    image: ieeeImg,
-    tags: ["Flutter", "Full-Stack"],
-    liveUrl: "https://www.ieeepuasb.com",
-    problem: t("The student branch relied on fragmented, manual systems for event management, leading to administrative overhead and poor member communication.", "اعتمد الفرع على أنظمة مجزأة لإدارة الفعاليات، مما أدى إلى عبء إداري شديد وضعف التواصل."),
-    solution: t("Delivered a centralized, responsive web platform featuring a secure role-based administration dashboard connected to a real-time Firebase backend.", "تقديم منصة مركزية متجاوبة تتميز بلوحة تحكم إدارة آمنة قائمة على الأدوار متصلة بخلفية في الوقت الفعلي."),
-    techStack: ["Flutter", "Firebase", "Web Platform"],
-    role: t("Vice Head of Web Dev. Led a team of developers to architect and deploy the system, enforcing CI/CD practices and code quality standards.", "نائب رئيس تطوير الويب. قدت فريقاً لتصميم ونشر النظام مع تطبيق ممارسات CI/CD ومعايير جودة الكود."),
-  },
+    tags: ["Visual Design", "Engagement", "UI/UX"],
+    liveUrl: "/case-study/byto-academy",
+    problem: t("Educational platforms for younger demographics often fail by treating children like mini-adults, using dense text and rigid navigation that destroys engagement and retention.", "غالبًا ما تفشل المنصات التعليمية للأطفال في معاملتهم كبالغين صغار، باستخدام نصوص كثيفة وتنقل جامد يدمر التفاعل والاحتفاظ."),
+    solution: t("Tailored the entire platform for a Kids Media audience. Focused heavily on vibrant visuals, macro-animations, and radical simplicity to create an immersive, game-like learning environment.", "صممت المنصة بالكامل لتناسب جمهور وسائل إعلام الأطفال. ركزت بشكل كبير على المرئيات النابضة بالحياة والرسوم المتحركة الكبيرة والبساطة الجذرية لخلق بيئة تعليمية غامرة."),
+    techStack: ["Figma", "Visual Hierarchy", "Interaction Design"],
+    role: t("Product Designer. Redefined the visual language for the EdTech space, prioritizing immediate visual feedback and frictionless exploration for younger users.", "مصمم منتج. أعدت تعريف اللغة المرئية لمساحة التقنية التعليمية، مع إعطاء الأولوية للتعليقات المرئية الفورية والاستكشاف السلس."),
+  }
 ];
 
 export const Projects = () => {

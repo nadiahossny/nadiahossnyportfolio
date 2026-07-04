@@ -26,14 +26,14 @@ export const Hero = () => {
         >
           
           <h1 className="font-display text-5xl font-bold leading-[1.1] tracking-tight md:text-7xl lg:text-7xl mb-6">
-            {t("Bridging design &", "نجمع بين التصميم و")} <br className="hidden md:block"/>
-            <span className="text-gradient">{t("engineering", "الهندسة")}</span> {t("seamlessly.", "بسلاسة.")}
+            {t("Product Designer", "مصممة منتجات")} <br className="hidden md:block"/>
+            <span className="text-gradient">{t("& Creative Engineer.", "ومهندسة إبداعية.")}</span>
           </h1>
           
           <p className="text-lg text-muted-foreground md:text-xl max-w-2xl leading-relaxed mb-10">
             {t(
-              "I'm Nadia Hossny, a Computer Science graduate specializing in React, Flutter, and UX/UI Design. I create intuitive, user-centered experiences that are visually engaging and technically scalable.",
-              "أنا نادية حسني، خريجة علوم حاسب متخصصة في React و Flutter وتصميم واجهة وتجربة المستخدم. أصمم تجارب مستخدم بديهية، جذابة بصريًا وقابلة للتطوير تقنيًا."
+              "Product Designer who reduces cognitive load and rebuilds confusing products into usable, delightful ones—and ships the working app herself when needed.",
+              "مصممة منتجات تقلل من العبء المعرفي وتعيد بناء المنتجات المعقدة لتصبح سهلة وممتعة — وتقوم ببرمجة التطبيق النهائي بنفسها عند الحاجة."
             )}
           </p>
 

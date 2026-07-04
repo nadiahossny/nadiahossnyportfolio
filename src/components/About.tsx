@@ -1,30 +1,11 @@
 import { motion } from "framer-motion";
 import { useLang } from "../contexts/LanguageContext";
-import { FaReact, FaJs, FaHtml5, FaGitAlt, FaPython, FaFigma, FaUsers, FaProjectDiagram } from "react-icons/fa";
-import { SiFlutter, SiFirebase, SiPostgresql } from "react-icons/si";
-import { MdOutlineDesignServices, MdOutlineWeb } from "react-icons/md";
-import { BiLogoAdobe } from "react-icons/bi";
+import { FaReact, FaFigma, FaUsers, FaProjectDiagram } from "react-icons/fa";
+import { SiFlutter } from "react-icons/si";
+import { MdOutlineDesignServices } from "react-icons/md";
 
 
 const devSkills = [
-  { 
-    name: "React.js", 
-    color: "text-[#61DAFB]", 
-    bg: "bg-[#61DAFB]/10",
-    icon: FaReact
-  },
-  { 
-    name: "JavaScript", 
-    color: "text-[#F7DF1E]", 
-    bg: "bg-[#F7DF1E]/10",
-    icon: FaJs
-  },
-  { 
-    name: "HTML & CSS", 
-    color: "text-[#E34F26]", 
-    bg: "bg-[#E34F26]/10",
-    icon: FaHtml5
-  },
   { 
     name: "Flutter", 
     color: "text-[#02569B]", 
@@ -32,67 +13,37 @@ const devSkills = [
     icon: SiFlutter
   },
   { 
-    name: "Firebase", 
-    color: "text-[#FFCA28]", 
-    bg: "bg-[#FFCA28]/10",
-    icon: SiFirebase
-  },
-  { 
-    name: "Git & Version Control", 
-    color: "text-[#F05032]", 
-    bg: "bg-[#F05032]/10",
-    icon: FaGitAlt
-  },
-  { 
-    name: "Python", 
-    color: "text-[#3776AB]", 
-    bg: "bg-[#3776AB]/10",
-    icon: FaPython
-  },
-  { 
-    name: "PostgreSQL", 
-    color: "text-[#4169E1]", 
-    bg: "bg-[#4169E1]/10",
-    icon: SiPostgresql
+    name: "React.js", 
+    color: "text-[#61DAFB]", 
+    bg: "bg-[#61DAFB]/10",
+    icon: FaReact
   }
 ];
 
 const designSkills = [
   { 
-    name: "Figma", 
-    color: "text-[#F24E1E]", 
-    bg: "bg-[#F24E1E]/10",
-    icon: FaFigma
-  },
-  { 
-    name: "UI/UX Design", 
+    name: "UX Flows & Journeys", 
     color: "text-[#8B5CF6]", 
     bg: "bg-[#8B5CF6]/10",
     icon: MdOutlineDesignServices
   },
   { 
-    name: "User Research", 
-    color: "text-[#06B6D4]", 
-    bg: "bg-[#06B6D4]/10",
-    icon: FaUsers
-  },
-  { 
-    name: "Prototyping", 
-    color: "text-[#F59E0B]", 
-    bg: "bg-[#F59E0B]/10",
-    icon: MdOutlineWeb
-  },
-  { 
-    name: "Agile & PM", 
+    name: "Information Architecture (IA)", 
     color: "text-[#10B981]", 
     bg: "bg-[#10B981]/10",
     icon: FaProjectDiagram
   },
   { 
-    name: "Adobe CC", 
-    color: "text-[#EC1C24]", 
-    bg: "bg-[#EC1C24]/10",
-    icon: BiLogoAdobe
+    name: "Figma (Core)", 
+    color: "text-[#F24E1E]", 
+    bg: "bg-[#F24E1E]/10",
+    icon: FaFigma
+  },
+  { 
+    name: "Usability Testing", 
+    color: "text-[#06B6D4]", 
+    bg: "bg-[#06B6D4]/10",
+    icon: FaUsers
   }
 ];
 
@@ -102,33 +53,27 @@ export const About = () => {
   const timeline = [
     {
       type: "tech",
-      date: t("Dec 2025 - Present", "ديسمبر 2025 - الحاضر"),
-      title: t("UX/UI Designer @ Upwork", "مصمم واجهة مستخدم @ آب وورك"),
-      desc: t("Designed user-centered digital experiences. Conducted user interviews and developed interactive prototypes to refine design solutions.", "صممت تجارب رقمية محورها المستخدم. أجريت مقابلات مع المستخدمين وطورت نماذج أولية تفاعلية."),
-    },
-    {
-      type: "academic",
-      date: t("Jul 2025 - Sep 2025", "يوليو 2025 - سبتمبر 2025"),
-      title: t("Frontend Developer Intern @ NTI", "متدرب مطور واجهات أمامية @ NTI"),
-      desc: t("Built 5+ frontend projects with seamless API integration. Applied usability testing to improve web functionality.", "بنيت أكثر من 5 مشاريع واجهات أمامية مع دمج واجهات برمجة التطبيقات (API). طبقت اختبارات سهولة الاستخدام."),
+      date: t("2024 - Present", "2024 - الحاضر"),
+      title: t("Roshetety (PharmaSys)", "روشيتتي (فارماسيس)"),
+      desc: t("Designed and engineered a full-stack pharmacy automation system integrating a Flutter/Node.js architecture with a robotic dispensing arm, reducing pharmacist cognitive load.", "صممت وطورت نظام أتمتة صيدليات متكامل يجمع بين Flutter و Node.js مع ذراع روبوتي لتقليل العبء المعرفي على الصيدلي."),
     },
     {
       type: "academic",
       date: t("Oct 2024 - May 2025", "أكتوبر 2024 - مايو 2025"),
-      title: t("UX/UI Designer Intern @ DEPI", "متدرب تصميم واجهات @ DEPI"),
-      desc: t("Focused on user-centered design and UX research. Delivered 30+ wireframes and 15+ prototypes for various websites and apps.", "ركزت على التصميم المتمحور حول المستخدم وأبحاث تجربة المستخدم. صممت أكثر من 30 نموذج مبدئي و 15 نموذج تفاعلي."),
+      title: t("UI/UX Intern @ DEPI", "متدرب تصميم واجهات @ DEPI"),
+      desc: t("Conducted structured UX research and translated findings into interface redesigns. Designed high-fidelity prototypes and collaborated cross-functionally with engineering teams.", "أجريت أبحاث تجربة المستخدم وحولتها إلى تصميمات حسنت تدفق العمل. صممت نماذج تفاعلية عالية الدقة بالتعاون مع فرق الهندسة."),
     },
     {
       type: "academic",
-      date: t("Jul 2024 - Oct 2024", "يوليو 2024 - أكتوبر 2024"),
-      title: t("Mobile App Developer Intern @ Route", "متدرب مطور تطبيقات جوال @ Route"),
-      desc: t("Developed 5+ fully functional mobile apps with Firebase and REST API integration using Flutter and state management techniques.", "طورت أكثر من 5 تطبيقات جوال وظيفية باستخدام Flutter و Firebase."),
+      date: t("Jul 2025 - Sep 2025", "يوليو 2025 - سبتمبر 2025"),
+      title: t("Frontend Intern @ NTI", "متدرب مطور واجهات أمامية @ NTI"),
+      desc: t("Built and shipped production React.js components with a focus on rendering performance. Optimized frontend data-fetching patterns for faster load times.", "طورت مكونات React.js للإنتاج مع التركيز على الأداء. حسّنت أنماط جلب البيانات لواجهات أسرع استجابة."),
     },
     {
       type: "academic",
-      date: t("Oct 2022 - Jun 2026", "أكتوبر 2022 - يونيو 2026"),
-      title: t("CS & AI Student @ Pharos University", "طالبة علوم حاسب وذكاء اصطناعي @ جامعة فاروس"),
-      desc: t("Bachelor's degree in Computer Science. Recognized for academic excellence and active community engagement.", "درجة البكالوريوس في علوم الحاسب. تم تقديري لتميزي الأكاديمي والمشاركة المجتمعية."),
+      date: t("2023 - 2024", "2023 - 2024"),
+      title: t("Vice Head of Web Dev @ IEEE", "نائب رئيس تطوير الويب @ IEEE"),
+      desc: t("Led a web development team, establishing code review practices. Designed and maintained the branch's public-facing web presence using React.js.", "قدت فريق تطوير الويب، ووضعت معايير مراجعة الأكواد. صممت وطورت موقع الفرع باستخدام React.js."),
     },
   ];
 
@@ -150,14 +95,14 @@ export const About = () => {
           <div className="text-lg leading-relaxed text-muted-foreground space-y-4">
             <p>
               {t(
-                "I am a Frontend Developer and UX Designer dedicated to crafting digital products that matter. I bridge the gap between engineering and human-centered design to ensure every interaction feels intuitive.",
-                "أنا مطور واجهات أمامية ومصمم تجربة مستخدم شغوف بصنع منتجات رقمية ذات قيمة. أجمع بين الهندسة والتصميم المتمحور حول الإنسان لضمان تجربة بديهية للمستخدم."
+                "I'm a Product Designer who approaches every product from the user's cognitive reality first — mapping mental models, reducing decision fatigue, and applying HCI principles before a single wireframe is drawn. My focus is on strong UX judgment and creating interfaces that intuitively guide users without overwhelming them.",
+                "أنا مصممة منتجات أتعامل مع كل منتج من الواقع المعرفي للمستخدم أولاً — لتقليل إجهاد اتخاذ القرار وتطبيق مبادئ التفاعل قبل رسم أي إطار. أركز على جودة تجربة المستخدم وبناء واجهات توجه المستخدمين بسلاسة."
               )}
             </p>
             <p>
               {t(
-                "My focus lies in building scalable frontend architectures that support complex workflows without sacrificing usability. I am currently open and ready for full-time roles as well as freelance contracts.",
-                "ينصب تركيزي على بناء هياكل واجهات أمامية قابلة للتطوير تدعم سير العمل المعقد دون التضحية بسهولة الاستخدام. أنا متاح حاليًا لوظائف بدوام كامل وكذلك للعقود الحرة."
+                "With a technical fluency in frontend engineering, I don't just hand off mockups. I understand the constraints of the medium, enabling me to design feasible, scalable solutions and step in to build the actual application when needed.",
+                "بفضل إلمامي بالتقنيات الهندسية، أنا لا أسلم التصاميم فقط. بل أفهم قيود البرمجة، مما يتيح لي تصميم حلول قابلة للتطوير والتدخل لبناء التطبيق الفعلي عند الحاجة."
               )}
             </p>
           </div>
@@ -166,7 +111,7 @@ export const About = () => {
             <h3 className="font-display text-2xl font-bold mb-6">{t("Skills", "المهارات")}</h3>
             <div className="space-y-10">
                <div>
-                <h4 className="font-mono text-sm font-semibold uppercase tracking-widest text-muted-foreground mb-5">{t("Development", "التطوير")}</h4>
+                <h4 className="font-mono text-sm font-semibold uppercase tracking-widest text-muted-foreground mb-5">{t("Build", "بناء")}</h4>
                 <div className="flex flex-wrap gap-3">
                   {devSkills.map((skill, i) => (
                     <motion.div
