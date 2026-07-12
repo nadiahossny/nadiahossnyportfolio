@@ -1,10 +1,13 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 import { useLang } from "../contexts/LanguageContext";
-import { ArrowUpRight, ExternalLink, Plus, X } from "lucide-react";
+import { ArrowUpRight, ExternalLink, X } from "lucide-react";
 import pharmasysImg from "@/assets/pharmasys.png";
 import tasklyImg from "@/assets/taskly.png";
 import ieeeImg from "@/assets/ieee.png";
+import studyBuddyImg from "@/assets/studybuddy_enhanced.png";
+import ecommerceImg from "@/assets/ecommerce.png";
+import auraLeafImg from "@/assets/auraleaf.png";
 
 type Project = {
   id: string;
@@ -26,12 +29,12 @@ type Project = {
 const getProjects = (t: (en: string, ar: string) => string): Project[] => [
   {
     id: "pharmasys",
-    title: t("Roshetety (APMS)", "روشيتتي (APMS)"),
+    title: t("PharmaSys and Roshtty", "فارماسيس و روشيتتي"),
     niche: t("Healthcare UX · Hardware Integration", "تجربة مستخدم الرعاية الصحية · تكامل الأجهزة"),
     image: pharmasysImg,
     tags: ["Flutter", "Node.js", "PostgreSQL", "Hardware", "AI Chatbot"],
     problem: t("Pharmacists in high-traffic pharmacies lose time walking shelves, cross-checking stock manually, and handling repetitive dispensing tasks — all while a mistake carries real safety consequences. Patients often can't tell if a medication is in stock before making a trip.", "يضيع الصيادلة وقتهم في السير بين الأرفف والتحقق من المخزون يدويًا، بينما الأخطاء تحمل عواقب خطيرة على السلامة."),
-    solution: t("Roshetety is a two-sided pharmacy platform: a pharmacist-facing system that connects to a physical robotic arm to retrieve and dispense medication, and a companion consumer app that lets patients order from home. I owned the project end to end.", "روشيتتي منصة ذات وجهين: نظام للصيدلي متصل بذراع روبوتي، وتطبيق للمستهلك للطلب من المنزل. امتلكت المشروع بالكامل."),
+    solution: t("Roshetety is a two-sided pharmacy platform: a pharmacist-facing system that connects to a physical robotic arm to retrieve and dispense medication, and a companion consumer app that lets patients order from home. I owned the project end to end.", "روشيتت منصة ذات وجهين: نظام للصيدلي متصل بذراع روبوتي، وتطبيق للمستهلك للطلب من المنزل. امتلكت المشروع بالكامل."),
     techStack: ["Flutter", "Node.js", "PostgreSQL", "Figma"],
     role: t("Full Figma research-to-prototype pipeline; Flutter frontend; Node.js backend; serial communication to robotic arm.", "تنفيذ كامل من البحث للنموذج الأولي؛ واجهة أمامية؛ خلفية؛ واتصال تسلسلي بالروبوت."),
     githubUrl: "https://github.com/nadiahossny/apms-project",
@@ -60,93 +63,66 @@ const getProjects = (t: (en: string, ar: string) => string): Project[] => [
     solution: t("Core design principle: reduce clicks-to-first-task. A new user should be able to add and complete their first task in the fewest possible taps.", "مبدأ التصميم: تقليل النقرات لإضافة أول مهمة في أقل عدد ممكن."),
     techStack: ["Figma", "UX Research", "Prototyping"],
     role: t("Delivered user flows, wireframes, component library, and a fully interactive prototype.", "قدمت تدفقات المستخدم، ونموذج تفاعلي عالي الدقة."),
+    githubUrl: "https://github.com/nadiahossny",
     behanceUrl: "https://www.behance.net/nadiahossny",
-  }
-];
-
-const getOtherProjects = (t: (en: string, ar: string) => string): Project[] => [
-  {
-    id: "gift",
-    title: t("Gift-giving website", "موقع تقديم الهدايا"),
-    niche: t("Helps users choose gifts based on relationship and occasion", "يساعد المستخدمين في اختيار الهدايا بناءً على العلاقة والمناسبة"),
-    note: t("Shortcuts decision paralysis instead of presenting an endless catalog.", "يختصر شلل اتخاذ القرار بدلاً من تقديم كتالوج لا نهاية له."),
-    image: "", tags: [], liveUrl: "#", problem: "", solution: "", techStack: [], role: ""
   },
   {
     id: "study",
     title: t("Study helper website", "موقع مساعد دراسي"),
     niche: t("Organizes study material and schedules", "ينظم المواد الدراسية والجداول"),
-    note: t("Prioritized minimal setup friction so students adopt it during exam-week stress.", "تقليل وقت الإعداد ليتمكن الطلاب من استخدامه أثناء ضغط الامتحانات."),
-    image: "", tags: [], liveUrl: "#", problem: "", solution: "", techStack: [], role: ""
+    image: studyBuddyImg,
+    tags: ["React", "Firebase"],
+    problem: t("Prioritized minimal setup friction so students adopt it during exam-week stress.", "تقليل وقت الإعداد ليتمكن الطلاب من استخدامه أثناء ضغط الامتحانات."),
+    solution: t("Created an intuitive interface that allows students to quickly add and track their study sessions and materials.", "إنشاء واجهة بديهية تسمح للطلاب بإضافة وتتبع جلسات ومواد دراستهم بسرعة."),
+    techStack: ["React", "Firebase"],
+    role: t("Frontend Development & UI Design", "تطوير الواجهة الأمامية وتصميم واجهة المستخدم"),
+    githubUrl: "https://github.com/nadiahossny",
+    behanceUrl: "https://www.behance.net/nadiahossny",
   },
   {
-    id: "media",
-    title: t("Media player website", "موقع مشغل وسائط"),
-    niche: t("Distraction-free now-playing view", "عرض تشغيل خالٍ من المشتتات"),
-    note: t("Minimal chrome around content.", "الحد الأدنى من الإطارات حول المحتوى."),
-    image: "", tags: [], liveUrl: "#", problem: "", solution: "", techStack: [], role: ""
+    id: "gift",
+    title: t("Gift-giving website", "موقع تقديم الهدايا"),
+    niche: t("Helps users choose gifts based on relationship and occasion", "يساعد المستخدمين في اختيار الهدايا بناءً على العلاقة والمناسبة"),
+    image: ecommerceImg,
+    tags: ["Next.js", "Tailwind"],
+    problem: t("Shortcuts decision paralysis instead of presenting an endless catalog.", "يختصر شلل اتخاذ القرار بدلاً من تقديم كتالوج لا نهاية له."),
+    solution: t("Curated selection of gifts with a step-by-step wizard to guide users based on their relationship with the recipient.", "مجموعة مختارة من الهدايا مع معالج خطوة بخطوة لتوجيه المستخدمين بناءً على علاقتهم بالمستلم."),
+    techStack: ["Next.js", "Stripe"],
+    role: t("Full-stack Development", "تطوير شامل"),
+    githubUrl: "https://github.com/nadiahossny",
+    behanceUrl: "https://www.behance.net/nadiahossny",
   },
   {
-    id: "movie",
-    title: t("Movie app", "تطبيق أفلام"),
-    niche: t("Discovery-focused browsing", "تصفح يركز على الاستكشاف"),
-    note: t("Minimal clicks from browsing to decided.", "أقل عدد من النقرات من التصفح إلى القرار."),
-    image: "", tags: [], liveUrl: "#", problem: "", solution: "", techStack: [], role: ""
-  },
-  {
-    id: "todo",
-    title: t("To-do app", "تطبيق مهام"),
-    niche: t("Lighter counterpart to Taskly", "نظير أخف لـ Taskly"),
-    note: t("Tests the 'fewest clicks to capture a task' principle in a simpler shipped app.", "يختبر مبدأ 'أقل عدد من النقرات لإضافة مهمة' في تطبيق أبسط."),
-    image: "", tags: [], liveUrl: "#", problem: "", solution: "", techStack: [], role: ""
-  },
-  {
-    id: "notes",
-    title: t("Notetaking & organizing app", "تطبيق ملاحظات وتنظيم"),
-    niche: t("Balances free-form capture with structure", "يوازن بين الكتابة الحرة والتنظيم"),
-    note: t("Users aren't forced to categorize a note before writing it.", "لا يُجبر المستخدمون على تصنيف الملاحظة قبل كتابتها."),
-    image: "", tags: [], liveUrl: "#", problem: "", solution: "", techStack: [], role: ""
-  },
-  {
-    id: "taskbot",
-    title: t("Task manager + chatbot app", "تطبيق مهام + روبوت محادثة"),
-    niche: t("Structured task management plus a conversational interface", "إدارة مهام منظمة مع واجهة محادثة"),
-    note: t("Conversational interface for quick capture.", "واجهة محادثة لالتقاط المهام بسرعة."),
-    image: "", tags: [], liveUrl: "#", problem: "", solution: "", techStack: [], role: ""
-  },
-  {
-    id: "banner",
-    title: t("Banner maker website", "موقع صانع اللافتات"),
-    niche: t("Guided-but-flexible creative tool", "أداة إبداعية مرنة وموجهة"),
-    note: t("Creative tool designed specifically for non-designers.", "أداة إبداعية مصممة خصيصًا لغير المصممين."),
-    image: "", tags: [], liveUrl: "#", problem: "", solution: "", techStack: [], role: ""
-  },
-  {
-    id: "ieee-brand",
-    title: t("Brand identity app (IEEE-related)", "تطبيق هوية العلامة التجارية (IEEE)"),
-    niche: t("Applies a consistent visual identity system", "يطبق نظام هوية بصرية متسق"),
-    note: t("Ensures consistency across a branch's digital presence.", "يضمن الاتساق عبر الوجود الرقمي للفرع."),
-    image: "", tags: [], liveUrl: "#", problem: "", solution: "", techStack: [], role: ""
+    id: "auraleaf",
+    title: t("Aura Leaf App", "تطبيق أورا ليف"),
+    niche: t("Brand identity & eCommerce", "هوية العلامة التجارية والتجارة الإلكترونية"),
+    image: auraLeafImg,
+    tags: ["React Native", "UX Research"],
+    problem: t("Ensures consistency across a brand's digital presence while providing a seamless shopping experience.", "يضمن الاتساق عبر الوجود الرقمي للعلامة التجارية مع توفير تجربة تسوق سلسة."),
+    solution: t("Developed a complete design system and mobile app for browsing and purchasing products.", "تطوير نظام تصميم كامل وتطبيق جوال لتصفح وشراء المنتجات."),
+    techStack: ["React Native", "Figma"],
+    role: t("Mobile App Development & UI/UX", "تطوير تطبيقات الجوال وتصميم واجهة المستخدم"),
+    githubUrl: "https://github.com/nadiahossny",
+    behanceUrl: "https://www.behance.net/nadiahossny",
   }
 ];
 
 export const Projects = () => {
   const { t } = useLang();
   const [open, setOpen] = useState<Project | null>(null);
-  const [showMore, setShowMore] = useState(false);
 
   const projects = getProjects(t);
-  const displayedProjects = projects.slice(0, 3);
+  const displayedProjects = projects.slice(0, 6);
 
   const ProjectCard = ({ p, i, compact = false }: { p: Project, i: number, compact?: boolean }) => (
-    <motion.button
-      onClick={() => setOpen(p)}
+    <motion.div
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ delay: (i % 3) * 0.1, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
       whileHover={{ y: -6 }}
-      className={`group overflow-hidden rounded-3xl text-left transition-smooth hover:shadow-glow w-full flex flex-col relative ${compact ? 'h-full bg-white dark:bg-card border border-border/40 shadow-sm' : 'glass'}`}
+      className={`group overflow-hidden rounded-3xl text-left transition-smooth hover:shadow-glow w-full flex flex-col relative cursor-pointer ${compact ? 'h-full bg-white dark:bg-card border border-border/40 shadow-sm' : 'glass'}`}
+      onClick={() => setOpen(p)}
     >
       {compact && (
         <div className="absolute right-6 top-6 opacity-0 transition-opacity group-hover:opacity-100 grid h-8 w-8 place-items-center rounded-full bg-primary/10 text-primary">
@@ -183,8 +159,22 @@ export const Projects = () => {
         {p.note && (
           <p className="text-sm text-muted-foreground mt-auto">{p.note}</p>
         )}
+        <div className="mt-4 flex gap-3 z-10" onClick={(e) => e.stopPropagation()}>
+          {p.githubUrl && (
+            <a href={p.githubUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-1.5 rounded-full border border-border bg-white/50 dark:bg-black/50 px-3 py-1.5 text-xs font-bold text-foreground transition-smooth hover:bg-neutral-100 dark:hover:bg-neutral-800">
+              Github
+              <ExternalLink className="h-3 w-3" />
+            </a>
+          )}
+          {p.behanceUrl && (
+            <a href={p.behanceUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-1.5 rounded-full border border-blue-500/30 bg-blue-500/10 px-3 py-1.5 text-xs font-bold text-blue-600 dark:text-blue-400 transition-smooth hover:bg-blue-500/20">
+              Behance
+              <ExternalLink className="h-3 w-3" />
+            </a>
+          )}
+        </div>
       </div>
-    </motion.button>
+    </motion.div>
   );
 
   return (
@@ -214,60 +204,7 @@ export const Projects = () => {
           ))}
         </div>
 
-        <div className="mt-16 flex justify-center">
-          <button
-            onClick={() => setShowMore(!showMore)}
-            className="group inline-flex items-center justify-center gap-2 rounded-full bg-gradient-primary px-8 py-4 text-sm font-semibold text-primary-foreground shadow-glow transition-smooth hover:scale-105"
-          >
-            <Plus className={`h-4 w-4 transition-transform ${showMore ? "rotate-45" : ""}`} />
-            {t("View More Projects.", "عرض المزيد من المشاريع.")}
-          </button>
-        </div>
 
-        <AnimatePresence>
-          {showMore && (
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              className="fixed inset-0 z-[100] flex items-center justify-center bg-slate-900/60 p-4 backdrop-blur-md"
-              onClick={() => setShowMore(false)}
-            >
-              <motion.div
-                initial={{ scale: 0.95, opacity: 0, y: 20 }}
-                animate={{ scale: 1, opacity: 1, y: 0 }}
-                exit={{ scale: 0.95, opacity: 0 }}
-                transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-                onClick={(e) => e.stopPropagation()}
-                className="bg-background shadow-2xl relative max-h-[90vh] w-full max-w-5xl overflow-y-auto rounded-3xl p-6 md:p-10 border border-border"
-              >
-                <button
-                  onClick={() => setShowMore(false)}
-                  className="absolute right-4 top-4 grid h-10 w-10 place-items-center rounded-full bg-muted/80 hover:bg-muted text-foreground shadow-sm backdrop-blur z-10"
-                  aria-label="Close"
-                >
-                  <X className="h-4 w-4" />
-                </button>
-                
-                <div className="mb-8 max-w-2xl pt-2">
-                  <div className="flex items-center gap-3 mb-4">
-                    <span className="h-[2px] w-8 bg-primary/40 rounded-full"></span>
-                    <span className="font-mono text-xs font-semibold uppercase tracking-widest text-primary">{t("Additional Projects", "مشاريع إضافية")}</span>
-                  </div>
-                  <h2 className="font-display text-3xl font-bold md:text-4xl lg:text-5xl mb-4">
-                    {t("Other Notable ", "مشاريع أخرى ")}<span className="text-gradient">{t("Projects.", "بارزة.")}</span>
-                  </h2>
-                </div>
-
-                <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 pb-4">
-                  {getOtherProjects(t).map((p, i) => (
-                    <ProjectCard key={p.id} p={p} i={i} compact />
-                  ))}
-                </div>
-              </motion.div>
-            </motion.div>
-          )}
-        </AnimatePresence>
 
       </div>
 
