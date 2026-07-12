@@ -71,6 +71,7 @@
 
   html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
   }
 
   @media (hover: hover) and (pointer: fine) {

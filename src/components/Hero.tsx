@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ArrowRight, ArrowLeft, FileText } from "lucide-react";
+import { ArrowRight, ArrowLeft } from "lucide-react";
 import { useLang } from "../contexts/LanguageContext";
 import profile from "@/assets/profile.jpg";
 import heroSky from "@/assets/hero-sky.jpg";
@@ -42,7 +42,7 @@ export const Hero = () => {
               {lang === "ar" ? <ArrowLeft className="h-4 w-4 transition-transform group-hover:-translate-x-1" /> : <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />}
             </a>
             <a href="#contact" className="group inline-flex items-center justify-center gap-2 rounded-full border border-border bg-white px-8 py-4 text-sm font-semibold text-black transition-smooth hover:bg-neutral-100 hover:scale-105">
-              {t("Get in Touch", "تواصل معي")}
+              {t("Let's Connect", "لنتواصل")}
             </a>
           </div>
         </motion.div>

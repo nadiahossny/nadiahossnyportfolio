@@ -55,10 +55,10 @@ export const Contact = () => {
           >
             <div className="flex items-center gap-3 mb-4">
               <span className="h-[2px] w-8 bg-primary/40 rounded-full"></span>
-              <span className="font-mono text-xs font-semibold uppercase tracking-widest text-primary">{t("Get in Touch", "تواصل معي")}</span>
+              <span className="font-mono text-xs font-semibold uppercase tracking-widest text-primary">{t("Contact & Inquiries", "تواصل واستفسارات")}</span>
             </div>
             <h2 className="font-display text-3xl font-bold md:text-4xl lg:text-5xl mb-6">
-              {t("Get in ", "تواصل ")}<span className="text-gradient">{t("Touch", "معي")}</span>
+              {t("Let's ", "لنتواصل ")}<span className="text-gradient">{t("Connect", "معاً")}</span>
             </h2>
             <p className="text-lg text-muted-foreground mb-10 leading-relaxed">
               {t("I bring a hybrid approach to product development, blending user-centered design with robust engineering. If you're building a team that values both systems thinking and polished execution, I'd love to chat.", "أقدم نهجاً هجيناً لتطوير المنتجات، يمزج بين التصميم المتمحور حول المستخدم والهندسة القوية. إذا كنت تبني فريقاً يقدر التفكير المنهجي والتنفيذ المتقن، يسعدني التواصل معك.")}

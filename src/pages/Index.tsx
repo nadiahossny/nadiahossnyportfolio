@@ -10,10 +10,10 @@ import { Footer } from "@/components/Footer";
 
 const Index = () => {
   return (
-    <>
+    <div className="flex flex-col min-h-screen">
       <CustomCursor />
       <Navbar />
-      <main>
+      <main className="flex-1">
         <Hero />
         <About />
         <Services />
@@ -22,7 +22,7 @@ const Index = () => {
         <Contact />
       </main>
       <Footer />
-    </>
+    </div>
   );
 };
 
