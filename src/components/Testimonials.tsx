@@ -55,7 +55,7 @@ export const Testimonials = () => {
   }, [isHovered, totalPages]);
 
   return (
-    <section id="testimonials" className="relative py-24 md:py-32 overflow-hidden">
+    <section id="testimonials" className="relative py-16 md:py-24 overflow-hidden">
       <div className="container">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -63,10 +63,11 @@ export const Testimonials = () => {
           viewport={{ once: true }}
           className="mb-16 max-w-2xl"
         >
-          <div className="inline-flex items-center rounded-full border border-primary/20 bg-primary/10 px-3 py-1 font-mono text-xs uppercase tracking-widest text-primary mb-4">
-            {t("Testimonials", "توصيات")}
+          <div className="flex items-center gap-3 mb-4">
+            <span className="h-[2px] w-8 bg-primary/40 rounded-full"></span>
+            <span className="font-mono text-xs font-semibold uppercase tracking-widest text-primary">{t("Words from colleagues and clients", "كلمات من زملاء العمل والعملاء")}</span>
           </div>
-          <h2 className="font-display text-4xl font-bold md:text-5xl lg:text-6xl mb-6">
+          <h2 className="font-display text-3xl font-bold md:text-4xl lg:text-5xl mb-6">
             {t("Collaborations & ", "تعاون و")}<span className="text-gradient">{t("Feedback.", "آراء.")}</span>
           </h2>
           <p className="text-lg text-muted-foreground">

@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { Mail, Download } from "lucide-react";
-import { FaLinkedin, FaGithub } from "react-icons/fa";
+import { FaLinkedin, FaGithub, FaBehance } from "react-icons/fa";
 import { useLang } from "../contexts/LanguageContext";
 
 export const Contact = () => {
@@ -43,7 +43,7 @@ export const Contact = () => {
   };
 
   return (
-    <section id="contact" className="relative py-24 md:py-32">
+    <section id="contact" className="relative py-16 md:py-24">
       <div className="container">
         <div className="grid gap-16 lg:grid-cols-2 lg:items-center">
           
@@ -53,14 +53,15 @@ export const Contact = () => {
             viewport={{ once: true }}
             className="max-w-lg"
           >
-            <div className="inline-flex items-center rounded-full border border-primary/20 bg-primary/10 px-3 py-1 font-mono text-xs uppercase tracking-widest text-primary mb-4">
-              {t("Let's Connect", "لنتواصل")}
+            <div className="flex items-center gap-3 mb-4">
+              <span className="h-[2px] w-8 bg-primary/40 rounded-full"></span>
+              <span className="font-mono text-xs font-semibold uppercase tracking-widest text-primary">{t("Get in Touch", "تواصل معي")}</span>
             </div>
-            <h2 className="font-display text-4xl font-bold md:text-5xl lg:text-6xl mb-6 leading-tight">
-              {t("Ready to build something ", "جاهز لبناء شيء ")}<span className="text-gradient">{t("exceptional?", "استثنائي؟")}</span>
+            <h2 className="font-display text-3xl font-bold md:text-4xl lg:text-5xl mb-6">
+              {t("Get in ", "تواصل ")}<span className="text-gradient">{t("Touch", "معي")}</span>
             </h2>
             <p className="text-lg text-muted-foreground mb-10 leading-relaxed">
-              {t("I'm currently open for remote freelance projects and full-time opportunities.", "أنا متاح حالياً لمشاريع العمل الحر عن بعد وفرص العمل بدوام كامل.")}
+              {t("I bring a hybrid approach to product development, blending user-centered design with robust engineering. If you're building a team that values both systems thinking and polished execution, I'd love to chat.", "أقدم نهجاً هجيناً لتطوير المنتجات، يمزج بين التصميم المتمحور حول المستخدم والهندسة القوية. إذا كنت تبني فريقاً يقدر التفكير المنهجي والتنفيذ المتقن، يسعدني التواصل معك.")}
             </p>
 
             <div className="flex flex-wrap gap-4">
@@ -88,6 +89,15 @@ export const Contact = () => {
               >
                 <FaGithub className="h-4 w-4 text-primary" />
                 {t("GitHub", "جيت هب")}
+              </a>
+              <a
+                href="https://www.behance.net/nadiahossny"
+                target="_blank"
+                rel="noreferrer"
+                className="group inline-flex items-center gap-2 rounded-full border border-border bg-card px-6 py-3 text-sm font-semibold transition-smooth hover:bg-secondary"
+              >
+                <FaBehance className="h-4 w-4 text-primary" />
+                {t("Behance", "بيهانس")}
               </a>
               <a
                 href="/resume.pdf"

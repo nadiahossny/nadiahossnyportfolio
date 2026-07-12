@@ -1,10 +1,10 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 import { useLang } from "../contexts/LanguageContext";
-import { ArrowUpRight, ExternalLink, X, Plus } from "lucide-react";
+import { ArrowUpRight, ExternalLink, Plus, X } from "lucide-react";
 import pharmasysImg from "@/assets/pharmasys.png";
 import tasklyImg from "@/assets/taskly.png";
-import studybuddyImg from "@/assets/studybuddy_enhanced.png";
+import ieeeImg from "@/assets/ieee.png";
 
 type Project = {
   id: string;
@@ -12,100 +12,183 @@ type Project = {
   niche: string;
   image: string;
   tags: string[];
-  liveUrl: string;
+  liveUrl?: string;
   problem: string;
   solution: string;
   techStack: string[];
   role: string;
+  note?: string;
+  githubUrl?: string;
+  behanceUrl?: string;
+  demoUrl?: string;
 };
 
 const getProjects = (t: (en: string, ar: string) => string): Project[] => [
   {
     id: "pharmasys",
-    title: t("Roshetety (PharmaSys)", "روشيتتي (فارماسيس)"),
+    title: t("Roshetety (APMS)", "روشيتتي (APMS)"),
     niche: t("Healthcare UX · Hardware Integration", "تجربة مستخدم الرعاية الصحية · تكامل الأجهزة"),
     image: pharmasysImg,
-    tags: ["UX Strategy", "Hardware Layer", "Flutter", "Node.js"],
-    liveUrl: "/case-study/apms",
-    problem: t("The pharmacy ecosystem is fundamentally broken: traditional software relies on dense grids and data entry, pushing cognitive burden onto pharmacists and leading to life-threatening dispensing errors.", "النظام البيئي للصيدليات معطل أساسًا: تعتمد البرامج التقليدية على شبكات كثيفة وإدخال البيانات، مما يلقي بالعبء المعرفي على الصيادلة ويؤدي إلى أخطاء صرف مهددة للحياة."),
-    solution: t("Redesigned the entire workflow to reduce conscious decisions. Architected a microservices ecosystem connecting a highly visual, HCI-compliant interface to an ESP32-controlled robotic dispensing arm.", "أعدت تصميم سير العمل بالكامل لتقليل القرارات الواعية. صممت نظام خدمات مصغرة يربط بين واجهة مرئية عالية الجودة وذراع صرف آلي."),
-    techStack: ["Figma", "HCI Principles", "Flutter", "Node.js", "ESP32"],
-    role: t("Owned the UX judgment and the hardware connection layer. Mapped pharmacist mental models and built the fault-tolerant serial communication protocol for physical dispensing.", "امتلكت قرارات تجربة المستخدم وطبقة الاتصال بالأجهزة. حددت النماذج الذهنية للصيدلي وبنيت بروتوكول الاتصال المتسامح مع الأخطاء."),
+    tags: ["Flutter", "Node.js", "PostgreSQL", "Hardware", "AI Chatbot"],
+    problem: t("Pharmacists in high-traffic pharmacies lose time walking shelves, cross-checking stock manually, and handling repetitive dispensing tasks — all while a mistake carries real safety consequences. Patients often can't tell if a medication is in stock before making a trip.", "يضيع الصيادلة وقتهم في السير بين الأرفف والتحقق من المخزون يدويًا، بينما الأخطاء تحمل عواقب خطيرة على السلامة."),
+    solution: t("Roshetety is a two-sided pharmacy platform: a pharmacist-facing system that connects to a physical robotic arm to retrieve and dispense medication, and a companion consumer app that lets patients order from home. I owned the project end to end.", "روشيتتي منصة ذات وجهين: نظام للصيدلي متصل بذراع روبوتي، وتطبيق للمستهلك للطلب من المنزل. امتلكت المشروع بالكامل."),
+    techStack: ["Flutter", "Node.js", "PostgreSQL", "Figma"],
+    role: t("Full Figma research-to-prototype pipeline; Flutter frontend; Node.js backend; serial communication to robotic arm.", "تنفيذ كامل من البحث للنموذج الأولي؛ واجهة أمامية؛ خلفية؛ واتصال تسلسلي بالروبوت."),
+    githubUrl: "https://github.com/nadiahossny/apms-project",
+    behanceUrl: "https://www.behance.net/nadiahossny",
+  },
+  {
+    id: "ieee-pua",
+    title: t("IEEE PUA Student Branch Official Website", "الموقع الرسمي لفرع IEEE PUA"),
+    niche: t("Design Systems · Admin Tooling", "أنظمة التصميم · أدوات الإدارة"),
+    image: ieeeImg,
+    tags: ["Flutter", "Firebase", "Design Systems", "Admin Tooling"],
+    problem: t("Student branch websites are usually maintained by whoever has time that semester, leading to visual inconsistency and admin tools built as an afterthought.", "مواقع الفروع الطلابية تُدار بمن لديه وقت، مما يؤدي لعدم اتساق مرئي وأدوات إدارة سيئة."),
+    solution: t("Official website and full admin dashboard for managing events and projects. One design system across both the public site and internal dashboard.", "موقع رسمي ولوحة تحكم لإدارة الفعاليات. نظام تصميم واحد للموقع ولوحة التحكم."),
+    techStack: ["Flutter", "Firebase", "Design System"],
+    role: t("Led design and co-developed the build; full admin dashboard with CRUD for events/projects.", "قدت التصميم وطورت الموقع؛ لوحة تحكم كاملة للفعاليات والمشاريع."),
+    githubUrl: "https://github.com/AyatSalahEl-din/IEEE_Website",
+    demoUrl: "https://ieeepuasb.com/",
   },
   {
     id: "taskly",
-    title: t("Taskly - Productivity App", "تاسكلي - تطبيق إنتاجية"),
-    niche: t("Product Design · Cognitive Load", "تصميم المنتج · العبء المعرفي"),
+    title: t("Taskly - Task Management App", "تاسكلي - تطبيق إدارة مهام"),
+    niche: t("Product Design · UX Research", "تصميم المنتج · أبحاث تجربة المستخدم"),
     image: tasklyImg,
-    tags: ["Figma", "UX Bet", "Prototyping"],
-    liveUrl: "/case-study/taskly",
-    problem: t("Oversaturated task management market where existing apps cause severe cognitive overload by crowding subtasks, timers, and tags into a single cramped viewport.", "سوق إدارة مهام مشبع حيث تسبب التطبيقات الحالية عبئًا معرفيًا شديدًا عن طريق تكديس المهام الفرعية والمؤقتات والعلامات في عرض ضيق واحد."),
-    solution: t("Made a contrarian UX bet: hide complex features until explicitly invoked. Created a hyper-minimalist interface that handles nested subtasks and timers through progressive disclosure.", "راهنت على تصميم معاكس: إخفاء الميزات المعقدة حتى يتم استدعاؤها صراحة. أنشأت واجهة مبسطة للغاية تتعامل مع المهام الفرعية والمؤقتات من خلال الكشف التدريجي."),
-    techStack: ["Figma", "User Research", "Wireframing"],
-    role: t("Lead Product Designer. Orchestrated the design strategy, rejected overly complex flows, and delivered a high-fidelity prototype focused on preattentive processing.", "مصمم منتج رئيسي. نسقت استراتيجية التصميم، ورفضت التدفقات المعقدة للغاية، وقدمت نموذجًا أوليًا عالي الدقة."),
+    tags: ["Figma", "UX Research", "Competitive Analysis"],
+    problem: t("Existing task apps create friction through over-configuration before a user can do anything useful.", "تطبيقات المهام الحالية تخلق احتكاكاً بسبب كثرة الإعدادات قبل إنجاز أي شيء."),
+    solution: t("Core design principle: reduce clicks-to-first-task. A new user should be able to add and complete their first task in the fewest possible taps.", "مبدأ التصميم: تقليل النقرات لإضافة أول مهمة في أقل عدد ممكن."),
+    techStack: ["Figma", "UX Research", "Prototyping"],
+    role: t("Delivered user flows, wireframes, component library, and a fully interactive prototype.", "قدمت تدفقات المستخدم، ونموذج تفاعلي عالي الدقة."),
+    behanceUrl: "https://www.behance.net/nadiahossny",
+  }
+];
+
+const getOtherProjects = (t: (en: string, ar: string) => string): Project[] => [
+  {
+    id: "gift",
+    title: t("Gift-giving website", "موقع تقديم الهدايا"),
+    niche: t("Helps users choose gifts based on relationship and occasion", "يساعد المستخدمين في اختيار الهدايا بناءً على العلاقة والمناسبة"),
+    note: t("Shortcuts decision paralysis instead of presenting an endless catalog.", "يختصر شلل اتخاذ القرار بدلاً من تقديم كتالوج لا نهاية له."),
+    image: "", tags: [], liveUrl: "#", problem: "", solution: "", techStack: [], role: ""
   },
   {
-    id: "byto-academy",
-    title: t("Byto Academy", "أكاديمية بايتو"),
-    niche: t("EdTech · Kids Media UX", "تقنية تعليمية · تجربة مستخدم للأطفال"),
-    image: studybuddyImg,
-    tags: ["Visual Design", "Engagement", "UI/UX"],
-    liveUrl: "/case-study/byto-academy",
-    problem: t("Educational platforms for younger demographics often fail by treating children like mini-adults, using dense text and rigid navigation that destroys engagement and retention.", "غالبًا ما تفشل المنصات التعليمية للأطفال في معاملتهم كبالغين صغار، باستخدام نصوص كثيفة وتنقل جامد يدمر التفاعل والاحتفاظ."),
-    solution: t("Tailored the entire platform for a Kids Media audience. Focused heavily on vibrant visuals, macro-animations, and radical simplicity to create an immersive, game-like learning environment.", "صممت المنصة بالكامل لتناسب جمهور وسائل إعلام الأطفال. ركزت بشكل كبير على المرئيات النابضة بالحياة والرسوم المتحركة الكبيرة والبساطة الجذرية لخلق بيئة تعليمية غامرة."),
-    techStack: ["Figma", "Visual Hierarchy", "Interaction Design"],
-    role: t("Product Designer. Redefined the visual language for the EdTech space, prioritizing immediate visual feedback and frictionless exploration for younger users.", "مصمم منتج. أعدت تعريف اللغة المرئية لمساحة التقنية التعليمية، مع إعطاء الأولوية للتعليقات المرئية الفورية والاستكشاف السلس."),
+    id: "study",
+    title: t("Study helper website", "موقع مساعد دراسي"),
+    niche: t("Organizes study material and schedules", "ينظم المواد الدراسية والجداول"),
+    note: t("Prioritized minimal setup friction so students adopt it during exam-week stress.", "تقليل وقت الإعداد ليتمكن الطلاب من استخدامه أثناء ضغط الامتحانات."),
+    image: "", tags: [], liveUrl: "#", problem: "", solution: "", techStack: [], role: ""
+  },
+  {
+    id: "media",
+    title: t("Media player website", "موقع مشغل وسائط"),
+    niche: t("Distraction-free now-playing view", "عرض تشغيل خالٍ من المشتتات"),
+    note: t("Minimal chrome around content.", "الحد الأدنى من الإطارات حول المحتوى."),
+    image: "", tags: [], liveUrl: "#", problem: "", solution: "", techStack: [], role: ""
+  },
+  {
+    id: "movie",
+    title: t("Movie app", "تطبيق أفلام"),
+    niche: t("Discovery-focused browsing", "تصفح يركز على الاستكشاف"),
+    note: t("Minimal clicks from browsing to decided.", "أقل عدد من النقرات من التصفح إلى القرار."),
+    image: "", tags: [], liveUrl: "#", problem: "", solution: "", techStack: [], role: ""
+  },
+  {
+    id: "todo",
+    title: t("To-do app", "تطبيق مهام"),
+    niche: t("Lighter counterpart to Taskly", "نظير أخف لـ Taskly"),
+    note: t("Tests the 'fewest clicks to capture a task' principle in a simpler shipped app.", "يختبر مبدأ 'أقل عدد من النقرات لإضافة مهمة' في تطبيق أبسط."),
+    image: "", tags: [], liveUrl: "#", problem: "", solution: "", techStack: [], role: ""
+  },
+  {
+    id: "notes",
+    title: t("Notetaking & organizing app", "تطبيق ملاحظات وتنظيم"),
+    niche: t("Balances free-form capture with structure", "يوازن بين الكتابة الحرة والتنظيم"),
+    note: t("Users aren't forced to categorize a note before writing it.", "لا يُجبر المستخدمون على تصنيف الملاحظة قبل كتابتها."),
+    image: "", tags: [], liveUrl: "#", problem: "", solution: "", techStack: [], role: ""
+  },
+  {
+    id: "taskbot",
+    title: t("Task manager + chatbot app", "تطبيق مهام + روبوت محادثة"),
+    niche: t("Structured task management plus a conversational interface", "إدارة مهام منظمة مع واجهة محادثة"),
+    note: t("Conversational interface for quick capture.", "واجهة محادثة لالتقاط المهام بسرعة."),
+    image: "", tags: [], liveUrl: "#", problem: "", solution: "", techStack: [], role: ""
+  },
+  {
+    id: "banner",
+    title: t("Banner maker website", "موقع صانع اللافتات"),
+    niche: t("Guided-but-flexible creative tool", "أداة إبداعية مرنة وموجهة"),
+    note: t("Creative tool designed specifically for non-designers.", "أداة إبداعية مصممة خصيصًا لغير المصممين."),
+    image: "", tags: [], liveUrl: "#", problem: "", solution: "", techStack: [], role: ""
+  },
+  {
+    id: "ieee-brand",
+    title: t("Brand identity app (IEEE-related)", "تطبيق هوية العلامة التجارية (IEEE)"),
+    niche: t("Applies a consistent visual identity system", "يطبق نظام هوية بصرية متسق"),
+    note: t("Ensures consistency across a branch's digital presence.", "يضمن الاتساق عبر الوجود الرقمي للفرع."),
+    image: "", tags: [], liveUrl: "#", problem: "", solution: "", techStack: [], role: ""
   }
 ];
 
 export const Projects = () => {
   const { t } = useLang();
   const [open, setOpen] = useState<Project | null>(null);
-  const [showMoreModal, setShowMoreModal] = useState(false);
+  const [showMore, setShowMore] = useState(false);
 
   const projects = getProjects(t);
   const displayedProjects = projects.slice(0, 3);
-  const hiddenProjects = projects.slice(3);
 
-  const ProjectCard = ({ p, i }: { p: Project, i: number }) => (
+  const ProjectCard = ({ p, i, compact = false }: { p: Project, i: number, compact?: boolean }) => (
     <motion.button
       onClick={() => setOpen(p)}
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      transition={{ delay: i * 0.1, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+      transition={{ delay: (i % 3) * 0.1, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
       whileHover={{ y: -6 }}
-      className="group glass overflow-hidden rounded-3xl text-left transition-smooth hover:shadow-glow w-full flex flex-col"
+      className={`group overflow-hidden rounded-3xl text-left transition-smooth hover:shadow-glow w-full flex flex-col relative ${compact ? 'h-full bg-white dark:bg-card border border-border/40 shadow-sm' : 'glass'}`}
     >
-      <div className="relative aspect-[4/3] overflow-hidden w-full">
-        <img
-          src={p.image}
-          alt={p.title}
-          loading="lazy"
-          className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
-        />
-        <div className="absolute right-4 top-4 grid h-10 w-10 place-items-center rounded-full bg-card/90 backdrop-blur transition-transform group-hover:scale-110">
+      {compact && (
+        <div className="absolute right-6 top-6 opacity-0 transition-opacity group-hover:opacity-100 grid h-8 w-8 place-items-center rounded-full bg-primary/10 text-primary">
           <ArrowUpRight className="h-4 w-4" />
         </div>
-      </div>
-      <div className="p-6">
+      )}
+      {!compact && (
+        <div className="relative aspect-[4/3] overflow-hidden w-full">
+          <img
+            src={p.image}
+            alt={p.title}
+            loading="lazy"
+            className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+          />
+          <div className="absolute right-4 top-4 grid h-10 w-10 place-items-center rounded-full bg-card/90 backdrop-blur transition-transform group-hover:scale-110">
+            <ArrowUpRight className="h-4 w-4" />
+          </div>
+        </div>
+      )}
+      <div className="p-6 flex-1 flex flex-col">
         <div className="font-mono text-xs uppercase tracking-wider text-primary font-semibold mb-2">
           {p.niche}
         </div>
         <h3 className="font-display text-xl font-bold mb-4">{p.title}</h3>
-        <div className="flex flex-wrap gap-2">
-          {p.tags.map((tag) => (
-            <span key={tag} className="rounded-full bg-secondary px-3 py-1 text-xs font-medium">
-              {tag}
-            </span>
-          ))}
-        </div>
+        {p.tags && p.tags.length > 0 && (
+          <div className="flex flex-wrap gap-2 mb-4">
+            {p.tags.map((tag) => (
+              <span key={tag} className="rounded-full bg-secondary px-3 py-1 text-xs font-medium">
+                {tag}
+              </span>
+            ))}
+          </div>
+        )}
+        {p.note && (
+          <p className="text-sm text-muted-foreground mt-auto">{p.note}</p>
+        )}
       </div>
     </motion.button>
   );
 
   return (
-    <section id="work" className="relative py-24 md:py-32">
+    <section id="work" className="relative py-16 md:py-24">
       <div className="container">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -113,10 +196,11 @@ export const Projects = () => {
           viewport={{ once: true }}
           className="mb-16 max-w-2xl"
         >
-          <div className="inline-flex items-center rounded-full border border-primary/20 bg-primary/10 px-3 py-1 font-mono text-xs uppercase tracking-widest text-primary mb-4">
-            {t("Featured Work", "أعمال مميزة")}
+          <div className="flex items-center gap-3 mb-4">
+            <span className="h-[2px] w-8 bg-primary/40 rounded-full"></span>
+            <span className="font-mono text-xs font-semibold uppercase tracking-widest text-primary">{t("Featured Work", "أعمال مميزة")}</span>
           </div>
-          <h2 className="font-display text-4xl font-bold md:text-5xl lg:text-6xl mb-6">
+          <h2 className="font-display text-3xl font-bold md:text-4xl lg:text-5xl mb-6">
             {t("Selected ", "مشاريع ")}<span className="text-gradient">{t("Projects.", "مختارة.")}</span>
           </h2>
           <p className="text-lg text-muted-foreground">
@@ -124,71 +208,77 @@ export const Projects = () => {
           </p>
         </motion.div>
 
-        {/* 1 col on mobile, 3 cols on desktop */}
         <div className="grid gap-8 grid-cols-1 md:grid-cols-3">
           {displayedProjects.map((p, i) => (
             <ProjectCard key={p.id} p={p} i={i} />
           ))}
         </div>
 
-        {hiddenProjects.length > 0 && (
-          <div className="mt-12 flex justify-center">
-            <button 
-              onClick={() => setShowMoreModal(true)}
-              className="group inline-flex items-center gap-2 rounded-full border border-primary bg-primary/10 px-8 py-4 text-sm font-semibold text-primary transition-smooth hover:bg-gradient-primary hover:border-transparent hover:text-white active:scale-95"
+        <div className="mt-16 flex justify-center">
+          <button
+            onClick={() => setShowMore(!showMore)}
+            className="group inline-flex items-center justify-center gap-2 rounded-full bg-gradient-primary px-8 py-4 text-sm font-semibold text-primary-foreground shadow-glow transition-smooth hover:scale-105"
+          >
+            <Plus className={`h-4 w-4 transition-transform ${showMore ? "rotate-45" : ""}`} />
+            {t("View More Projects.", "عرض المزيد من المشاريع.")}
+          </button>
+        </div>
+
+        <AnimatePresence>
+          {showMore && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="fixed inset-0 z-[100] flex items-center justify-center bg-slate-900/60 p-4 backdrop-blur-md"
+              onClick={() => setShowMore(false)}
             >
-              <Plus className="h-4 w-4" />
-              {t("View More Projects", "عرض المزيد من المشاريع")}
-            </button>
-          </div>
-        )}
+              <motion.div
+                initial={{ scale: 0.95, opacity: 0, y: 20 }}
+                animate={{ scale: 1, opacity: 1, y: 0 }}
+                exit={{ scale: 0.95, opacity: 0 }}
+                transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+                onClick={(e) => e.stopPropagation()}
+                className="bg-background shadow-2xl relative max-h-[90vh] w-full max-w-5xl overflow-y-auto rounded-3xl p-6 md:p-10 border border-border"
+              >
+                <button
+                  onClick={() => setShowMore(false)}
+                  className="absolute right-4 top-4 grid h-10 w-10 place-items-center rounded-full bg-muted/80 hover:bg-muted text-foreground shadow-sm backdrop-blur z-10"
+                  aria-label="Close"
+                >
+                  <X className="h-4 w-4" />
+                </button>
+                
+                <div className="mb-8 max-w-2xl pt-2">
+                  <div className="flex items-center gap-3 mb-4">
+                    <span className="h-[2px] w-8 bg-primary/40 rounded-full"></span>
+                    <span className="font-mono text-xs font-semibold uppercase tracking-widest text-primary">{t("Additional Projects", "مشاريع إضافية")}</span>
+                  </div>
+                  <h2 className="font-display text-3xl font-bold md:text-4xl lg:text-5xl mb-4">
+                    {t("Other Notable ", "مشاريع أخرى ")}<span className="text-gradient">{t("Projects.", "بارزة.")}</span>
+                  </h2>
+                </div>
+
+                <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 pb-4">
+                  {getOtherProjects(t).map((p, i) => (
+                    <ProjectCard key={p.id} p={p} i={i} compact />
+                  ))}
+                </div>
+              </motion.div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+
       </div>
 
-      {/* View More Projects Modal */}
-      <AnimatePresence>
-        {showMoreModal && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[90] flex items-center justify-center bg-black/40 p-4 backdrop-blur-sm"
-            onClick={() => setShowMoreModal(false)}
-          >
-            <motion.div
-              initial={{ scale: 0.95, opacity: 0, y: 20 }}
-              animate={{ scale: 1, opacity: 1, y: 0 }}
-              exit={{ scale: 0.95, opacity: 0 }}
-              onClick={(e) => e.stopPropagation()}
-              className="bg-white shadow-2xl relative max-h-[90vh] w-full max-w-4xl overflow-y-auto rounded-3xl p-6 md:p-10"
-            >
-              <button
-                onClick={() => setShowMoreModal(false)}
-                className="absolute right-4 top-4 grid h-10 w-10 place-items-center rounded-full bg-card hover:bg-secondary shadow-sm"
-                aria-label="Close"
-              >
-                <X className="h-4 w-4" />
-              </button>
-              
-              <h3 className="font-display text-3xl font-bold mb-8">{t("More Projects", "المزيد من المشاريع")}</h3>
-              
-              <div className="grid gap-6 grid-cols-1 sm:grid-cols-2">
-                {hiddenProjects.map((p, i) => (
-                  <ProjectCard key={p.id} p={p} i={i} />
-                ))}
-              </div>
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-
-      {/* Individual Case Study Deep Dive Modal */}
+      {/* Individual Project Details Modal */}
       <AnimatePresence>
         {open && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[100] flex items-center justify-center bg-slate-900/60 p-4 backdrop-blur-md"
+            className="fixed inset-0 z-[110] flex items-center justify-center bg-slate-900/60 p-4 backdrop-blur-md"
             onClick={() => setOpen(null)}
           >
             <motion.div
@@ -197,76 +287,79 @@ export const Projects = () => {
               exit={{ scale: 0.95, opacity: 0 }}
               transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
               onClick={(e) => e.stopPropagation()}
-              className="bg-white shadow-2xl relative max-h-[90vh] w-full max-w-3xl overflow-y-auto rounded-3xl p-6 md:p-10"
+              className="bg-background shadow-2xl relative max-h-[90vh] w-full max-w-3xl overflow-y-auto rounded-3xl p-6 md:p-10 border border-border"
             >
               <button
                 onClick={() => setOpen(null)}
-                className="absolute right-4 top-4 grid h-10 w-10 place-items-center rounded-full bg-white/80 hover:bg-white text-black shadow-sm backdrop-blur"
+                className="absolute right-4 top-4 grid h-10 w-10 place-items-center rounded-full bg-muted/80 hover:bg-muted text-foreground shadow-sm backdrop-blur z-10"
                 aria-label="Close"
               >
                 <X className="h-4 w-4" />
               </button>
-              <img src={open.image} alt={open.title} className="mb-6 aspect-[16/9] w-full rounded-2xl object-cover shadow-sm" loading="lazy" />
+              {open.image && (
+                <img src={open.image} alt={open.title} className="mb-6 aspect-[16/9] w-full rounded-2xl object-cover shadow-sm" loading="lazy" />
+              )}
               
-              <div className="font-mono text-xs uppercase tracking-widest text-primary font-bold">
-                {t("Case Study", "دراسة حالة")}
+              <div className="mb-2 border-l-4 border-primary pl-4">
+                <span className="font-display text-sm font-semibold tracking-wide text-primary uppercase">{open.niche}</span>
               </div>
               <h3 className="mt-2 font-display text-3xl font-bold md:text-4xl">
                 {open.title}
               </h3>
-              <div className="mt-2 text-sm text-muted-foreground">{open.niche}</div>
 
-              <div className="mt-8 space-y-8">
-                <div>
-                  <div className="font-mono text-xs uppercase tracking-widest text-primary font-bold mb-3">{t("The Problem", "المشكلة")}</div>
-                  <p className="text-base leading-relaxed">{open.problem}</p>
-                </div>
-                <div>
-                  <div className="font-mono text-xs uppercase tracking-widest text-primary font-bold mb-3">{t("The Solution", "الحل")}</div>
-                  <p className="text-base leading-relaxed">{open.solution}</p>
-                </div>
-                <div>
-                  <div className="font-mono text-xs uppercase tracking-widest text-primary font-bold mb-3">{t("Tech Stack Used", "التقنيات المستخدمة")}</div>
-                  <div className="flex flex-wrap gap-2">
-                    {open.techStack.map(tech => (
-                       <span key={tech} className="rounded-full bg-secondary px-3 py-1.5 text-sm font-medium">
-                         {tech}
-                       </span>
-                    ))}
+              <div className="mt-8 space-y-6">
+                {open.problem && (
+                  <div>
+                    <div className="mb-4 border-l-4 border-primary pl-4">
+                      <h4 className="font-display text-xl font-bold text-foreground">{t("The Problem", "المشكلة")}</h4>
+                    </div>
+                    <p className="text-base leading-relaxed text-muted-foreground">{open.problem}</p>
                   </div>
-                </div>
-                <div>
-                  <div className="font-mono text-xs uppercase tracking-widest text-primary font-bold mb-3">{t("My Role & Impact", "دوري وتأثيري")}</div>
-                  <p className="text-base leading-relaxed">{open.role}</p>
-                </div>
+                )}
+                {open.solution && (
+                  <div>
+                    <div className="mb-4 border-l-4 border-primary pl-4">
+                      <h4 className="font-display text-xl font-bold text-foreground">{t("The Solution", "الحل")}</h4>
+                    </div>
+                    <p className="text-base leading-relaxed text-muted-foreground">{open.solution}</p>
+                  </div>
+                )}
+                {(!open.problem && !open.solution && open.note) && (
+                  <div>
+                    <div className="mb-4 border-l-4 border-primary pl-4">
+                      <h4 className="font-display text-xl font-bold text-foreground">{t("About This Project", "عن هذا المشروع")}</h4>
+                    </div>
+                    <p className="text-base leading-relaxed text-muted-foreground">{open.note}</p>
+                  </div>
+                )}
               </div>
 
-              {open.liveUrl !== "#" ? (
-                <a
-                  href={open.liveUrl}
-                  target={open.liveUrl.startsWith("/") ? "_self" : "_blank"}
-                  rel={open.liveUrl.startsWith("/") ? "" : "noreferrer"}
-                  className="mt-10 inline-flex items-center gap-2 rounded-full bg-gradient-primary px-8 py-4 text-sm font-semibold text-white shadow-glow hover:scale-105 transition-smooth"
-                >
-                  {open.liveUrl.includes("github.com")
-                    ? t("View on GitHub", "عرض على GitHub")
-                    : (open.liveUrl.includes("behance.net") || open.liveUrl.startsWith("/"))
-                    ? t("View Case Study", "عرض دراسة الحالة")
-                    : t("View Site", "زيارة الموقع")}
-                  <ExternalLink className="h-4 w-4" />
-                </a>
-              ) : (
-                <button
-                  disabled
-                  className="mt-10 inline-flex items-center gap-2 rounded-full bg-muted px-8 py-4 text-sm font-semibold text-muted-foreground cursor-not-allowed"
-                >
-                  {t("Case Study Not Available", "دراسة الحالة غير متوفرة")}
-                </button>
-              )}
+              <div className="mt-10 pt-8 border-t border-border flex flex-wrap gap-4">
+                {open.githubUrl && (
+                  <a href={open.githubUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 rounded-full border border-border bg-white px-6 py-3 text-sm font-bold text-black transition-smooth hover:bg-neutral-100 hover:scale-105">
+                    {t("View on Github", "عرض على Github")}
+                    <ExternalLink className="h-4 w-4" />
+                  </a>
+                )}
+                {open.behanceUrl && (
+                  <a href={open.behanceUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 rounded-full border border-blue-500/30 bg-blue-500/10 px-6 py-3 text-sm font-bold text-blue-600 dark:text-blue-400 transition-smooth hover:bg-blue-500/20 hover:scale-105">
+                    {t("View on Behance", "عرض على Behance")}
+                    <ExternalLink className="h-4 w-4" />
+                  </a>
+                )}
+                {open.demoUrl && (
+                  <a href={open.demoUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 rounded-full bg-gradient-primary px-6 py-3 text-sm font-bold text-white shadow-glow hover:scale-105 transition-smooth">
+                    {t("View Deployment", "عرض النشر")}
+                    <ExternalLink className="h-4 w-4" />
+                  </a>
+                )}
+              </div>
             </motion.div>
           </motion.div>
         )}
       </AnimatePresence>
+
     </section>
   );
 };
+

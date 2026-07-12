@@ -8,7 +8,7 @@ export const Hero = () => {
   const { t, lang } = useLang();
 
   return (
-    <section id="top" className="relative flex min-h-screen items-center overflow-hidden pt-28 pb-16 md:pt-32 md:pb-32">
+    <section id="top" className="relative flex min-h-screen items-center overflow-hidden pt-24 pb-12 md:pt-28 md:pb-20">
       {/* Ghibli sky backdrop */}
       <div
         className="absolute inset-0 -z-10 opacity-60"
@@ -25,26 +25,24 @@ export const Hero = () => {
           className="max-w-3xl"
         >
           
-          <h1 className="font-display text-5xl font-bold leading-[1.1] tracking-tight md:text-7xl lg:text-7xl mb-6">
-            {t("Product Designer", "مصممة منتجات")} <br className="hidden md:block"/>
-            <span className="text-gradient">{t("& Creative Engineer.", "ومهندسة إبداعية.")}</span>
+          <h1 className="font-display text-3xl font-bold md:text-4xl lg:text-5xl mb-6 pb-2 text-gradient">
+            {t("Product Design Engineer", "مهندسة تصميم منتجات")}
           </h1>
           
           <p className="text-lg text-muted-foreground md:text-xl max-w-2xl leading-relaxed mb-10">
             {t(
-              "Product Designer who reduces cognitive load and rebuilds confusing products into usable, delightful ones—and ships the working app herself when needed.",
-              "مصممة منتجات تقلل من العبء المعرفي وتعيد بناء المنتجات المعقدة لتصبح سهلة وممتعة — وتقوم ببرمجة التطبيق النهائي بنفسها عند الحاجة."
+              "I ship cross-platform products end to end — from user research to production. I ground every interface decision in user data to reduce friction and deliver considered, accessible experiences.",
+              "أقوم ببناء المنتجات من البداية للنهاية — من أبحاث المستخدمين إلى الإنتاج. أعتمد في كل قرار تصميمي على البيانات لتقليل الاحتكاك وتقديم تجارب سلسة ومدروسة."
             )}
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4">
-            <a href="#contact" className="group inline-flex items-center justify-center gap-2 rounded-full bg-gradient-primary px-8 py-4 text-sm font-semibold text-primary-foreground shadow-glow transition-smooth hover:scale-105">
-              {t("Let's Talk", "لنتحدث")}
+          <div className="flex flex-col sm:flex-row flex-wrap gap-4">
+            <a href="#work" className="group inline-flex items-center justify-center gap-2 rounded-full bg-gradient-primary px-8 py-4 text-sm font-semibold text-primary-foreground shadow-glow transition-smooth hover:scale-105">
+              {t("View My Work", "عرض أعمالي")}
               {lang === "ar" ? <ArrowLeft className="h-4 w-4 transition-transform group-hover:-translate-x-1" /> : <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />}
             </a>
-            <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" className="group inline-flex items-center justify-center gap-2 rounded-full border border-border bg-white px-8 py-4 text-sm font-semibold text-black transition-smooth hover:bg-neutral-100 hover:scale-105">
-              <FileText className="h-4 w-4" />
-              {t("Download My Resume", "تحميل السيرة الذاتية")}
+            <a href="#contact" className="group inline-flex items-center justify-center gap-2 rounded-full border border-border bg-white px-8 py-4 text-sm font-semibold text-black transition-smooth hover:bg-neutral-100 hover:scale-105">
+              {t("Get in Touch", "تواصل معي")}
             </a>
           </div>
         </motion.div>
