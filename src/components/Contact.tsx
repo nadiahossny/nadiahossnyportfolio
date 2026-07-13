@@ -156,7 +156,7 @@ export const Contact = () => {
               </div>
               <button 
                 type="submit" 
-                className="w-full inline-flex items-center justify-center rounded-full bg-gradient-primary px-8 py-4 text-sm font-semibold text-white shadow-glow transition-smooth hover:scale-[1.02] active:scale-[0.98] disabled:opacity-70 disabled:hover:scale-100"
+                className="w-full inline-flex items-center justify-center rounded-full bg-gradient-primary px-8 py-4 text-sm font-semibold text-white shadow-glow transition-smooth hover:scale-[1.02] active:scale-[0.98] disabled:opacity-70 disabled:hover:scale-100 btn-hover-hollow"
                 disabled={status === 'sending'}
               >
                 {status === 'sending' ? t("Sending...", "جاري الإرسال...") : status === 'sent' ? t("Message Sent!", "تم إرسال الرسالة!") : t("Send Message", "إرسال الرسالة")}

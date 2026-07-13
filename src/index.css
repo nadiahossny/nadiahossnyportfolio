@@ -114,6 +114,15 @@
     box-shadow: var(--shadow-glow);
   }
 
+  .btn-hover-hollow {
+    @apply transition-all duration-300;
+  }
+  
+  .btn-hover-hollow:hover {
+    background-image: none !important;
+    @apply bg-transparent text-primary shadow-none ring-2 ring-primary ring-inset;
+  }
+
   .transition-smooth {
     transition: all 0.3s var(--ease-out);
   }

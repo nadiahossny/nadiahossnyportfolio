@@ -58,7 +58,7 @@ export const Navbar = () => {
 
           <div className="flex items-center gap-2">
             <div className="hidden md:block">
-              <a href="#contact" className="rounded-full bg-gradient-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground shadow-glow transition-smooth hover:scale-105">
+              <a href="#contact" className="rounded-full bg-gradient-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground shadow-glow transition-smooth hover:scale-105 btn-hover-hollow">
                 {t("Contact Me", "تواصل معي")}
               </a>
             </div>

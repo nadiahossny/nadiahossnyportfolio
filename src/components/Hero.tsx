@@ -37,7 +37,7 @@ export const Hero = () => {
           </p>
 
           <div className="flex flex-col sm:flex-row flex-wrap gap-4">
-            <a href="#work" className="group inline-flex items-center justify-center gap-2 rounded-full bg-gradient-primary px-8 py-4 text-sm font-semibold text-primary-foreground shadow-glow transition-smooth hover:scale-105">
+            <a href="#work" className="group inline-flex items-center justify-center gap-2 rounded-full bg-gradient-primary px-8 py-4 text-sm font-semibold text-primary-foreground shadow-glow transition-smooth hover:scale-105 btn-hover-hollow">
               {t("View My Work", "عرض أعمالي")}
               {lang === "ar" ? <ArrowLeft className="h-4 w-4 transition-transform group-hover:-translate-x-1" /> : <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />}
             </a>
