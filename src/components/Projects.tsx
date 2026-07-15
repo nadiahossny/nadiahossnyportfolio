@@ -5,8 +5,7 @@ import { ArrowUpRight, ExternalLink, Plus, X, Clock } from "lucide-react";
 import pharmasysImg from "@/assets/pharmasys.png";
 import tasklyImg from "@/assets/taskly.png";
 import ieeeImg from "@/assets/ieee.png";
-import studyBuddyImg from "@/assets/studybuddy_enhanced.png";
-import ecommerceImg from "@/assets/ecommerce.png";
+import bloomBookImg from "@/assets/bloombook_enhanced.png";
 import auraLeafImg from "@/assets/auraleaf.png";
 import notesAppImg from "@/assets/notes_app.png";
 
@@ -41,7 +40,7 @@ const getProjects = (t: (en: string, ar: string) => string): Project[] => [
     techStack: ["Flutter", "Node.js", "PostgreSQL", "Figma"],
     role: t("Full Figma research-to-prototype pipeline; Flutter frontend; Node.js backend; serial communication to robotic arm.", "تنفيذ كامل من البحث للنموذج الأولي؛ واجهة أمامية؛ خلفية؛ واتصال تسلسلي بالروبوت."),
     githubUrl: "https://github.com/nadiahossny/apms-project",
-    behanceUrl: "https://www.behance.net/nadiahossny",
+    behanceUrl: "https://www.behance.net/gallery/252768433/Smart-Prescription-Scanner-Pharmacy-Management-App",
   },
   {
     id: "ieee-pua",
@@ -67,90 +66,52 @@ const getProjects = (t: (en: string, ar: string) => string): Project[] => [
     solution: t("Core design principle: reduce clicks-to-first-task. A new user should be able to add and complete their first task in the fewest possible taps.", "مبدأ التصميم: تقليل النقرات لإضافة أول مهمة في أقل عدد ممكن."),
     techStack: ["Figma", "UX Research", "Prototyping"],
     role: t("Delivered user flows, wireframes, component library, and a fully interactive prototype.", "قدمت تدفقات المستخدم، ونموذج تفاعلي عالي الدقة."),
-    githubUrl: "https://github.com/nadiahossny",
     behanceUrl: "https://www.behance.net/nadiahossny",
   }
 ];
 
 const getOtherProjects = (t: (en: string, ar: string) => string): Project[] => [
   {
-    id: "study",
-    title: t("Study helper website", "موقع مساعد دراسي"),
-    niche: t("Organizes study material and schedules", "ينظم المواد الدراسية والجداول"),
-    image: studyBuddyImg,
-    tags: ["React", "Firebase"],
-    problem: t("Prioritized minimal setup friction so students adopt it during exam-week stress.", "تقليل وقت الإعداد ليتمكن الطلاب من استخدامه أثناء ضغط الامتحانات."),
-    solution: t("Created an intuitive interface that allows students to quickly add and track their study sessions and materials.", "إنشاء واجهة بديهية تسمح للطلاب بإضافة وتتبع جلسات ومواد دراستهم بسرعة."),
-    techStack: ["React", "Firebase"],
-    role: t("Frontend Development & UI Design", "تطوير الواجهة الأمامية وتصميم واجهة المستخدم"),
-    githubUrl: "https://github.com/nadiahossny",
-    behanceUrl: "https://www.behance.net/nadiahossny",
-  },
-  {
-    id: "gift",
-    title: t("Gift-giving website", "موقع تقديم الهدايا"),
-    niche: t("Helps users choose gifts based on relationship and occasion", "يساعد المستخدمين في اختيار الهدايا بناءً على العلاقة والمناسبة"),
-    image: ecommerceImg,
-    tags: ["Next.js", "Tailwind"],
-    problem: t("Shortcuts decision paralysis instead of presenting an endless catalog.", "يختصر شلل اتخاذ القرار بدلاً من تقديم كتالوج لا نهاية له."),
-    solution: t("Curated selection of gifts with a step-by-step wizard to guide users based on their relationship with the recipient.", "مجموعة مختارة من الهدايا مع معالج خطوة بخطوة لتوجيه المستخدمين بناءً على علاقتهم بالمستلم."),
-    techStack: ["Next.js", "Stripe"],
-    role: t("Full-stack Development", "تطوير شامل"),
-    githubUrl: "https://github.com/nadiahossny",
-    behanceUrl: "https://www.behance.net/nadiahossny",
+    id: "bloom-book",
+    title: t("Bloom Book", "بلوم بوك"),
+    niche: t("Digital Gifts & Memory Books", "الهدايا الرقمية وكتب الذكريات"),
+    image: bloomBookImg,
+    tags: ["React", "Web App", "CSS Animations"],
+    problem: t("Finding a unique, interactive, and personalized digital gift that feels magical and memorable.", "العثور على هدية رقمية فريدة وتفاعلية وشخصية تبدو سحرية ولا تُنسى."),
+    solution: t("A React web app for creating personalized digital memory books revealed by a magical blooming night garden animation.", "تطبيق ويب لإنشاء كتب ذكريات رقمية مخصصة يتم الكشف عنها من خلال رسوم متحركة سحرية لحديقة ليلية مزهرة."),
+    techStack: ["React", "CSS", "JavaScript"],
+    role: t("Frontend Web Development", "تطوير واجهات الويب الأمامية"),
+    note: t("Features immersive CSS-driven blooming flowers and night scenes, customizable pastel themes, and shareable digital gifts.", "يتميز برسوم متحركة سحرية لزهور تتفتح ليلاً، وثيمات ألوان باستيل قابلة للتخصيص، وهدايا رقمية قابلة للمشاركة."),
+    demoUrl: "https://bloombookgift.vercel.app/",
+    githubUrl: "https://github.com/nadiahossny/my-bloom-gift",
   },
   {
     id: "auraleaf",
     title: t("Aura Leaf App", "تطبيق أورا ليف"),
-    niche: t("Brand identity & eCommerce", "هوية العلامة التجارية والتجارة الإلكترونية"),
+    niche: t("Study Companion & Relaxation", "رفيق الدراسة والاسترخاء"),
     image: auraLeafImg,
-    tags: ["React Native", "UX Research"],
-    problem: t("Ensures consistency across a brand's digital presence while providing a seamless shopping experience.", "يضمن الاتساق عبر الوجود الرقمي للعلامة التجارية مع توفير تجربة تسوق سلسة."),
-    solution: t("Developed a complete design system and mobile app for browsing and purchasing products.", "تطوير نظام تصميم كامل وتطبيق جوال لتصفح وشراء المنتجات."),
-    techStack: ["React Native", "Figma"],
-    role: t("Mobile App Development & UI/UX", "تطوير تطبيقات الجوال وتصميم واجهة المستخدم"),
-    liveUrl: "https://auraleaf.vercel.app",
-    githubUrl: "https://github.com/nadiahossny",
-    behanceUrl: "https://www.behance.net/nadiahossny",
+    tags: ["React", "Web App", "Widgets"],
+    problem: t("Students need a peaceful focus environment that combines task management with calming ambient elements.", "يحتاج الطلاب إلى بيئة تركيز هادئة تجمع بين إدارة المهام والعناصر المحيطية المهدئة."),
+    solution: t("A heartfelt React app blending a relaxing study environment with ambient sounds, a timer, sticky notes, and a customizable interface.", "تطبيق ويب يمزج بين بيئة دراسية مريحة وأصوات محيطية، ومؤقت، وملاحظات، وواجهة قابلة للتخصيص."),
+    techStack: ["React", "JavaScript", "CSS"],
+    role: t("Frontend Web Development", "تطوير واجهات الويب الأمامية"),
+    note: t("Includes interactive widgets for sticky notes and YouTube playback, a draggable docked interface, and viscous liquid effect animations.", "يتضمن ودجات تفاعلية للملاحظات وتشغيل يوتيوب، وواجهة قابلة للسحب، وتأثيرات بصرية متحركة مذهلة."),
+    demoUrl: "https://auraleaf.vercel.app",
+    githubUrl: "https://github.com/nadiahossny/AuraLeaf",
   },
   {
     id: "notes-app",
     title: t("Notes App", "تطبيق الملاحظات"),
     niche: t("Productivity & Organization", "الإنتاجية والتنظيم"),
     image: notesAppImg,
-    tags: ["Mobile App", "React Native", "UI Design"],
-    problem: t("Users need a clean and structured way to manage their notes, folders, and priorities on the go.", "يحتاج المستخدمون إلى طريقة منظمة ونظيفة لإدارة ملاحظاتهم ومجلداتهم وأولوياتهم أثناء التنقل."),
-    solution: t("A mobile app that allows users to create folders, set priorities, and manage tasks seamlessly.", "تطبيق جوال يتيح للمستخدمين إنشاء مجلدات وتحديد الأولويات وإدارة المهام بسلاسة."),
-    techStack: ["React Native", "Figma"],
-    role: t("Mobile App Development & UI Design", "تطوير تطبيقات الجوال وتصميم واجهة المستخدم"),
+    containImage: true,
+    tags: ["Flutter", "Firebase", "Cross-Platform"],
+    problem: t("Users need a clean, distraction-free interface to create, organize, and securely save personal notes across platforms.", "يحتاج المستخدمون إلى واجهة نظيفة وخالية من التشتيت لإنشاء الملاحظات الشخصية وتنظيمها وحفظها بشكل آمن عبر المنصات."),
+    solution: t("A modern Flutter-based note-taking app with a simple interface, local-first usability, and secure cloud syncing via Firebase.", "تطبيق ملاحظات حديث مبني بإطار فلاتر بواجهة بسيطة، مع إمكانية الاستخدام المحلي والمزامنة السحابية الآمنة عبر فايربيس."),
+    techStack: ["Flutter", "Firebase", "Dart", "Cloud Firestore"],
+    role: t("Mobile App Development", "تطوير تطبيقات الجوال"),
+    note: t("Supports rich text editing, secure user authentication, image uploads, and signature capture for personalized notes.", "يدعم تحرير النصوص الغنية، المصادقة الآمنة، رفع الصور، وإضافة التوقيعات الشخصية للملاحظات."),
     githubUrl: "https://github.com/nadiahossny/NotesApp",
-    behanceUrl: "https://www.behance.net/nadiahossny",
-  },
-  {
-    id: "movie",
-    title: t("Movie discovery app", "تطبيق استكشاف الأفلام"),
-    niche: t("Discovery-focused browsing", "تصفح يركز على الاستكشاف"),
-    image: pharmasysImg,
-    tags: ["Flutter", "TMDB API"],
-    problem: t("Users spend more time browsing for a movie than actually watching one.", "يقضي المستخدمون وقتًا أطول في تصفح الأفلام بدلاً من مشاهدتها."),
-    solution: t("Minimal clicks from browsing to decision, leveraging a swipe-based interface for quick curation.", "أقل عدد من النقرات من التصفح للقرار عبر واجهة تعتمد على السحب."),
-    techStack: ["Flutter", "API Integration"],
-    role: t("Mobile Development & Design", "تطوير تطبيقات الجوال والتصميم"),
-    githubUrl: "https://github.com/nadiahossny",
-    behanceUrl: "https://www.behance.net/nadiahossny",
-  },
-  {
-    id: "ieee-brand",
-    title: t("Brand identity app", "تطبيق هوية العلامة التجارية"),
-    niche: t("Applies a consistent visual identity system", "يطبق نظام هوية بصرية متسق"),
-    image: ieeeImg,
-    tags: ["Design System", "React Native"],
-    problem: t("Local branches struggle to maintain brand consistency across all their digital materials.", "تعاني الفروع المحلية للحفاظ على اتساق العلامة التجارية في موادها الرقمية."),
-    solution: t("Ensures consistency across a branch's digital presence by providing a central repository of assets and guidelines.", "يضمن الاتساق عبر الوجود الرقمي للفرع من خلال مستودع مركزي للأصول والمبادئ."),
-    techStack: ["React Native"],
-    role: t("UX/UI Design & Frontend", "تصميم واجهة المستخدم وتطوير الواجهة الأمامية"),
-    githubUrl: "https://github.com/nadiahossny",
-    behanceUrl: "https://www.behance.net/nadiahossny",
   }
 ];
 
@@ -347,49 +308,48 @@ export const Projects = () => {
                     <p className="text-base leading-relaxed text-muted-foreground">{open.solution}</p>
                   </div>
                 )}
-                {(!open.problem && !open.solution && open.note) && (
+                {open.note && (
                   <div>
                     <div className="mb-4 border-l-4 border-primary pl-4">
-                      <h4 className="font-display text-xl font-bold text-foreground">{t("About This Project", "عن هذا المشروع")}</h4>
+                      <h4 className="font-display text-xl font-bold text-foreground">{t("Key Features", "أهم المميزات")}</h4>
                     </div>
                     <p className="text-base leading-relaxed text-muted-foreground">{open.note}</p>
+                  </div>
+                )}
+                {open.techStack && open.techStack.length > 0 && (
+                  <div>
+                    <div className="mb-4 border-l-4 border-primary pl-4">
+                      <h4 className="font-display text-xl font-bold text-foreground">{t("Technologies Used", "التقنيات المستخدمة")}</h4>
+                    </div>
+                    <div className="flex flex-wrap gap-2">
+                      {open.techStack.map((tech, index) => (
+                        <span key={index} className="rounded-full bg-secondary px-4 py-1.5 text-sm font-medium text-foreground">
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
                   </div>
                 )}
               </div>
 
               <div className="mt-10 pt-8 border-t border-border flex flex-wrap gap-4">
-                {open.githubUrl ? (
+                {open.githubUrl && (
                   <a href={open.githubUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 rounded-full border border-border bg-white px-6 py-3 text-sm font-bold text-black transition-smooth hover:bg-neutral-100 hover:scale-105">
                     {t("View on Github", "عرض على Github")}
                     <ExternalLink className="h-4 w-4" />
                   </a>
-                ) : (
-                  <div className="inline-flex items-center justify-center gap-2 rounded-full border border-border bg-muted/30 px-6 py-3 text-sm font-bold text-muted-foreground cursor-not-allowed">
-                    {t("Github (Coming Soon)", "جيت هاب (قريباً)")}
-                    <Clock className="h-4 w-4" />
-                  </div>
                 )}
-                {open.behanceUrl ? (
+                {open.behanceUrl && (
                   <a href={open.behanceUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 rounded-full border border-border bg-white px-6 py-3 text-sm font-bold text-black transition-smooth hover:bg-neutral-100 hover:scale-105">
                     {t("View on Behance", "عرض على Behance")}
                     <ExternalLink className="h-4 w-4" />
                   </a>
-                ) : (
-                  <div className="inline-flex items-center justify-center gap-2 rounded-full border border-border bg-muted/30 px-6 py-3 text-sm font-bold text-muted-foreground cursor-not-allowed">
-                    {t("Behance (Coming Soon)", "بيهانس (قريباً)")}
-                    <Clock className="h-4 w-4" />
-                  </div>
                 )}
-                {open.demoUrl ? (
+                {open.demoUrl && (
                   <a href={open.demoUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 rounded-full bg-gradient-primary px-6 py-3 text-sm font-bold text-white shadow-glow hover:scale-105 transition-smooth btn-hover-hollow">
                     {t("View Deployment", "عرض النشر")}
                     <ExternalLink className="h-4 w-4" />
                   </a>
-                ) : (
-                  <div className="inline-flex items-center justify-center gap-2 rounded-full border border-border bg-muted/30 px-6 py-3 text-sm font-bold text-muted-foreground cursor-not-allowed">
-                    {t("Deployment (Coming Soon)", "النشر (قريباً)")}
-                    <Clock className="h-4 w-4" />
-                  </div>
                 )}
               </div>
             </motion.div>

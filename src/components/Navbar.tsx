@@ -48,7 +48,7 @@ export const Navbar = () => {
               <li key={l.id}>
                 <a
                   href={`#${l.id}`}
-                  className="relative rounded-full px-4 py-2 text-sm font-medium text-muted-foreground transition-smooth hover:bg-secondary hover:text-foreground"
+                  className="relative rounded-full px-4 py-2 text-sm font-medium text-foreground/80 transition-smooth hover:bg-secondary hover:text-foreground"
                 >
                   {t(l.labelEn, l.labelAr)}
                 </a>
@@ -58,7 +58,7 @@ export const Navbar = () => {
 
           <div className="flex items-center gap-2">
             <div className="hidden md:block">
-              <a href="#contact" className="rounded-full bg-gradient-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground shadow-glow transition-smooth hover:scale-105 btn-hover-hollow">
+              <a href="#contact" className="rounded-full border border-border bg-transparent px-5 py-2.5 text-sm font-semibold text-foreground transition-smooth hover:bg-secondary hover:scale-105">
                 {t("Contact Me", "تواصل معي")}
               </a>
             </div>

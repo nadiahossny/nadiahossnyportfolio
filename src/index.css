@@ -232,3 +232,33 @@
   scrollbar-color: hsl(220 15% 45% / 0.3) transparent;
 }
 
+/* Aesthetic Cloud */
+.aesthetic-cloud {
+  width: 350px; height: 120px;
+  background: #ffffff;
+  border-radius: 100px;
+  position: relative;
+}
+
+.aesthetic-cloud:after, .aesthetic-cloud:before {
+  content: "";
+  position: absolute;
+  background: #ffffff;
+  z-index: -1;
+}
+
+.aesthetic-cloud:after {
+  width: 100px;
+  height: 100px;
+  top: -50px;
+  left: 50px;
+  border-radius: 100px;
+}
+
+.aesthetic-cloud:before {
+  width: 180px;
+  height: 180px;
+  top: -90px;
+  right: 50px;
+  border-radius: 200px;
+}
