@@ -115,7 +115,7 @@ export const Contact = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             onSubmit={handleSubmit}
-            className="bg-white/50 backdrop-blur-xl border border-white/60 p-8 md:p-10 rounded-[2.5rem] shadow-[0_8px_30px_rgb(0,0,0,0.04)] relative overflow-hidden"
+            className="bg-white/50 dark:bg-black/40 backdrop-blur-xl border border-white/60 dark:border-white/10 p-8 md:p-10 rounded-[2.5rem] shadow-[0_8px_30px_rgb(0,0,0,0.04)] relative overflow-hidden"
           >
             <div className="absolute -z-10 -top-24 -right-24 h-48 w-48 rounded-full bg-primary/10 blur-3xl"></div>
             <div className="absolute -z-10 -bottom-24 -left-24 h-48 w-48 rounded-full bg-accent/20 blur-3xl"></div>
@@ -128,7 +128,7 @@ export const Contact = () => {
                   required
                   value={form.name}
                   onChange={e => setForm({...form, name: e.target.value})}
-                  className="w-full rounded-2xl border border-white/60 bg-white/60 px-4 py-3 text-sm outline-none transition-smooth focus:border-primary/50 focus:bg-white focus:ring-4 focus:ring-primary/10 shadow-sm backdrop-blur-md"
+                  className="w-full rounded-2xl border border-white/60 dark:border-white/10 bg-white/60 dark:bg-white/5 px-4 py-3 text-sm outline-none transition-smooth focus:border-primary/50 focus:bg-white dark:focus:bg-card focus:ring-4 focus:ring-primary/10 shadow-sm backdrop-blur-md"
                   placeholder={t("Jane Doe", "أحمد محمد")}
                 />
               </div>
@@ -139,7 +139,7 @@ export const Contact = () => {
                   required
                   value={form.email}
                   onChange={e => setForm({...form, email: e.target.value})}
-                  className="w-full rounded-2xl border border-white/60 bg-white/60 px-4 py-3 text-sm outline-none transition-smooth focus:border-primary/50 focus:bg-white focus:ring-4 focus:ring-primary/10 shadow-sm backdrop-blur-md"
+                  className="w-full rounded-2xl border border-white/60 dark:border-white/10 bg-white/60 dark:bg-white/5 px-4 py-3 text-sm outline-none transition-smooth focus:border-primary/50 focus:bg-white dark:focus:bg-card focus:ring-4 focus:ring-primary/10 shadow-sm backdrop-blur-md"
                   placeholder="name@example.com"
                 />
               </div>
@@ -150,7 +150,7 @@ export const Contact = () => {
                   rows={4}
                   value={form.message}
                   onChange={e => setForm({...form, message: e.target.value})}
-                  className="w-full rounded-2xl border border-white/60 bg-white/60 px-4 py-3 text-sm outline-none transition-smooth focus:border-primary/50 focus:bg-white focus:ring-4 focus:ring-primary/10 shadow-sm backdrop-blur-md resize-none"
+                  className="w-full rounded-2xl border border-white/60 dark:border-white/10 bg-white/60 dark:bg-white/5 px-4 py-3 text-sm outline-none transition-smooth focus:border-primary/50 focus:bg-white dark:focus:bg-card focus:ring-4 focus:ring-primary/10 shadow-sm backdrop-blur-md resize-none"
                   placeholder={t("Tell me about your project...", "أخبرني عن مشروعك...")}
                 ></textarea>
               </div>

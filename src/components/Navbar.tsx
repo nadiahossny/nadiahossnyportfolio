@@ -1,7 +1,8 @@
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { useLang } from "../contexts/LanguageContext";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Sun, Moon } from "lucide-react";
+import { useTheme } from "next-themes";
 
 const links = [
   { id: "about", labelEn: "About", labelAr: "نبذة عني" },
@@ -14,8 +15,11 @@ export const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const { lang, toggle, t } = useLang();
+  const { theme, setTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
+    setMounted(true);
     const onScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
@@ -63,6 +67,18 @@ export const Navbar = () => {
               </a>
             </div>
             
+            {mounted ? (
+              <button
+                onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+                className="grid h-9 w-9 shrink-0 place-items-center rounded-full border border-border bg-secondary/50 text-muted-foreground transition-smooth hover:bg-secondary hover:text-foreground"
+                aria-label="Toggle theme"
+              >
+                {theme === "dark" ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
+              </button>
+            ) : (
+              <div className="h-9 w-9 shrink-0" />
+            )}
+
             <div className="flex relative rounded-full bg-secondary/50 p-1 items-center border border-border">
               {(["en", "ar"] as const).map((l) => (
                 <button

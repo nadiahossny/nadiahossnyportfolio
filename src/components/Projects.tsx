@@ -1,7 +1,7 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 import { useLang } from "../contexts/LanguageContext";
-import { ArrowUpRight, ExternalLink, Plus, X, Clock } from "lucide-react";
+import { ArrowUpRight, ExternalLink, Plus, X } from "lucide-react";
 import pharmasysImg from "@/assets/pharmasys.png";
 import tasklyImg from "@/assets/taskly.png";
 import ieeeImg from "@/assets/ieee.png";
@@ -144,7 +144,7 @@ export const Projects = () => {
             src={p.image}
             alt={p.title}
             loading="lazy"
-            className={`h-full w-full transition-transform duration-700 group-hover:scale-105 ${p.containImage ? 'object-contain bg-white p-4' : 'object-cover'}`}
+            className={`h-full w-full transition-transform duration-700 group-hover:scale-105 ${p.containImage ? 'object-contain bg-white dark:bg-white/5 p-4' : 'object-cover'}`}
           />
           <div className="absolute right-4 top-4 grid h-10 w-10 place-items-center rounded-full bg-card/90 backdrop-blur transition-transform group-hover:scale-110">
             <ArrowUpRight className="h-4 w-4" />
@@ -159,7 +159,7 @@ export const Projects = () => {
         {p.tags && p.tags.length > 0 && (
           <div className="flex flex-wrap gap-2 mb-4">
             {p.tags.map((tag) => (
-              <span key={tag} className="rounded-full bg-secondary px-3 py-1 text-xs font-medium">
+              <span key={tag} className="rounded-full bg-secondary px-3 py-1 text-xs font-medium text-secondary-foreground">
                 {tag}
               </span>
             ))}
@@ -281,7 +281,7 @@ export const Projects = () => {
                 <X className="h-4 w-4" />
               </button>
               {open.image && (
-                <img src={open.image} alt={open.title} className={`mb-6 aspect-[16/9] w-full rounded-2xl shadow-sm ${open.containImage ? 'object-contain bg-white p-4' : 'object-cover'}`} loading="lazy" />
+                <img src={open.image} alt={open.title} className={`mb-6 aspect-[16/9] w-full rounded-2xl shadow-sm ${open.containImage ? 'object-contain bg-white dark:bg-white/5 p-4' : 'object-cover'}`} loading="lazy" />
               )}
               
               <div className="mb-2 border-l-4 border-primary pl-4">
@@ -334,13 +334,13 @@ export const Projects = () => {
 
               <div className="mt-10 pt-8 border-t border-border flex flex-wrap gap-4">
                 {open.githubUrl && (
-                  <a href={open.githubUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 rounded-full border border-border bg-white px-6 py-3 text-sm font-bold text-black transition-smooth hover:bg-neutral-100 hover:scale-105">
+                  <a href={open.githubUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 rounded-full border border-border bg-white dark:bg-card px-6 py-3 text-sm font-bold text-black dark:text-foreground transition-smooth hover:bg-neutral-100 dark:hover:bg-white/10 hover:scale-105">
                     {t("View on Github", "عرض على Github")}
                     <ExternalLink className="h-4 w-4" />
                   </a>
                 )}
                 {open.behanceUrl && (
-                  <a href={open.behanceUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 rounded-full border border-border bg-white px-6 py-3 text-sm font-bold text-black transition-smooth hover:bg-neutral-100 hover:scale-105">
+                  <a href={open.behanceUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 rounded-full border border-border bg-white dark:bg-card px-6 py-3 text-sm font-bold text-black dark:text-foreground transition-smooth hover:bg-neutral-100 dark:hover:bg-white/10 hover:scale-105">
                     {t("View on Behance", "عرض على Behance")}
                     <ExternalLink className="h-4 w-4" />
                   </a>

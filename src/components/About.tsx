@@ -117,7 +117,7 @@ export const About = () => {
   ];
 
   return (
-    <section id="about" className="relative py-16 md:py-24">
+    <section id="about" className="relative pt-8 pb-16 md:py-24">
       <div className="container grid gap-16 lg:grid-cols-2 lg:items-start">
         
         <motion.div
@@ -161,7 +161,7 @@ export const About = () => {
                       viewport={{ once: true }}
                       transition={{ delay: i * 0.05 }}
                       whileHover={{ y: -3, scale: 1.05 }}
-                      className="group flex items-center gap-3 rounded-full border border-primary/10 bg-white px-4 py-2 transition-all hover:border-primary/30 hover:shadow-md dark:bg-white/10 dark:hover:bg-white/20"
+                      className="group flex items-center gap-3 rounded-full border border-primary/10 bg-white dark:bg-card px-4 py-2 transition-all hover:border-primary/30 hover:shadow-md dark:border-white/10"
                     >
                       <div className={`grid h-8 w-8 shrink-0 place-items-center rounded-full transition-transform group-hover:scale-110 ${skill.bg} ${skill.color}`}>
                         <skill.icon className="h-4 w-4" />
@@ -182,7 +182,7 @@ export const About = () => {
                       viewport={{ once: true }}
                       transition={{ delay: i * 0.05 }}
                       whileHover={{ y: -3, scale: 1.05 }}
-                      className="group flex items-center gap-3 rounded-full border border-primary/10 bg-white px-4 py-2 transition-all hover:border-primary/30 hover:shadow-md dark:bg-white/10 dark:hover:bg-white/20"
+                      className="group flex items-center gap-3 rounded-full border border-primary/10 bg-white dark:bg-card px-4 py-2 transition-all hover:border-primary/30 hover:shadow-md dark:border-white/10"
                     >
                       <div className={`grid h-8 w-8 shrink-0 place-items-center rounded-full transition-transform group-hover:scale-110 ${skill.bg} ${skill.color}`}>
                         <skill.icon className="h-4 w-4" />
@@ -222,7 +222,7 @@ export const About = () => {
                   
                   <div className="flex items-center gap-2 mb-2">
                     <span className={`inline-flex items-center rounded-sm px-1.5 py-0.5 text-[10px] font-bold uppercase tracking-widest ${
-                      item.type === "leadership" ? "bg-secondary text-secondary-foreground" : "bg-white text-slate-900"
+                      item.type === "leadership" ? "bg-secondary text-secondary-foreground" : "bg-white dark:bg-card text-slate-900 dark:text-foreground"
                     }`}>
                       {item.type === "leadership" ? t("Leadership", "قيادة") : t("Experience", "خبرة")}
                     </span>

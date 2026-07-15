@@ -78,7 +78,7 @@ export const Testimonials = () => {
         <div className="relative px-4 md:px-0 mx-auto">
           
           <div 
-            className="relative overflow-hidden w-full rounded-[2.5rem] bg-white/50 backdrop-blur-xl border border-white/60 shadow-[0_8px_30px_rgb(0,0,0,0.04)] h-auto min-h-[420px] md:min-h-[360px] p-8 md:p-12 cursor-default"
+            className="relative overflow-hidden w-full rounded-[2.5rem] bg-white/50 dark:bg-black/40 backdrop-blur-xl border border-white/60 dark:border-white/10 shadow-[0_8px_30px_rgb(0,0,0,0.04)] h-auto min-h-[420px] md:min-h-[360px] p-8 md:p-12 cursor-default"
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
             onTouchStart={() => setIsHovered(true)}
@@ -99,7 +99,7 @@ export const Testimonials = () => {
                 className="relative grid grid-cols-1 md:grid-cols-2 gap-8 w-full h-full"
               >
                 {items.slice(page * 2, page * 2 + 2).map((item, i) => (
-                  <figure key={i} className="flex flex-col items-start text-start w-full h-full bg-white/40 p-6 rounded-2xl border border-white/50 shadow-sm transition-smooth hover:shadow-md hover:bg-white/60">
+                  <figure key={i} className="flex flex-col items-start text-start w-full h-full bg-white/40 dark:bg-white/5 p-6 rounded-2xl border border-white/50 dark:border-white/10 shadow-sm transition-smooth hover:shadow-md hover:bg-white/60 dark:hover:bg-white/10">
                     <Quote className="h-8 w-8 text-primary/40 mb-4" />
                     <blockquote className="text-base md:text-lg leading-relaxed flex-1 font-medium text-foreground/90">
                       "{item.quote}"
