@@ -110,7 +110,7 @@ export const Hero = () => {
             className="absolute bottom-4 -left-6 md:bottom-2 md:-left-10 z-20 drop-shadow-lg opacity-90"
           >
             <div className="origin-bottom-left scale-[0.25] md:scale-[0.4]">
-              <div className="aesthetic-cloud" style={{ transform: 'scaleX(-1)' }}></div>
+              <div className="aesthetic-cloud"></div>
             </div>
           </motion.div>
 
