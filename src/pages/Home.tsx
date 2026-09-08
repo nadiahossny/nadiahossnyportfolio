@@ -206,8 +206,9 @@ export default function Home() {
       {/* 3.75 Testimonials Carousel */}
       <section className="py-24 bg-white border-y border-headline/5 overflow-hidden">
         <div className="max-w-4xl mx-auto px-6 text-center">
-          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }} variants={fadeUp} className="mb-12">
-            <h2 className="text-xs font-bold tracking-widest uppercase text-cta">Collaborations & Feedback</h2>
+          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }} variants={fadeUp} className="text-center mb-12">
+            <h2 className="text-4xl md:text-5xl font-display text-headline mb-4 font-bold">Testimonials</h2>
+            <p className="text-xs font-bold tracking-widest uppercase text-cta">Collaborations & Feedback</p>
           </motion.div>
           
           <div 
@@ -341,8 +342,8 @@ export default function Home() {
       {/* 6. Process */}
       <section className="py-32 bg-background relative">
         <div className="max-w-5xl mx-auto px-6">
-          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="mb-16">
-            <h2 className="text-4xl md:text-5xl font-display text-headline mb-4 font-bold" style={{ marginLeft: "-0.08em" }}>How I Work</h2>
+          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-display text-headline mb-4 font-bold">How I Work</h2>
             <p className="text-xl text-bodytext font-light">A structured process for chaotic problems.</p>
           </motion.div>
           
