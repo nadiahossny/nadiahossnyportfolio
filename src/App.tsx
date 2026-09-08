@@ -1,20 +1,20 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { ThemeProvider } from "next-themes";
-import { LanguageProvider } from "./contexts/LanguageContext.tsx";
-import Index from "./pages/Index.tsx";
-import NotFound from "./pages/NotFound.tsx";
+import { Routes, Route } from 'react-router-dom';
+import Home from './pages/Home';
+import Services from './pages/Services';
+import Navigation from './components/Navigation';
+import Footer from './components/Footer';
 
-const App = () => (
-  <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false}>
-    <LanguageProvider>
-      <BrowserRouter>
+export default function App() {
+  return (
+    <div className="min-h-screen flex flex-col">
+      <Navigation />
+      <main className="flex-1">
         <Routes>
-          <Route path="/" element={<Index />} />
-          <Route path="*" element={<NotFound />} />
+          <Route path="/" element={<Home />} />
+          <Route path="/graphic-design" element={<Services />} />
         </Routes>
-      </BrowserRouter>
-    </LanguageProvider>
-  </ThemeProvider>
-);
-
-export default App;
+      </main>
+      <Footer />
+    </div>
+  );
+}
