@@ -463,6 +463,18 @@ export default function Home() {
               </a>
             </motion.div>
           </div>
+          
+          {/* Cross-navigation to Graphic Design */}
+          <motion.div 
+            initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} 
+            className="mt-24 pt-12 border-t border-cloud/30 text-center"
+          >
+            <h3 className="text-xl md:text-2xl font-display text-headline mb-4 font-semibold">Looking for brand identity or visual design?</h3>
+            <p className="text-bodytext font-light mb-6">I also do illustrations, logos, and print materials.</p>
+            <Link to="/graphic-design" className="inline-flex items-center gap-2 px-8 py-4 bg-white text-headline border border-cloud rounded-full font-medium hover:bg-cloud/20 transition-all shadow-sm group">
+              Explore Graphic Design Work <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            </Link>
+          </motion.div>
         </div>
       </section>
     </div>
