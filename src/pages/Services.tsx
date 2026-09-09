@@ -284,11 +284,11 @@ export default function Services() {
               <div className="p-8 overflow-y-auto flex-1 flex flex-col items-center">
                 
                 {/* Main Big Image */}
-                <div className="w-full max-w-4xl min-h-[100px] rounded-2xl overflow-hidden shadow-sm border border-cloud/20 bg-background flex justify-center items-center mb-8 relative">
+                <div className="w-full max-w-4xl min-h-[300px] md:min-h-[500px] rounded-2xl overflow-hidden shadow-sm border border-cloud/20 bg-background flex justify-center items-center mb-8 relative shrink-0">
                   {!activeModalImage && !selectedProject.cover && (
                     <div className="absolute inset-0 flex items-center justify-center animate-pulse bg-cloud/20"></div>
                   )}
-                  <img src={activeModalImage || selectedProject.cover} alt={selectedProject.title} className="w-full h-auto" />
+                  <img src={activeModalImage || selectedProject.cover} alt={selectedProject.title} className="max-w-full h-auto object-contain" />
                 </div>
 
                 {/* Description */}
