@@ -6,7 +6,7 @@ import { ArrowRight, ArrowDown, CheckCircle2, Mail } from 'lucide-react';
 import { SiFigma, SiFlutter, SiReact, SiNextdotjs } from 'react-icons/si';
 import { FaLinkedin, FaBehance, FaWhatsapp } from 'react-icons/fa';
 import { motion, AnimatePresence } from 'framer-motion';
-import profileImg from '../assets/nadia_profile.jpg';
+import profileImg from '../assets/nadia_hero_avatar.jpg';
 import aboutPhoto from '../assets/about-photo.jpg';
 import heroBg from '../assets/cloudy-bg.png';
 import MoreWorkModal from '../components/MoreWorkModal';
