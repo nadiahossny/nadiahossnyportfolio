@@ -124,7 +124,7 @@ export default function Services() {
       </nav>
 
       <main className="relative z-10 pt-24 md:pt-32">
-        <div className="max-w-7xl mx-auto px-8 pt-4 pb-8">
+        <div className="max-w-7xl mx-auto px-8 pt-4 pb-16 md:pb-24">
           <motion.div 
             initial="hidden"
             animate="visible"
@@ -140,7 +140,7 @@ export default function Services() {
         </div>
         
         {/* Tools Strip */}
-        <section className="py-8 md:py-10 relative z-10">
+        <section className="py-8 md:py-10 border-y border-headline/10 bg-white relative z-10">
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
