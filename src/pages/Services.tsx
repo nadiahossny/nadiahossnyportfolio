@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 import { ArrowLeft, X, Mail } from 'lucide-react';
 import { FaWhatsapp } from 'react-icons/fa';
 import { SiFigma, SiCanva, SiKrita, SiAffinitydesigner } from 'react-icons/si';
@@ -65,6 +66,13 @@ export default function Services() {
 
   return (
     <div className="min-h-screen bg-background relative selection:bg-cloud selection:text-headline overflow-hidden">
+      <Helmet>
+        <title>Nadia Hossny | Freelance Graphic Designer & Visual Artist</title>
+        <meta name="description" content="Explore the graphic design portfolio of Nadia Hossny. Specialized in brand identity, print & merch design, digital marketing, and character design." />
+        <meta name="keywords" content="Graphic Designer, Branding, Logo Design, Digital Content, Visual Identity, Freelance Designer, Nadia Hossny, Egypt" />
+        <meta property="og:title" content="Nadia Hossny | Freelance Graphic Designer" />
+        <meta property="og:description" content="Explore the graphic design portfolio of Nadia Hossny, featuring brand identity, digital marketing, and print design." />
+      </Helmet>
       {/* Background Decorative Element */}
       <div className="absolute top-0 left-0 w-full h-[60vh] overflow-hidden z-0 pointer-events-none">
         <motion.img 

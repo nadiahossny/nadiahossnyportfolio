@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useLocation, Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 import { caseStudies } from '../data/caseStudies';
 import CaseStudyModal from '../components/CaseStudyModal';
 import { ArrowRight, ArrowDown, CheckCircle2, Mail } from 'lucide-react';
@@ -69,6 +70,13 @@ export default function Home() {
 
   return (
     <div className="w-full bg-white text-bodytext min-h-screen font-sans selection:bg-cloud selection:text-headline overflow-hidden">
+      <Helmet>
+        <title>Nadia Hossny | Product Designer & UI/UX Specialist</title>
+        <meta name="description" content="Nadia Hossny is a Product Designer and UI/UX Specialist with a background in software development. Explore her portfolio of intuitive, user-centered digital products." />
+        <meta name="keywords" content="Nadia Hossny, Product Designer, UI/UX Designer, UX Researcher, Frontend Developer, Web Design, Egypt" />
+        <meta property="og:title" content="Nadia Hossny | Product Designer" />
+        <meta property="og:description" content="Explore the portfolio of Nadia Hossny, a product designer focused on bridging the gap between aesthetics and function." />
+      </Helmet>
       {selectedStudy && (
         <CaseStudyModal 
           id={selectedStudy} 

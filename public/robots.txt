@@ -1,2 +1,4 @@
 User-agent: *
 Allow: /
+
+Sitemap: https://nadiahossny.vercel.app/sitemap.xml
