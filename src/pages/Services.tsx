@@ -161,7 +161,7 @@ export default function Services() {
         </div>
 
         {/* Gallery Grid */}
-        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 md:gap-16">
           {graphicProjects.map((project, i) => (
             <motion.div 
               key={project.id}
@@ -175,19 +175,19 @@ export default function Services() {
               <div className="relative w-full aspect-[4/3] mb-6 z-10 group-hover:z-20">
                 {/* Stack 2 */}
                 {project.images.length > 2 && (
-                  <div className="absolute inset-0 rounded-3xl transform transition-all duration-500 origin-bottom group-hover:rotate-6 group-hover:scale-100 group-hover:translate-x-6 group-hover:-translate-y-1 shadow-md border-[6px] border-white overflow-hidden z-0 opacity-0 group-hover:opacity-100 bg-cloud">
+                  <div className="absolute inset-0 rounded-2xl transform transition-all duration-500 origin-bottom group-hover:rotate-[8deg] group-hover:translate-x-5 group-hover:-translate-y-2 shadow-lg border-8 border-white overflow-hidden z-0 opacity-0 group-hover:opacity-100 bg-cloud">
                     <img src={project.images[2]} alt="" className="w-full h-full object-cover opacity-90" loading="lazy" />
                   </div>
                 )}
                 {/* Stack 1 */}
                 {project.images.length > 1 && (
-                  <div className="absolute inset-0 rounded-3xl transform transition-all duration-500 origin-bottom group-hover:-rotate-6 group-hover:scale-100 group-hover:-translate-x-6 group-hover:-translate-y-1 shadow-md border-[6px] border-white overflow-hidden z-0 opacity-0 group-hover:opacity-100 bg-cloud">
+                  <div className="absolute inset-0 rounded-2xl transform transition-all duration-500 origin-bottom group-hover:-rotate-[8deg] group-hover:-translate-x-5 group-hover:-translate-y-2 shadow-lg border-8 border-white overflow-hidden z-0 opacity-0 group-hover:opacity-100 bg-cloud">
                     <img src={project.images[1]} alt="" className="w-full h-full object-cover opacity-90" loading="lazy" />
                   </div>
                 )}
                 
                 {/* Main Card */}
-                <div className="absolute inset-0 rounded-3xl overflow-hidden bg-background shadow-sm group-hover:shadow-2xl transition-all duration-500 transform group-hover:-translate-y-3 border-[6px] border-white z-10">
+                <div className="absolute inset-0 rounded-2xl overflow-hidden bg-background shadow-md group-hover:shadow-2xl transition-all duration-500 transform group-hover:-translate-y-4 border-8 border-white z-10">
                   <img 
                     src={project.cover} 
                     alt={project.title} 
