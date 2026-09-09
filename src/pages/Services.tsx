@@ -192,12 +192,12 @@ export default function Services() {
               <h2 className="text-4xl md:text-5xl font-display text-headline mb-4 font-bold" style={{ marginLeft: "-0.08em" }}>Featured Collections</h2>
               <p className="text-xl text-bodytext font-light">A collection of designs from my previous graphic design work.</p>
             </motion.div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 md:gap-16 lg:gap-20">
+            <div className="flex flex-wrap justify-center gap-10 md:gap-16 lg:gap-20">
               {graphicProjects.map((project, i) => (
                 <motion.div 
                   key={project.id}
                   initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }} transition={{ delay: i * 0.1 }} variants={fadeUp}
-                  className="w-full group cursor-pointer flex flex-col"
+                  className="w-full sm:w-[calc(50%-2.5rem)] lg:w-[calc(33%-3.5rem)] group cursor-pointer flex flex-col"
                   onClick={() => {
                     setSelectedProject(project);
                     setActiveModalImage(project.cover);
