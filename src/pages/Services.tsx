@@ -56,7 +56,7 @@ const graphicProjects = Object.values(bundlesMap).map(bundle => {
   return bundle;
 });
 
-const fadeUp = {
+const fadeUp: any = {
   hidden: { opacity: 0, y: 40 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.8 } }
 };
