@@ -87,7 +87,7 @@ export default function Services() {
       </div>
 
       {/* Nav / Header */}
-      <nav className="relative z-10 p-8">
+      <nav className="relative z-10 px-8 pt-24 pb-8">
         <Link 
           to="/" 
           className="inline-flex items-center text-bodytext hover:text-headline transition-colors group"
@@ -97,35 +97,41 @@ export default function Services() {
         </Link>
       </nav>
 
-      <main className="relative z-10 max-w-7xl mx-auto px-8 pb-12 pt-8">
-        <motion.div 
-          initial="hidden"
-          animate="visible"
-          variants={fadeUp}
-          className="max-w-3xl mx-auto text-center mb-12"
-        >
-          <h1 className="text-6xl md:text-7xl font-display font-bold text-headline mb-6 tracking-tight">Graphic Design</h1>
-          <p className="text-2xl text-bodytext font-light leading-relaxed">
-            A visual exploration of branding, illustration, and digital marketing. <br className="hidden md:block" />
-            Before diving into UI/UX, I spent years crafting visual identities and telling stories through pixels.
-          </p>
-        </motion.div>
+      <main className="relative z-10">
+        <div className="max-w-7xl mx-auto px-8 pt-4 pb-16">
+          <motion.div 
+            initial="hidden"
+            animate="visible"
+            variants={fadeUp}
+            className="max-w-3xl mx-auto text-center"
+          >
+            <h1 className="text-6xl md:text-7xl font-display font-bold text-headline mb-6 tracking-tight">Graphic Design</h1>
+            <p className="text-2xl text-bodytext font-light leading-relaxed">
+              A visual exploration of branding, illustration, and digital marketing. <br className="hidden md:block" />
+              Before diving into UI/UX, I spent years crafting visual identities and telling stories through pixels.
+            </p>
+          </motion.div>
+        </div>
         
         {/* Tools Strip */}
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          className="flex flex-wrap justify-center gap-8 md:gap-16 mb-24 opacity-80"
-        >
-          <div className="flex items-center gap-3 text-headline hover:text-cta transition-colors duration-300 cursor-default"><DiPhotoshop className="w-6 h-6" /><span className="text-sm font-medium">Photoshop</span></div>
-          <div className="flex items-center gap-3 text-headline hover:text-cta transition-colors duration-300 cursor-default"><DiIllustrator className="w-6 h-6" /><span className="text-sm font-medium">Illustrator</span></div>
-          <div className="flex items-center gap-3 text-headline hover:text-cta transition-colors duration-300 cursor-default"><SiFigma className="w-6 h-6" /><span className="text-sm font-medium">Figma</span></div>
-          <div className="flex items-center gap-3 text-headline hover:text-cta transition-colors duration-300 cursor-default"><SiCanva className="w-6 h-6" /><span className="text-sm font-medium">Canva</span></div>
-          <div className="flex items-center gap-3 text-headline hover:text-cta transition-colors duration-300 cursor-default"><SiKrita className="w-6 h-6" /><span className="text-sm font-medium">Krita</span></div>
-          <div className="flex items-center gap-3 text-headline hover:text-cta transition-colors duration-300 cursor-default"><SiAffinitydesigner className="w-6 h-6" /><span className="text-sm font-medium">Affinity</span></div>
-          <div className="flex items-center gap-3 text-headline hover:text-cta transition-colors duration-300 cursor-default"><Paintbrush className="w-6 h-6" /><span className="text-sm font-medium">ibisPaint X</span></div>
-        </motion.div>
+        <section className="py-10 border-y border-headline/10 bg-white relative z-10 mb-24">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="max-w-5xl mx-auto px-6 flex flex-wrap justify-center gap-12 md:gap-24 opacity-80"
+          >
+            <div className="flex items-center gap-3 text-headline hover:text-cta transition-colors duration-300 cursor-default"><DiPhotoshop className="w-6 h-6" /><span className="text-sm font-medium">Photoshop</span></div>
+            <div className="flex items-center gap-3 text-headline hover:text-cta transition-colors duration-300 cursor-default"><DiIllustrator className="w-6 h-6" /><span className="text-sm font-medium">Illustrator</span></div>
+            <div className="flex items-center gap-3 text-headline hover:text-cta transition-colors duration-300 cursor-default"><SiFigma className="w-6 h-6" /><span className="text-sm font-medium">Figma</span></div>
+            <div className="flex items-center gap-3 text-headline hover:text-cta transition-colors duration-300 cursor-default"><SiCanva className="w-6 h-6" /><span className="text-sm font-medium">Canva</span></div>
+            <div className="flex items-center gap-3 text-headline hover:text-cta transition-colors duration-300 cursor-default"><SiKrita className="w-6 h-6" /><span className="text-sm font-medium">Krita</span></div>
+            <div className="flex items-center gap-3 text-headline hover:text-cta transition-colors duration-300 cursor-default"><SiAffinitydesigner className="w-6 h-6" /><span className="text-sm font-medium">Affinity</span></div>
+            <div className="flex items-center gap-3 text-headline hover:text-cta transition-colors duration-300 cursor-default"><Paintbrush className="w-6 h-6" /><span className="text-sm font-medium">ibisPaint X</span></div>
+          </motion.div>
+        </section>
+
+        <div className="max-w-7xl mx-auto px-8 pb-12">
 
 
         {/* What I Offer Section */}
@@ -184,6 +190,7 @@ export default function Services() {
               <h3 className="text-2xl font-display text-headline font-semibold group-hover:text-cta transition-colors">{project.title}</h3>
             </motion.div>
           ))}
+        </div>
         </div>
       </main>
 
