@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowLeft, X } from 'lucide-react';
+import { ArrowLeft, X, Mail } from 'lucide-react';
+import { FaWhatsapp } from 'react-icons/fa';
 import { motion, AnimatePresence } from 'framer-motion';
 import heroBg from '../assets/cloudy-bg.png';
 // High-Res Assets
@@ -255,8 +256,14 @@ export default function Services() {
           <h2 className="text-4xl md:text-5xl font-display text-headline mb-6 font-bold">Need something designed?</h2>
           <p className="text-xl text-bodytext font-light mb-10 max-w-2xl mx-auto">Logos, social content, planners, merch, characters — commissions and freelance work welcome.</p>
           <div className="flex justify-center gap-4 flex-wrap mb-10">
-            <a href="/#contact" className="inline-flex items-center gap-2 px-8 py-4 bg-cta text-white rounded-full font-medium hover:bg-cta/90 transition-all shadow-md">
-              Get in touch
+            <a href="mailto:nadiahossny426@gmail.com?subject=Inquiry from Portfolio: Graphic Design" className="inline-flex items-center gap-2 px-6 py-4 bg-cta text-white rounded-full font-medium hover:bg-cta/90 transition-all shadow-md">
+              <Mail className="w-5 h-5" /> Email
+            </a>
+            <a href="https://wa.me/201234567890?text=Hello!%20I'm%20reaching%20out%20from%20your%20graphic%20design%20portfolio." target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-6 py-4 bg-[#25D366] text-white rounded-full font-medium hover:bg-[#20B858] transition-all shadow-md">
+              <FaWhatsapp className="w-5 h-5" /> WhatsApp
+            </a>
+            <a href="/#contact" className="inline-flex items-center gap-2 px-6 py-4 bg-headline text-white rounded-full font-medium hover:bg-headline/90 transition-all shadow-md">
+              Contact Form
             </a>
             <Link to="/" className="inline-flex items-center gap-2 px-8 py-4 bg-white text-headline border border-cloud rounded-full font-medium hover:bg-background transition-all shadow-sm">
               Back to product design

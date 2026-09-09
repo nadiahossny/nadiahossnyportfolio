@@ -443,14 +443,14 @@ export default function Home() {
               initial="hidden" whileInView="visible" viewport={{ once: true }} transition={{ delay: 0.2 }} variants={fadeUp}
               className="flex-1 flex flex-col gap-4"
             >
-              <a href="mailto:nadiahossny426@gmail.com" className="group flex items-center gap-4 text-bodytext hover:text-cta transition-colors p-5 rounded-2xl bg-white border border-cloud hover:border-cta/30 hover:bg-cta/5 shadow-sm hover:shadow-md">
+              <a href="mailto:nadiahossny426@gmail.com?subject=Inquiry from Portfolio: Product Design" className="group flex items-center gap-4 text-bodytext hover:text-cta transition-colors p-5 rounded-2xl bg-white border border-cloud hover:border-cta/30 hover:bg-cta/5 shadow-sm hover:shadow-md">
                 <Mail className="w-7 h-7" />
                 <div className="flex flex-col text-left">
                   <span className="font-medium text-headline group-hover:text-cta transition-colors">Email</span>
                   <span className="text-sm opacity-70">nadiahossny426@gmail.com</span>
                 </div>
               </a>
-              <a href="https://wa.me/201234567890" target="_blank" rel="noopener noreferrer" className="group flex items-center gap-4 text-bodytext hover:text-cta transition-colors p-5 rounded-2xl bg-white border border-cloud hover:border-cta/30 hover:bg-cta/5 shadow-sm hover:shadow-md">
+              <a href="https://wa.me/201234567890?text=Hello!%20I'm%20reaching%20out%20from%20your%20product%20design%20portfolio." target="_blank" rel="noopener noreferrer" className="group flex items-center gap-4 text-bodytext hover:text-cta transition-colors p-5 rounded-2xl bg-white border border-cloud hover:border-cta/30 hover:bg-cta/5 shadow-sm hover:shadow-md">
                 <FaWhatsapp className="w-7 h-7" />
                 <div className="flex flex-col text-left">
                   <span className="font-medium text-headline group-hover:text-cta transition-colors">WhatsApp</span>
