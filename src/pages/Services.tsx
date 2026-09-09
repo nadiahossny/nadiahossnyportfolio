@@ -78,7 +78,7 @@ export default function Services() {
         <meta property="og:description" content="Explore the graphic design portfolio of Nadia Hossny, featuring brand identity, digital marketing, and print design." />
       </Helmet>
       {/* Background Decorative Element */}
-      <div className="absolute top-0 left-0 w-full h-[60vh] overflow-hidden z-0 pointer-events-none">
+      <div className="absolute top-0 left-0 w-full h-[100vh] overflow-hidden z-0 pointer-events-none">
         <motion.img 
           src={heroBg} 
           alt="" 
@@ -128,7 +128,7 @@ export default function Services() {
         </div>
         
         {/* Tools Strip */}
-        <section className="py-8 md:py-10 border-y border-headline/10 bg-white relative z-10">
+        <section className="py-8 md:py-10 relative z-10">
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
