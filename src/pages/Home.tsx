@@ -414,7 +414,7 @@ export default function Home() {
       </section>
 
       {/* 8. Contact Section */}
-      <section id="contact" className="relative w-full py-32 flex flex-col items-center justify-center px-6 overflow-hidden bg-background">
+      <section id="contact" className="relative w-full pt-32 pb-4 flex flex-col items-center justify-center px-6 overflow-hidden bg-background">
         <div className="relative z-10 w-full max-w-5xl mx-auto">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-display text-headline mb-4 font-bold" style={{ marginLeft: "-0.08em" }}>Let's work together.</h2>
