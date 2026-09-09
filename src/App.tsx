@@ -4,6 +4,8 @@ import Services from './pages/Services';
 import Navigation from './components/Navigation';
 import Footer from './components/Footer';
 
+import NotFound from './pages/NotFound';
+
 export default function App() {
   return (
     <div className="min-h-screen flex flex-col">
@@ -12,6 +14,7 @@ export default function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/graphic-design" element={<Services />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </main>
       <Footer />

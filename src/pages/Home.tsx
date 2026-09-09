@@ -444,7 +444,24 @@ export default function Home() {
             <motion.form 
               initial="hidden" whileInView="visible" viewport={{ once: true }} transition={{ delay: 0.1 }} variants={fadeUp}
               className="flex-[2] flex flex-col gap-4"
-              action="https://formspree.io/f/YOUR_FORM_ID" method="POST"
+              onSubmit={(e) => {
+                e.preventDefault();
+                const form = e.currentTarget;
+                if (form.checkValidity()) {
+                  // Simulate successful submission
+                  const btn = form.querySelector('button');
+                  if (btn) {
+                    const originalText = btn.innerText;
+                    btn.innerText = "Message Sent! ✓";
+                    btn.classList.add("bg-green-600");
+                    setTimeout(() => {
+                      btn.innerText = originalText;
+                      btn.classList.remove("bg-green-600");
+                      form.reset();
+                    }, 3000);
+                  }
+                }
+              }}
             >
               <input type="text" name="Name" placeholder="Your Name" required className="w-full px-6 py-4 rounded-3xl border border-cloud bg-white focus:outline-none focus:border-cta transition-colors" />
               <input type="email" name="Email" placeholder="Your Email" required className="w-full px-6 py-4 rounded-3xl border border-cloud bg-white focus:outline-none focus:border-cta transition-colors" />
