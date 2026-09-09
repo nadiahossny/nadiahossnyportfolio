@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowLeft, X, Mail } from 'lucide-react';
+import { ArrowLeft, X, Mail, Paintbrush } from 'lucide-react';
 import { FaWhatsapp } from 'react-icons/fa';
-import { SiAdobecreativecloud, SiAdobephotoshop, SiAdobeillustrator, SiFigma, SiCanva } from 'react-icons/si';
+import { SiAdobecreativecloud, SiAdobephotoshop, SiAdobeillustrator, SiFigma, SiCanva, SiKrita } from 'react-icons/si';
 import { motion, AnimatePresence } from 'framer-motion';
 import heroBg from '../assets/cloudy-bg.png';
 // High-Res Assets
@@ -207,6 +207,8 @@ export default function Services() {
           <div className="flex items-center gap-3 text-headline hover:text-cta transition-colors duration-300 cursor-default"><SiAdobeillustrator className="w-6 h-6" /><span className="text-sm font-medium">Illustrator</span></div>
           <div className="flex items-center gap-3 text-headline hover:text-cta transition-colors duration-300 cursor-default"><SiFigma className="w-6 h-6" /><span className="text-sm font-medium">Figma</span></div>
           <div className="flex items-center gap-3 text-headline hover:text-cta transition-colors duration-300 cursor-default"><SiCanva className="w-6 h-6" /><span className="text-sm font-medium">Canva</span></div>
+          <div className="flex items-center gap-3 text-headline hover:text-cta transition-colors duration-300 cursor-default"><SiKrita className="w-6 h-6" /><span className="text-sm font-medium">Krita</span></div>
+          <div className="flex items-center gap-3 text-headline hover:text-cta transition-colors duration-300 cursor-default"><Paintbrush className="w-6 h-6" /><span className="text-sm font-medium">Ibis Paint X</span></div>
         </motion.div>
 
 
