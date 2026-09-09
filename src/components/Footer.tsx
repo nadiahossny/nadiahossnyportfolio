@@ -16,19 +16,19 @@ export default function Footer() {
           <p className="text-sm font-medium text-bodytext">Crafting intuitive products with purpose and precision.</p>
         </div>
         <div className="flex gap-8 items-center text-[13px] uppercase tracking-widest font-medium">
-          <a href="mailto:nadiahossny426@gmail.com" className="hover:text-cta transition-colors flex items-center gap-2" aria-label="Email">
+          <a href="mailto:nadiahossny426@gmail.com" className="hover:text-cta transition-colors flex items-center gap-2" aria-label="Email" title="Email">
             <Mail className="w-5 h-5" />
           </a>
-          <a href="https://wa.me/201234567890" target="_blank" rel="noopener noreferrer" className="hover:text-cta transition-colors flex items-center gap-2" aria-label="WhatsApp">
+          <a href="https://wa.me/201234567890" target="_blank" rel="noopener noreferrer" className="hover:text-cta transition-colors flex items-center gap-2" aria-label="WhatsApp" title="WhatsApp">
             <FaWhatsapp className="w-5 h-5" />
           </a>
-          <a href="https://linkedin.com/in/nadiahossny" target="_blank" rel="noopener noreferrer" className="hover:text-cta transition-colors flex items-center gap-2" aria-label="LinkedIn">
+          <a href="https://linkedin.com/in/nadiahossny" target="_blank" rel="noopener noreferrer" className="hover:text-cta transition-colors flex items-center gap-2" aria-label="LinkedIn" title="LinkedIn">
             <FaLinkedin className="w-5 h-5" />
           </a>
-          <a href="https://github.com/nadiahossny" target="_blank" rel="noopener noreferrer" className="hover:text-cta transition-colors flex items-center gap-2" aria-label="GitHub">
+          <a href="https://github.com/nadiahossny" target="_blank" rel="noopener noreferrer" className="hover:text-cta transition-colors flex items-center gap-2" aria-label="GitHub" title="GitHub">
             <FaGithub className="w-5 h-5" />
           </a>
-          <a href="https://behance.net/nadiahossny" target="_blank" rel="noopener noreferrer" className="hover:text-cta transition-colors flex items-center gap-2" aria-label="Behance">
+          <a href="https://behance.net/nadiahossny" target="_blank" rel="noopener noreferrer" className="hover:text-cta transition-colors flex items-center gap-2" aria-label="Behance" title="Behance">
             <FaBehance className="w-5 h-5" />
           </a>
         </div>

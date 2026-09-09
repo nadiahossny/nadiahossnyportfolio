@@ -20,6 +20,7 @@ export default function Navigation() {
         <nav className="hidden md:flex items-center gap-10 text-[13px] uppercase tracking-widest text-headline font-semibold">
           <a href="/#work" className="hover:text-cta transition-colors">Work</a>
           <a href="/#about" className="hover:text-cta transition-colors">About</a>
+          <Link to="/graphic-design" className="hover:text-cta transition-colors">Visuals</Link>
           <a href="/#contact" className="hover:text-cta transition-colors">Contact</a>
         </nav>
         
@@ -34,6 +35,7 @@ export default function Navigation() {
         <div className="absolute top-24 left-0 w-full bg-white shadow-xl border-b border-cloud md:hidden py-8 px-6 flex flex-col gap-6 text-sm uppercase tracking-widest text-headline font-semibold z-40">
           <a href="/#work" onClick={() => setIsOpen(false)} className="hover:text-cta transition-colors">Work</a>
           <a href="/#about" onClick={() => setIsOpen(false)} className="hover:text-cta transition-colors">About</a>
+          <Link to="/graphic-design" onClick={() => setIsOpen(false)} className="hover:text-cta transition-colors">Visuals</Link>
           <a href="/#contact" onClick={() => setIsOpen(false)} className="hover:text-cta transition-colors">Contact</a>
         </div>
       )}
