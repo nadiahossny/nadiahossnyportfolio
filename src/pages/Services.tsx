@@ -165,7 +165,7 @@ export default function Services() {
         <section className="py-24 bg-white relative z-10">
           <div className="max-w-7xl mx-auto px-8">
             <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} className="mb-12 text-center md:text-left">
-              <h2 className="text-4xl md:text-5xl font-display text-headline mb-4 font-bold" style={{ marginLeft: "-0.08em" }}>Featured Bundles</h2>
+              <h2 className="text-4xl md:text-5xl font-display text-headline mb-4 font-bold" style={{ marginLeft: "-0.08em" }}>Featured Collections</h2>
               <p className="text-xl text-bodytext font-light">A collection of designs from my previous graphic design work.</p>
             </motion.div>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 md:gap-12">
@@ -203,7 +203,7 @@ export default function Services() {
                       />
                       <div className="absolute inset-0 bg-headline/0 group-hover:bg-headline/10 transition-colors duration-300 flex items-center justify-center">
                         <span className="opacity-0 group-hover:opacity-100 bg-white text-headline px-6 py-3 rounded-full font-medium shadow-lg transform translate-y-4 group-hover:translate-y-0 transition-all duration-300">
-                          View
+                          View more
                         </span>
                       </div>
                     </div>
@@ -287,7 +287,7 @@ export default function Services() {
                 {/* Thumbnail Strip */}
                 {selectedProject.images.length > 1 && (
                   <div className="w-full max-w-4xl">
-                    <h3 className="text-lg font-bold text-headline mb-4">More from this bundle</h3>
+                    <h3 className="text-lg font-bold text-headline mb-4">More from this collection</h3>
                     <div className="flex flex-wrap gap-4">
                       {selectedProject.images.map((img: string, idx: number) => (
                         <button 
