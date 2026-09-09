@@ -10,10 +10,12 @@ import heroBg from '../assets/cloudy-bg.png';
 
 const imageModules = import.meta.glob('../assets/graphic-design/**/*.{png,jpg,jpeg,svg,webp}', { eager: true });
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const bundlesMap: Record<string, any> = {};
 
 for (const path in imageModules) {
-  // @ts-ignore
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-expect-error
   const url = imageModules[path].default || imageModules[path];
   const parts = path.split('/');
   const folderName = parts[parts.length - 2];
@@ -34,8 +36,10 @@ for (const path in imageModules) {
 }
 
 const graphicProjects = Object.values(bundlesMap).map(bundle => {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   bundle.images.sort((a: any, b: any) => a.path.localeCompare(b.path));
   bundle.cover = bundle.images[0].url;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   bundle.images = bundle.images.map((img: any) => img.url);
   return bundle;
 });

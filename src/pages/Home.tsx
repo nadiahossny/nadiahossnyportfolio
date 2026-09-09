@@ -14,7 +14,7 @@ import MoreWorkModal from '../components/MoreWorkModal';
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" as any } }
+  visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } }
 };
 
 const testimonialsData = [
