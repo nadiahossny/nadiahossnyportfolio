@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowLeft, X, Mail } from 'lucide-react';
 import { FaWhatsapp } from 'react-icons/fa';
+import { SiAdobecreativecloud, SiAdobephotoshop, SiAdobeillustrator, SiFigma, SiCanva } from 'react-icons/si';
 import { motion, AnimatePresence } from 'framer-motion';
 import heroBg from '../assets/cloudy-bg.png';
 // High-Res Assets
@@ -185,7 +186,7 @@ export default function Services() {
           initial="hidden"
           animate="visible"
           variants={fadeUp}
-          className="max-w-3xl mx-auto text-center mb-24"
+          className="max-w-3xl mx-auto text-center mb-12"
         >
           <h1 className="text-6xl md:text-7xl font-display font-bold text-headline mb-6 tracking-tight">Graphic Design</h1>
           <p className="text-2xl text-bodytext font-light leading-relaxed">
@@ -193,6 +194,21 @@ export default function Services() {
             Before diving into UI/UX, I spent years crafting visual identities and telling stories through pixels.
           </p>
         </motion.div>
+        
+        {/* Tools Strip */}
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+          className="flex flex-wrap justify-center gap-8 md:gap-16 mb-24 opacity-80"
+        >
+          <div className="flex items-center gap-3 text-headline hover:text-cta transition-colors duration-300 cursor-default"><SiAdobecreativecloud className="w-6 h-6" /><span className="text-sm font-medium">Creative Cloud</span></div>
+          <div className="flex items-center gap-3 text-headline hover:text-cta transition-colors duration-300 cursor-default"><SiAdobephotoshop className="w-6 h-6" /><span className="text-sm font-medium">Photoshop</span></div>
+          <div className="flex items-center gap-3 text-headline hover:text-cta transition-colors duration-300 cursor-default"><SiAdobeillustrator className="w-6 h-6" /><span className="text-sm font-medium">Illustrator</span></div>
+          <div className="flex items-center gap-3 text-headline hover:text-cta transition-colors duration-300 cursor-default"><SiFigma className="w-6 h-6" /><span className="text-sm font-medium">Figma</span></div>
+          <div className="flex items-center gap-3 text-headline hover:text-cta transition-colors duration-300 cursor-default"><SiCanva className="w-6 h-6" /><span className="text-sm font-medium">Canva</span></div>
+        </motion.div>
+
 
         {/* What I Offer Section */}
         <div className="mb-24">
