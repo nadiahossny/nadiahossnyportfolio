@@ -80,7 +80,7 @@ export default function Home() {
         onClose={() => setIsMoreWorkModalOpen(false)} 
       />
       {/* 1. Hero Section */}
-      <section className="relative w-full min-h-[85vh] flex items-center justify-center pt-32 pb-24 px-6 overflow-hidden">
+      <section className="relative w-full min-h-[70vh] flex items-center justify-center pt-32 pb-12 px-6 overflow-hidden">
         {/* Soft parallax cloud background - RESTORED */}
         <div className="absolute top-0 left-0 w-full h-full overflow-hidden z-0">
           <div className="absolute inset-0 bg-background"></div> {/* Base sky color */}
@@ -138,7 +138,7 @@ export default function Home() {
             transition={{ duration: 0.6, delay: 0.4 }}
             className="flex justify-center"
           >
-            <a href="#work" className="animate-bounce inline-flex items-center justify-center p-4 rounded-full text-headline hover:text-cta transition-colors">
+            <a href="#work" className="animate-bounce inline-flex items-center justify-center p-4 rounded-full text-headline hover:text-cta transition-colors" style={{ animationDuration: '2.5s' }}>
               <ArrowDown className="w-8 h-8 md:w-10 md:h-10" strokeWidth={2.5} />
             </a>
           </motion.div>
