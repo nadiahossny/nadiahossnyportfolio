@@ -13,10 +13,8 @@ const imageModules = import.meta.glob('../assets/graphic-design/**/*.{png,jpg,jp
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const bundlesMap: Record<string, any> = {};
 
-// If you want to customize the text for a specific project folder, you can do it here!
-// Just use the exact folder name as the key.
 const customProjectDetails: Record<string, { title?: string; story?: string; category?: string }> = {
-  "IEEE PUA SB poosts and stories": {
+  "IEEE PUA SB posts and stories": {
     title: "IEEE PUA SB Posts & Stories",
     story: "A collection of social media designs, posts, and stories crafted for the IEEE PUA Student Branch.",
     category: "Social Media"
@@ -298,11 +296,11 @@ export default function Services() {
               <div className="p-8 overflow-y-auto flex-1 flex flex-col items-center">
                 
                 {/* Main Big Image */}
-                <div className="w-full max-w-4xl min-h-[300px] md:min-h-[500px] rounded-2xl overflow-hidden shadow-sm border border-cloud/20 bg-background flex justify-center items-center mb-8 relative shrink-0">
+                <div className="w-full max-w-4xl h-[45vh] min-h-[300px] md:h-[55vh] rounded-2xl overflow-hidden shadow-sm border border-cloud/20 bg-background flex justify-center items-center mb-8 relative shrink-0 p-4 md:p-8">
                   {!activeModalImage && !selectedProject.cover && (
                     <div className="absolute inset-0 flex items-center justify-center animate-pulse bg-cloud/20"></div>
                   )}
-                  <img src={activeModalImage || selectedProject.cover} alt={selectedProject.title} className="max-w-full h-auto object-contain" />
+                  <img src={activeModalImage || selectedProject.cover} alt={selectedProject.title} className="max-w-full max-h-full object-contain" />
                 </div>
 
                 {/* Description */}
