@@ -174,16 +174,33 @@ export default function Services() {
                 setActiveModalImage(project.cover);
               }}
             >
-              <div className="w-full aspect-[4/3] rounded-3xl overflow-hidden bg-background mb-6 relative shadow-sm group-hover:shadow-md transition-all">
-                <img 
-                  src={project.cover} 
-                  alt={project.title} 
-                  className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700" 
-                />
-                <div className="absolute inset-0 bg-headline/0 group-hover:bg-headline/10 transition-colors duration-300 flex items-center justify-center">
-                  <span className="opacity-0 group-hover:opacity-100 bg-white text-headline px-6 py-3 rounded-full font-medium shadow-lg transform translate-y-4 group-hover:translate-y-0 transition-all duration-300">
-                    View Project
-                  </span>
+              <div className="relative w-full aspect-[4/3] mb-6 z-10 group-hover:z-20">
+                {/* Stack 2 */}
+                {project.images.length > 2 && (
+                  <div className="absolute inset-0 rounded-3xl transform transition-all duration-500 origin-bottom group-hover:rotate-6 group-hover:scale-100 group-hover:translate-x-6 group-hover:-translate-y-1 shadow-md border-[6px] border-white overflow-hidden z-0 opacity-0 group-hover:opacity-100 bg-cloud">
+                    <img src={project.images[2]} alt="" className="w-full h-full object-cover opacity-90" loading="lazy" />
+                  </div>
+                )}
+                {/* Stack 1 */}
+                {project.images.length > 1 && (
+                  <div className="absolute inset-0 rounded-3xl transform transition-all duration-500 origin-bottom group-hover:-rotate-6 group-hover:scale-100 group-hover:-translate-x-6 group-hover:-translate-y-1 shadow-md border-[6px] border-white overflow-hidden z-0 opacity-0 group-hover:opacity-100 bg-cloud">
+                    <img src={project.images[1]} alt="" className="w-full h-full object-cover opacity-90" loading="lazy" />
+                  </div>
+                )}
+                
+                {/* Main Card */}
+                <div className="absolute inset-0 rounded-3xl overflow-hidden bg-background shadow-sm group-hover:shadow-2xl transition-all duration-500 transform group-hover:-translate-y-3 border-[6px] border-white z-10">
+                  <img 
+                    src={project.cover} 
+                    alt={project.title} 
+                    className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700" 
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-headline/0 group-hover:bg-headline/10 transition-colors duration-300 flex items-center justify-center">
+                    <span className="opacity-0 group-hover:opacity-100 bg-white text-headline px-6 py-3 rounded-full font-medium shadow-lg transform translate-y-4 group-hover:translate-y-0 transition-all duration-300">
+                      View Bundle
+                    </span>
+                  </div>
                 </div>
               </div>
               <p className="text-[11px] font-bold tracking-widest uppercase text-cta mb-2">{project.category}</p>
@@ -252,8 +269,11 @@ export default function Services() {
               <div className="p-8 overflow-y-auto flex-1 flex flex-col items-center">
                 
                 {/* Main Big Image */}
-                <div className="w-full max-w-4xl rounded-2xl overflow-hidden shadow-sm border border-cloud/20 bg-background flex justify-center mb-8">
-                  <img src={activeModalImage || selectedProject.cover} alt={selectedProject.title} className="w-full h-auto object-contain max-h-[70vh]" loading="lazy" />
+                <div className="w-full max-w-4xl min-h-[300px] md:min-h-[400px] rounded-2xl overflow-hidden shadow-sm border border-cloud/20 bg-background flex justify-center items-center mb-8 relative">
+                  {!activeModalImage && !selectedProject.cover && (
+                    <div className="absolute inset-0 flex items-center justify-center animate-pulse bg-cloud/20"></div>
+                  )}
+                  <img src={activeModalImage || selectedProject.cover} alt={selectedProject.title} className="w-full h-auto max-h-[70vh] object-contain" />
                 </div>
 
                 {/* Description */}
