@@ -79,81 +79,84 @@ export default function Home() {
         isOpen={isMoreWorkModalOpen} 
         onClose={() => setIsMoreWorkModalOpen(false)} 
       />
-      {/* 1. Hero Section */}
-      <section className="relative w-full min-h-[70vh] flex items-center justify-center pt-32 pb-12 px-6 overflow-hidden">
-        {/* Soft parallax cloud background - RESTORED */}
-        <div className="absolute top-0 left-0 w-full h-full overflow-hidden z-0">
-          <div className="absolute inset-0 bg-background"></div> {/* Base sky color */}
-          <motion.img 
-            src={heroBg} 
-            alt="Cloud background" 
-            className="w-full h-full object-cover opacity-80 origin-center" 
-            animate={{ 
-              scale: [1, 1.08, 1],
-              x: [0, 15, -5, 0],
-              y: [0, -15, 5, 0]
-            }}
-            transition={{
-              duration: 25,
-              repeat: Infinity,
-              ease: "easeInOut"
-            }}
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-white"></div>
-        </div>
-        
-        <div className="relative z-10 w-full max-w-4xl mx-auto text-center pt-12 md:pt-16">
-          <motion.h1 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-5xl md:text-7xl lg:text-8xl font-display text-headline font-bold mb-8 flex items-center justify-center flex-wrap gap-x-4 gap-y-2"
-          >
-            Hi, 
-            <motion.div 
-              initial={{ opacity: 0, scale: 0.8, rotate: -15 }} 
-              animate={{ opacity: 1, scale: 1, rotate: -5 }} 
-              whileHover={{ rotate: 2, scale: 1.05 }}
-              transition={{ duration: 0.6, delay: 0.3, type: "spring" }} 
-              className="inline-block relative -mt-2 md:-mt-4 mx-3 md:mx-5 cursor-pointer z-20"
-            >
-              <img src={profileImg} alt="Nadia Hossny" className="w-16 h-16 md:w-24 md:h-24 lg:w-28 lg:h-28 rounded-2xl md:rounded-[2rem] object-cover shadow-lg border-[3px] md:border-4 border-white grayscale hover:grayscale-0 transition-all duration-500" />
-            </motion.div>
-            I'm Nadia!
-          </motion.h1>
-
-          <motion.p 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-lg md:text-xl lg:text-2xl text-bodytext font-light leading-relaxed max-w-3xl mx-auto mb-16"
-          >
-            A product designer with a development background. <br className="hidden md:block" />
-            I find real problems — then design and build the solution myself.
-          </motion.p>
+      {/* Full Screen Hero + Tools Strip Container */}
+      <div className="min-h-[100svh] flex flex-col">
+        {/* 1. Hero Section */}
+        <section className="flex-1 relative w-full flex items-center justify-center pt-32 pb-12 px-6 overflow-hidden">
+          {/* Soft parallax cloud background - RESTORED */}
+          <div className="absolute top-0 left-0 w-full h-full overflow-hidden z-0">
+            <div className="absolute inset-0 bg-background"></div> {/* Base sky color */}
+            <motion.img 
+              src={heroBg} 
+              alt="Cloud background" 
+              className="w-full h-full object-cover opacity-80 origin-center" 
+              animate={{ 
+                scale: [1, 1.08, 1],
+                x: [0, 15, -5, 0],
+                y: [0, -15, 5, 0]
+              }}
+              transition={{
+                duration: 25,
+                repeat: Infinity,
+                ease: "easeInOut"
+              }}
+            />
+            <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-white"></div>
+          </div>
           
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-            className="flex justify-center"
-          >
-            <a href="#work" className="animate-bounce inline-flex items-center justify-center p-4 rounded-full text-headline hover:text-cta transition-colors" style={{ animationDuration: '2.5s' }}>
-              <ArrowDown className="w-8 h-8 md:w-10 md:h-10" strokeWidth={2.5} />
-            </a>
-          </motion.div>
-        </div>
-      </section>
+          <div className="relative z-10 w-full max-w-4xl mx-auto text-center pt-12 md:pt-16">
+            <motion.h1 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="text-5xl md:text-7xl lg:text-8xl font-display text-headline font-bold mb-8 flex items-center justify-center flex-wrap gap-x-4 gap-y-2"
+            >
+              Hi, 
+              <motion.div 
+                initial={{ opacity: 0, scale: 0.8, rotate: -15 }} 
+                animate={{ opacity: 1, scale: 1, rotate: -5 }} 
+                whileHover={{ rotate: 2, scale: 1.05 }}
+                transition={{ duration: 0.6, delay: 0.3, type: "spring" }} 
+                className="inline-block relative -mt-2 md:-mt-4 mx-3 md:mx-5 cursor-pointer z-20"
+              >
+                <img src={profileImg} alt="Nadia Hossny" className="w-16 h-16 md:w-24 md:h-24 lg:w-28 lg:h-28 rounded-2xl md:rounded-[2rem] object-cover shadow-lg border-[3px] md:border-4 border-white grayscale hover:grayscale-0 transition-all duration-500" />
+              </motion.div>
+              I'm Nadia!
+            </motion.h1>
 
-      {/* 2. Trust Strip */}
-      <section className="py-10 border-y border-headline/10 bg-white relative z-10">
-        <div className="max-w-5xl mx-auto px-6 flex flex-wrap justify-center gap-12 md:gap-24 opacity-80">
-          <div className="flex items-center gap-3 text-headline hover:text-cta transition-colors duration-300 cursor-default"><SiFigma className="w-6 h-6" /><span className="text-sm font-medium">Figma</span></div>
-          <div className="flex items-center gap-3 text-headline hover:text-cta transition-colors duration-300 cursor-default"><SiFlutter className="w-6 h-6" /><span className="text-sm font-medium">Flutter</span></div>
-          <div className="flex items-center gap-3 text-headline hover:text-cta transition-colors duration-300 cursor-default"><SiReact className="w-6 h-6" /><span className="text-sm font-medium">React</span></div>
-          <div className="flex items-center gap-3 text-headline hover:text-cta transition-colors duration-300 cursor-default"><SiNextdotjs className="w-6 h-6" /><span className="text-sm font-medium">Next.js</span></div>
-        </div>
-      </section>
+            <motion.p 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="text-lg md:text-xl lg:text-2xl text-bodytext font-light leading-relaxed max-w-3xl mx-auto mb-16"
+            >
+              A product designer with a development background. <br className="hidden md:block" />
+              I find real problems — then design and build the solution myself.
+            </motion.p>
+            
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              className="flex justify-center"
+            >
+              <a href="#work" className="animate-bounce inline-flex items-center justify-center p-4 rounded-full text-headline hover:text-cta transition-colors" style={{ animationDuration: '2.5s' }}>
+                <ArrowDown className="w-8 h-8 md:w-10 md:h-10" strokeWidth={2.5} />
+              </a>
+            </motion.div>
+          </div>
+        </section>
+
+        {/* 2. Trust Strip */}
+        <section className="py-10 border-y border-headline/10 bg-white relative z-10 shrink-0">
+          <div className="max-w-5xl mx-auto px-6 flex flex-wrap justify-center gap-12 md:gap-24 opacity-80">
+            <div className="flex items-center gap-3 text-headline hover:text-cta transition-colors duration-300 cursor-default"><SiFigma className="w-6 h-6" /><span className="text-sm font-medium">Figma</span></div>
+            <div className="flex items-center gap-3 text-headline hover:text-cta transition-colors duration-300 cursor-default"><SiFlutter className="w-6 h-6" /><span className="text-sm font-medium">Flutter</span></div>
+            <div className="flex items-center gap-3 text-headline hover:text-cta transition-colors duration-300 cursor-default"><SiReact className="w-6 h-6" /><span className="text-sm font-medium">React</span></div>
+            <div className="flex items-center gap-3 text-headline hover:text-cta transition-colors duration-300 cursor-default"><SiNextdotjs className="w-6 h-6" /><span className="text-sm font-medium">Next.js</span></div>
+          </div>
+        </section>
+      </div>
 
       {/* 3. Selected Work */}
       <section id="work" className="py-24 bg-background relative z-10">
