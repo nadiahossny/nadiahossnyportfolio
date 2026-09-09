@@ -247,23 +247,23 @@ export default function Services() {
             </motion.div>
           ))}
         </div>
-
-        {/* Contact CTA */}
-        <section className="py-24 bg-background border-t border-cloud/30">
-          <div className="max-w-4xl mx-auto px-6 text-center">
-            <h2 className="text-4xl md:text-5xl font-display text-headline mb-6 font-bold">Need something designed?</h2>
-            <p className="text-xl text-bodytext font-light mb-10 max-w-2xl mx-auto">Logos, social content, planners, merch, characters — commissions and freelance work welcome.</p>
-            <div className="flex justify-center gap-4 flex-wrap">
-              <a href="/#contact" className="inline-flex items-center gap-2 px-8 py-4 bg-cta text-white rounded-full font-medium hover:bg-cta/90 transition-all shadow-md">
-                Get in touch
-              </a>
-              <Link to="/" className="inline-flex items-center gap-2 px-8 py-4 bg-white text-headline border border-cloud rounded-full font-medium hover:bg-background transition-all shadow-sm">
-                Back to product design
-              </Link>
-            </div>
-          </div>
-        </section>
       </main>
+
+      {/* Contact CTA */}
+      <section className="pt-24 pb-0 bg-background border-t border-cloud/30 mt-auto">
+        <div className="max-w-4xl mx-auto px-6 text-center">
+          <h2 className="text-4xl md:text-5xl font-display text-headline mb-6 font-bold">Need something designed?</h2>
+          <p className="text-xl text-bodytext font-light mb-10 max-w-2xl mx-auto">Logos, social content, planners, merch, characters — commissions and freelance work welcome.</p>
+          <div className="flex justify-center gap-4 flex-wrap mb-10">
+            <a href="/#contact" className="inline-flex items-center gap-2 px-8 py-4 bg-cta text-white rounded-full font-medium hover:bg-cta/90 transition-all shadow-md">
+              Get in touch
+            </a>
+            <Link to="/" className="inline-flex items-center gap-2 px-8 py-4 bg-white text-headline border border-cloud rounded-full font-medium hover:bg-background transition-all shadow-sm">
+              Back to product design
+            </Link>
+          </div>
+        </div>
+      </section>
 
       {/* Project Modal */}
       <AnimatePresence>
