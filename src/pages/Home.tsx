@@ -388,7 +388,7 @@ export default function Home() {
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}>
             <h2 className="text-4xl md:text-5xl font-display text-headline mb-4 font-bold" style={{ marginLeft: "-0.08em" }}>What you get when we work together</h2>
             <p className="text-xl text-bodytext font-light mb-12">The value beyond the pixels.</p>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-left bg-background p-12 rounded-3xl border border-cloud/30">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-left bg-background p-8 md:p-12 rounded-3xl border border-cloud/30">
               <div className="flex gap-4 items-start">
                 <CheckCircle2 className="w-6 h-6 text-cta shrink-0 mt-1" />
                 <div>

@@ -139,19 +139,19 @@ export default function Services() {
               <p className="text-xl text-bodytext font-light">Specialized design services tailored to your needs.</p>
             </motion.div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} className="bg-white p-10 rounded-3xl border border-cloud shadow-sm hover:shadow-md transition-shadow">
+              <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} className="bg-white p-8 md:p-10 rounded-3xl border border-cloud shadow-sm hover:shadow-md transition-shadow">
                 <h3 className="text-2xl font-display font-bold text-headline mb-4">Brand Identity</h3>
                 <p className="text-base text-bodytext font-light leading-relaxed">
-                  Logos, style guides, and complete visual systems that ensure your brand is consistent, memorable, and professional across all mediums.
+                  Crafting memorable logos, cohesive color palettes, and comprehensive brand guidelines that reflect your vision.
                 </p>
               </motion.div>
-              <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} className="bg-white p-10 rounded-3xl border border-cloud shadow-sm hover:shadow-md transition-shadow">
-                <h3 className="text-2xl font-display font-bold text-headline mb-4">Marketing Materials</h3>
+              <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} className="bg-white p-8 md:p-10 rounded-3xl border border-cloud shadow-sm hover:shadow-md transition-shadow">
+                <h3 className="text-2xl font-display font-bold text-headline mb-4">Print & Merch</h3>
                 <p className="text-base text-bodytext font-light leading-relaxed">
                   From eye-catching roller banners to event flyers and business cards, I design physical touchpoints that leave a lasting impression.
                 </p>
               </motion.div>
-              <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} className="bg-white p-10 rounded-3xl border border-cloud shadow-sm hover:shadow-md transition-shadow">
+              <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} className="bg-white p-8 md:p-10 rounded-3xl border border-cloud shadow-sm hover:shadow-md transition-shadow">
                 <h3 className="text-2xl font-display font-bold text-headline mb-4">Digital Content</h3>
                 <p className="text-base text-bodytext font-light leading-relaxed">
                   Engaging social media posts, custom character designs, and digital art tailored to boost your online presence and tell your story.
