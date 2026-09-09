@@ -87,11 +87,11 @@ export default function Services() {
       </div>
 
       {/* Nav / Header */}
-      <nav className="fixed top-0 left-0 w-full z-50 bg-white/80 backdrop-blur-md shadow-sm border-b border-cloud transition-all duration-300">
+      <nav className="absolute top-0 left-0 w-full z-50 pointer-events-none">
         <div className="max-w-7xl mx-auto px-6 h-20 md:h-24 flex items-center">
           <Link 
             to="/" 
-            className="inline-flex items-center text-headline hover:text-cta transition-colors group px-4 py-2 rounded-full hover:bg-cloud/20"
+            className="inline-flex items-center text-bodytext hover:text-headline transition-colors group pointer-events-auto"
           >
             <ArrowLeft className="w-5 h-5 mr-2 group-hover:-translate-x-1 transition-transform" />
             <span className="font-display font-bold text-sm uppercase tracking-widest">Back to Product Design</span>
@@ -99,7 +99,7 @@ export default function Services() {
         </div>
       </nav>
 
-      <main className="relative z-10 pt-32">
+      <main className="relative z-10 pt-24 md:pt-32">
         <div className="max-w-7xl mx-auto px-8 pt-4 pb-16">
           <motion.div 
             initial="hidden"
