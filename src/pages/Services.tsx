@@ -294,7 +294,7 @@ export default function Services() {
                         <button 
                           key={idx} 
                           onClick={() => setActiveModalImage(img)}
-                          className={`relative rounded-lg overflow-hidden border-2 transition-all ${activeModalImage === img ? 'border-cta scale-105 shadow-md' : 'border-transparent hover:border-cloud-dark opacity-70 hover:opacity-100'} w-24 h-24 md:w-32 md:h-32 flex-shrink-0 bg-background`}
+                          className={`relative rounded-lg overflow-hidden border-4 transition-all ${activeModalImage === img ? 'border-cloud scale-105 shadow-md' : 'border-transparent hover:border-cloud/50 opacity-70 hover:opacity-100'} w-24 h-24 md:w-32 md:h-32 flex-shrink-0 bg-background`}
                         >
                           <img src={img} alt={`${selectedProject.title} thumbnail ${idx + 1}`} className="w-full h-full object-cover" loading="lazy" />
                         </button>
