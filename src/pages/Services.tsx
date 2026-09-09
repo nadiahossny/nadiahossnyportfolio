@@ -175,23 +175,23 @@ export default function Services() {
 
         {/* Gallery Grid - bg-white */}
         <section className="py-24 bg-white relative z-10">
-          <div className="max-w-7xl mx-auto px-8">
-            <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} className="mb-12 text-center md:text-left">
+          <div className="max-w-6xl mx-auto px-8">
+            <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} className="mb-16 text-center md:text-left">
               <h2 className="text-4xl md:text-5xl font-display text-headline mb-4 font-bold" style={{ marginLeft: "-0.08em" }}>Featured Collections</h2>
               <p className="text-xl text-bodytext font-light">A collection of designs from my previous graphic design work.</p>
             </motion.div>
-            <div className="flex flex-wrap justify-center gap-8 md:gap-12">
+            <div className="flex flex-wrap justify-center gap-10 md:gap-16 lg:gap-20">
               {graphicProjects.map((project, i) => (
                 <motion.div 
                   key={project.id}
                   initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }} transition={{ delay: i * 0.1 }} variants={fadeUp}
-                  className="w-full sm:w-[calc(50%-1rem)] md:w-[calc(50%-1.5rem)] lg:w-[calc(33.333%-2rem)] group cursor-pointer flex flex-col"
+                  className="w-full sm:w-[calc(50%-1.25rem)] md:w-[calc(50%-2rem)] lg:w-[calc(33.3333%-3.333rem)] group cursor-pointer flex flex-col"
                   onClick={() => {
                     setSelectedProject(project);
                     setActiveModalImage(project.cover);
                   }}
                 >
-                  <div className={`relative w-full aspect-[3/4] mb-6 z-10 group-hover:z-20 transition-all duration-500 ${['-rotate-2', 'rotate-2', '-rotate-1', 'rotate-3'][i % 4]} group-hover:rotate-0`}>
+                  <div className={`relative w-full aspect-[3/4] mb-8 z-10 group-hover:z-20 transition-all duration-500 ${['-rotate-2', 'rotate-2', '-rotate-1', 'rotate-3'][i % 4]} group-hover:rotate-0`}>
                     {/* Stack 2 */}
                     {project.images.length > 2 && (
                        <div className="absolute inset-0 rounded-2xl transform transition-all duration-500 origin-bottom group-hover:rotate-[12deg] group-hover:translate-x-6 group-hover:-translate-y-2 shadow-lg border-8 border-white overflow-hidden z-0 opacity-0 group-hover:opacity-100 bg-cloud">
