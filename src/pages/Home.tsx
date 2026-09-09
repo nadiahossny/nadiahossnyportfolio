@@ -112,8 +112,9 @@ export default function Home() {
             <motion.div 
               initial={{ opacity: 0, scale: 0.8, rotate: -15 }} 
               animate={{ opacity: 1, scale: 1, rotate: -5 }} 
+              whileHover={{ rotate: 2, scale: 1.05 }}
               transition={{ duration: 0.6, delay: 0.3, type: "spring" }} 
-              className="inline-block relative -mt-2 md:-mt-4 mx-1"
+              className="inline-block relative -mt-2 md:-mt-4 mx-3 md:mx-5 cursor-pointer z-20"
             >
               <img src={profileImg} alt="Nadia Hossny" className="w-16 h-16 md:w-24 md:h-24 lg:w-28 lg:h-28 rounded-2xl md:rounded-[2rem] object-cover shadow-lg border-[3px] md:border-4 border-white grayscale hover:grayscale-0 transition-all duration-500" />
             </motion.div>
