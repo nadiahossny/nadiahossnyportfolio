@@ -2,7 +2,8 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowLeft, X, Mail, Paintbrush } from 'lucide-react';
 import { FaWhatsapp } from 'react-icons/fa';
-import { SiAdobecreativecloud, SiAdobephotoshop, SiAdobeillustrator, SiFigma, SiCanva, SiKrita, SiAffinitydesigner } from 'react-icons/si';
+import { SiFigma, SiCanva, SiKrita, SiAffinitydesigner } from 'react-icons/si';
+import { DiPhotoshop, DiIllustrator } from 'react-icons/di';
 import { motion, AnimatePresence } from 'framer-motion';
 import heroBg from '../assets/cloudy-bg.png';
 
@@ -117,9 +118,8 @@ export default function Services() {
           transition={{ duration: 0.6, delay: 0.3 }}
           className="flex flex-wrap justify-center gap-8 md:gap-16 mb-24 opacity-80"
         >
-          <div className="flex items-center gap-3 text-headline hover:text-cta transition-colors duration-300 cursor-default"><SiAdobecreativecloud className="w-6 h-6" /><span className="text-sm font-medium">Creative Cloud</span></div>
-          <div className="flex items-center gap-3 text-headline hover:text-cta transition-colors duration-300 cursor-default"><SiAdobephotoshop className="w-6 h-6" /><span className="text-sm font-medium">Photoshop</span></div>
-          <div className="flex items-center gap-3 text-headline hover:text-cta transition-colors duration-300 cursor-default"><SiAdobeillustrator className="w-6 h-6" /><span className="text-sm font-medium">Illustrator</span></div>
+          <div className="flex items-center gap-3 text-headline hover:text-cta transition-colors duration-300 cursor-default"><DiPhotoshop className="w-6 h-6" /><span className="text-sm font-medium">Photoshop</span></div>
+          <div className="flex items-center gap-3 text-headline hover:text-cta transition-colors duration-300 cursor-default"><DiIllustrator className="w-6 h-6" /><span className="text-sm font-medium">Illustrator</span></div>
           <div className="flex items-center gap-3 text-headline hover:text-cta transition-colors duration-300 cursor-default"><SiFigma className="w-6 h-6" /><span className="text-sm font-medium">Figma</span></div>
           <div className="flex items-center gap-3 text-headline hover:text-cta transition-colors duration-300 cursor-default"><SiCanva className="w-6 h-6" /><span className="text-sm font-medium">Canva</span></div>
           <div className="flex items-center gap-3 text-headline hover:text-cta transition-colors duration-300 cursor-default"><SiKrita className="w-6 h-6" /><span className="text-sm font-medium">Krita</span></div>
