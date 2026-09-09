@@ -2,137 +2,52 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowLeft, X, Mail, Paintbrush } from 'lucide-react';
 import { FaWhatsapp } from 'react-icons/fa';
-import { SiAdobecreativecloud, SiAdobephotoshop, SiAdobeillustrator, SiFigma, SiCanva, SiKrita } from 'react-icons/si';
+import { SiAdobecreativecloud, SiAdobephotoshop, SiAdobeillustrator, SiFigma, SiCanva, SiKrita, SiAffinitydesigner } from 'react-icons/si';
 import { motion, AnimatePresence } from 'framer-motion';
 import heroBg from '../assets/cloudy-bg.png';
-// High-Res Assets
-import imgBannerCmd from '../assets/graphic-design/banner cmd.png';
-import imgBanner1 from '../assets/graphic-design/banner.png';
-import imgBanner2 from '../assets/graphic-design/banner2.png';
-import imgPosterFlyer from '../assets/graphic-design/poster-flyer.png';
 
-import imgBusinessCard from '../assets/graphic-design/Business_Card_Mockup_3.png';
-import imgIdCard from '../assets/graphic-design/id card buisness.png';
-import imgGiftCard from '../assets/graphic-design/Free_Gift_Card_Mockup_4.png';
+const imageModules = import.meta.glob('../assets/graphic-design/**/*.{png,jpg,jpeg,svg,webp}', { eager: true });
 
-import imgChar from '../assets/graphic-design/character.png';
-import imgCharDesign1 from '../assets/graphic-design/character design.png';
-import imgCharDesign2 from '../assets/graphic-design/character_design.png';
-import imgChar1 from '../assets/graphic-design/character1.png';
-import imgChar2 from '../assets/graphic-design/character2.png';
+const bundlesMap: Record<string, any> = {};
 
-import imgDigitalArtWave from '../assets/graphic-design/wave_digital_art.png';
-import imgDigitalArtFan from '../assets/graphic-design/digital_art_fanart_of_a_character.jpg';
-import imgDigitalArtQuote from '../assets/graphic-design/digital_art_quote.png';
-import imgPalestine from '../assets/graphic-design/palastine_design.png';
+for (const path in imageModules) {
+  // @ts-ignore
+  const url = imageModules[path].default || imageModules[path];
+  const parts = path.split('/');
+  const folderName = parts[parts.length - 2];
+  
+  if (folderName === 'graphic-design' || folderName === 'assets' || folderName === 'src') continue;
 
-import imgMagazine from '../assets/graphic-design/magazine cover.png';
-import imgCert from '../assets/graphic-design/Certificate of Appreciation .png';
+  if (!bundlesMap[folderName]) {
+    bundlesMap[folderName] = {
+      id: folderName,
+      title: folderName.split(' ').map((word: string) => word.charAt(0).toUpperCase() + word.slice(1)).join(' '),
+      category: "Graphic Design",
+      cover: url,
+      story: `A collection of designs from the ${folderName} project.`,
+      images: []
+    };
+  }
+  bundlesMap[folderName].images.push({ url, path });
+}
 
-import imgLogosBunch from '../assets/graphic-design/bunch_of_logos_together_i_designed.png';
-import imgIeeeLogo from '../assets/graphic-design/ieee_logo.png';
-import imgPfsLogoRedesign from '../assets/graphic-design/pfs_logo_redesign.png';
-import imgPfsLogo from '../assets/graphic-design/pfs_logo.png';
-
-import imgSocial2 from '../assets/graphic-design/social media post (2).png';
-import imgSocial1 from '../assets/graphic-design/social media post.png';
-import imgSocialPosts1 from '../assets/graphic-design/social media posts1.png';
-import imgSocialPython from '../assets/graphic-design/social media postPython.png';
-import imgSocialDT from '../assets/graphic-design/social media post invitation dream team.png';
-import imgDys from '../assets/graphic-design/dys_post_design.png';
-import imgRamadan1 from '../assets/graphic-design/gdcs_ramadan_design.png';
-import imgAlexDay from '../assets/graphic-design/gdsc_alexandria_day_design.png';
-import imgHiring from '../assets/graphic-design/Hiring Post.png';
-import imgPartnerAnnounce from '../assets/graphic-design/Partnership Announcement.png';
-import imgPartner from '../assets/graphic-design/partnership.png';
-import imgSightRamadan from '../assets/graphic-design/SIGHT RAMADAN GRAPHIC.png';
-import imgStoryIeee from '../assets/graphic-design/story instagram ieee.png';
-
-import imgStyleGuide from '../assets/graphic-design/style gide.png';
+const graphicProjects = Object.values(bundlesMap).map(bundle => {
+  bundle.images.sort((a: any, b: any) => a.path.localeCompare(b.path));
+  bundle.cover = bundle.images[0].url;
+  bundle.images = bundle.images.map((img: any) => img.url);
+  return bundle;
+});
 
 const fadeUp = {
   hidden: { opacity: 0, y: 40 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.8 } }
 };
 
-const graphicProjects = [
-  {
-    id: "banners",
-    title: "Event Banners",
-    category: "Print & Events",
-    cover: imgBannerCmd,
-    story: "Designed professional banners and flyers for various events, technical solutions, courses, and training programs.\n\nEmphasis on visual hierarchy, consistent typography, and bold brand presence. Designed to communicate expertise and professionalism at events, training sessions, and corporate settings.",
-    images: [imgBannerCmd, imgBanner1, imgBanner2, imgPosterFlyer]
-  },
-  {
-    id: "corporate-identity",
-    title: "Business Identity",
-    category: "Professional Branding",
-    cover: imgBusinessCard,
-    story: "A clean, structured design crafted to align with corporate branding standards. Every detail — from typography to layout — reflects the organization's visual identity, ensuring a polished and professional look across all staff materials.\n\nAttention to detail and consistent brand application are at the core of this design.",
-    images: [imgBusinessCard, imgIdCard, imgGiftCard]
-  },
-  {
-    id: "character-design",
-    title: "Character Design",
-    category: "Illustration",
-    cover: imgChar,
-    story: "Custom character and mascot designs developed to represent a friendly, approachable brand personality.\n\nThe characters were developed in multiple expressive poses to support diverse use cases — from digital campaigns to printed materials — ensuring consistent and engaging visual storytelling.",
-    images: [imgChar, imgCharDesign1, imgCharDesign2, imgChar1, imgChar2]
-  },
-  {
-    id: "digital-art",
-    title: "Digital Art",
-    category: "Illustration & Art",
-    cover: imgDigitalArtWave,
-    story: "A collection of personal and commissioned digital artworks, fanart, and quote illustrations.\n\nExperimenting with colors, textures, and lighting to create expressive and emotive pieces.",
-    images: [imgDigitalArtWave, imgDigitalArtFan, imgDigitalArtQuote, imgPalestine]
-  },
-  {
-    id: "magazine",
-    title: "Magazine Cover",
-    category: "Editorial",
-    cover: imgMagazine,
-    story: "A striking magazine cover design focusing on layout composition, typography, and captivating imagery to grab attention on the newsstand.",
-    images: [imgMagazine]
-  },
-  {
-    id: "certificates",
-    title: "Certificates",
-    category: "Editorial & Print",
-    cover: imgCert,
-    story: "Clean and professional certificate designs used for appreciation, course completion, and participation in various events and organizations.",
-    images: [imgCert]
-  },
-  {
-    id: "logos",
-    title: "Logos",
-    category: "Branding",
-    cover: imgLogosBunch,
-    story: "A collection of logo designs and redesigns for various clients, institutions, and initiatives.\n\nFocusing on simplicity, memorability, and scalability to ensure the logos work across all mediums.",
-    images: [imgLogosBunch, imgIeeeLogo, imgPfsLogoRedesign, imgPfsLogo]
-  },
-  {
-    id: "social-media",
-    title: "Social Media Posts",
-    category: "Digital Marketing",
-    cover: imgSocialPosts1,
-    story: "Creating engaging, consistent visuals across platforms and formats. A massive range of social media content spanning event promotions, workshops, holiday greetings, and educational snippets.\n\nEach post is crafted with engaging visuals, strong typography, and consistent branding to connect with audiences effectively.",
-    images: [imgSocialPosts1, imgSocial2, imgSocial1, imgSocialPython, imgSocialDT, imgDys, imgRamadan1, imgAlexDay, imgHiring, imgPartnerAnnounce, imgPartner, imgSightRamadan, imgStoryIeee]
-  },
-  {
-    id: "style-guide",
-    title: "Brand Style Guide",
-    category: "Dream Team",
-    cover: imgStyleGuide,
-    story: "Established a cohesive visual identity through color, typography, and brand standards.\n\nDeveloped a comprehensive brand style guide for Dream Team, defining color palettes, typography systems, and visual language. This guide ensures consistent brand application across all touchpoints — from digital to print.",
-    images: [imgStyleGuide]
-  }
-];
-
 export default function Services() {
   const [selectedProject, setSelectedProject] = useState<typeof graphicProjects[0] | null>(null);
+  const [activeModalImage, setActiveModalImage] = useState<string | null>(null);
 
+  // Scroll to top on mount
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -208,6 +123,7 @@ export default function Services() {
           <div className="flex items-center gap-3 text-headline hover:text-cta transition-colors duration-300 cursor-default"><SiFigma className="w-6 h-6" /><span className="text-sm font-medium">Figma</span></div>
           <div className="flex items-center gap-3 text-headline hover:text-cta transition-colors duration-300 cursor-default"><SiCanva className="w-6 h-6" /><span className="text-sm font-medium">Canva</span></div>
           <div className="flex items-center gap-3 text-headline hover:text-cta transition-colors duration-300 cursor-default"><SiKrita className="w-6 h-6" /><span className="text-sm font-medium">Krita</span></div>
+          <div className="flex items-center gap-3 text-headline hover:text-cta transition-colors duration-300 cursor-default"><SiAffinitydesigner className="w-6 h-6" /><span className="text-sm font-medium">Affinity</span></div>
           <div className="flex items-center gap-3 text-headline hover:text-cta transition-colors duration-300 cursor-default"><Paintbrush className="w-6 h-6" /><span className="text-sm font-medium">ibisPaint X</span></div>
         </motion.div>
 
@@ -247,7 +163,10 @@ export default function Services() {
               key={project.id}
               initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }} transition={{ delay: i * 0.1 }} variants={fadeUp}
               className="group cursor-pointer flex flex-col"
-              onClick={() => setSelectedProject(project)}
+              onClick={() => {
+                setSelectedProject(project);
+                setActiveModalImage(project.cover);
+              }}
             >
               <div className="w-full aspect-[4/3] rounded-3xl overflow-hidden bg-background mb-6 relative shadow-sm group-hover:shadow-md transition-all">
                 <img 
@@ -323,20 +242,35 @@ export default function Services() {
               </div>
 
               {/* Modal Content - Scrollable */}
-              <div className="p-8 overflow-y-auto flex-1">
-                <div className="prose prose-lg prose-p:text-bodytext prose-p:font-light max-w-3xl mb-12">
-                  {selectedProject.story.split('\n\n').map((paragraph, idx) => (
-                    <p key={idx} className="mb-4 text-lg leading-relaxed">{paragraph}</p>
-                  ))}
+              <div className="p-8 overflow-y-auto flex-1 flex flex-col items-center">
+                
+                {/* Main Big Image */}
+                <div className="w-full max-w-4xl rounded-2xl overflow-hidden shadow-sm border border-cloud/20 bg-background flex justify-center mb-8">
+                  <img src={activeModalImage || selectedProject.cover} alt={selectedProject.title} className="w-full h-auto object-contain max-h-[70vh]" loading="lazy" />
                 </div>
 
-                <div className="space-y-8">
-                  {selectedProject.images.map((img, idx) => (
-                    <div key={idx} className="rounded-2xl overflow-hidden shadow-sm border border-cloud/20 bg-background flex justify-center">
-                      <img src={img} alt={`${selectedProject.title} ${idx + 1}`} className="w-full h-auto object-contain max-h-[70vh]" />
-                    </div>
-                  ))}
+                {/* Description */}
+                <div className="prose prose-lg prose-p:text-bodytext prose-p:font-light w-full max-w-4xl mb-12">
+                  <p className="text-lg leading-relaxed">{selectedProject.story}</p>
                 </div>
+
+                {/* Thumbnail Strip */}
+                {selectedProject.images.length > 1 && (
+                  <div className="w-full max-w-4xl">
+                    <h3 className="text-lg font-bold text-headline mb-4">More from this bundle</h3>
+                    <div className="flex flex-wrap gap-4">
+                      {selectedProject.images.map((img: string, idx: number) => (
+                        <button 
+                          key={idx} 
+                          onClick={() => setActiveModalImage(img)}
+                          className={`relative rounded-lg overflow-hidden border-2 transition-all ${activeModalImage === img ? 'border-cta scale-105 shadow-md' : 'border-transparent hover:border-cloud-dark opacity-70 hover:opacity-100'} w-24 h-24 md:w-32 md:h-32 flex-shrink-0 bg-background`}
+                        >
+                          <img src={img} alt={`${selectedProject.title} thumbnail ${idx + 1}`} className="w-full h-full object-cover" loading="lazy" />
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                )}
               </div>
             </motion.div>
           </motion.div>
