@@ -89,9 +89,9 @@ export default function Home() {
       />
       
       {/* Full Screen Hero Container */}
-      <div className="flex flex-col relative pt-20 md:pt-24 z-10">
+      <div className="flex flex-col relative z-10">
         {/* 1. Hero Section (Takes full viewport height) */}
-        <section className="min-h-[calc(100svh-5rem)] md:min-h-[calc(100svh-6rem)] relative w-full flex flex-col items-center justify-center py-8 px-6 overflow-hidden">
+        <section className="min-h-[100svh] relative w-full flex flex-col items-center justify-center pt-28 md:pt-32 pb-8 px-6 overflow-hidden">
           
           {/* Soft parallax cloud background - RESTORED */}
           <div className="absolute top-0 left-0 w-full h-full overflow-hidden z-0">
