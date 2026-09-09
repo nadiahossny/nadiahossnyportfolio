@@ -7,6 +7,7 @@ import { SiFigma, SiFlutter, SiReact, SiNextdotjs } from 'react-icons/si';
 import { FaLinkedin, FaBehance, FaWhatsapp } from 'react-icons/fa';
 import { motion, AnimatePresence } from 'framer-motion';
 import profileImg from '../assets/nadia_profile.jpg';
+import aboutPhoto from '../assets/about-photo.jpg';
 import heroBg from '../assets/cloudy-bg.png';
 import MoreWorkModal from '../components/MoreWorkModal';
 
@@ -274,12 +275,12 @@ export default function Home() {
       {/* 4. About Me (Minimalist Layout) */}
       <section id="about" className="py-24 bg-background relative">
         <div className="max-w-5xl mx-auto px-6">
-          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="grid md:grid-cols-[1fr_2fr] gap-12 md:gap-16 items-start">
+          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="grid md:grid-cols-[1fr_2fr] gap-12 md:gap-16 items-center">
             
             {/* Left: Image */}
-            <div className="w-full max-w-[280px] mx-auto md:mx-0">
-               <div className="aspect-[4/5] rounded-2xl overflow-hidden shadow-sm grayscale hover:grayscale-0 transition-all duration-700">
-                 <img src={profileImg} alt="Nadia Hossny" className="w-full h-full object-cover" />
+            <div className="w-full max-w-[320px] mx-auto md:mx-0">
+               <div className="aspect-[4/5] rounded-3xl overflow-hidden shadow-md transition-all duration-500 hover:rotate-3 hover:scale-105 border-4 border-white">
+                 <img src={aboutPhoto} alt="Nadia Hossny" className="w-full h-full object-cover" />
                </div>
             </div>
             
