@@ -87,10 +87,12 @@ export default function Home() {
         isOpen={isMoreWorkModalOpen} 
         onClose={() => setIsMoreWorkModalOpen(false)} 
       />
+      
       {/* Full Screen Hero + Tools Strip Container */}
-      <div className="min-h-[100svh] flex flex-col">
+      <div className="h-[100svh] min-h-[600px] flex flex-col relative pt-20 md:pt-24 z-10">
         {/* 1. Hero Section */}
-        <section className="flex-1 relative w-full flex items-center justify-center pt-32 pb-12 px-6 overflow-hidden">
+        <section className="flex-1 relative w-full flex flex-col items-center justify-center py-8 px-6 overflow-hidden">
+          
           {/* Soft parallax cloud background - RESTORED */}
           <div className="absolute top-0 left-0 w-full h-full overflow-hidden z-0">
             <div className="absolute inset-0 bg-background"></div> {/* Base sky color */}
@@ -112,12 +114,12 @@ export default function Home() {
             <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-white"></div>
           </div>
           
-          <div className="relative z-10 w-full max-w-4xl mx-auto text-center pt-12 md:pt-16">
+          <div className="relative z-10 w-full max-w-4xl mx-auto text-center">
             <motion.h1 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="text-5xl md:text-7xl lg:text-8xl font-display text-headline font-bold mb-8 flex items-center justify-center flex-wrap gap-x-4 gap-y-2"
+              className="text-5xl md:text-7xl lg:text-8xl font-display text-headline font-bold mb-6 flex items-center justify-center flex-wrap gap-x-4 gap-y-2"
             >
               Hi, 
               <motion.div 
@@ -136,7 +138,7 @@ export default function Home() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-lg md:text-xl lg:text-2xl text-bodytext font-light leading-relaxed max-w-3xl mx-auto mb-16"
+              className="text-lg md:text-xl lg:text-2xl text-bodytext font-light leading-relaxed max-w-3xl mx-auto mb-10"
             >
               A product designer with a development background. <br className="hidden md:block" />
               I find real problems — then design and build the solution myself.
@@ -156,12 +158,12 @@ export default function Home() {
         </section>
 
         {/* 2. Trust Strip */}
-        <section className="py-10 border-y border-headline/10 bg-white relative z-10 shrink-0">
-          <div className="max-w-5xl mx-auto px-6 flex flex-wrap justify-center gap-12 md:gap-24 opacity-80">
-            <div className="flex items-center gap-3 text-headline hover:text-cta transition-colors duration-300 cursor-default"><SiFigma className="w-6 h-6" /><span className="text-sm font-medium">Figma</span></div>
-            <div className="flex items-center gap-3 text-headline hover:text-cta transition-colors duration-300 cursor-default"><SiFlutter className="w-6 h-6" /><span className="text-sm font-medium">Flutter</span></div>
-            <div className="flex items-center gap-3 text-headline hover:text-cta transition-colors duration-300 cursor-default"><SiReact className="w-6 h-6" /><span className="text-sm font-medium">React</span></div>
-            <div className="flex items-center gap-3 text-headline hover:text-cta transition-colors duration-300 cursor-default"><SiNextdotjs className="w-6 h-6" /><span className="text-sm font-medium">Next.js</span></div>
+        <section className="py-6 md:py-8 border-y border-headline/10 bg-white relative z-10 shrink-0">
+          <div className="max-w-5xl mx-auto px-6 flex flex-wrap justify-center gap-8 md:gap-24 opacity-80">
+            <div className="flex items-center gap-3 text-headline hover:text-cta transition-colors duration-300 cursor-default"><SiFigma className="w-5 h-5 md:w-6 md:h-6" /><span className="text-sm font-medium">Figma</span></div>
+            <div className="flex items-center gap-3 text-headline hover:text-cta transition-colors duration-300 cursor-default"><SiFlutter className="w-5 h-5 md:w-6 md:h-6" /><span className="text-sm font-medium">Flutter</span></div>
+            <div className="flex items-center gap-3 text-headline hover:text-cta transition-colors duration-300 cursor-default"><SiReact className="w-5 h-5 md:w-6 md:h-6" /><span className="text-sm font-medium">React</span></div>
+            <div className="flex items-center gap-3 text-headline hover:text-cta transition-colors duration-300 cursor-default"><SiNextdotjs className="w-5 h-5 md:w-6 md:h-6" /><span className="text-sm font-medium">Next.js</span></div>
           </div>
         </section>
       </div>
