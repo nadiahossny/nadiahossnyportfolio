@@ -184,11 +184,11 @@ export default function Services() {
           initial="hidden"
           animate="visible"
           variants={fadeUp}
-          className="max-w-3xl mb-24"
+          className="max-w-3xl mx-auto text-center mb-24"
         >
           <h1 className="text-6xl md:text-7xl font-display font-bold text-headline mb-6 tracking-tight">Graphic Design</h1>
           <p className="text-2xl text-bodytext font-light leading-relaxed">
-            A visual exploration of branding, illustration, and digital marketing. 
+            A visual exploration of branding, illustration, and digital marketing. <br className="hidden md:block" />
             Before diving into UI/UX, I spent years crafting visual identities and telling stories through pixels.
           </p>
         </motion.div>
