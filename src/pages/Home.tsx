@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { useLocation, Link } from 'react-router-dom';
 import { caseStudies } from '../data/caseStudies';
 import CaseStudyModal from '../components/CaseStudyModal';
-import { ArrowRight, CheckCircle2, Mail } from 'lucide-react';
+import { ArrowRight, ArrowDown, CheckCircle2, Mail } from 'lucide-react';
 import { SiFigma, SiFlutter, SiReact, SiNextdotjs } from 'react-icons/si';
 import { FaLinkedin, FaBehance, FaWhatsapp } from 'react-icons/fa';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -102,38 +102,42 @@ export default function Home() {
         </div>
         
         <div className="relative z-10 w-full max-w-4xl mx-auto text-center pt-12 md:pt-16">
-          <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.5 }} className="mb-6 inline-block">
-            <img src={profileImg} alt="Nadia Hossny" className="w-20 h-20 md:w-24 md:h-24 rounded-full object-cover shadow-sm border-4 border-white mx-auto" />
-          </motion.div>
-          
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-sm md:text-base tracking-[0.2em] uppercase font-bold text-headline mb-4"
-          >
-            Hi, I'm Nadia.
-          </motion.div>
           <motion.h1 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-3xl md:text-4xl lg:text-5xl font-display text-headline leading-snug mb-8 mx-auto"
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="text-5xl md:text-7xl lg:text-8xl font-display text-headline font-bold mb-8 flex items-center justify-center flex-wrap gap-x-4 gap-y-2"
           >
-            Product Designer <br />
-            with a development background. <br />
-            I find real problems — then <br />
-            design and build the solution myself.
+            Hi, 
+            <motion.div 
+              initial={{ opacity: 0, scale: 0.8, rotate: -15 }} 
+              animate={{ opacity: 1, scale: 1, rotate: -5 }} 
+              transition={{ duration: 0.6, delay: 0.3, type: "spring" }} 
+              className="inline-block relative -mt-2 md:-mt-4 mx-1"
+            >
+              <img src={profileImg} alt="Nadia Hossny" className="w-16 h-16 md:w-24 md:h-24 lg:w-28 lg:h-28 rounded-2xl md:rounded-[2rem] object-cover shadow-lg border-[3px] md:border-4 border-white grayscale hover:grayscale-0 transition-all duration-500" />
+            </motion.div>
+            I'm Nadia!
           </motion.h1>
+
+          <motion.p 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="text-lg md:text-xl lg:text-2xl text-bodytext font-light leading-relaxed max-w-3xl mx-auto mb-16"
+          >
+            A product designer with a development background. <br className="hidden md:block" />
+            I find real problems — then design and build the solution myself.
+          </motion.p>
           
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            className="flex flex-col sm:flex-row items-center justify-center gap-6"
+            transition={{ duration: 0.6, delay: 0.4 }}
+            className="flex justify-center"
           >
-            <a href="#work" className="inline-flex items-center gap-2 px-6 py-3 bg-headline text-white rounded-full font-medium hover:bg-headline/90 transition-all shadow-sm group text-sm">
-              View Work <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            <a href="#work" className="animate-bounce inline-flex items-center justify-center p-4 rounded-full text-headline hover:text-cta transition-colors">
+              <ArrowDown className="w-8 h-8 md:w-10 md:h-10" strokeWidth={2.5} />
             </a>
           </motion.div>
         </div>
