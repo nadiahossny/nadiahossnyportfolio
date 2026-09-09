@@ -13,6 +13,18 @@ const imageModules = import.meta.glob('../assets/graphic-design/**/*.{png,jpg,jp
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const bundlesMap: Record<string, any> = {};
 
+// If you want to customize the text for a specific project folder, you can do it here!
+// Just use the exact folder name as the key.
+const customProjectDetails: Record<string, { title?: string; story?: string; category?: string }> = {
+  "IEEE PUA SB poosts and stories": {
+    title: "IEEE PUA SB Posts & Stories",
+    story: "A collection of social media designs, posts, and stories crafted for the IEEE PUA Student Branch.",
+    category: "Social Media"
+  },
+  // You can add more overrides here for other folders! For example:
+  // "My Folder Name": { title: "Custom Title", story: "Custom Story..." }
+};
+
 for (const path in imageModules) {
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-expect-error
@@ -23,12 +35,14 @@ for (const path in imageModules) {
   if (folderName === 'graphic-design' || folderName === 'assets' || folderName === 'src') continue;
 
   if (!bundlesMap[folderName]) {
+    const custom = customProjectDetails[folderName] || {};
+    
     bundlesMap[folderName] = {
       id: folderName,
-      title: folderName.split(' ').map((word: string) => word.charAt(0).toUpperCase() + word.slice(1)).join(' '),
-      category: "Graphic Design",
+      title: custom.title || folderName.split(' ').map((word: string) => word.charAt(0).toUpperCase() + word.slice(1)).join(' '),
+      category: custom.category || "Graphic Design",
       cover: url,
-      story: `A collection of designs from the ${folderName} project.`,
+      story: custom.story || `A collection of designs from the ${folderName} project.`,
       images: []
     };
   }
