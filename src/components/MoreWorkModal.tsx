@@ -54,7 +54,7 @@ export default function MoreWorkModal({ isOpen, onClose }: MoreWorkModalProps) {
                     </div>
                   )}
                   <div className="p-6 flex flex-col flex-grow">
-                    <h3 className="text-xl font-medium text-headline mb-3">{project.title}</h3>
+                    <h3 className="text-xl font-semibold text-headline mb-3">{project.title}</h3>
                     <p className="text-sm text-bodytext leading-relaxed mb-6 flex-grow">{project.description}</p>
                     <a 
                       href={project.link} 

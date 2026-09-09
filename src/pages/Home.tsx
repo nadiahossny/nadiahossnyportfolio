@@ -185,7 +185,7 @@ export default function Home() {
                   </button>
                 </div>
                 <div className="w-full lg:w-2/5 flex flex-col items-start text-left">
-                  <h3 className="text-2xl font-display text-headline mb-4">{study.title}</h3>
+                  <h3 className="text-2xl font-display font-semibold text-headline mb-4">{study.title}</h3>
                   <p className="text-base text-bodytext font-light leading-relaxed mb-8">
                     {study.outcome || study.hook}
                   </p>
