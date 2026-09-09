@@ -114,7 +114,7 @@ export default function Services() {
         </div>
         
         {/* Tools Strip */}
-        <section className="py-10 border-y border-headline/10 bg-white relative z-10 mb-24">
+        <section className="py-10 border-y border-headline/10 bg-white relative z-10">
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -129,84 +129,90 @@ export default function Services() {
           </motion.div>
         </section>
 
-        <div className="max-w-7xl mx-auto px-8 pb-12">
-
-
-        {/* What I Offer Section */}
-        <div className="mb-24">
-          <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} className="mb-12">
-            <h2 className="text-4xl md:text-5xl font-display text-headline mb-4 font-bold" style={{ marginLeft: "-0.08em" }}>What I Offer</h2>
-            <p className="text-xl text-bodytext font-light">Specialized design services tailored to your needs.</p>
-          </motion.div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} className="bg-white p-10 rounded-3xl border border-cloud shadow-sm hover:shadow-md transition-shadow">
-              <h3 className="text-2xl font-display font-bold text-headline mb-4">Brand Identity</h3>
-              <p className="text-base text-bodytext font-light leading-relaxed">
-                Logos, style guides, and complete visual systems that ensure your brand is consistent, memorable, and professional across all mediums.
-              </p>
+        {/* What I Offer Section - bg-background */}
+        <section className="py-24 bg-background relative z-10">
+          <div className="max-w-7xl mx-auto px-8">
+            <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} className="mb-12 text-center md:text-left">
+              <h2 className="text-4xl md:text-5xl font-display text-headline mb-4 font-bold" style={{ marginLeft: "-0.08em" }}>What I Offer</h2>
+              <p className="text-xl text-bodytext font-light">Specialized design services tailored to your needs.</p>
             </motion.div>
-            <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} className="bg-white p-10 rounded-3xl border border-cloud shadow-sm hover:shadow-md transition-shadow">
-              <h3 className="text-2xl font-display font-bold text-headline mb-4">Marketing Materials</h3>
-              <p className="text-base text-bodytext font-light leading-relaxed">
-                From eye-catching roller banners to event flyers and business cards, I design physical touchpoints that leave a lasting impression.
-              </p>
-            </motion.div>
-            <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} className="bg-white p-10 rounded-3xl border border-cloud shadow-sm hover:shadow-md transition-shadow">
-              <h3 className="text-2xl font-display font-bold text-headline mb-4">Digital Content</h3>
-              <p className="text-base text-bodytext font-light leading-relaxed">
-                Engaging social media posts, custom character designs, and digital art tailored to boost your online presence and tell your story.
-              </p>
-            </motion.div>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} className="bg-white p-10 rounded-3xl border border-cloud shadow-sm hover:shadow-md transition-shadow">
+                <h3 className="text-2xl font-display font-bold text-headline mb-4">Brand Identity</h3>
+                <p className="text-base text-bodytext font-light leading-relaxed">
+                  Logos, style guides, and complete visual systems that ensure your brand is consistent, memorable, and professional across all mediums.
+                </p>
+              </motion.div>
+              <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} className="bg-white p-10 rounded-3xl border border-cloud shadow-sm hover:shadow-md transition-shadow">
+                <h3 className="text-2xl font-display font-bold text-headline mb-4">Marketing Materials</h3>
+                <p className="text-base text-bodytext font-light leading-relaxed">
+                  From eye-catching roller banners to event flyers and business cards, I design physical touchpoints that leave a lasting impression.
+                </p>
+              </motion.div>
+              <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} className="bg-white p-10 rounded-3xl border border-cloud shadow-sm hover:shadow-md transition-shadow">
+                <h3 className="text-2xl font-display font-bold text-headline mb-4">Digital Content</h3>
+                <p className="text-base text-bodytext font-light leading-relaxed">
+                  Engaging social media posts, custom character designs, and digital art tailored to boost your online presence and tell your story.
+                </p>
+              </motion.div>
+            </div>
           </div>
-        </div>
+        </section>
 
-        {/* Gallery Grid */}
-        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 md:gap-16">
-          {graphicProjects.map((project, i) => (
-            <motion.div 
-              key={project.id}
-              initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }} transition={{ delay: i * 0.1 }} variants={fadeUp}
-              className="group cursor-pointer flex flex-col"
-              onClick={() => {
-                setSelectedProject(project);
-                setActiveModalImage(project.cover);
-              }}
-            >
-              <div className="relative w-full aspect-[4/3] mb-6 z-10 group-hover:z-20">
-                {/* Stack 2 */}
-                {project.images.length > 2 && (
-                  <div className="absolute inset-0 rounded-2xl transform transition-all duration-500 origin-bottom group-hover:rotate-[8deg] group-hover:translate-x-5 group-hover:-translate-y-2 shadow-lg border-8 border-white overflow-hidden z-0 opacity-0 group-hover:opacity-100 bg-cloud">
-                    <img src={project.images[2]} alt="" className="w-full h-full object-cover opacity-90" loading="lazy" />
-                  </div>
-                )}
-                {/* Stack 1 */}
-                {project.images.length > 1 && (
-                  <div className="absolute inset-0 rounded-2xl transform transition-all duration-500 origin-bottom group-hover:-rotate-[8deg] group-hover:-translate-x-5 group-hover:-translate-y-2 shadow-lg border-8 border-white overflow-hidden z-0 opacity-0 group-hover:opacity-100 bg-cloud">
-                    <img src={project.images[1]} alt="" className="w-full h-full object-cover opacity-90" loading="lazy" />
-                  </div>
-                )}
-                
-                {/* Main Card */}
-                <div className="absolute inset-0 rounded-2xl overflow-hidden bg-background shadow-md group-hover:shadow-2xl transition-all duration-500 transform group-hover:-translate-y-4 border-8 border-white z-10">
-                  <img 
-                    src={project.cover} 
-                    alt={project.title} 
-                    className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700" 
-                    loading="lazy"
-                  />
-                  <div className="absolute inset-0 bg-headline/0 group-hover:bg-headline/10 transition-colors duration-300 flex items-center justify-center">
-                    <span className="opacity-0 group-hover:opacity-100 bg-white text-headline px-6 py-3 rounded-full font-medium shadow-lg transform translate-y-4 group-hover:translate-y-0 transition-all duration-300">
-                      View Bundle
-                    </span>
-                  </div>
-                </div>
-              </div>
-              <p className="text-[11px] font-bold tracking-widest uppercase text-cta mb-2">{project.category}</p>
-              <h3 className="text-2xl font-display text-headline font-semibold group-hover:text-cta transition-colors">{project.title}</h3>
+        {/* Gallery Grid - bg-white */}
+        <section className="py-24 bg-white relative z-10">
+          <div className="max-w-7xl mx-auto px-8">
+            <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} className="mb-12 text-center md:text-left">
+              <h2 className="text-4xl md:text-5xl font-display text-headline mb-4 font-bold" style={{ marginLeft: "-0.08em" }}>Featured Bundles</h2>
+              <p className="text-xl text-bodytext font-light">A collection of designs from my previous graphic design work.</p>
             </motion.div>
-          ))}
-        </div>
-        </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 md:gap-16">
+              {graphicProjects.map((project, i) => (
+                <motion.div 
+                  key={project.id}
+                  initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }} transition={{ delay: i * 0.1 }} variants={fadeUp}
+                  className="group cursor-pointer flex flex-col"
+                  onClick={() => {
+                    setSelectedProject(project);
+                    setActiveModalImage(project.cover);
+                  }}
+                >
+                  <div className="relative w-full aspect-[4/3] mb-6 z-10 group-hover:z-20">
+                    {/* Stack 2 */}
+                    {project.images.length > 2 && (
+                      <div className="absolute inset-0 rounded-2xl transform transition-all duration-500 origin-bottom group-hover:rotate-[8deg] group-hover:translate-x-5 group-hover:-translate-y-2 shadow-lg border-8 border-white overflow-hidden z-0 opacity-0 group-hover:opacity-100 bg-cloud">
+                        <img src={project.images[2]} alt="" className="w-full h-full object-cover opacity-90" loading="lazy" />
+                      </div>
+                    )}
+                    {/* Stack 1 */}
+                    {project.images.length > 1 && (
+                      <div className="absolute inset-0 rounded-2xl transform transition-all duration-500 origin-bottom group-hover:-rotate-[8deg] group-hover:-translate-x-5 group-hover:-translate-y-2 shadow-lg border-8 border-white overflow-hidden z-0 opacity-0 group-hover:opacity-100 bg-cloud">
+                        <img src={project.images[1]} alt="" className="w-full h-full object-cover opacity-90" loading="lazy" />
+                      </div>
+                    )}
+                    
+                    {/* Main Card */}
+                    <div className="absolute inset-0 rounded-2xl overflow-hidden bg-background shadow-md group-hover:shadow-2xl transition-all duration-500 transform group-hover:-translate-y-4 border-8 border-white z-10">
+                      <img 
+                        src={project.cover} 
+                        alt={project.title} 
+                        className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700" 
+                        loading="lazy"
+                      />
+                      <div className="absolute inset-0 bg-headline/0 group-hover:bg-headline/10 transition-colors duration-300 flex items-center justify-center">
+                        <span className="opacity-0 group-hover:opacity-100 bg-white text-headline px-6 py-3 rounded-full font-medium shadow-lg transform translate-y-4 group-hover:translate-y-0 transition-all duration-300">
+                          View Bundle
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                  <p className="text-[11px] font-bold tracking-widest uppercase text-cta mb-2">{project.category}</p>
+                  <h3 className="text-2xl font-display text-headline font-semibold group-hover:text-cta transition-colors">{project.title}</h3>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
       </main>
 
       {/* Contact CTA */}
