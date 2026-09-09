@@ -41,7 +41,7 @@ export default function Navigation() {
 
       {/* Mobile Nav Overlay */}
       {isOpen && (
-        <div className="absolute top-24 left-0 w-full bg-white shadow-xl border-b border-cloud md:hidden py-8 px-6 flex flex-col gap-6 text-sm uppercase tracking-widest text-headline font-semibold z-40">
+        <div className="absolute top-full left-0 w-full bg-white shadow-xl border-b border-cloud md:hidden py-8 px-6 flex flex-col gap-6 text-sm uppercase tracking-widest text-headline font-semibold z-40">
           <a href="/#work" onClick={() => setIsOpen(false)} className="hover:text-cta transition-colors">Work</a>
           <a href="/#about" onClick={() => setIsOpen(false)} className="hover:text-cta transition-colors">About</a>
           <Link to="/graphic-design" onClick={() => setIsOpen(false)} className="hover:text-cta transition-colors">Visuals</Link>
