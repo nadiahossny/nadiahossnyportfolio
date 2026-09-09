@@ -100,7 +100,7 @@ export default function Services() {
       </nav>
 
       <main className="relative z-10 pt-24 md:pt-32">
-        <div className="max-w-7xl mx-auto px-8 pt-4 pb-16">
+        <div className="max-w-7xl mx-auto px-8 pt-4 pb-8">
           <motion.div 
             initial="hidden"
             animate="visible"
@@ -116,7 +116,7 @@ export default function Services() {
         </div>
         
         {/* Tools Strip */}
-        <section className="py-10 border-y border-headline/10 bg-white relative z-10">
+        <section className="py-8 md:py-10 border-y border-headline/10 bg-white relative z-10">
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -132,7 +132,7 @@ export default function Services() {
         </section>
 
         {/* What I Offer Section - bg-background */}
-        <section className="py-24 bg-background relative z-10">
+        <section className="pt-16 pb-24 bg-background relative z-10">
           <div className="max-w-7xl mx-auto px-8">
             <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} className="mb-12 text-center md:text-left">
               <h2 className="text-4xl md:text-5xl font-display text-headline mb-4 font-bold" style={{ marginLeft: "-0.08em" }}>What I Offer</h2>
