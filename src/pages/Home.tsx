@@ -79,9 +79,9 @@ export default function Home() {
         onClose={() => setIsMoreWorkModalOpen(false)} 
       />
       {/* 1. Hero Section */}
-      <section className="relative w-full min-h-[100vh] flex items-center justify-center pt-24 pb-32 px-6 overflow-hidden">
+      <section className="relative w-full min-h-[85vh] flex items-center justify-center pt-32 pb-24 px-6 overflow-hidden">
         {/* Soft parallax cloud background - RESTORED */}
-        <div className="absolute top-0 left-0 w-full h-[100vh] overflow-hidden z-0">
+        <div className="absolute top-0 left-0 w-full h-full overflow-hidden z-0">
           <div className="absolute inset-0 bg-background"></div> {/* Base sky color */}
           <motion.img 
             src={heroBg} 
@@ -101,12 +101,16 @@ export default function Home() {
           <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-white"></div>
         </div>
         
-        <div className="relative z-10 w-full max-w-4xl mx-auto text-center pt-24">
+        <div className="relative z-10 w-full max-w-4xl mx-auto text-center pt-12 md:pt-16">
+          <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.5 }} className="mb-6 inline-block">
+            <img src={profileImg} alt="Nadia Hossny" className="w-20 h-20 md:w-24 md:h-24 rounded-full object-cover shadow-sm border-4 border-white mx-auto" />
+          </motion.div>
+          
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-xs md:text-sm tracking-widest uppercase font-medium text-cta mb-6"
+            className="text-sm md:text-base tracking-[0.2em] uppercase font-bold text-headline mb-4"
           >
             Hi, I'm Nadia.
           </motion.div>
@@ -114,18 +118,18 @@ export default function Home() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-3xl md:text-4xl lg:text-5xl font-display text-headline leading-snug mb-10 mx-auto"
+            className="text-3xl md:text-4xl lg:text-5xl font-display text-headline leading-snug mb-8 mx-auto"
           >
             Product Designer <br />
             with a development background. <br />
             I find real problems — then <br />
-            <span className="italic">design and build</span> the solution myself.
+            design and build the solution myself.
           </motion.h1>
           
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
             className="flex flex-col sm:flex-row items-center justify-center gap-6"
           >
             <a href="#work" className="inline-flex items-center gap-2 px-6 py-3 bg-headline text-white rounded-full font-medium hover:bg-headline/90 transition-all shadow-sm group text-sm">

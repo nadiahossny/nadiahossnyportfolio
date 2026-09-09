@@ -1,21 +1,30 @@
 import { Link, useLocation } from 'react-router-dom';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import logo from '../assets/n-logo-transparent.png';
 
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
   const location = useLocation();
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   if (location.pathname === '/graphic-design') {
     return null; // The graphic design page has its own custom back button
   }
 
   return (
-    <header className="absolute top-0 w-full z-50">
-      <div className="max-w-7xl mx-auto px-6 h-24 flex items-center justify-between">
+    <header className={`fixed top-0 w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-white/90 backdrop-blur-md shadow-sm border-b border-cloud' : 'bg-transparent'}`}>
+      <div className="max-w-7xl mx-auto px-6 h-20 md:h-24 flex items-center justify-between">
         <Link to="/" className="flex items-center transition-opacity hover:opacity-80">
-          <img src={logo} alt="Nadia Hossny" className="h-12 w-auto" />
+          <img src={logo} alt="Nadia Hossny" className="h-10 md:h-12 w-auto" />
         </Link>
         <nav className="hidden md:flex items-center gap-10 text-[13px] uppercase tracking-widest text-headline font-semibold">
           <a href="/#work" className="hover:text-cta transition-colors">Work</a>
