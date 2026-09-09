@@ -203,7 +203,16 @@ export default function Services() {
                     setActiveModalImage(project.cover);
                   }}
                 >
-                  <div className={`relative w-full aspect-[3/4] mb-8 z-10 group-hover:z-20 transition-all duration-500 ${['-rotate-2', 'rotate-2', '-rotate-1', 'rotate-3'][i % 4]} group-hover:rotate-0`}>
+                  <div className={`relative w-full aspect-[3/4] mb-8 z-10 group-hover:z-20 transition-all duration-500 ${
+                    [
+                      "rotate-0 sm:rotate-2 lg:rotate-2",
+                      "rotate-0 sm:-rotate-2 lg:rotate-0",
+                      "rotate-0 sm:rotate-2 lg:-rotate-2",
+                      "rotate-0 sm:-rotate-2 lg:rotate-2",
+                      "rotate-0 sm:rotate-2 lg:rotate-0",
+                      "rotate-0 sm:-rotate-2 lg:-rotate-2",
+                    ][i % 6]
+                  } group-hover:!rotate-0`}>
                     {/* Stack 2 */}
                     {project.images.length > 2 && (
                        <div className="absolute inset-0 rounded-2xl transform transition-all duration-500 origin-bottom group-hover:rotate-[12deg] group-hover:translate-x-6 group-hover:-translate-y-2 shadow-lg border-8 border-white overflow-hidden z-0 opacity-0 group-hover:opacity-100 bg-cloud">
