@@ -168,7 +168,7 @@ export default function Services() {
               <h2 className="text-4xl md:text-5xl font-display text-headline mb-4 font-bold" style={{ marginLeft: "-0.08em" }}>Featured Bundles</h2>
               <p className="text-xl text-bodytext font-light">A collection of designs from my previous graphic design work.</p>
             </motion.div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 md:gap-16">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 md:gap-12">
               {graphicProjects.map((project, i) => (
                 <motion.div 
                   key={project.id}
@@ -179,22 +179,22 @@ export default function Services() {
                     setActiveModalImage(project.cover);
                   }}
                 >
-                  <div className="relative w-full aspect-[3/4] mb-6 z-10 group-hover:z-20">
+                  <div className={`relative w-full aspect-[3/4] mb-6 z-10 group-hover:z-20 transition-all duration-500 ${['-rotate-2', 'rotate-2', '-rotate-1', 'rotate-3'][i % 4]} group-hover:rotate-0`}>
                     {/* Stack 2 */}
                     {project.images.length > 2 && (
-                      <div className="absolute inset-0 rounded-2xl transform transition-all duration-500 origin-bottom group-hover:rotate-[8deg] group-hover:translate-x-5 group-hover:-translate-y-2 shadow-lg border-8 border-white overflow-hidden z-0 opacity-0 group-hover:opacity-100 bg-cloud">
+                       <div className="absolute inset-0 rounded-2xl transform transition-all duration-500 origin-bottom group-hover:rotate-[12deg] group-hover:translate-x-6 group-hover:-translate-y-2 shadow-lg border-8 border-white overflow-hidden z-0 opacity-0 group-hover:opacity-100 bg-cloud">
                         <img src={project.images[2]} alt="" className="w-full h-full object-cover opacity-90" loading="lazy" />
                       </div>
                     )}
                     {/* Stack 1 */}
                     {project.images.length > 1 && (
-                      <div className="absolute inset-0 rounded-2xl transform transition-all duration-500 origin-bottom group-hover:-rotate-[8deg] group-hover:-translate-x-5 group-hover:-translate-y-2 shadow-lg border-8 border-white overflow-hidden z-0 opacity-0 group-hover:opacity-100 bg-cloud">
+                      <div className="absolute inset-0 rounded-2xl transform transition-all duration-500 origin-bottom group-hover:-rotate-[12deg] group-hover:-translate-x-6 group-hover:-translate-y-2 shadow-lg border-8 border-white overflow-hidden z-0 opacity-0 group-hover:opacity-100 bg-cloud">
                         <img src={project.images[1]} alt="" className="w-full h-full object-cover opacity-90" loading="lazy" />
                       </div>
                     )}
                     
                     {/* Main Card */}
-                    <div className="absolute inset-0 rounded-2xl overflow-hidden bg-background shadow-md group-hover:shadow-2xl transition-all duration-500 transform group-hover:-translate-y-4 border-8 border-white z-10">
+                    <div className="absolute inset-0 rounded-2xl overflow-hidden bg-background shadow-md group-hover:shadow-2xl transition-all duration-500 transform group-hover:-translate-y-4 border-[6px] border-white z-10">
                       <img 
                         src={project.cover} 
                         alt={project.title} 
@@ -203,13 +203,13 @@ export default function Services() {
                       />
                       <div className="absolute inset-0 bg-headline/0 group-hover:bg-headline/10 transition-colors duration-300 flex items-center justify-center">
                         <span className="opacity-0 group-hover:opacity-100 bg-white text-headline px-6 py-3 rounded-full font-medium shadow-lg transform translate-y-4 group-hover:translate-y-0 transition-all duration-300">
-                          View Bundle
+                          View
                         </span>
                       </div>
                     </div>
                   </div>
-                  <p className="text-[11px] font-bold tracking-widest uppercase text-cta mb-2">{project.category}</p>
-                  <h3 className="text-2xl font-display text-headline font-semibold group-hover:text-cta transition-colors">{project.title}</h3>
+                  <p className="text-[10px] font-bold tracking-widest uppercase text-cta mb-1">{project.category}</p>
+                  <h3 className="text-xl font-display text-headline font-semibold group-hover:text-cta transition-colors">{project.title}</h3>
                 </motion.div>
               ))}
             </div>
