@@ -33,8 +33,8 @@ export default function Footer() {
           </a>
         </div>
       </div>
-      <div className="relative z-10 max-w-5xl mx-auto mt-16 text-center text-xs text-bodytext/80 font-medium">
-        © {new Date().getFullYear()} Nadia Hossny. All rights reserved.
+      <div className="relative z-10 max-w-5xl mx-auto mt-16 text-center text-xs text-bodytext/60 font-medium">
+        © {new Date().getFullYear()} Nadia Hossny
       </div>
     </footer>
   );
