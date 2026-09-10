@@ -148,10 +148,10 @@ export default function Services() {
             className="max-w-5xl mx-auto px-6 flex flex-wrap justify-center gap-12 md:gap-20 opacity-80"
           >
             <div className="flex items-center gap-3 text-headline hover:text-cta transition-colors duration-300 cursor-default"><BiLogoAdobe className="w-7 h-7" /><span className="text-sm font-medium">Adobe CC</span></div>
-            <div className="flex items-center gap-3 text-headline hover:text-cta transition-colors duration-300 cursor-default"><SiFigma className="w-6 h-6" /><span className="text-sm font-medium">Figma</span></div>
-            <div className="flex items-center gap-3 text-headline hover:text-cta transition-colors duration-300 cursor-default"><SiCanva className="w-6 h-6" /><span className="text-sm font-medium">Canva</span></div>
-            <div className="flex items-center gap-3 text-headline hover:text-cta transition-colors duration-300 cursor-default"><SiKrita className="w-6 h-6" /><span className="text-sm font-medium">Krita</span></div>
             <div className="flex items-center gap-3 text-headline hover:text-cta transition-colors duration-300 cursor-default"><SiAffinitydesigner className="w-6 h-6" /><span className="text-sm font-medium">Affinity</span></div>
+            <div className="flex items-center gap-3 text-headline hover:text-cta transition-colors duration-300 cursor-default"><SiFigma className="w-6 h-6" /><span className="text-sm font-medium">Figma</span></div>
+            <div className="flex items-center gap-3 text-headline hover:text-cta transition-colors duration-300 cursor-default"><SiKrita className="w-6 h-6" /><span className="text-sm font-medium">Krita</span></div>
+            <div className="flex items-center gap-3 text-headline hover:text-cta transition-colors duration-300 cursor-default"><SiCanva className="w-6 h-6" /><span className="text-sm font-medium">Canva</span></div>
           </motion.div>
         </section>
 
@@ -215,19 +215,19 @@ export default function Services() {
                   } group-hover:!rotate-0`}>
                     {/* Stack 2 */}
                     {project.images.length > 2 && (
-                       <div className="absolute inset-0 rounded-2xl transform transition-all duration-500 origin-bottom group-hover:rotate-[12deg] group-hover:translate-x-6 group-hover:-translate-y-2 shadow-lg border-8 border-white overflow-hidden z-0 opacity-0 group-hover:opacity-100 bg-cloud">
+                       <div className="absolute inset-0 rounded-2xl transform transition-all duration-500 origin-bottom group-hover:rotate-[5deg] group-hover:translate-x-3 group-hover:-translate-y-1 group-hover:scale-[0.95] shadow-lg border-4 border-white overflow-hidden z-0 opacity-0 group-hover:opacity-100 bg-cloud">
                         <img src={project.images[2]} alt="" className="w-full h-full object-cover opacity-90" loading="lazy" />
                       </div>
                     )}
                     {/* Stack 1 */}
                     {project.images.length > 1 && (
-                      <div className="absolute inset-0 rounded-2xl transform transition-all duration-500 origin-bottom group-hover:-rotate-[12deg] group-hover:-translate-x-6 group-hover:-translate-y-2 shadow-lg border-8 border-white overflow-hidden z-0 opacity-0 group-hover:opacity-100 bg-cloud">
+                      <div className="absolute inset-0 rounded-2xl transform transition-all duration-500 origin-bottom group-hover:-rotate-[5deg] group-hover:-translate-x-3 group-hover:-translate-y-1 group-hover:scale-[0.95] shadow-lg border-4 border-white overflow-hidden z-0 opacity-0 group-hover:opacity-100 bg-cloud">
                         <img src={project.images[1]} alt="" className="w-full h-full object-cover opacity-90" loading="lazy" />
                       </div>
                     )}
                     
                     {/* Main Card */}
-                    <div className="absolute inset-0 rounded-2xl overflow-hidden bg-background shadow-md group-hover:shadow-2xl transition-all duration-500 transform group-hover:-translate-y-4 border-[6px] border-white z-10">
+                    <div className="absolute inset-0 rounded-2xl overflow-hidden bg-background shadow-md group-hover:shadow-xl transition-all duration-500 transform group-hover:-translate-y-2 border-[4px] border-white z-10">
                       <img 
                         src={project.cover} 
                         alt={project.title} 

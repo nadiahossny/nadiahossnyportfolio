@@ -69,7 +69,7 @@ export default function MoreWorkModal({ isOpen, onClose }: MoreWorkModalProps) {
               ))}
             </div>
 
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-8 border-t border-headline/10">
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-8 border-t border-cloud">
               <a 
                 href="https://github.com/nadiahossny" 
                 target="_blank" 
@@ -83,7 +83,7 @@ export default function MoreWorkModal({ isOpen, onClose }: MoreWorkModalProps) {
                 href="https://behance.net/nadiahossny" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="flex items-center gap-3 px-8 py-4 bg-[#053eff] text-white rounded-full font-medium hover:bg-[#002bd4] transition-colors text-sm w-full sm:w-auto justify-center"
+                className="flex items-center gap-3 px-8 py-4 bg-cta text-white rounded-full font-medium hover:bg-headline transition-colors text-sm w-full sm:w-auto justify-center"
               >
                 <FaBehance className="w-5 h-5" />
                 More on Behance

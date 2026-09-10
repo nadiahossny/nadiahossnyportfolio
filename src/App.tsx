@@ -3,6 +3,7 @@ import Home from './pages/Home';
 import Services from './pages/Services';
 import Navigation from './components/Navigation';
 import Footer from './components/Footer';
+import Playground from './components/Playground';
 
 import NotFound from './pages/NotFound';
 
@@ -14,6 +15,7 @@ export default function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/graphic-design" element={<Services />} />
+          <Route path="/creative-corner" element={<Playground />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </main>

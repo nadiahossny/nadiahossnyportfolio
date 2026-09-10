@@ -433,7 +433,7 @@ export default function Home() {
       </section>
 
       {/* 8. Contact Section */}
-      <section id="contact" className="relative w-full pt-32 pb-4 flex flex-col items-center justify-center px-6 overflow-hidden bg-background">
+      <section id="contact" className="relative w-full pt-32 pb-32 flex flex-col items-center justify-center px-6 overflow-hidden bg-background">
         <div className="relative z-10 w-full max-w-5xl mx-auto">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-display text-headline mb-4 font-bold" style={{ marginLeft: "-0.08em" }}>Let's work together.</h2>
@@ -444,20 +444,59 @@ export default function Home() {
             <motion.form 
               initial="hidden" whileInView="visible" viewport={{ once: true }} transition={{ delay: 0.1 }} variants={fadeUp}
               className="flex-[2] flex flex-col gap-4"
-              onSubmit={(e) => {
+              onSubmit={async (e) => {
                 e.preventDefault();
                 const form = e.currentTarget;
-                if (form.checkValidity()) {
-                  // Simulate successful submission
-                  const btn = form.querySelector('button');
-                  if (btn) {
-                    const originalText = btn.innerText;
-                    btn.innerText = "Message Sent! ✓";
-                    btn.classList.add("bg-green-600");
+                const btn = form.querySelector('button');
+                
+                if (form.checkValidity() && btn) {
+                  const originalText = btn.innerText;
+                  btn.innerText = "Sending...";
+                  
+                  try {
+                    // Extract form data
+                    const formData = new FormData(form);
+                    const name = formData.get("Name");
+                    const email = formData.get("Email");
+                    const message = formData.get("Message");
+
+                    // Web3Forms silent email integration
+                    const response = await fetch("https://api.web3forms.com/submit", {
+                      method: "POST",
+                      headers: {
+                        "Content-Type": "application/json",
+                        Accept: "application/json",
+                      },
+                      body: JSON.stringify({
+                        access_key: "11d9c258-baed-40a7-9f00-a190699aea1b",
+                        subject: "New Inquiry from Portfolio",
+                        from_name: name,
+                        replyto: email,
+                        message: message,
+                      }),
+                    });
+
+                    if (response.ok) {
+                      btn.innerText = "Message Sent! ✓";
+                      btn.classList.remove("bg-cta", "text-white");
+                      btn.classList.add("bg-cloud", "text-cta");
+                      setTimeout(() => {
+                        btn.innerText = originalText;
+                        btn.classList.remove("bg-cloud", "text-cta");
+                        btn.classList.add("bg-cta", "text-white");
+                        form.reset();
+                      }, 3000);
+                    } else {
+                      throw new Error("Failed to send");
+                    }
+                  } catch (error) {
+                    btn.innerText = "Failed to send (Check API Key)";
+                    btn.classList.remove("bg-cta");
+                    btn.classList.add("bg-red-500");
                     setTimeout(() => {
                       btn.innerText = originalText;
-                      btn.classList.remove("bg-green-600");
-                      form.reset();
+                      btn.classList.remove("bg-red-500");
+                      btn.classList.add("bg-cta");
                     }, 3000);
                   }
                 }
@@ -503,17 +542,34 @@ export default function Home() {
               </a>
             </motion.div>
           </div>
-          
-          {/* Cross-navigation to Graphic Design */}
+        </div>
+      </section>
+      
+      {/* Cross-navigation to Other Work */}
+      <section className="py-24 bg-white border-t border-cloud/30">
+        <div className="max-w-5xl mx-auto px-6">
           <motion.div 
             initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} 
-            className="mt-24 pt-12 border-t border-cloud/30 text-center"
           >
-            <h3 className="text-xl md:text-2xl font-display text-headline mb-4 font-semibold">Looking for brand identity or visual design?</h3>
-            <p className="text-bodytext font-light mb-6">I also do illustrations, logos, and print materials.</p>
-            <Link to="/graphic-design" className="inline-flex items-center gap-2 px-8 py-4 bg-white text-headline border border-cloud rounded-full font-medium hover:bg-cloud/20 transition-all shadow-sm group">
-              Explore Graphic Design Work <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </Link>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              {/* Graphic Design */}
+              <div className="bg-white p-10 rounded-[2rem] border border-cloud/50 shadow-sm text-center flex flex-col items-center justify-center">
+                <h3 className="text-xl md:text-2xl font-display text-headline mb-4 font-semibold">Looking for brand identity?</h3>
+                <p className="text-bodytext font-light mb-8">I also do illustrations, logos, and print materials.</p>
+                <Link to="/graphic-design" className="inline-flex items-center gap-2 px-8 py-4 bg-headline text-white rounded-full font-medium hover:bg-headline/90 transition-all shadow-sm group mt-auto">
+                  Explore Graphic Design <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </Link>
+              </div>
+
+              {/* Creative Corner */}
+              <div className="bg-white p-10 rounded-[2rem] border border-cloud/50 shadow-sm text-center flex flex-col items-center justify-center">
+                <h3 className="text-xl md:text-2xl font-display text-headline mb-4 font-semibold">Want to see my experiments?</h3>
+                <p className="text-bodytext font-light mb-8">Explore my interactive playground and fun UI experiments.</p>
+                <Link to="/creative-corner" className="inline-flex items-center gap-2 px-8 py-4 bg-cta text-white rounded-full font-medium hover:bg-headline transition-all shadow-sm group mt-auto">
+                  Visit Creative Corner <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </Link>
+              </div>
+            </div>
           </motion.div>
         </div>
       </section>

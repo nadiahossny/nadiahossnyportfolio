@@ -22,6 +22,7 @@ export interface CaseStudy {
   image: string;
   stat: string;
   links?: { url: string; label: string; type: 'behance' | 'github' | 'live' }[];
+  uiExplorations?: { title: string; desc: string }[];
 }
 
 export const caseStudies: CaseStudy[] = [
@@ -92,26 +93,33 @@ export const caseStudies: CaseStudy[] = [
     tags: ['Product Design', 'UX Research', 'Mobile App'],
     hook: 'A lean capture-to-plan flow leaning on preattentive processing to instantly register priority.',
     color: 'bg-red-900',
-    problem: 'Planning apps tend to solve for completeness — more fields, more categories, more customization — and end up adding friction between having a thought and capturing it. The gap between "I need to plan this" and "I did" was the actual thing to design for.',
+    problem: 'Task apps tend to treat "add a task" and "make progress on a goal" as separate systems — a list here, a habit tracker there. That split shows up earliest at onboarding: most apps ask you to start filling in tasks before establishing why — so the list has no anchor, and neither does anything you check off later. The gap I designed for wasn\'t "how do I capture a task" but "how do I keep every task tied to the goal it\'s supposed to serve, from the very first screen."',
     cutDirections: [
-      { title: 'A fully flexible, Notion-style system', desc: 'Powerful, but the setup cost alone would lose a casual user before they planned anything.' },
-      { title: 'A single rigid to-do list', desc: 'Simple to build, but left no room for prioritization — which was the actual behavior I was designing for.' }
+      { title: 'A flexible, fully customizable list (custom fields, nested categories)', desc: 'Powerful, but the setup cost alone would lose a casual user before they\'d planned anything.' },
+      { title: 'A pure habit-tracker (streaks, daily check-ins only)', desc: 'Great for consistency, but no room for one-off tasks or shifting priorities, which is most of what people actually plan.' }
     ],
     chosen: {
       title: 'What I built instead',
-      desc: 'A lean capture-to-plan flow that leans on preattentive processing — color, size, and position doing the work of sorting priority, so a person registers what matters before they\'ve consciously read a label. Customization was deliberately cut wherever it competed with that instant read.'
+      desc: 'An onboarding flow that asks for the goal first, then lets everything else — first task, calendar sync, preferences — be optional and skippable, so the goal is locked in before any friction is introduced. That anchor carries through the whole app: tasks group by urgency (Today / Tomorrow / This Week) instead of by category, Focus Mode turns work sessions into Pomodoro-style blocks that count toward a daily hour target, and a progress ring on the dashboard shows "You are 80% closer to your goal" — so the payoff of finishing a task is visible immediately, not buried in a separate report.'
     },
-    outcome: 'A high-fidelity prototype built around one flow instead of many features — prioritizing the moment a plan turns into action over configuration depth.',
+    outcome: 'A high-fidelity prototype covering the full loop — set a goal → break it into tasks → focus and execute → see progress — rather than a feature-complete task manager. Customization (labels, priority levels) is still there, but kept secondary to that loop: quick to skip, quick to add via a single "+," never the first thing on screen.',
     marginNotes: [
-      { label: 'Preattentive processing', text: 'Visual properties the brain registers before conscious reading — used here instead of tags or text labels.' },
-      { label: 'What I cut', text: 'Deep customization options, in favor of protecting the plan → execute flow.' }
+      { label: 'What I cut', text: 'Deep customization up front (custom fields, multiple goals at once) — in favor of protecting a single, clear path from planning to doing.' },
+      { label: 'Focus Mode', text: 'Instead of a bare timer, the session length feeds directly into the same daily goal shown on the dashboard.' }
     ],
     image: tasklyImage,
     stat: 'Eisenhower Matrix',
     links: [
       { url: 'https://www.behance.net/gallery/221757475/Taskly-Simplify-Your-Productivity', label: 'View on Behance', type: 'behance' }
+    ],
+    uiExplorations: [
+      { title: 'Goal-first onboarding', desc: 'Before a single task exists, the app asks one question: "What\'s your goal?" Everything after is framed against that answer, so the app never starts as an empty list with no reason to fill it.' },
+      { title: 'A four-step setup, each step optional', desc: 'Set Your Goal → Add Tasks → Sync Your Calendar → Set Your Preferences. Every screen has a visible "Skip," and progress dots at the top show exactly how much is left — so someone in a hurry can get to a working app in one tap, and someone who wants the full setup can do that too.' },
+      { title: 'Calendar and reminders as an offer', desc: 'Syncing to Google/Outlook/Notion and setting distraction-blocking or email reminders are pushed to steps 3 and 4, after the goal and first task already exist. The app is usable before either decision gets made.' },
+      { title: 'Goal-anchored grouping', desc: 'Sorting tasks by when they\'re due (Today / Tomorrow / This Week) rather than by project or category, so the list mirrors how urgency is actually felt, not how it was filed.' },
+      { title: 'Focus Mode as a bridge', desc: 'Instead of a bare timer, session length (default 25 min, adjustable) feeds directly into the same daily-hour goal shown on the dashboard\'s progress ring, so "focusing" and "progressing toward the goal" are the same action, not two separate screens.' }
     ]
-  }
+  },
 ];
 
 export interface OtherProject {

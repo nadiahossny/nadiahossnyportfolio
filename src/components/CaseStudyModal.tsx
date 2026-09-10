@@ -3,6 +3,16 @@ import { caseStudies } from '../data/caseStudies';
 import { X, ExternalLink } from 'lucide-react';
 import { FaGithub, FaBehance } from 'react-icons/fa';
 
+const tasklyScreens = Object.values(import.meta.glob('../assets/projects/taskly-ui screens/*.{png,jpg,jpeg,webp}', { eager: true, import: 'default' })) as string[];
+const notesAppScreens = Object.values(import.meta.glob('../assets/projects/notes app-ui screens/*.{png,jpg,jpeg,webp}', { eager: true, import: 'default' })) as string[];
+const apmsScreens = Object.values(import.meta.glob('../assets/projects/pahrmasys and roshetety-ui screens/*.{png,jpg,jpeg,webp}', { eager: true, import: 'default' })) as string[];
+
+const screensMap: Record<string, string[]> = {
+  taskly: tasklyScreens,
+  notes_app: notesAppScreens,
+  apms: apmsScreens,
+};
+
 interface Props {
   id: string;
   onClose: () => void;
@@ -10,6 +20,8 @@ interface Props {
 
 export default function CaseStudyModal({ id, onClose }: Props) {
   const study = caseStudies.find(s => s.id === id);
+  const uiScreens = screensMap[id] || [];
+
 
   useEffect(() => {
     document.body.style.overflow = 'hidden';
@@ -107,6 +119,31 @@ export default function CaseStudyModal({ id, onClose }: Props) {
                   {study.outcome}
                 </p>
               </section>
+
+              {(uiScreens.length > 0 || study.uiExplorations) && (
+                <section className="pt-8 border-t border-cloud">
+                  <h3 className="text-2xl font-display mb-8 text-headline font-bold">UI Explorations</h3>
+                  
+                  {study.uiExplorations && (
+                    <div className="space-y-6 mb-10">
+                      {study.uiExplorations.map((exp, idx) => (
+                        <div key={idx} className="bg-white p-6 rounded-2xl shadow-sm border border-cloud/50">
+                          <strong className="block text-headline font-semibold mb-2">{exp.title}</strong>
+                          <p className="text-bodytext leading-relaxed font-light">{exp.desc}</p>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+
+                  {uiScreens.length > 0 && (
+                    <div className="columns-1 sm:columns-2 gap-4 space-y-4">
+                      {uiScreens.map((src, i) => (
+                        <img key={i} src={src} className="w-full h-auto rounded-xl shadow-sm border border-cloud break-inside-avoid" alt={`UI Screen ${i + 1}`} loading="lazy" />
+                      ))}
+                    </div>
+                  )}
+                </section>
+              )}
             </div>
 
             <aside className="lg:sticky lg:top-8 space-y-8">
