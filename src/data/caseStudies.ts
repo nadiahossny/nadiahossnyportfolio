@@ -82,7 +82,7 @@ export const caseStudies: CaseStudy[] = [
     stat: 'Highly customizable layout',
     links: [
       { url: 'https://github.com/nadiahossny', label: 'View Source', type: 'github' },
-      { url: '#', label: 'Live Demo', type: 'live' }
+      { url: 'https://auraleaf.vercel.app/', label: 'Live Demo', type: 'live' }
     ]
   },
   {
