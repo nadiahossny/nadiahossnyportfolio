@@ -2,12 +2,12 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://nadiahossny.vercel.app/</loc>
-    <changefreq>weekly</changefreq>
+    <lastmod>2026-09-11</lastmod>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://nadiahossny.vercel.app/graphic-design</loc>
-    <changefreq>weekly</changefreq>
+    <loc>https://nadiahossny.vercel.app/creative-corner</loc>
+    <lastmod>2026-09-11</lastmod>
     <priority>0.8</priority>
   </url>
 </urlset>
