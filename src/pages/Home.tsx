@@ -159,7 +159,7 @@ export default function Home() {
 
         {/* 2. Trust Strip */}
         <section className="py-6 md:py-8 border-y border-headline/10 bg-white relative z-10 shrink-0">
-          <div className="max-w-5xl mx-auto px-6 flex flex-wrap justify-center gap-8 md:gap-24 opacity-80">
+          <div className="max-w-5xl mx-auto px-6 flex flex-wrap justify-center gap-8 md:gap-24">
             <div className="flex items-center gap-3 text-headline hover:text-cta transition-colors duration-300 cursor-default"><SiFigma className="w-5 h-5 md:w-6 md:h-6" /><span className="text-sm font-medium">Figma</span></div>
             <div className="flex items-center gap-3 text-headline hover:text-cta transition-colors duration-300 cursor-default"><SiFlutter className="w-5 h-5 md:w-6 md:h-6" /><span className="text-sm font-medium">Flutter</span></div>
             <div className="flex items-center gap-3 text-headline hover:text-cta transition-colors duration-300 cursor-default"><SiReact className="w-5 h-5 md:w-6 md:h-6" /><span className="text-sm font-medium">React</span></div>
