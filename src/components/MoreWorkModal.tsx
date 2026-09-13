@@ -74,7 +74,7 @@ export default function MoreWorkModal({ isOpen, onClose }: MoreWorkModalProps) {
                 href="https://github.com/nadiahossny" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="flex items-center gap-3 px-8 py-4 bg-headline text-white rounded-full font-medium hover:bg-cta transition-colors text-sm w-full sm:w-auto justify-center"
+                className="flex items-center gap-3 px-8 py-4 bg-headline text-white rounded-full font-medium hover:bg-headline/90 transition-colors text-sm w-full sm:w-auto justify-center"
               >
                 <FaGithub className="w-5 h-5" />
                 More on GitHub
@@ -83,7 +83,7 @@ export default function MoreWorkModal({ isOpen, onClose }: MoreWorkModalProps) {
                 href="https://behance.net/nadiahossny" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="flex items-center gap-3 px-8 py-4 bg-cta text-white rounded-full font-medium hover:bg-headline transition-colors text-sm w-full sm:w-auto justify-center"
+                className="flex items-center gap-3 px-8 py-4 bg-headline text-white rounded-full font-medium hover:bg-headline/90 transition-colors text-sm w-full sm:w-auto justify-center"
               >
                 <FaBehance className="w-5 h-5" />
                 More on Behance

@@ -68,7 +68,7 @@ export default function CaseStudyModal({ id, onClose }: Props) {
                     href={link.url} 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-5 py-2.5 bg-cta text-white font-medium rounded-full hover:bg-headline transition-colors shadow-sm text-sm"
+                    className="inline-flex items-center gap-2 px-5 py-2.5 bg-headline text-white font-medium rounded-full hover:bg-headline/90 transition-colors shadow-sm text-sm"
                   >
                     {link.type === 'github' && <FaGithub className="w-4 h-4" />}
                     {link.type === 'behance' && <FaBehance className="w-4 h-4" />}

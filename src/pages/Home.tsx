@@ -218,7 +218,7 @@ export default function Home() {
           <div className="mt-20 flex justify-center">
             <button 
               onClick={() => setIsMoreWorkModalOpen(true)}
-              className="inline-flex items-center gap-2 px-8 py-4 bg-headline text-white rounded-full font-medium hover:bg-cta transition-all shadow-sm group text-sm"
+              className="inline-flex items-center gap-2 px-8 py-4 bg-headline text-white rounded-full font-medium hover:bg-headline/90 transition-all shadow-sm group text-sm"
             >
               View More Work <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </button>
@@ -478,12 +478,12 @@ export default function Home() {
 
                     if (response.ok) {
                       btn.innerText = "Message Sent! ✓";
-                      btn.classList.remove("bg-cta", "text-white");
+                      btn.classList.remove("bg-headline", "text-white");
                       btn.classList.add("bg-cloud", "text-cta");
                       setTimeout(() => {
                         btn.innerText = originalText;
                         btn.classList.remove("bg-cloud", "text-cta");
-                        btn.classList.add("bg-cta", "text-white");
+                        btn.classList.add("bg-headline", "text-white");
                         form.reset();
                       }, 3000);
                     } else {
@@ -491,12 +491,12 @@ export default function Home() {
                     }
                   } catch (error) {
                     btn.innerText = "Failed to send (Check API Key)";
-                    btn.classList.remove("bg-cta");
+                    btn.classList.remove("bg-headline");
                     btn.classList.add("bg-red-500");
                     setTimeout(() => {
                       btn.innerText = originalText;
                       btn.classList.remove("bg-red-500");
-                      btn.classList.add("bg-cta");
+                      btn.classList.add("bg-headline");
                     }, 3000);
                   }
                 }
@@ -505,7 +505,7 @@ export default function Home() {
               <input type="text" name="Name" placeholder="Your Name" required className="w-full px-6 py-4 rounded-3xl border border-cloud bg-white focus:outline-none focus:border-cta transition-colors" />
               <input type="email" name="Email" placeholder="Your Email" required className="w-full px-6 py-4 rounded-3xl border border-cloud bg-white focus:outline-none focus:border-cta transition-colors" />
               <textarea name="Message" placeholder="Tell me about your project..." required rows={5} className="w-full px-6 py-4 rounded-3xl border border-cloud bg-white focus:outline-none focus:border-cta transition-colors resize-none"></textarea>
-              <button type="submit" className="w-full py-4 bg-cta text-white rounded-full font-medium text-lg hover:bg-headline transition-colors shadow-sm hover:shadow mt-2">Send Message</button>
+              <button type="submit" className="w-full py-4 bg-headline text-white rounded-full font-medium text-lg hover:bg-headline/90 transition-colors shadow-sm hover:shadow mt-2">Send Message</button>
             </motion.form>
             
             <motion.div 
@@ -566,7 +566,7 @@ export default function Home() {
               <div className="bg-white p-10 rounded-[2rem] border border-cloud/50 shadow-sm text-center flex flex-col items-center justify-center">
                 <h3 className="text-xl md:text-2xl font-display text-headline mb-4 font-semibold">Want to see my experiments?</h3>
                 <p className="text-bodytext font-light mb-8">Explore my interactive playground and fun UI experiments.</p>
-                <Link to="/creative-corner" className="inline-flex items-center gap-2 px-8 py-4 bg-cta text-white rounded-full font-medium hover:bg-headline transition-all shadow-sm group mt-auto">
+                <Link to="/creative-corner" className="inline-flex items-center gap-2 px-8 py-4 bg-headline text-white rounded-full font-medium hover:bg-headline/90 transition-all shadow-sm group mt-auto">
                   Visit Creative Corner <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </Link>
               </div>

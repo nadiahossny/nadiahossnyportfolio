@@ -151,7 +151,7 @@ export default function Playground() {
               href="https://bloombookgift.vercel.app/" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="inline-block px-6 py-2 bg-cta text-white rounded-full font-medium hover:bg-headline transition-colors pointer-events-auto"
+              className="inline-block px-6 py-2 bg-headline text-white rounded-full font-medium hover:bg-headline/90 transition-colors pointer-events-auto"
               draggable={false}
             >
               Visit Bloom Book
@@ -173,7 +173,7 @@ export default function Playground() {
               href="https://byto-academy.vercel.app/" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="inline-block px-6 py-2 bg-cta text-white rounded-full font-medium hover:bg-headline transition-colors pointer-events-auto"
+              className="inline-block px-6 py-2 bg-headline text-white rounded-full font-medium hover:bg-headline/90 transition-colors pointer-events-auto"
               draggable={false}
             >
               Visit Byto
@@ -203,7 +203,7 @@ export default function Playground() {
             onClick={handleSendNote}
             disabled={noteStatus !== "idle" || !note.trim()}
             onPointerDownCapture={(e) => e.stopPropagation()}
-            className="w-full py-2 bg-cta text-white rounded-lg font-medium text-sm hover:bg-headline transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+            className="w-full py-2 bg-headline text-white rounded-lg font-medium text-sm hover:bg-headline/90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
           >
             {noteStatus === "idle" ? "Save & Send" : noteStatus === "sending" ? "Opening..." : "Sent! ✓"}
           </button>
