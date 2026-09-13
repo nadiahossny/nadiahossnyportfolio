@@ -3,7 +3,7 @@ import { useLocation, Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { caseStudies } from '../data/caseStudies';
 import CaseStudyModal from '../components/CaseStudyModal';
-import { ArrowRight, ArrowDown, CheckCircle2, Mail } from 'lucide-react';
+import { ArrowRight, ArrowDown, CheckCircle2, Mail, FileText } from 'lucide-react';
 import { SiFigma, SiFlutter, SiReact, SiNextdotjs } from 'react-icons/si';
 import { FaLinkedin, FaBehance, FaWhatsapp } from 'react-icons/fa';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -538,6 +538,13 @@ export default function Home() {
                 <div className="flex flex-col text-left">
                   <span className="font-medium text-headline group-hover:text-cta transition-colors">Behance</span>
                   <span className="text-sm opacity-70">View more work</span>
+                </div>
+              </a>
+              <a href="https://drive.google.com/file/d/1RnrOnp8jSUYzBkMdGGUPAqJ1Js1jV0nP/view?usp=sharing" target="_blank" rel="noopener noreferrer" className="group flex items-center gap-4 text-bodytext hover:text-cta transition-colors p-5 rounded-2xl bg-white border border-cloud hover:border-cta/30 hover:bg-cta/5 shadow-sm hover:shadow-md mt-2 bg-cloud/20">
+                <FileText className="w-7 h-7" />
+                <div className="flex flex-col text-left">
+                  <span className="font-medium text-headline group-hover:text-cta transition-colors">Resume</span>
+                  <span className="text-sm opacity-70">Download PDF</span>
                 </div>
               </a>
             </motion.div>

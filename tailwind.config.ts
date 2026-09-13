@@ -19,7 +19,7 @@ export default {
           DEFAULT: "#BFE4FF",
         },
         headline: "#002d69",
-        bodytext: "#3c608e",
+        bodytext: "#002D69",
         cta: "#002d69",
         white: "#FFFFFF",
       },
