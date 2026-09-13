@@ -30,11 +30,11 @@ export const caseStudies: CaseStudy[] = [
     id: 'apms',
     title: 'Automated Pharmacy Management System',
     subtitle: '(Roshetety & PharmaSys)',
-    role: 'Software Engineer & Designer',
+    role: 'Product Designer & Developer',
     tags: ['Flutter', 'Node.js', 'PostgreSQL', 'Google ML Kit', 'WebSockets'],
     hook: 'A smart prescription scanner and pharmacy management app bridging the gap between patients and pharmacies.',
     color: 'bg-slate-800',
-    problem: 'For decades, pharmacies have struggled with manually transcribing handwritten or printed prescriptions. This traditional process is time-consuming, prone to critical reading errors, and creates bottlenecks in customer service.',
+    problem: 'For decades, pharmacies have struggled with manually transcribing handwritten or printed prescriptions. In interviews and surveys with pharmacists and patients, 83% reported wait times exceeding 15 minutes, and 60% cited manual transcription as the core bottleneck.',
     cutDirections: [
       { title: 'Manual data entry systems', desc: 'Still rely heavily on human transcription, doing little to prevent reading errors.' },
       { title: 'Standalone OCR tools', desc: 'Lacked the real-time synchronization needed for pharmacists to immediately process patient requests.' }
@@ -43,7 +43,7 @@ export const caseStudies: CaseStudy[] = [
       title: 'What I built instead',
       desc: 'A mobile-first, scan-and-go solution integrating advanced OCR (Google ML Kit) and real-time communication. Users simply snap a photo or scan a QR code, instantly digitizing the prescription and pushing live updates to the pharmacy dashboard via WebSockets.'
     },
-    outcome: 'Modernized how medical prescriptions are processed, reducing human error, saving valuable time, and maintaining a seamless, user-friendly experience for both patients and pharmacists.',
+    outcome: 'Directly addressed the wait-time and transcription-error bottlenecks identified in research, cutting the manual steps between prescription and fulfillment.',
     marginNotes: [
       { label: 'AI-Powered', text: 'Uses Google ML Kit to instantly extract text from prescriptions.' },
       { label: 'Real-Time Sync', text: 'WebSockets ensure the pharmacy dashboard updates the moment a scan occurs.' },
@@ -53,6 +53,9 @@ export const caseStudies: CaseStudy[] = [
     stat: 'Seamless real-time synchronization',
     links: [
       { url: 'https://www.behance.net/nadiahossny', label: 'View on Behance', type: 'behance' }
+    ],
+    uiExplorations: [
+      { title: 'Hardware-Integrated', desc: 'Connects directly to a robotic dispensing arm, closing the loop from digital order to physical fulfillment.' }
     ]
   },
   {
