@@ -179,17 +179,18 @@ export default function Home() {
             <p className="text-xl text-bodytext font-light">Featured case studies.</p>
           </motion.div>
 
-          <div className="space-y-16 md:space-y-32">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12">
             {caseStudies.map((study, index) => (
               <motion.div 
                 key={study.id}
-                initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} variants={fadeUp}
-                className={`flex flex-col gap-10 md:gap-16 ${index % 2 === 1 ? 'lg:flex-row-reverse' : 'lg:flex-row'} items-center`}
+                initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }} variants={fadeUp}
+                transition={{ delay: index * 0.1 }}
+                className="flex flex-col group"
               >
-                <div className="w-full lg:w-3/5">
+                <div className="w-full mb-6 md:mb-8">
                   <button 
                     onClick={() => setSelectedStudy(study.id)}
-                    className="w-full aspect-[4/3] rounded-3xl overflow-hidden bg-cloud relative shadow-sm hover:shadow-md group transition-all"
+                    className="w-full aspect-[4/3] rounded-3xl overflow-hidden bg-cloud relative shadow-sm hover:shadow-md transition-all block"
                   >
                     <div className="absolute inset-0 bg-headline/0 group-hover:bg-headline/5 transition-colors duration-500 z-10"></div>
                     <img 
@@ -199,14 +200,14 @@ export default function Home() {
                     />
                   </button>
                 </div>
-                <div className="w-full lg:w-2/5 flex flex-col items-start text-left">
-                  <h3 className="text-2xl font-display font-semibold text-headline mb-4">{study.title}</h3>
-                  <p className="text-base text-bodytext font-light leading-relaxed mb-8">
-                    {study.outcome || study.hook}
+                <div className="flex flex-col items-start text-left flex-1">
+                  <h3 className="text-xl md:text-2xl font-display font-semibold text-headline mb-3 line-clamp-2">{study.title}</h3>
+                  <p className="text-base text-bodytext font-light leading-relaxed mb-8 line-clamp-3 flex-1">
+                    {study.hook}
                   </p>
                   <button 
                     onClick={() => setSelectedStudy(study.id)}
-                    className="group flex items-center gap-2 text-cta font-medium border-b border-cta/30 pb-1 hover:border-cta transition-colors text-sm"
+                    className="inline-flex items-center gap-2 text-cta font-medium border-b border-cta/30 pb-1 hover:border-cta transition-colors text-sm mt-auto group-hover:border-cta"
                   >
                     Read case study <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                   </button>
@@ -552,9 +553,9 @@ export default function Home() {
           <motion.div 
             initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} 
           >
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="flex justify-center">
               {/* Graphic Design */}
-              <div className="bg-white p-10 rounded-[2rem] border border-cloud/50 shadow-sm text-center flex flex-col items-center justify-center">
+              <div className="w-full max-w-2xl bg-white p-10 md:p-14 rounded-[2rem] border border-cloud/50 shadow-sm text-center flex flex-col items-center justify-center">
                 <h3 className="text-xl md:text-2xl font-display text-headline mb-4 font-semibold">Looking for brand identity?</h3>
                 <p className="text-bodytext font-light mb-8">I also do illustrations, logos, and print materials.</p>
                 <Link to="/graphic-design" className="inline-flex items-center gap-2 px-8 py-4 bg-headline text-white rounded-full font-medium hover:bg-headline/90 transition-all shadow-sm group mt-auto">
@@ -562,7 +563,7 @@ export default function Home() {
                 </Link>
               </div>
 
-              {/* Creative Corner */}
+              {/* Creative Corner - Hidden for now until content is finalized
               <div className="bg-white p-10 rounded-[2rem] border border-cloud/50 shadow-sm text-center flex flex-col items-center justify-center">
                 <h3 className="text-xl md:text-2xl font-display text-headline mb-4 font-semibold">Want to see my experiments?</h3>
                 <p className="text-bodytext font-light mb-8">Explore my interactive playground and fun UI experiments.</p>
@@ -570,6 +571,7 @@ export default function Home() {
                   Visit Creative Corner <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </Link>
               </div>
+              */}
             </div>
           </motion.div>
         </div>

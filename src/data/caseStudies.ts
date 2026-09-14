@@ -43,7 +43,7 @@ export const caseStudies: CaseStudy[] = [
       title: 'What I built instead',
       desc: 'A mobile-first, scan-and-go solution integrating advanced OCR (Google ML Kit) and real-time communication. Users simply snap a photo or scan a QR code, instantly digitizing the prescription and pushing live updates to the pharmacy dashboard via WebSockets.'
     },
-    outcome: 'Directly addressed the wait-time and transcription-error bottlenecks identified in research, cutting the manual steps between prescription and fulfillment. Presented to faculty reviewers with a 99% evaluation score.',
+    outcome: 'Directly addressed the wait-time and transcription-error bottlenecks identified in research, cutting the manual steps between prescription and fulfillment. The final prototype successfully demonstrated a seamless workflow from digital scan to physical dispensing, proving that automated fulfillment can be accessible and efficient for independent pharmacies.',
     marginNotes: [
       { label: 'AI-Powered', text: 'Uses Google ML Kit to instantly extract text from prescriptions.' },
       { label: 'Real-Time Sync', text: 'WebSockets ensure the pharmacy dashboard updates the moment a scan occurs.' },

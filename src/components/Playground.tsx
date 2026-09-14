@@ -2,17 +2,7 @@ import { motion } from 'framer-motion';
 import { useRef, useState } from 'react';
 import { MousePointerClick, ArrowLeft } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import bytoAcademyImg from '../assets/projects/creative experiments/byto academy.png';
 import bloomBookImg from '../assets/projects/creative experiments/bloombookprev.png';
-
-const desktopScreens = Object.values(import.meta.glob('../assets/projects/desktop view-ui screens/*.{png,jpg,jpeg,webp}', { eager: true, import: 'default' })) as string[];
-const mobileScreens = Object.values(import.meta.glob('../assets/projects/mobile view-ui screens/*.{png,jpg,jpeg,webp}', { eager: true, import: 'default' })) as string[];
-const allCreative = Object.values(import.meta.glob('../assets/projects/creative experiments/*.{png,jpg,jpeg,webp}', { eager: true, import: 'default' })) as string[];
-
-// Filter out the images that have dedicated interactive cards
-const creativeExperiments = allCreative.filter(src => 
-  !src.includes('bloombook') && !src.includes('byto%20academy') && !src.includes('byto academy')
-);
 
 export default function Playground() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -81,68 +71,14 @@ export default function Playground() {
 
       <div 
         ref={containerRef}
-        className="relative w-full h-[850px] max-w-7xl mx-auto border-4 border-dashed border-cloud/50 rounded-[3rem] bg-background/50 overflow-hidden"
+        className="relative w-full h-[600px] max-w-4xl mx-auto border-4 border-dashed border-cloud/50 rounded-[3rem] bg-background/50 overflow-hidden"
       >
-        
-        {/* Desktop Frame */}
-        <motion.div 
-          drag 
-          dragMomentum={false}
-          whileDrag={{ scale: 1.05, zIndex: 50, cursor: "grabbing" }}
-          className="absolute top-[80px] left-[40px] md:left-[100px] w-[600px] h-[380px] bg-headline rounded-t-xl rounded-b-md shadow-2xl p-2 cursor-grab z-10 flex flex-col"
-        >
-          <div className="flex gap-2 mb-2 px-2">
-            <div className="w-3 h-3 rounded-full bg-red-400"></div>
-            <div className="w-3 h-3 rounded-full bg-amber-400"></div>
-            <div className="w-3 h-3 rounded-full bg-green-400"></div>
-          </div>
-          <div className="flex-1 bg-white rounded-sm overflow-y-auto overflow-x-hidden hide-scrollbar pointer-events-auto">
-            {desktopScreens.map((src, i) => (
-              <img key={i} src={src} className="w-full h-auto object-cover" alt="Desktop UI" loading="lazy" draggable={false} />
-            ))}
-          </div>
-        </motion.div>
-
-        {/* Mobile Frame */}
-        <motion.div 
-          drag 
-          dragMomentum={false}
-          whileDrag={{ scale: 1.05, zIndex: 50, cursor: "grabbing" }}
-          className="absolute top-[160px] left-[400px] md:left-[850px] w-[280px] h-[580px] bg-headline rounded-[2.5rem] shadow-2xl p-3 cursor-grab z-20"
-        >
-          <div className="w-full h-full bg-white rounded-[2rem] overflow-y-auto overflow-x-hidden hide-scrollbar relative pointer-events-auto">
-            {/* Hole-punch camera */}
-            <div className="sticky top-2 inset-x-0 h-4 w-4 bg-headline rounded-full mx-auto z-20 pointer-events-none"></div>
-            {/* Images flush to the top and bottom (no padding) */}
-            <div className="-mt-6">
-              {mobileScreens.map((src, i) => (
-                <img key={i} src={src} className="w-full h-auto object-cover" alt="Mobile UI" loading="lazy" draggable={false} />
-              ))}
-            </div>
-          </div>
-        </motion.div>
-
-        {/* Creative Experiments & Images */}
-        {creativeExperiments.map((src, i) => (
-          <motion.div
-            key={i}
-            drag
-            dragMomentum={false}
-            whileDrag={{ scale: 1.1, zIndex: 50, cursor: "grabbing" }}
-            initial={{ rotate: Math.random() * 20 - 10 }}
-            className="absolute w-48 h-48 md:w-64 md:h-64 shadow-xl cursor-grab z-0 rounded-2xl overflow-hidden border-[6px] border-white"
-            style={{ top: `${150 + (i * 120)}px`, left: `${100 + (i * 200)}px` }}
-          >
-            <img src={src} className="w-full h-full object-cover pointer-events-none" alt="Creative Experiment" loading="lazy" draggable={false} />
-          </motion.div>
-        ))}
-
         {/* Bloom Book Link */}
         <motion.div
           drag
           dragMomentum={false}
           whileDrag={{ scale: 1.05, zIndex: 50, cursor: "grabbing" }}
-          className="absolute top-[550px] left-[40px] md:left-[150px] bg-white rounded-3xl shadow-xl cursor-grab border-2 border-cloud z-30 flex flex-col items-center overflow-hidden w-64"
+          className="absolute top-[100px] left-[50px] md:left-[150px] bg-white rounded-3xl shadow-xl cursor-grab border-2 border-cloud z-30 flex flex-col items-center overflow-hidden w-64"
         >
           <img src={bloomBookImg} className="w-full h-32 object-cover pointer-events-none" alt="Bloom Book" loading="lazy" draggable={false} />
           <div className="p-4 w-full text-center">
@@ -159,26 +95,42 @@ export default function Playground() {
           </div>
         </motion.div>
 
-        {/* Byto Academy Link */}
+        {/* Mini Style Guide */}
         <motion.div
           drag
           dragMomentum={false}
           whileDrag={{ scale: 1.05, zIndex: 50, cursor: "grabbing" }}
-          className="absolute top-[80px] left-[450px] md:left-[900px] bg-white rounded-3xl shadow-xl cursor-grab border-2 border-cloud z-30 flex flex-col items-center overflow-hidden w-64"
+          initial={{ rotate: -3 }}
+          className="absolute top-[250px] left-[100px] md:top-[180px] md:left-[350px] bg-white rounded-2xl shadow-xl p-5 cursor-grab border border-cloud/50 z-20 flex flex-col items-center w-52"
         >
-          <img src={bytoAcademyImg} className="w-full h-32 object-cover pointer-events-none" alt="Byto Academy" loading="lazy" draggable={false} />
-          <div className="p-4 w-full text-center">
-            <h4 className="font-display font-bold text-headline mb-3">Byto Academy</h4>
-            <a 
-              href="https://byto-academy.vercel.app/" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="inline-block px-6 py-2 bg-headline text-white rounded-full font-medium hover:bg-headline/90 transition-colors pointer-events-auto"
-              draggable={false}
-            >
-              Visit Byto
-            </a>
+          <span className="text-xs font-bold text-headline uppercase tracking-widest mb-4 border-b border-cloud pb-2 w-full text-center">Brand Colors</span>
+          <div className="flex gap-3 mb-2">
+            <div className="w-8 h-8 rounded-full bg-headline shadow-inner" title="Primary (Headline/CTA)"></div>
+            <div className="w-8 h-8 rounded-full bg-cloud shadow-inner" title="Cloud (Accent)"></div>
+            <div className="w-8 h-8 rounded-full bg-background shadow-inner border border-cloud" title="Background"></div>
           </div>
+          <span className="text-[10px] text-bodytext/70 mt-2 font-mono bg-cloud/30 px-2 py-1 rounded">design-system.css</span>
+        </motion.div>
+
+        {/* Tech Badges */}
+        <motion.div
+          drag
+          dragMomentum={false}
+          whileDrag={{ scale: 1.1, zIndex: 50, cursor: "grabbing" }}
+          initial={{ rotate: 6 }}
+          className="absolute top-[180px] left-[200px] md:top-[280px] md:left-[450px] cursor-grab z-20 bg-headline text-white px-5 py-3 rounded-xl shadow-lg flex items-center justify-center"
+        >
+          <span className="font-display font-medium text-sm tracking-wide">React & Tailwind ⚛️</span>
+        </motion.div>
+
+        <motion.div
+          drag
+          dragMomentum={false}
+          whileDrag={{ scale: 1.1, zIndex: 50, cursor: "grabbing" }}
+          initial={{ rotate: -5 }}
+          className="absolute top-[200px] left-[50px] md:top-[140px] md:left-[550px] cursor-grab z-20 bg-cta text-white px-5 py-3 rounded-xl shadow-lg flex items-center justify-center"
+        >
+          <span className="font-display font-medium text-sm tracking-wide">Flutter Dev 💙</span>
         </motion.div>
 
         {/* Sticky Note */}
@@ -186,7 +138,7 @@ export default function Playground() {
           drag
           dragMomentum={false}
           whileDrag={{ scale: 1.05, zIndex: 50, cursor: "grabbing" }}
-          className="absolute top-[550px] left-[400px] md:left-[800px] bg-white rounded-xl shadow-xl p-6 cursor-grab border border-cloud/50 z-20 w-64 flex flex-col"
+          className="absolute top-[350px] left-[450px] md:left-[600px] bg-white rounded-xl shadow-xl p-6 cursor-grab border border-cloud/50 z-20 w-64 flex flex-col"
         >
           <div className="w-full flex justify-between items-center mb-3">
             <span className="text-xs font-medium text-cta uppercase tracking-wider">Leave a Note</span>
@@ -203,7 +155,7 @@ export default function Playground() {
             onClick={handleSendNote}
             disabled={noteStatus !== "idle" || !note.trim()}
             onPointerDownCapture={(e) => e.stopPropagation()}
-            className="w-full py-2 bg-headline text-white rounded-lg font-medium text-sm hover:bg-headline/90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+            className="w-full py-2 bg-headline text-white rounded-lg font-medium text-sm hover:bg-headline/90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed pointer-events-auto"
           >
             {noteStatus === "idle" ? "Save & Send" : noteStatus === "sending" ? "Opening..." : "Sent! ✓"}
           </button>
