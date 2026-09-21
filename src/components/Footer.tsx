@@ -19,7 +19,7 @@ export default function Footer() {
           <a href="mailto:nadiahossny426@gmail.com" className="hover:text-cta transition-colors flex items-center gap-2" aria-label="Email" title="Email">
             <Mail className="w-5 h-5" />
           </a>
-          <a href="https://wa.me/201234567890" target="_blank" rel="noopener noreferrer" className="hover:text-cta transition-colors flex items-center gap-2" aria-label="WhatsApp" title="WhatsApp">
+          <a href="https://wa.me/201064943439" target="_blank" rel="noopener noreferrer" className="hover:text-cta transition-colors flex items-center gap-2" aria-label="WhatsApp" title="WhatsApp">
             <FaWhatsapp className="w-5 h-5" />
           </a>
           <a href="https://linkedin.com/in/nadiahossny" target="_blank" rel="noopener noreferrer" className="hover:text-cta transition-colors flex items-center gap-2" aria-label="LinkedIn" title="LinkedIn">

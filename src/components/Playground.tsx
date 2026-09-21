@@ -23,7 +23,7 @@ export default function Playground() {
           Accept: "application/json",
         },
         body: JSON.stringify({
-          access_key: "11d9c258-baed-40a7-9f00-a190699aea1b", 
+          access_key: import.meta.env.VITE_WEB3FORMS_ACCESS_KEY || "YOUR_ACCESS_KEY_HERE", 
           subject: "New Note from Portfolio Playground",
           message: note,
           from_name: "Portfolio Playground",

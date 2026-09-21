@@ -123,14 +123,102 @@ export const caseStudies: CaseStudy[] = [
       { title: 'Focus Mode as a bridge', desc: 'Instead of a bare timer, session length (default 25 min, adjustable) feeds directly into the same daily-hour goal shown on the dashboard\'s progress ring, so "focusing" and "progressing toward the goal" are the same action, not two separate screens.' }
     ]
   },
+  {
+    id: 'simplibank',
+    title: 'SimpliBank',
+    subtitle: 'A controlled environment for testing',
+    role: 'Full-Stack Developer & QA Engineer',
+    tags: ['Python', 'Flask', 'JavaScript', 'HTML/CSS', 'Pytest', 'Gunicorn'],
+    hook: 'A full-stack, simulated online banking platform intentionally developed as a controlled environment for a comprehensive software testing suite.',
+    color: 'bg-blue-900',
+    problem: 'In the financial technology (FinTech) sector, software failures can lead to significant financial loss and severe security breaches. The challenge was to architect a realistic banking application that not only simulated real-world financial transactions but also provided a structured, predictable environment to implement and showcase an enterprise-grade testing strategy.',
+    cutDirections: [
+      { title: 'Coupled Monolith', desc: 'A tightly coupled frontend and backend would make isolated unit testing nearly impossible.' },
+      { title: 'Client-Side Logic', desc: 'Handling banking mechanics in the browser would compromise security and invalidate backend testing efforts.' }
+    ],
+    chosen: {
+      title: 'What I built instead',
+      desc: 'To maximize testability and maintainability, the project was structured around a strict separation of concerns, ensuring that banking logic, API routing, and the user interface remained completely independent.'
+    },
+    outcome: 'SimpliBank successfully demonstrates a holistic approach to software development where quality assurance is integrated directly into the architectural design. It features a 5-tier testing suite covering Unit, Integration, System, Security, and Performance testing.',
+    marginNotes: [
+      { label: 'Core Logic', text: 'simplibank.py manages Account state and UserAuth (SHA-256).' },
+      { label: 'API/Server', text: 'Flask-based REST API securely interfaces between frontend and core logic.' },
+      { label: 'Client', text: 'SPA with zero client-side banking logic.' }
+    ],
+    image: simplibankImage,
+    stat: '5-Tier Testing Suite',
+    links: [
+      { url: 'https://simplibank.onrender.com', label: 'Live Demo', type: 'live' },
+      { url: 'https://github.com/nadiahossny/SimpliBank', label: 'View Source', type: 'github' }
+    ],
+    uiExplorations: [
+      { title: 'Unit & Integration Testing', desc: 'Validating individual components in isolation and evaluating the interaction between the Flask API and the core logic.' },
+      { title: 'Security & Performance', desc: 'Simulated adversarial attacks (brute-force lockouts) and evaluated the application\'s stability under load.' }
+    ]
+  },
+  {
+    id: 'bloombook',
+    title: 'BloomBook Gift',
+    subtitle: 'A digital keepsake builder',
+    role: 'Solo Developer',
+    tags: ['React', 'Vite', 'Tailwind CSS', 'JavaScript (JSX)'],
+    hook: 'A digital keepsake builder — personalized gift books with animated gardens',
+    color: 'bg-[#1a1a2e]',
+    problem: 'Traditional physical gift books are lovely but perishable — they get lost, damaged, or can\'t be easily shared with distant family. Digital alternatives are often generic templates with no room for genuine personalization.',
+    cutDirections: [
+      { title: 'Database-backed platform', desc: 'Requires user accounts, ongoing hosting costs, and raises privacy concerns for personal photos.' },
+      { title: 'Canvas/WebGL animations', desc: 'Overkill for the simple whimsical feel needed, and would drastically increase bundle size.' }
+    ],
+    chosen: {
+      title: 'What I built instead',
+      desc: 'Built a zero-backend, privacy-respecting tool where anyone can craft a beautiful, one-of-a-kind digital gift that feels magical to open and personal to the recipient. Every gift is a .json file with base64-encoded images.'
+    },
+    outcome: 'A fully client-side single-page application that blends a whimsical animated night garden with a virtual scrapbook. The user flow goes from a Details form to a Customizer, leading to a magical Gift Reveal, and finally exporting as a portable file.',
+    marginNotes: [
+      { label: 'Single-page architecture', text: 'All state lives in one parent component — no routing library needed.' },
+      { label: 'Self-contained portability', text: 'The recipient can open the generated .json gift entirely offline.' },
+      { label: 'CSS animations', text: 'The "magical night garden" uses CSS keyframes for floating, blooming flowers.' }
+    ],
+    image: '',
+    stat: 'Zero-backend portability',
+    links: [
+      { url: 'https://github.com/nadiallah/my-bloom-gift', label: 'View Source', type: 'github' },
+      { url: 'https://nadia.nz', label: 'Author Site', type: 'live' }
+    ],
+    uiExplorations: [
+      { title: 'Color picker & Photo upload', desc: 'Choose from curated palettes or pick any color. Upload 4+ images, each with an optional caption, stored as base64 data URIs.' },
+      { title: 'Animated garden → book transition', desc: 'Flowers bloom on screen, then the notebook flies into view for the gift reveal.' }
+    ]
+  },
+  {
+    id: 'byto-academy',
+    title: 'Byto Academy',
+    subtitle: 'Coming Soon',
+    role: '',
+    tags: [],
+    hook: 'I am finishing it and will provide you with the case study soon.',
+    color: 'bg-stone-500',
+    problem: '',
+    cutDirections: [],
+    chosen: {
+      title: '',
+      desc: ''
+    },
+    outcome: '',
+    marginNotes: [],
+    image: '',
+    stat: ''
+  }
 ];
 
 export interface OtherProject {
   title: string;
   description: string;
-  link: string;
-  linkText: string;
+  link?: string;
+  linkText?: string;
   image?: string;
+  caseStudyId?: string;
 }
 
 export const otherProjects: OtherProject[] = [
@@ -160,6 +248,17 @@ export const otherProjects: OtherProject[] = [
     description: 'A full-stack, simulated online banking platform developed as a controlled environment for a comprehensive software quality assurance & testing suite, exposing core banking mechanics securely.',
     link: 'https://github.com/nadiahossny/SimpliBank',
     linkText: 'View on GitHub',
-    image: simplibankImage
+    image: simplibankImage,
+    caseStudyId: 'simplibank'
+  },
+  {
+    title: 'BloomBook Gift',
+    description: 'A digital keepsake builder — personalized gift books with animated gardens. A fully client-side single-page application.',
+    caseStudyId: 'bloombook'
+  },
+  {
+    title: 'Byto Academy',
+    description: 'Coming soon. I am finishing the case study and will provide it soon.',
+    caseStudyId: 'byto-academy'
   }
 ];

@@ -52,7 +52,7 @@ export default function CaseStudyModal({ id, onClose }: Props) {
         <div className="w-full h-full overflow-y-auto bg-white border border-cloud rounded-3xl shadow-cloud relative">
           <div className="p-8 md:p-16">
           <header className="max-w-3xl mx-auto text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-display mb-4 text-headline font-bold">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-display mb-4 text-headline font-bold">
               {study.title} <span className="text-cta italic block mt-2 md:inline md:mt-0">{study.subtitle}</span>
             </h2>
 
@@ -80,45 +80,55 @@ export default function CaseStudyModal({ id, onClose }: Props) {
             )}
           </header>
 
-          <div className="w-full aspect-[21/9] md:aspect-[2.35/1] rounded-2xl overflow-hidden mb-20 border border-cloud bg-cloud-light shadow-sm">
-             <img src={study.image} alt={study.title} className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
-          </div>
+          {study.image && (
+            <div className="w-full aspect-[21/9] md:aspect-[2.35/1] rounded-2xl overflow-hidden mb-20 border border-cloud bg-cloud-light shadow-sm">
+               <img src={study.image} alt={study.title} className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
+            </div>
+          )}
 
           <div className="grid grid-cols-1 lg:grid-cols-[1fr_280px] gap-16 items-start max-w-4xl mx-auto">
             <div className="space-y-16">
-              <section>
-                <h3 className="text-2xl font-display mb-6 text-headline font-bold">The Problem</h3>
-                <p className="text-lg text-bodytext leading-relaxed font-light">
-                  {study.problem}
-                </p>
-              </section>
+              {study.problem && (
+                <section>
+                  <h3 className="text-2xl font-display mb-6 text-headline font-bold">The Problem</h3>
+                  <p className="text-lg text-bodytext leading-relaxed font-light">
+                    {study.problem}
+                  </p>
+                </section>
+              )}
 
-              <section>
-                <h3 className="text-2xl font-display mb-6 text-headline font-bold">Directions I considered</h3>
-                <ul className="space-y-6">
-                  {study.cutDirections.map((dir, idx) => (
-                    <li key={idx} className="relative pl-10 border-l border-cloud">
-                      <span className="absolute left-[-5px] top-1 text-[10px] text-cta">✕</span>
-                      <strong className="block text-headline font-medium mb-2">{dir.title}</strong>
-                      <span className="text-bodytext leading-relaxed block font-light">{dir.desc}</span>
-                    </li>
-                  ))}
-                </ul>
-              </section>
+              {study.cutDirections && study.cutDirections.length > 0 && (
+                <section>
+                  <h3 className="text-2xl font-display mb-6 text-headline font-bold">Directions I considered</h3>
+                  <ul className="space-y-6">
+                    {study.cutDirections.map((dir, idx) => (
+                      <li key={idx} className="relative pl-10 border-l border-cloud">
+                        <span className="absolute left-[-5px] top-1 text-[10px] text-cta">✕</span>
+                        <strong className="block text-headline font-medium mb-2">{dir.title}</strong>
+                        <span className="text-bodytext leading-relaxed block font-light">{dir.desc}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </section>
+              )}
 
-              <section>
-                <h3 className="text-2xl font-display mb-6 text-headline font-bold">What I built instead</h3>
-                <p className="text-lg text-bodytext leading-relaxed font-light">
-                  {study.chosen.desc}
-                </p>
-              </section>
+              {study.chosen && study.chosen.desc && (
+                <section>
+                  <h3 className="text-2xl font-display mb-6 text-headline font-bold">What I built instead</h3>
+                  <p className="text-lg text-bodytext leading-relaxed font-light">
+                    {study.chosen.desc}
+                  </p>
+                </section>
+              )}
 
-              <section className="p-8 bg-cloud-light/50 rounded-2xl border border-cloud/50">
-                <span className="block text-[11px] uppercase tracking-wider text-bodytext font-medium mb-3">Outcome</span>
-                <p className="text-lg text-headline leading-relaxed font-display">
-                  {study.outcome}
-                </p>
-              </section>
+              {study.outcome && (
+                <section className="p-8 bg-cloud-light/50 rounded-2xl border border-cloud/50">
+                  <span className="block text-[11px] uppercase tracking-wider text-bodytext font-medium mb-3">Outcome</span>
+                  <p className="text-lg text-headline leading-relaxed font-display">
+                    {study.outcome}
+                  </p>
+                </section>
+              )}
 
               {(uiScreens.length > 0 || study.uiExplorations) && (
                 <section className="pt-8 border-t border-cloud">

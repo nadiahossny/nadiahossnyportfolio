@@ -119,7 +119,7 @@ export default function Home() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="text-5xl md:text-7xl lg:text-8xl font-display text-headline font-bold mb-6 flex items-center justify-center flex-wrap gap-x-4 gap-y-2"
+              className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-display text-headline font-bold mb-6 flex items-center justify-center flex-wrap gap-x-2 sm:gap-x-4 gap-y-2"
             >
               Hi, 
               <motion.div 
@@ -127,9 +127,9 @@ export default function Home() {
                 animate={{ opacity: 1, scale: 1, rotate: -5 }} 
                 whileHover={{ rotate: 2, scale: 1.05 }}
                 transition={{ duration: 0.6, delay: 0.3, type: "spring" }} 
-                className="inline-block relative -mt-2 md:-mt-4 mx-3 md:mx-5 cursor-pointer z-20"
+                className="inline-block relative -mt-2 md:-mt-4 mx-2 sm:mx-3 md:mx-5 cursor-pointer z-20"
               >
-                <img src={profileImg} alt="Nadia Hossny" className="w-16 h-16 md:w-24 md:h-24 lg:w-28 lg:h-28 rounded-2xl md:rounded-[2rem] object-cover shadow-lg border-[3px] md:border-4 border-white grayscale hover:grayscale-0 transition-all duration-500" />
+                <img src={profileImg} alt="Nadia Hossny" className="w-12 h-12 sm:w-16 sm:h-16 md:w-24 md:h-24 lg:w-28 lg:h-28 rounded-xl sm:rounded-2xl md:rounded-[2rem] object-cover shadow-lg border-[3px] md:border-4 border-white grayscale hover:grayscale-0 transition-all duration-500" />
               </motion.div>
               I'm Nadia!
             </motion.h1>
@@ -175,7 +175,7 @@ export default function Home() {
             initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }} variants={fadeUp}
             className="mb-16 md:mb-24 flex flex-col items-start gap-2"
           >
-            <h2 className="text-4xl md:text-5xl font-display text-headline mb-4 font-bold" style={{ marginLeft: "-0.08em" }}>Selected Projects</h2>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-display text-headline mb-4 font-bold" style={{ marginLeft: "-0.08em" }}>Selected Projects</h2>
             <p className="text-xl text-bodytext font-light">Featured case studies.</p>
           </motion.div>
 
@@ -231,7 +231,7 @@ export default function Home() {
       <section className="py-24 bg-white border-y border-headline/5 overflow-hidden">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }} variants={fadeUp} className="text-center mb-12">
-            <h2 className="text-4xl md:text-5xl font-display text-headline mb-4 font-bold">Testimonials</h2>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-display text-headline mb-4 font-bold">Testimonials</h2>
             <p className="text-xs font-bold tracking-widest uppercase text-cta">Collaborations & Feedback</p>
           </motion.div>
           
@@ -300,7 +300,7 @@ export default function Home() {
             
             {/* Right: Text */}
             <div>
-              <h2 className="text-4xl md:text-5xl font-display text-headline mb-4 font-bold" style={{ marginLeft: "-0.08em" }}>The Backstory</h2>
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-display text-headline mb-4 font-bold" style={{ marginLeft: "-0.08em" }}>The Backstory</h2>
               <p className="text-xl text-bodytext font-light mb-8">How I got here.</p>
               <div className="space-y-6 text-base text-bodytext font-light leading-relaxed">
                 <p className="text-base text-bodytext font-light leading-relaxed mb-6 max-w-prose">
@@ -339,7 +339,7 @@ export default function Home() {
       <section className="w-full bg-white py-32">
         <div className="max-w-4xl mx-auto px-6">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-display text-headline mb-4 font-bold" style={{ marginLeft: "-0.08em" }}>My Approach</h2>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-display text-headline mb-4 font-bold" style={{ marginLeft: "-0.08em" }}>My Approach</h2>
             <p className="text-xl text-bodytext font-light">Principles that guide my work.</p>
           </motion.div>
           
@@ -367,7 +367,7 @@ export default function Home() {
       <section className="py-32 bg-background relative">
         <div className="max-w-5xl mx-auto px-6">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-display text-headline mb-4 font-bold">How I Work</h2>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-display text-headline mb-4 font-bold">How I Work</h2>
             <p className="text-xl text-bodytext font-light">A structured process for chaotic problems.</p>
           </motion.div>
           
@@ -397,7 +397,7 @@ export default function Home() {
       <section className="py-32 bg-white">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}>
-            <h2 className="text-4xl md:text-5xl font-display text-headline mb-4 font-bold" style={{ marginLeft: "-0.08em" }}>What you get when we work together</h2>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-display text-headline mb-4 font-bold" style={{ marginLeft: "-0.08em" }}>What you get when we work together</h2>
             <p className="text-xl text-bodytext font-light mb-12">The value beyond the pixels.</p>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-left bg-background p-8 md:p-12 rounded-3xl border border-cloud/30">
               <div className="flex gap-4 items-start">
@@ -437,7 +437,7 @@ export default function Home() {
       <section id="contact" className="relative w-full pt-32 pb-32 flex flex-col items-center justify-center px-6 overflow-hidden bg-background">
         <div className="relative z-10 w-full max-w-5xl mx-auto">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-display text-headline mb-4 font-bold" style={{ marginLeft: "-0.08em" }}>Let's work together.</h2>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-display text-headline mb-4 font-bold" style={{ marginLeft: "-0.08em" }}>Let's work together.</h2>
             <p className="text-xl text-bodytext font-light">Fill out the form below or choose how you'd like to reach out.</p>
           </motion.div>
           
@@ -469,7 +469,7 @@ export default function Home() {
                         Accept: "application/json",
                       },
                       body: JSON.stringify({
-                        access_key: "11d9c258-baed-40a7-9f00-a190699aea1b",
+                        access_key: import.meta.env.VITE_WEB3FORMS_ACCESS_KEY || "YOUR_ACCESS_KEY_HERE",
                         subject: "New Inquiry from Portfolio",
                         from_name: name,
                         replyto: email,
@@ -520,7 +520,7 @@ export default function Home() {
                   <span className="text-sm opacity-70">nadiahossny426@gmail.com</span>
                 </div>
               </a>
-              <a href="https://wa.me/201234567890?text=Hello!%20I'm%20reaching%20out%20from%20your%20product%20design%20portfolio." target="_blank" rel="noopener noreferrer" className="group flex items-center gap-4 text-bodytext hover:text-cta transition-colors p-5 rounded-2xl bg-white border border-cloud hover:border-cta/30 hover:bg-cta/5 shadow-sm hover:shadow-md">
+              <a href="https://wa.me/201064943439?text=Hello!%20I'm%20reaching%20out%20from%20your%20product%20design%20portfolio." target="_blank" rel="noopener noreferrer" className="group flex items-center gap-4 text-bodytext hover:text-cta transition-colors p-5 rounded-2xl bg-white border border-cloud hover:border-cta/30 hover:bg-cta/5 shadow-sm hover:shadow-md">
                 <FaWhatsapp className="w-7 h-7" />
                 <div className="flex flex-col text-left">
                   <span className="font-medium text-headline group-hover:text-cta transition-colors">WhatsApp</span>
