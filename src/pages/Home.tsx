@@ -180,7 +180,7 @@ export default function Home() {
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12">
-            {caseStudies.map((study, index) => (
+            {caseStudies.filter(study => study.featured).map((study, index) => (
               <motion.div 
                 key={study.id}
                 initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }} variants={fadeUp}

@@ -5,6 +5,7 @@ import notesAppImage from '../assets/projects/notes_app.png';
 import ieeeImage from '../assets/projects/ieee.png';
 import ecommerceImage from '../assets/projects/ecommerce.png';
 import simplibankImage from '../assets/projects/simplibank.png';
+import bloombookImage from '../assets/projects/bloombook.png';
 
 export interface CaseStudy {
   id: string;
@@ -23,6 +24,7 @@ export interface CaseStudy {
   stat: string;
   links?: { url: string; label: string; type: 'behance' | 'github' | 'live' }[];
   uiExplorations?: { title: string; desc: string }[];
+  featured?: boolean;
 }
 
 export const caseStudies: CaseStudy[] = [
@@ -56,7 +58,8 @@ export const caseStudies: CaseStudy[] = [
     ],
     uiExplorations: [
       { title: 'Hardware-Integrated', desc: 'Connects directly to a robotic dispensing arm, closing the loop from digital order to physical fulfillment.' }
-    ]
+    ],
+    featured: true
   },
   {
     id: 'auraleaf',
@@ -86,7 +89,8 @@ export const caseStudies: CaseStudy[] = [
     links: [
       { url: 'https://github.com/nadiahossny', label: 'View Source', type: 'github' },
       { url: 'https://auraleaf.vercel.app/', label: 'Live Demo', type: 'live' }
-    ]
+    ],
+    featured: true
   },
   {
     id: 'taskly',
@@ -121,7 +125,8 @@ export const caseStudies: CaseStudy[] = [
       { title: 'Calendar and reminders as an offer', desc: 'Syncing to Google/Outlook/Notion and setting distraction-blocking or email reminders are pushed to steps 3 and 4, after the goal and first task already exist. The app is usable before either decision gets made.' },
       { title: 'Goal-anchored grouping', desc: 'Sorting tasks by when they\'re due (Today / Tomorrow / This Week) rather than by project or category, so the list mirrors how urgency is actually felt, not how it was filed.' },
       { title: 'Focus Mode as a bridge', desc: 'Instead of a bare timer, session length (default 25 min, adjustable) feeds directly into the same daily-hour goal shown on the dashboard\'s progress ring, so "focusing" and "progressing toward the goal" are the same action, not two separate screens.' }
-    ]
+    ],
+    featured: true
   },
   {
     id: 'simplibank',
@@ -180,11 +185,11 @@ export const caseStudies: CaseStudy[] = [
       { label: 'Self-contained portability', text: 'The recipient can open the generated .json gift entirely offline.' },
       { label: 'CSS animations', text: 'The "magical night garden" uses CSS keyframes for floating, blooming flowers.' }
     ],
-    image: '',
+    image: bloombookImage,
     stat: 'Zero-backend portability',
     links: [
-      { url: 'https://github.com/nadiallah/my-bloom-gift', label: 'View Source', type: 'github' },
-      { url: 'https://nadia.nz', label: 'Author Site', type: 'live' }
+      { url: 'https://github.com/nadiahossny/my-bloom-gift', label: 'View Source', type: 'github' },
+      { url: 'https://bloombookgift.vercel.app/', label: 'Live Demo', type: 'live' }
     ],
     uiExplorations: [
       { title: 'Color picker & Photo upload', desc: 'Choose from curated palettes or pick any color. Upload 4+ images, each with an optional caption, stored as base64 data URIs.' },
@@ -254,7 +259,8 @@ export const otherProjects: OtherProject[] = [
   {
     title: 'BloomBook Gift',
     description: 'A digital keepsake builder — personalized gift books with animated gardens. A fully client-side single-page application.',
-    caseStudyId: 'bloombook'
+    caseStudyId: 'bloombook',
+    image: bloombookImage
   },
   {
     title: 'Byto Academy',
