@@ -13,7 +13,7 @@ export default function Footer() {
       <div className="relative z-10 max-w-5xl mx-auto flex flex-col md:flex-row justify-between items-center gap-10 text-center md:text-left">
         <div className="flex flex-col items-center md:items-start">
           <img src={logo} alt="Nadia Hossny" className="h-10 w-auto mb-4 drop-shadow-sm" />
-          <p className="text-sm font-medium text-bodytext">Crafting intuitive products with purpose and precision.</p>
+          <p className="text-sm font-medium text-bodytext">Problem first, then pixels, then code.</p>
         </div>
         <div className="flex gap-8 items-center text-[13px] uppercase tracking-widest font-medium">
           <a href="mailto:nadiahossny426@gmail.com" className="hover:text-cta transition-colors flex items-center gap-2" aria-label="Email" title="Email">
@@ -34,7 +34,7 @@ export default function Footer() {
         </div>
       </div>
       <div className="relative z-10 max-w-5xl mx-auto mt-16 text-center text-xs text-bodytext/60 font-medium">
-        © {new Date().getFullYear()} Nadia Hossny
+        Designed in Figma, built with React and Tailwind. © 2026 Nadia Hossny.
       </div>
     </footer>
   );

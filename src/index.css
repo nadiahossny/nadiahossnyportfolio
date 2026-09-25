@@ -26,6 +26,9 @@
   body {
     @apply bg-background text-bodytext antialiased selection:bg-cloud selection:text-headline overflow-x-hidden;
   }
+  *:focus-visible {
+    @apply outline outline-2 outline-offset-2 outline-cta rounded-sm;
+  }
 }
 html { scroll-behavior: smooth; overflow-x: hidden; }
 body { overflow-x: hidden; }
