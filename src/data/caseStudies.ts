@@ -34,7 +34,7 @@ export const caseStudies: CaseStudy[] = [
     subtitle: '(Roshetety & PharmaSys)',
     role: 'Product Designer & Developer',
     tags: ['Flutter', 'Node.js', 'PostgreSQL', 'Google ML Kit', 'WebSockets'],
-    hook: 'A smart prescription scanner and pharmacy management app bridging the gap between patients and pharmacies.',
+    hook: '83% of pharmacy customers we surveyed waited more than 15 minutes. My team built a robotic hand to fetch medicine, and I designed and built the app that runs it: prescription scanning, a manager dashboard, and the link to the hardware.',
     color: 'bg-slate-800',
     problem: 'For decades, pharmacies have struggled with manually transcribing handwritten or printed prescriptions. In interviews and surveys with pharmacists and patients, 83% reported wait times exceeding 15 minutes, and 60% cited manual transcription as the core bottleneck.',
     cutDirections: [
@@ -62,12 +62,32 @@ export const caseStudies: CaseStudy[] = [
     featured: true
   },
   {
+    id: 'ieee',
+    title: 'IEEE PUA Student Branch',
+    subtitle: 'Official Website',
+    role: 'UI/UX Designer & Developer',
+    tags: ['React', 'Web Design', 'UI/UX'],
+    hook: 'A student branch needed one place for events, bookings and proposals. I designed the UI/UX and co-built the site, which is live with real users.',
+    color: 'bg-blue-600',
+    problem: '',
+    cutDirections: [],
+    chosen: { title: '', desc: '' },
+    outcome: '',
+    marginNotes: [],
+    image: ieeeImage,
+    stat: 'Live with real users',
+    links: [
+      { url: 'https://ieeepuasb.com', label: 'Visit live site', type: 'live' }
+    ],
+    featured: false
+  },
+  {
     id: 'auraleaf',
     title: 'AuraLeaf',
     subtitle: 'Study Companion',
     role: 'Frontend Developer & Designer',
     tags: ['React 19', 'Tailwind CSS', 'react-draggable', 'react-player', 'jquery.ripples'],
-    hook: 'An immersive study and focus companion designed to help you tune out distractions and get in the zone.',
+    hook: 'Studying online means constant tab-switching, and every switch is a chance to drift. AuraLeaf puts ambient sound, a focus timer, to-dos, sticky notes and a YouTube player in one calm workspace.',
     color: 'bg-stone-700',
     problem: 'People needed a focused hub for studying and working without the constant distraction of switching tabs.',
     cutDirections: [
@@ -98,7 +118,7 @@ export const caseStudies: CaseStudy[] = [
     subtitle: 'Simplify Your Productivity',
     role: 'Lead Product Designer',
     tags: ['Product Design', 'UX Research', 'Mobile App'],
-    hook: 'A lean capture-to-plan flow leaning on preattentive processing to instantly register priority.',
+    hook: 'Most task apps make you organize before you can even write the task down. Taskly explores capturing a task fast and seeing its priority at a glance, built from competitor analysis and user interviews.',
     color: 'bg-red-900',
     problem: 'Task apps tend to treat "add a task" and "make progress on a goal" as separate systems — a list here, a habit tracker there. That split shows up earliest at onboarding: most apps ask you to start filling in tasks before establishing why — so the list has no anchor, and neither does anything you check off later. The gap I designed for wasn\'t "how do I capture a task" but "how do I keep every task tied to the goal it\'s supposed to serve, from the very first screen."',
     cutDirections: [
@@ -242,10 +262,10 @@ export const otherProjects: OtherProject[] = [
     image: ecommerceImage
   },
   {
-    title: 'IEEE PUA SB Official Site',
-    description: 'The official website for the IEEE PUA Student Branch, providing information on activities, committees, and events.',
-    link: 'https://github.com/nadiahossny',
-    linkText: 'View on GitHub',
+    title: 'IEEE PUA Student Branch',
+    description: 'A student branch needed one place for events, bookings and proposals. I designed the UI/UX and co-built the site, which is live with real users.',
+    link: 'https://ieeepuasb.com',
+    linkText: 'Visit live site',
     image: ieeeImage
   },
   {

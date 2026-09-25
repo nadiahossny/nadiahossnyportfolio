@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { useRef, useState } from 'react';
 import { MousePointerClick, ArrowLeft } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 import bloomBookImg from '../assets/projects/creative experiments/bloombookprev.png';
 
 export default function Playground() {
@@ -59,6 +60,13 @@ export default function Playground() {
       className="min-h-screen pt-32 pb-24 bg-white relative overflow-hidden"
       style={{ cursor: cloudCursor }}
     >
+      <Helmet>
+        <title>Nadia Hossny | Creative Corner & Playground</title>
+        <meta name="description" content="Explore the interactive creative corner of Nadia Hossny's portfolio. Drag, drop, and play around with fun web experiments." />
+        <meta name="keywords" content="Interactive Playground, Nadia Hossny, Web Experiments, Creative Developer, Portfolio Playground" />
+        <meta property="og:title" content="Nadia Hossny | Creative Corner & Playground" />
+        <meta property="og:description" content="Explore the interactive creative corner of Nadia Hossny's portfolio. Drag, drop, and play around with fun web experiments." />
+      </Helmet>
       <div className="max-w-7xl mx-auto px-6 md:px-8 mb-8 relative z-10 flex flex-col items-center text-center">
         <Link to="/" className="absolute left-6 md:left-8 top-0 flex items-center gap-2 text-bodytext hover:text-cta transition-colors font-medium">
           <ArrowLeft className="w-5 h-5" /> Back to Home

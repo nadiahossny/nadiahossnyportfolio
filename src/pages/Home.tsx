@@ -3,7 +3,7 @@ import { useLocation, Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { caseStudies } from '../data/caseStudies';
 import CaseStudyModal from '../components/CaseStudyModal';
-import { ArrowRight, ArrowDown, CheckCircle2, Mail, FileText } from 'lucide-react';
+import { ArrowRight, Mail, FileText } from 'lucide-react';
 import { SiFigma, SiFlutter, SiReact, SiNextdotjs } from 'react-icons/si';
 import { FaLinkedin, FaWhatsapp } from 'react-icons/fa';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -11,6 +11,7 @@ import profileImg from '../assets/nadia_hero_avatar.jpg';
 import aboutPhoto from '../assets/about-photo.jpg';
 import heroBg from '../assets/cloudy-bg.png';
 import MoreWorkModal from '../components/MoreWorkModal';
+import ExperienceRow from '../components/ExperienceRow';
 
 const fadeUp: any = {
   hidden: { opacity: 0, y: 30 },
@@ -71,11 +72,12 @@ export default function Home() {
   return (
     <div className="w-full bg-white text-bodytext min-h-screen font-sans selection:bg-cloud selection:text-headline overflow-hidden">
       <Helmet>
-        <title>Nadia Hossny | Product Designer & UI/UX Specialist</title>
-        <meta name="description" content="Nadia Hossny is a Product Designer and UI/UX Specialist with a background in software development. Explore her portfolio of intuitive, user-centered digital products." />
-        <meta name="keywords" content="Nadia Hossny, Product Designer, UI/UX Designer, UX Researcher, Frontend Developer, Web Design, Egypt" />
-        <meta property="og:title" content="Nadia Hossny | Product Designer" />
-        <meta property="og:description" content="Explore the portfolio of Nadia Hossny, a product designer focused on bridging the gap between aesthetics and function." />
+        <title>Nadia Hossny, Product Designer</title>
+        <meta name="description" content="Product designer who builds what she designs. Case studies in healthcare, education and productivity, from user research in Figma to shipped Flutter and React." />
+        <meta property="og:title" content="Nadia Hossny, Product Designer" />
+        <meta property="og:description" content="Product designer who builds what she designs. Case studies in healthcare, education and productivity, from user research in Figma to shipped Flutter and React." />
+        <meta name="twitter:title" content="Nadia Hossny, Product Designer" />
+        <meta name="twitter:description" content="Product designer who builds what she designs. Case studies in healthcare, education and productivity, from user research in Figma to shipped Flutter and React." />
       </Helmet>
       {selectedStudy && (
         <CaseStudyModal 
@@ -121,7 +123,7 @@ export default function Home() {
               transition={{ duration: 0.6, delay: 0.1 }}
               className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-display text-headline font-bold mb-6 flex items-center justify-center flex-wrap gap-x-2 sm:gap-x-4 gap-y-2"
             >
-              Hi, 
+              Hi, I'm 
               <motion.div 
                 initial={{ opacity: 0, scale: 0.8, rotate: -15 }} 
                 animate={{ opacity: 1, scale: 1, rotate: -5 }} 
@@ -131,7 +133,7 @@ export default function Home() {
               >
                 <img src={profileImg} alt="Nadia Hossny" className="w-12 h-12 sm:w-16 sm:h-16 md:w-24 md:h-24 lg:w-28 lg:h-28 rounded-xl sm:rounded-2xl md:rounded-[2rem] object-cover shadow-lg border-[3px] md:border-4 border-white grayscale hover:grayscale-0 transition-all duration-500" />
               </motion.div>
-              I'm Nadia!
+              Nadia.
             </motion.h1>
 
             <motion.p 
@@ -140,18 +142,20 @@ export default function Home() {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="text-lg md:text-xl lg:text-2xl text-bodytext font-light leading-relaxed max-w-3xl mx-auto mb-10"
             >
-              A product designer with a development background. <br className="hidden md:block" />
-              I find real problems — then design and build the solution myself.
+              A product designer who builds what she designs.
             </motion.p>
             
             <motion.div 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
-              className="flex justify-center"
+              className="flex justify-center gap-4"
             >
-              <a href="#work" className="animate-bounce inline-flex items-center justify-center p-4 rounded-full text-headline hover:text-cta transition-colors" style={{ animationDuration: '2.5s' }}>
-                <ArrowDown className="w-8 h-8 md:w-10 md:h-10" strokeWidth={2.5} />
+              <a href="#work" className="inline-flex items-center justify-center px-8 py-4 bg-headline text-white rounded-full font-medium hover:bg-headline/90 transition-all shadow-sm text-sm sm:text-base">
+                See my work
+              </a>
+              <a href="https://drive.google.com/file/d/1RnrOnp8jSUYzBkMdGGUPAqJ1Js1jV0nP/view?usp=sharing" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center px-8 py-4 bg-white border border-cloud text-headline rounded-full font-medium hover:border-cta/30 hover:bg-cta/5 transition-all shadow-sm text-sm sm:text-base">
+                Download CV
               </a>
             </motion.div>
           </div>
@@ -227,7 +231,75 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 3.75 Testimonials Carousel */}
+      {/* 3. How I work */}
+      <section className="py-24 bg-white relative">
+        <div className="max-w-5xl mx-auto px-6">
+          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="text-center mb-16">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-display text-headline mb-4 font-bold" style={{ marginLeft: "-0.08em" }}>How I work.</h2>
+          </motion.div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {[
+              { title: "Understand the problem first.", desc: "Research and constraints before any pixels." },
+              { title: "Design and build together.", desc: "Wireframes, high-fidelity screens, then code, so nothing is lost in handoff." },
+              { title: "Test with real people, then ship.", desc: "Clarity over cleverness. Done beats perfect." }
+            ].map((process, i) => (
+              <motion.div 
+                key={i}
+                initial="hidden" whileInView="visible" viewport={{ once: true }} transition={{ delay: i * 0.1 }} variants={fadeUp}
+                className="flex flex-col gap-6 bg-background p-8 md:p-10 rounded-[2rem] items-start border border-cloud/30 shadow-sm hover:shadow-md transition-shadow"
+              >
+                <div>
+                  <h3 className="text-xl font-medium text-headline mb-3">{process.title}</h3>
+                  <p className="text-bodytext font-light text-base leading-relaxed">{process.desc}</p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 4. About Me (Minimalist Layout) */}
+      <section id="about" className="py-24 bg-background relative">
+        <div className="max-w-5xl mx-auto px-6">
+          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="grid md:grid-cols-[1fr_2fr] gap-12 md:gap-16 items-center">
+            
+            {/* Left: Image */}
+            <div className="w-full max-w-[320px] mx-auto md:mx-0">
+               <div className="aspect-[4/5] rounded-3xl overflow-hidden shadow-md transition-all duration-500 hover:rotate-3 hover:scale-105 border-4 border-white">
+                 <img src={aboutPhoto} alt="Nadia Hossny" className="w-full h-full object-cover" />
+               </div>
+            </div>
+            
+            {/* Right: Text */}
+            <div>
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-display text-headline mb-4 font-bold" style={{ marginLeft: "-0.08em" }}>How I got here.</h2>
+              <div className="space-y-6 text-base text-bodytext font-light leading-relaxed mb-10">
+                <p className="text-base text-bodytext font-light leading-relaxed max-w-prose">
+                  I started with graphic design, making posts, logos and certificates for student clubs like GDSC, Dream Team and IEEE, and ended up leading design teams. Then I picked up code, studying Computer Science & AI at Pharos University (graduated 2026 with Honors), and that eye turned into products that work, not just look good. UI/UX taught me that function and beauty aren't separate jobs.
+                </p>
+                <p className="text-base text-bodytext font-light leading-relaxed max-w-prose">
+                  Then a question changed how I work: there are already a thousand apps, so why build another one? Now I only start with a problem worth solving.
+                </p>
+              </div>
+              
+              <div className="pt-6 border-t border-headline/10 text-sm font-light">
+                <p>
+                  I also design brand visuals and social content — <Link to="/graphic-design" className="text-cta hover:underline font-medium">see examples &rarr;</Link>
+                </p>
+              </div>
+            </div>
+
+          </motion.div>
+
+          {/* 5. Experience Row */}
+          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="mt-20">
+            <ExperienceRow />
+          </motion.div>
+        </div>
+      </section>
+
+      {/* 6. Testimonials Carousel */}
       <section className="py-24 bg-white border-y border-headline/5 overflow-hidden">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }} variants={fadeUp} className="text-center mb-12">
@@ -286,147 +358,20 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 4. About Me (Minimalist Layout) */}
-      <section id="about" className="py-24 bg-background relative">
+      {/* 7. Cross-navigation to Other Work */}
+      <section className="py-24 bg-background border-t border-cloud/30">
         <div className="max-w-5xl mx-auto px-6">
-          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="grid md:grid-cols-[1fr_2fr] gap-12 md:gap-16 items-center">
-            
-            {/* Left: Image */}
-            <div className="w-full max-w-[320px] mx-auto md:mx-0">
-               <div className="aspect-[4/5] rounded-3xl overflow-hidden shadow-md transition-all duration-500 hover:rotate-3 hover:scale-105 border-4 border-white">
-                 <img src={aboutPhoto} alt="Nadia Hossny" className="w-full h-full object-cover" />
-               </div>
-            </div>
-            
-            {/* Right: Text */}
-            <div>
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-display text-headline mb-4 font-bold" style={{ marginLeft: "-0.08em" }}>The Backstory</h2>
-              <p className="text-xl text-bodytext font-light mb-8">How I got here.</p>
-              <div className="space-y-6 text-base text-bodytext font-light leading-relaxed">
-                <p className="text-base text-bodytext font-light leading-relaxed mb-6 max-w-prose">
-                  I didn't start out trying to be a designer or a developer. I started with a creative instinct — an empty canvas, and the urge to fill it. 
-                </p>
-                <p className="text-base text-bodytext font-light leading-relaxed mb-6 max-w-prose">
-                  Learning to code turned that instinct into something that worked, not just looked good. Discovering UI/UX taught me that function and beauty aren't separate jobs. 
-                </p>
-                <p className="text-base text-bodytext font-light leading-relaxed max-w-prose">
-                  But the real shift came when I asked myself: <span className="font-display italic text-headline text-lg">there are already a thousand apps out there — why build another one?</span>
-                </p>
-                <p className="text-base text-bodytext font-light leading-relaxed mb-10 max-w-prose">
-                  The answer became my compass: find a real problem, and be part of building the solution. That's what I do now, across design and development — not chasing tools, chasing problems worth solving.
-                </p>
-              </div>
-              
-              <div className="flex flex-wrap gap-2 mt-8 mb-6">
-                <span className="px-4 py-1.5 bg-white border border-cloud/40 shadow-sm text-headline rounded-full text-[11px] font-bold tracking-widest uppercase">Product Design</span>
-                <span className="px-4 py-1.5 bg-white border border-cloud/40 shadow-sm text-headline rounded-full text-[11px] font-bold tracking-widest uppercase">Frontend Dev</span>
-                <span className="px-4 py-1.5 bg-white border border-cloud/40 shadow-sm text-headline rounded-full text-[11px] font-bold tracking-widest uppercase">UI / UX</span>
-              </div>
-              
-              <div className="pt-6 border-t border-headline/10 text-sm font-light">
-                <p className="mb-2">Based in Alexandria, Egypt 🇪🇬</p>
-                <p>
-                  I also design brand visuals and social content — <Link to="/graphic-design" className="text-cta hover:underline font-medium">see examples &rarr;</Link>
-                </p>
-              </div>
-            </div>
-
-          </motion.div>
-        </div>
-      </section>
-
-      {/* 5. My Approach */}
-      <section className="w-full bg-white py-32">
-        <div className="max-w-4xl mx-auto px-6">
-          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-display text-headline mb-4 font-bold" style={{ marginLeft: "-0.08em" }}>My Approach</h2>
-            <p className="text-xl text-bodytext font-light">Principles that guide my work.</p>
-          </motion.div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {[
-              { title: "Clarity over cleverness", desc: "If a user has to think about how to use it, the design has failed." },
-              { title: "Done > Perfect", desc: "Shipping real value beats polishing an idea that never sees the light of day." },
-              { title: "Design is systematic", desc: "Every component should belong to a cohesive language, not stand alone." },
-              { title: "Function first", desc: "Aesthetics support the goal, they don't replace it." }
-            ].map((principle, i) => (
-              <motion.div 
-                key={i}
-                initial="hidden" whileInView="visible" viewport={{ once: true }} transition={{ delay: i * 0.1 }} variants={fadeUp}
-                className="bg-background p-10 rounded-3xl shadow-sm border border-cloud/50 hover:shadow-cloud transition-shadow duration-300"
-              >
-                <h3 className="text-xl font-display text-headline mb-3">{principle.title}</h3>
-                <p className="text-bodytext font-light text-sm leading-relaxed">{principle.desc}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* 6. Process */}
-      <section className="py-32 bg-background relative">
-        <div className="max-w-5xl mx-auto px-6">
-          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-display text-headline mb-4 font-bold">How I Work</h2>
-            <p className="text-xl text-bodytext font-light">A structured process for chaotic problems.</p>
-          </motion.div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {[
-              { step: "01", title: "Understand", desc: "Deep diving into the problem space, user research, and technical constraints before drawing a single pixel." },
-              { step: "02", title: "Design & Build", desc: "Translating insights into wireframes, high-fidelity designs, and finally, robust code." },
-              { step: "03", title: "Test & Deliver", desc: "Validating the solution with real users, refining based on feedback, and shipping the final product." }
-            ].map((process, i) => (
-              <motion.div 
-                key={i}
-                initial="hidden" whileInView="visible" viewport={{ once: true }} transition={{ delay: i * 0.1 }} variants={fadeUp}
-                className="flex flex-col gap-6 bg-white p-8 md:p-10 rounded-[2rem] items-start border border-cloud/30 shadow-sm hover:shadow-md transition-shadow"
-              >
-                <div className="text-6xl font-display text-cta font-light opacity-30 mb-2">{process.step}</div>
-                <div>
-                  <h3 className="text-xl font-medium text-headline mb-3">{process.title}</h3>
-                  <p className="text-bodytext font-light text-base leading-relaxed">{process.desc}</p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* 7. What Clients Get */}
-      <section className="py-32 bg-white">
-        <div className="max-w-4xl mx-auto px-6 text-center">
-          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-display text-headline mb-4 font-bold" style={{ marginLeft: "-0.08em" }}>What you get when we work together</h2>
-            <p className="text-xl text-bodytext font-light mb-12">The value beyond the pixels.</p>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-left bg-background p-8 md:p-12 rounded-3xl border border-cloud/30">
-              <div className="flex gap-4 items-start">
-                <CheckCircle2 className="w-6 h-6 text-cta shrink-0 mt-1" />
-                <div>
-                  <h4 className="text-xl text-headline font-medium mb-2">A technical partner</h4>
-                  <p className="text-bodytext font-light">I don't just hand off Figma files. I understand how to build them.</p>
-                </div>
-              </div>
-              <div className="flex gap-4 items-start">
-                <CheckCircle2 className="w-6 h-6 text-cta shrink-0 mt-1" />
-                <div>
-                  <h4 className="text-xl text-headline font-medium mb-2">Systems thinking</h4>
-                  <p className="text-bodytext font-light">Scalable design systems that grow with your product.</p>
-                </div>
-              </div>
-              <div className="flex gap-4 items-start">
-                <CheckCircle2 className="w-6 h-6 text-cta shrink-0 mt-1" />
-                <div>
-                  <h4 className="text-xl text-headline font-medium mb-2">Reduced cognitive load</h4>
-                  <p className="text-bodytext font-light">Interfaces that feel effortless for your users.</p>
-                </div>
-              </div>
-              <div className="flex gap-4 items-start">
-                <CheckCircle2 className="w-6 h-6 text-cta shrink-0 mt-1" />
-                <div>
-                  <h4 className="text-xl text-headline font-medium mb-2">Clear communication</h4>
-                  <p className="text-bodytext font-light">No black boxes. You'll know exactly what's happening and why.</p>
-                </div>
+          <motion.div 
+            initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} 
+          >
+            <div className="flex justify-center">
+              {/* Graphic Design */}
+              <div className="w-full max-w-2xl bg-white p-10 md:p-14 rounded-[2rem] border border-cloud/50 shadow-sm text-center flex flex-col items-center justify-center">
+                <h3 className="text-xl md:text-2xl font-display text-headline mb-4 font-semibold">Looking for brand identity?</h3>
+                <p className="text-bodytext font-light mb-8">I also do illustrations, logos, and print materials.</p>
+                <Link to="/graphic-design" className="inline-flex items-center gap-2 px-8 py-4 bg-headline text-white rounded-full font-medium hover:bg-headline/90 transition-all shadow-sm group mt-auto">
+                  Explore Graphic Design <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </Link>
               </div>
             </div>
           </motion.div>
@@ -434,11 +379,11 @@ export default function Home() {
       </section>
 
       {/* 8. Contact Section */}
-      <section id="contact" className="relative w-full pt-32 pb-32 flex flex-col items-center justify-center px-6 overflow-hidden bg-background">
+      <section id="contact" className="relative w-full pt-32 pb-32 flex flex-col items-center justify-center px-6 overflow-hidden bg-white border-t border-headline/5">
         <div className="relative z-10 w-full max-w-5xl mx-auto">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-display text-headline mb-4 font-bold" style={{ marginLeft: "-0.08em" }}>Let's work together.</h2>
-            <p className="text-xl text-bodytext font-light">Fill out the form below or choose how you'd like to reach out.</p>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-display text-headline mb-4 font-bold" style={{ marginLeft: "-0.08em" }}>Let's talk.</h2>
+            <p className="text-xl text-bodytext font-light max-w-2xl mx-auto">I'm open to full-time product design and frontend roles, and selected freelance projects. Email is fastest; WhatsApp works too.</p>
           </motion.div>
           
           <div className="flex flex-col md:flex-row gap-12">
@@ -544,36 +489,6 @@ export default function Home() {
               </a>
             </motion.div>
           </div>
-        </div>
-      </section>
-      
-      {/* Cross-navigation to Other Work */}
-      <section className="py-24 bg-white border-t border-cloud/30">
-        <div className="max-w-5xl mx-auto px-6">
-          <motion.div 
-            initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} 
-          >
-            <div className="flex justify-center">
-              {/* Graphic Design */}
-              <div className="w-full max-w-2xl bg-white p-10 md:p-14 rounded-[2rem] border border-cloud/50 shadow-sm text-center flex flex-col items-center justify-center">
-                <h3 className="text-xl md:text-2xl font-display text-headline mb-4 font-semibold">Looking for brand identity?</h3>
-                <p className="text-bodytext font-light mb-8">I also do illustrations, logos, and print materials.</p>
-                <Link to="/graphic-design" className="inline-flex items-center gap-2 px-8 py-4 bg-headline text-white rounded-full font-medium hover:bg-headline/90 transition-all shadow-sm group mt-auto">
-                  Explore Graphic Design <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                </Link>
-              </div>
-
-              {/* Creative Corner - Hidden for now until content is finalized
-              <div className="bg-white p-10 rounded-[2rem] border border-cloud/50 shadow-sm text-center flex flex-col items-center justify-center">
-                <h3 className="text-xl md:text-2xl font-display text-headline mb-4 font-semibold">Want to see my experiments?</h3>
-                <p className="text-bodytext font-light mb-8">Explore my interactive playground and fun UI experiments.</p>
-                <Link to="/creative-corner" className="inline-flex items-center gap-2 px-8 py-4 bg-headline text-white rounded-full font-medium hover:bg-headline/90 transition-all shadow-sm group mt-auto">
-                  Visit Creative Corner <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                </Link>
-              </div>
-              */}
-            </div>
-          </motion.div>
         </div>
       </section>
     </div>

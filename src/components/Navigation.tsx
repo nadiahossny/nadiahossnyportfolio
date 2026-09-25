@@ -27,10 +27,10 @@ export default function Navigation() {
           <img src={logo} alt="Nadia Hossny" className="h-10 md:h-12 w-auto" />
         </Link>
         <nav className="hidden md:flex items-center gap-10 text-[13px] uppercase tracking-widest text-headline font-semibold">
-          <a href="/#work" className="hover:text-cta transition-colors">Work</a>
-          <a href="/#about" className="hover:text-cta transition-colors">About</a>
+          <a href="#work" className="hover:text-cta transition-colors">Work</a>
+          <a href="#about" className="hover:text-cta transition-colors">About</a>
           <Link to="/graphic-design" className="hover:text-cta transition-colors">Visuals</Link>
-          <a href="/#contact" className="hover:text-cta transition-colors">Contact</a>
+          <a href="#contact" className="hover:text-cta transition-colors">Contact</a>
         </nav>
         
         {/* Mobile Menu Toggle */}
@@ -42,10 +42,10 @@ export default function Navigation() {
       {/* Mobile Nav Overlay */}
       {isOpen && (
         <div className="absolute top-full left-0 w-full bg-white shadow-xl border-b border-cloud md:hidden py-8 px-6 flex flex-col gap-6 text-sm uppercase tracking-widest text-headline font-semibold z-40">
-          <a href="/#work" onClick={() => setIsOpen(false)} className="hover:text-cta transition-colors">Work</a>
-          <a href="/#about" onClick={() => setIsOpen(false)} className="hover:text-cta transition-colors">About</a>
+          <a href="#work" onClick={() => setIsOpen(false)} className="hover:text-cta transition-colors">Work</a>
+          <a href="#about" onClick={() => setIsOpen(false)} className="hover:text-cta transition-colors">About</a>
           <Link to="/graphic-design" onClick={() => setIsOpen(false)} className="hover:text-cta transition-colors">Visuals</Link>
-          <a href="/#contact" onClick={() => setIsOpen(false)} className="hover:text-cta transition-colors">Contact</a>
+          <a href="#contact" onClick={() => setIsOpen(false)} className="hover:text-cta transition-colors">Contact</a>
         </div>
       )}
     </header>
