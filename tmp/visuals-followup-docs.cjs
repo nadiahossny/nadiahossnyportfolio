@@ -1,0 +1,3 @@
+const fs=require('fs');
+fs.appendFileSync('AGENTS.md','\n- Hero copy override (24 October 2026): omit the standalone Product Designer line; retain the role in the two-sentence brief. Home Visuals previews use aligned equal frames (three/two/one columns), complete artwork and consistent captions, without staggered vertical offsets.\n');
+fs.appendFileSync('brand-spec.md','\n- Follow-up, 24 October: remove the repeated standalone hero role. Homepage Visuals previews retain Foresight/IEEE/presentations, aligned in equal 4:3 pale-blue frames with object-fit: contain, 32px gaps and three/two/one columns. No unequal offsets or square cover cropping.\n');

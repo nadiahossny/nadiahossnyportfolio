@@ -1,0 +1,806 @@
+[
+  {
+    "route": "/",
+    "width": 320,
+    "language": "en-200%-root-text",
+    "broken": [],
+    "canonicalCount": 1,
+    "clipped": [],
+    "overflow": false,
+    "sections": [],
+    "smallActions": []
+  },
+  {
+    "route": "/work",
+    "width": 320,
+    "language": "en-200%-root-text",
+    "broken": [],
+    "canonicalCount": 1,
+    "clipped": [],
+    "overflow": false,
+    "sections": [],
+    "smallActions": []
+  },
+  {
+    "route": "/about",
+    "width": 320,
+    "language": "en-200%-root-text",
+    "broken": [],
+    "canonicalCount": 1,
+    "clipped": [
+      {
+        "cls": null,
+        "tag": "DIV"
+      },
+      {
+        "cls": null,
+        "tag": "H3"
+      },
+      {
+        "cls": null,
+        "tag": "P"
+      },
+      {
+        "cls": null,
+        "tag": "DIV"
+      },
+      {
+        "cls": null,
+        "tag": "H3"
+      }
+    ],
+    "overflow": true,
+    "sections": [],
+    "smallActions": []
+  },
+  {
+    "route": "/work-with-me",
+    "width": 320,
+    "language": "en-200%-root-text",
+    "broken": [],
+    "canonicalCount": 1,
+    "clipped": [
+      {
+        "cls": "!text-xl",
+        "tag": "H2"
+      }
+    ],
+    "overflow": true,
+    "sections": [],
+    "smallActions": []
+  },
+  {
+    "route": "/visuals",
+    "width": 320,
+    "language": "en-200%-root-text",
+    "broken": [],
+    "canonicalCount": 1,
+    "clipped": [
+      {
+        "cls": "py-3 border-b-2 font-sans font-semibold text-sm transition-colors cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cta border-transparent text-bodytext/70 hover:border-headline/40",
+        "tag": "BUTTON"
+      },
+      {
+        "cls": "inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-headline text-white font-heading font-bold text-xs uppercase tracking-wider hover:bg-headline/90 transition-all cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cta",
+        "tag": "BUTTON"
+      },
+      {
+        "cls": "inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-headline text-white font-heading font-bold text-xs uppercase tracking-wider hover:bg-headline/90 transition-all cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cta",
+        "tag": "BUTTON"
+      },
+      {
+        "cls": "inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-headline text-white font-heading font-bold text-xs uppercase tracking-wider hover:bg-headline/90 transition-all cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cta",
+        "tag": "BUTTON"
+      }
+    ],
+    "overflow": true,
+    "sections": [],
+    "smallActions": []
+  },
+  {
+    "route": "/creative-corner",
+    "width": 320,
+    "language": "en-200%-root-text",
+    "broken": [],
+    "canonicalCount": 1,
+    "clipped": [
+      {
+        "cls": "absolute top-[60px] left-[30px] sm:left-[120px] bg-white rounded-3xl shadow-lg cursor-grab border border-[#BFE4FF] z-30 flex flex-col items-center overflow-hidden w-60",
+        "tag": "DIV"
+      },
+      {
+        "cls": "w-full h-32 object-cover pointer-events-none",
+        "tag": "IMG"
+      },
+      {
+        "cls": "p-4 w-full text-center",
+        "tag": "DIV"
+      },
+      {
+        "cls": "font-heading font-bold text-headline mb-2",
+        "tag": "H2"
+      },
+      {
+        "cls": "inline-block px-5 py-2 bg-cta text-white rounded-full text-xs font-heading font-semibold hover:bg-headline transition-colors pointer-events-auto",
+        "tag": "A"
+      }
+    ],
+    "overflow": false,
+    "sections": [],
+    "smallActions": []
+  },
+  {
+    "route": "/work/auraleaf",
+    "width": 320,
+    "language": "en-200%-root-text",
+    "broken": [],
+    "canonicalCount": 1,
+    "clipped": [],
+    "overflow": false,
+    "sections": [
+      "problem",
+      "research",
+      "decisions",
+      "experience",
+      "evaluation",
+      "reflection"
+    ],
+    "smallActions": []
+  },
+  {
+    "route": "/work/apms",
+    "width": 320,
+    "language": "en-200%-root-text",
+    "broken": [],
+    "canonicalCount": 1,
+    "clipped": [],
+    "overflow": false,
+    "sections": [
+      "problem",
+      "research",
+      "flow",
+      "decisions",
+      "experience",
+      "evaluation",
+      "reflection"
+    ],
+    "smallActions": []
+  },
+  {
+    "route": "/work/taskly",
+    "width": 320,
+    "language": "en-200%-root-text",
+    "broken": [],
+    "canonicalCount": 1,
+    "clipped": [],
+    "overflow": false,
+    "sections": [
+      "problem",
+      "research",
+      "persona",
+      "flow",
+      "decisions",
+      "experience",
+      "evaluation",
+      "reflection"
+    ],
+    "smallActions": []
+  },
+  {
+    "route": "/work/notes-app",
+    "width": 320,
+    "language": "en-200%-root-text",
+    "broken": [],
+    "canonicalCount": 1,
+    "clipped": [],
+    "overflow": false,
+    "sections": [
+      "problem",
+      "flow",
+      "decisions",
+      "experience",
+      "evaluation",
+      "reflection"
+    ],
+    "smallActions": []
+  },
+  {
+    "route": "/work/ieee-web",
+    "width": 320,
+    "language": "en-200%-root-text",
+    "broken": [],
+    "canonicalCount": 1,
+    "clipped": [],
+    "overflow": false,
+    "sections": [
+      "problem",
+      "flow",
+      "decisions",
+      "experience",
+      "evaluation",
+      "reflection"
+    ],
+    "smallActions": []
+  },
+  {
+    "route": "/work/byto-academy",
+    "width": 320,
+    "language": "en-200%-root-text",
+    "broken": [],
+    "canonicalCount": 1,
+    "clipped": [],
+    "overflow": false,
+    "sections": [
+      "problem",
+      "decisions",
+      "experience",
+      "evaluation",
+      "reflection"
+    ],
+    "smallActions": []
+  },
+  {
+    "route": "/",
+    "width": 390,
+    "language": "en-200%-root-text",
+    "broken": [],
+    "canonicalCount": 1,
+    "clipped": [],
+    "overflow": false,
+    "sections": [],
+    "smallActions": []
+  },
+  {
+    "route": "/work",
+    "width": 390,
+    "language": "en-200%-root-text",
+    "broken": [],
+    "canonicalCount": 1,
+    "clipped": [],
+    "overflow": false,
+    "sections": [],
+    "smallActions": []
+  },
+  {
+    "route": "/about",
+    "width": 390,
+    "language": "en-200%-root-text",
+    "broken": [],
+    "canonicalCount": 1,
+    "clipped": [],
+    "overflow": false,
+    "sections": [],
+    "smallActions": []
+  },
+  {
+    "route": "/work-with-me",
+    "width": 390,
+    "language": "en-200%-root-text",
+    "broken": [],
+    "canonicalCount": 1,
+    "clipped": [],
+    "overflow": false,
+    "sections": [],
+    "smallActions": []
+  },
+  {
+    "route": "/visuals",
+    "width": 390,
+    "language": "en-200%-root-text",
+    "broken": [],
+    "canonicalCount": 1,
+    "clipped": [],
+    "overflow": false,
+    "sections": [],
+    "smallActions": []
+  },
+  {
+    "route": "/creative-corner",
+    "width": 390,
+    "language": "en-200%-root-text",
+    "broken": [],
+    "canonicalCount": 1,
+    "clipped": [],
+    "overflow": false,
+    "sections": [],
+    "smallActions": []
+  },
+  {
+    "route": "/work/auraleaf",
+    "width": 390,
+    "language": "en-200%-root-text",
+    "broken": [],
+    "canonicalCount": 1,
+    "clipped": [],
+    "overflow": false,
+    "sections": [
+      "problem",
+      "research",
+      "decisions",
+      "experience",
+      "evaluation",
+      "reflection"
+    ],
+    "smallActions": []
+  },
+  {
+    "route": "/work/apms",
+    "width": 390,
+    "language": "en-200%-root-text",
+    "broken": [],
+    "canonicalCount": 1,
+    "clipped": [],
+    "overflow": false,
+    "sections": [
+      "problem",
+      "research",
+      "flow",
+      "decisions",
+      "experience",
+      "evaluation",
+      "reflection"
+    ],
+    "smallActions": []
+  },
+  {
+    "route": "/work/taskly",
+    "width": 390,
+    "language": "en-200%-root-text",
+    "broken": [],
+    "canonicalCount": 1,
+    "clipped": [],
+    "overflow": false,
+    "sections": [
+      "problem",
+      "research",
+      "persona",
+      "flow",
+      "decisions",
+      "experience",
+      "evaluation",
+      "reflection"
+    ],
+    "smallActions": []
+  },
+  {
+    "route": "/work/notes-app",
+    "width": 390,
+    "language": "en-200%-root-text",
+    "broken": [],
+    "canonicalCount": 1,
+    "clipped": [],
+    "overflow": false,
+    "sections": [
+      "problem",
+      "flow",
+      "decisions",
+      "experience",
+      "evaluation",
+      "reflection"
+    ],
+    "smallActions": []
+  },
+  {
+    "route": "/work/ieee-web",
+    "width": 390,
+    "language": "en-200%-root-text",
+    "broken": [],
+    "canonicalCount": 1,
+    "clipped": [],
+    "overflow": false,
+    "sections": [
+      "problem",
+      "flow",
+      "decisions",
+      "experience",
+      "evaluation",
+      "reflection"
+    ],
+    "smallActions": []
+  },
+  {
+    "route": "/work/byto-academy",
+    "width": 390,
+    "language": "en-200%-root-text",
+    "broken": [],
+    "canonicalCount": 1,
+    "clipped": [],
+    "overflow": false,
+    "sections": [
+      "problem",
+      "decisions",
+      "experience",
+      "evaluation",
+      "reflection"
+    ],
+    "smallActions": []
+  },
+  {
+    "route": "/",
+    "width": 320,
+    "language": "ar-200%-root-text",
+    "broken": [],
+    "canonicalCount": 1,
+    "clipped": [],
+    "overflow": false,
+    "sections": [],
+    "smallActions": []
+  },
+  {
+    "route": "/work",
+    "width": 320,
+    "language": "ar-200%-root-text",
+    "broken": [],
+    "canonicalCount": 1,
+    "clipped": [
+      {
+        "cls": null,
+        "tag": "BUTTON"
+      }
+    ],
+    "overflow": true,
+    "sections": [],
+    "smallActions": []
+  },
+  {
+    "route": "/about",
+    "width": 320,
+    "language": "ar-200%-root-text",
+    "broken": [],
+    "canonicalCount": 1,
+    "clipped": [],
+    "overflow": false,
+    "sections": [],
+    "smallActions": []
+  },
+  {
+    "route": "/work-with-me",
+    "width": 320,
+    "language": "ar-200%-root-text",
+    "broken": [],
+    "canonicalCount": 1,
+    "clipped": [],
+    "overflow": false,
+    "sections": [],
+    "smallActions": []
+  },
+  {
+    "route": "/visuals",
+    "width": 320,
+    "language": "ar-200%-root-text",
+    "broken": [],
+    "canonicalCount": 1,
+    "clipped": [
+      {
+        "cls": "py-3 border-b-2 font-sans font-semibold text-sm transition-colors cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cta border-transparent text-bodytext/70 hover:border-headline/40",
+        "tag": "BUTTON"
+      }
+    ],
+    "overflow": true,
+    "sections": [],
+    "smallActions": []
+  },
+  {
+    "route": "/creative-corner",
+    "width": 320,
+    "language": "ar-200%-root-text",
+    "broken": [],
+    "canonicalCount": 1,
+    "clipped": [
+      {
+        "cls": "absolute top-[60px] left-[30px] sm:left-[120px] bg-white rounded-3xl shadow-lg cursor-grab border border-[#BFE4FF] z-30 flex flex-col items-center overflow-hidden w-60",
+        "tag": "DIV"
+      },
+      {
+        "cls": "w-full h-32 object-cover pointer-events-none",
+        "tag": "IMG"
+      },
+      {
+        "cls": "p-4 w-full text-center",
+        "tag": "DIV"
+      },
+      {
+        "cls": "font-heading font-bold text-headline mb-2",
+        "tag": "H2"
+      },
+      {
+        "cls": "inline-block px-5 py-2 bg-cta text-white rounded-full text-xs font-heading font-semibold hover:bg-headline transition-colors pointer-events-auto",
+        "tag": "A"
+      }
+    ],
+    "overflow": false,
+    "sections": [],
+    "smallActions": []
+  },
+  {
+    "route": "/work/auraleaf",
+    "width": 320,
+    "language": "ar-200%-root-text",
+    "broken": [],
+    "canonicalCount": 1,
+    "clipped": [],
+    "overflow": false,
+    "sections": [
+      "problem",
+      "research",
+      "decisions",
+      "experience",
+      "evaluation",
+      "reflection"
+    ],
+    "smallActions": []
+  },
+  {
+    "route": "/work/apms",
+    "width": 320,
+    "language": "ar-200%-root-text",
+    "broken": [],
+    "canonicalCount": 1,
+    "clipped": [],
+    "overflow": false,
+    "sections": [
+      "problem",
+      "research",
+      "flow",
+      "decisions",
+      "experience",
+      "evaluation",
+      "reflection"
+    ],
+    "smallActions": []
+  },
+  {
+    "route": "/work/taskly",
+    "width": 320,
+    "language": "ar-200%-root-text",
+    "broken": [],
+    "canonicalCount": 1,
+    "clipped": [],
+    "overflow": false,
+    "sections": [
+      "problem",
+      "research",
+      "persona",
+      "flow",
+      "decisions",
+      "experience",
+      "evaluation",
+      "reflection"
+    ],
+    "smallActions": []
+  },
+  {
+    "route": "/work/notes-app",
+    "width": 320,
+    "language": "ar-200%-root-text",
+    "broken": [],
+    "canonicalCount": 1,
+    "clipped": [],
+    "overflow": false,
+    "sections": [
+      "problem",
+      "flow",
+      "decisions",
+      "experience",
+      "evaluation",
+      "reflection"
+    ],
+    "smallActions": []
+  },
+  {
+    "route": "/work/ieee-web",
+    "width": 320,
+    "language": "ar-200%-root-text",
+    "broken": [],
+    "canonicalCount": 1,
+    "clipped": [],
+    "overflow": false,
+    "sections": [
+      "problem",
+      "flow",
+      "decisions",
+      "experience",
+      "evaluation",
+      "reflection"
+    ],
+    "smallActions": []
+  },
+  {
+    "route": "/work/byto-academy",
+    "width": 320,
+    "language": "ar-200%-root-text",
+    "broken": [],
+    "canonicalCount": 1,
+    "clipped": [],
+    "overflow": false,
+    "sections": [
+      "problem",
+      "decisions",
+      "experience",
+      "evaluation",
+      "reflection"
+    ],
+    "smallActions": []
+  },
+  {
+    "route": "/",
+    "width": 390,
+    "language": "ar-200%-root-text",
+    "broken": [],
+    "canonicalCount": 1,
+    "clipped": [],
+    "overflow": false,
+    "sections": [],
+    "smallActions": []
+  },
+  {
+    "route": "/work",
+    "width": 390,
+    "language": "ar-200%-root-text",
+    "broken": [],
+    "canonicalCount": 1,
+    "clipped": [],
+    "overflow": false,
+    "sections": [],
+    "smallActions": []
+  },
+  {
+    "route": "/about",
+    "width": 390,
+    "language": "ar-200%-root-text",
+    "broken": [],
+    "canonicalCount": 1,
+    "clipped": [],
+    "overflow": false,
+    "sections": [],
+    "smallActions": []
+  },
+  {
+    "route": "/work-with-me",
+    "width": 390,
+    "language": "ar-200%-root-text",
+    "broken": [],
+    "canonicalCount": 1,
+    "clipped": [],
+    "overflow": false,
+    "sections": [],
+    "smallActions": []
+  },
+  {
+    "route": "/visuals",
+    "width": 390,
+    "language": "ar-200%-root-text",
+    "broken": [],
+    "canonicalCount": 1,
+    "clipped": [
+      {
+        "cls": "py-3 border-b-2 font-sans font-semibold text-sm transition-colors cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cta border-transparent text-bodytext/70 hover:border-headline/40",
+        "tag": "BUTTON"
+      }
+    ],
+    "overflow": true,
+    "sections": [],
+    "smallActions": []
+  },
+  {
+    "route": "/creative-corner",
+    "width": 390,
+    "language": "ar-200%-root-text",
+    "broken": [],
+    "canonicalCount": 1,
+    "clipped": [],
+    "overflow": false,
+    "sections": [],
+    "smallActions": []
+  },
+  {
+    "route": "/work/auraleaf",
+    "width": 390,
+    "language": "ar-200%-root-text",
+    "broken": [],
+    "canonicalCount": 1,
+    "clipped": [],
+    "overflow": false,
+    "sections": [
+      "problem",
+      "research",
+      "decisions",
+      "experience",
+      "evaluation",
+      "reflection"
+    ],
+    "smallActions": []
+  },
+  {
+    "route": "/work/apms",
+    "width": 390,
+    "language": "ar-200%-root-text",
+    "broken": [],
+    "canonicalCount": 1,
+    "clipped": [],
+    "overflow": false,
+    "sections": [
+      "problem",
+      "research",
+      "flow",
+      "decisions",
+      "experience",
+      "evaluation",
+      "reflection"
+    ],
+    "smallActions": []
+  },
+  {
+    "route": "/work/taskly",
+    "width": 390,
+    "language": "ar-200%-root-text",
+    "broken": [],
+    "canonicalCount": 1,
+    "clipped": [],
+    "overflow": false,
+    "sections": [
+      "problem",
+      "research",
+      "persona",
+      "flow",
+      "decisions",
+      "experience",
+      "evaluation",
+      "reflection"
+    ],
+    "smallActions": []
+  },
+  {
+    "route": "/work/notes-app",
+    "width": 390,
+    "language": "ar-200%-root-text",
+    "broken": [],
+    "canonicalCount": 1,
+    "clipped": [],
+    "overflow": false,
+    "sections": [
+      "problem",
+      "flow",
+      "decisions",
+      "experience",
+      "evaluation",
+      "reflection"
+    ],
+    "smallActions": []
+  },
+  {
+    "route": "/work/ieee-web",
+    "width": 390,
+    "language": "ar-200%-root-text",
+    "broken": [],
+    "canonicalCount": 1,
+    "clipped": [],
+    "overflow": false,
+    "sections": [
+      "problem",
+      "flow",
+      "decisions",
+      "experience",
+      "evaluation",
+      "reflection"
+    ],
+    "smallActions": []
+  },
+  {
+    "route": "/work/byto-academy",
+    "width": 390,
+    "language": "ar-200%-root-text",
+    "broken": [],
+    "canonicalCount": 1,
+    "clipped": [],
+    "overflow": false,
+    "sections": [
+      "problem",
+      "decisions",
+      "experience",
+      "evaluation",
+      "reflection"
+    ],
+    "smallActions": []
+  }
+]

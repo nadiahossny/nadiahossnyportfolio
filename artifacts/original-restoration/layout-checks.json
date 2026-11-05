@@ -1,0 +1,59 @@
+[
+  {
+    "dir": "ltr",
+    "failedImages": [],
+    "overflow": false,
+    "page": "/about",
+    "width": 768
+  },
+  {
+    "dir": "ltr",
+    "failedImages": [],
+    "overflow": false,
+    "page": "/work-with-me",
+    "width": 768
+  },
+  {
+    "dir": "ltr",
+    "failedImages": [],
+    "overflow": false,
+    "page": "/visuals",
+    "width": 768
+  },
+  {
+    "dir": "rtl",
+    "overflow": false,
+    "page": "/visuals",
+    "width": 768
+  },
+  {
+    "dir": "rtl",
+    "overflow": false,
+    "page": "/about",
+    "width": 768
+  },
+  {
+    "dir": "rtl",
+    "overflow": false,
+    "page": "/work-with-me",
+    "width": 768
+  },
+  {
+    "dir": "rtl",
+    "overflow": false,
+    "page": "/about",
+    "width": 1440
+  },
+  {
+    "dir": "rtl",
+    "overflow": false,
+    "page": "/work-with-me",
+    "width": 1440
+  },
+  {
+    "dir": "rtl",
+    "overflow": false,
+    "page": "/visuals",
+    "width": 1440
+  }
+]

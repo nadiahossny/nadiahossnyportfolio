@@ -1,17 +1,10 @@
 import { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { caseStudies } from '../data/caseStudies';
-import { X, ExternalLink } from 'lucide-react';
-import { FaGithub, FaBehance } from 'react-icons/fa';
-
-const tasklyScreens = Object.values(import.meta.glob('../assets/projects/taskly-ui screens/*.{png,jpg,jpeg,webp}', { eager: true, import: 'default' })) as string[];
-const notesAppScreens = Object.values(import.meta.glob('../assets/projects/notes app-ui screens/*.{png,jpg,jpeg,webp}', { eager: true, import: 'default' })) as string[];
-const apmsScreens = Object.values(import.meta.glob('../assets/projects/pahrmasys and roshetety-ui screens/*.{png,jpg,jpeg,webp}', { eager: true, import: 'default' })) as string[];
-
-const screensMap: Record<string, string[]> = {
-  taskly: tasklyScreens,
-  notes_app: notesAppScreens,
-  apms: apmsScreens,
-};
+import { X, ExternalLink, ArrowRight } from 'lucide-react';
+import { FaGithub } from 'react-icons/fa';
+import { useLanguage } from '../context/LanguageContext';
+import { translations } from '../data/translations';
 
 interface Props {
   id: string;
@@ -19,158 +12,131 @@ interface Props {
 }
 
 export default function CaseStudyModal({ id, onClose }: Props) {
-  const study = caseStudies.find(s => s.id === id);
-  const uiScreens = screensMap[id] || [];
-
+  const { language, isRTL } = useLanguage();
+  const ui = translations[language].caseStudyUI;
+  const study = caseStudies.find((s) => s.id === id);
 
   useEffect(() => {
     document.body.style.overflow = 'hidden';
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') onClose();
+    };
+    window.addEventListener('keydown', handleKeyDown);
     return () => {
       document.body.style.overflow = 'unset';
+      window.removeEventListener('keydown', handleKeyDown);
     };
-  }, []);
+  }, [onClose]);
 
   if (!study) return null;
 
+  const title = isRTL && study.titleAr ? study.titleAr : study.title;
+  const subtitle = isRTL && study.subtitleAr ? study.subtitleAr : study.subtitle;
+  const role = isRTL && study.roleAr ? study.roleAr : study.role;
+  const userSummary = isRTL && study.userSummaryAr ? study.userSummaryAr : study.userSummary;
+  const problem = isRTL && study.problemAr ? study.problemAr : study.problem;
+  const myContribution =
+    isRTL && study.myContributionAr ? study.myContributionAr : study.myContribution;
+  const solution = isRTL && study.solutionAr ? study.solutionAr : study.solution;
+
   return (
-    <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6 animate-in fade-in duration-300">
-      <div 
-        className="absolute inset-0 bg-black/60 backdrop-blur-sm" 
+    <div
+      role="dialog"
+      aria-modal="true"
+      aria-label={title}
+      className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6"
+    >
+      <div className="absolute inset-0 bg-headline/70 backdrop-blur-sm" onClick={onClose} />
+
+      <button
+        type="button"
         onClick={onClose}
-      ></div>
-      
-      {/* Global Close Button Outside Modal */}
-      <button 
-        onClick={onClose}
-        className="fixed top-6 right-6 md:top-10 md:right-10 z-[110] w-12 h-12 bg-white/10 hover:bg-white/20 backdrop-blur-md transition-colors border border-white/20 rounded-full flex items-center justify-center text-white shadow-md"
+        className="fixed top-6 right-6 md:top-10 md:right-10 z-[110] w-11 h-11 bg-white/15 hover:bg-white/25 backdrop-blur-md transition-colors border border-white/20 rounded-full flex items-center justify-center text-white shadow-md"
         aria-label="Close modal"
       >
-        <X className="w-6 h-6" />
+        <X className="w-5 h-5" />
       </button>
 
-      <div className="relative w-full max-w-5xl max-h-[90vh] flex flex-col z-10 animate-in zoom-in-95 duration-300">
-        <div className="w-full h-full overflow-y-auto bg-white border border-cloud rounded-3xl shadow-cloud relative">
-          <div className="p-8 md:p-16">
-          <header className="max-w-3xl mx-auto text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-display mb-4 text-headline font-bold">
-              {study.title} <span className="text-cta italic block mt-2 md:inline md:mt-0">{study.subtitle}</span>
+      <div className="relative w-full max-w-4xl max-h-[90vh] flex flex-col z-10">
+        <div className="w-full h-full overflow-y-auto bg-white border border-[#BFE4FF] rounded-3xl shadow-2xl p-6 sm:p-10 text-start space-y-6">
+          <header>
+            <span className="inline-block text-xs font-bold text-cta bg-[#e8f3ff] border border-[#BFE4FF] px-3 py-1 rounded-full mb-3">
+              {role}
+            </span>
+            <h2 className="text-2xl sm:text-4xl font-heading font-bold text-headline mb-2">
+              {title}
             </h2>
+            <p className="text-sm sm:text-base text-cta font-medium mb-4">{subtitle}</p>
 
-            <p className="text-[13px] uppercase tracking-widest text-bodytext font-medium mb-6">
-              {study.role}
-            </p>
-            
-            {study.links && (
-              <div className="flex flex-wrap justify-center gap-4">
-                {study.links.map((link, idx) => (
-                  <a 
-                    key={idx} 
-                    href={link.url} 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-5 py-2.5 bg-headline text-white font-medium rounded-full hover:bg-headline/90 transition-colors shadow-sm text-sm"
-                  >
-                    {link.type === 'github' && <FaGithub className="w-4 h-4" />}
-                    {link.type === 'behance' && <FaBehance className="w-4 h-4" />}
-                    {link.type === 'live' && <ExternalLink className="w-4 h-4" />}
-                    {link.label}
-                  </a>
-                ))}
-              </div>
-            )}
+            <div className="flex flex-wrap gap-3">
+              <Link
+                to={`/work/${study.id}`}
+                onClick={onClose}
+                className="inline-flex items-center gap-2 px-5 py-2.5 bg-cta text-white font-heading font-semibold rounded-full hover:bg-headline transition-colors text-sm"
+              >
+                <span>{isRTL && study.linkLabelAr ? study.linkLabelAr : study.linkLabel}</span>
+                <ArrowRight className={`w-4 h-4 ${isRTL ? 'rotate-180' : ''}`} />
+              </Link>
+              {study.liveUrl && (
+                <a
+                  href={study.liveUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-4 py-2.5 bg-white border border-headline/15 text-headline font-heading font-semibold rounded-full hover:border-cta text-sm"
+                >
+                  <ExternalLink className="w-4 h-4" />
+                  <span>{ui.liveApp}</span>
+                </a>
+              )}
+              {study.githubUrl && (
+                <a
+                  href={study.githubUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-4 py-2.5 bg-white border border-headline/15 text-headline font-heading font-semibold rounded-full hover:border-cta text-sm"
+                >
+                  <FaGithub className="w-4 h-4" />
+                  <span>GitHub</span>
+                </a>
+              )}
+            </div>
           </header>
 
-          {study.image && (
-            <div className="w-full aspect-[21/9] md:aspect-[2.35/1] rounded-2xl overflow-hidden mb-20 border border-cloud bg-cloud-light shadow-sm">
-               <img src={study.image} alt={study.title} className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
+          <div className="rounded-2xl bg-[#edf5ff] p-4 flex items-center justify-center">
+            <img
+              src={study.heroImage}
+              alt={title}
+              className="max-h-[340px] w-auto object-contain rounded-xl"
+            />
+          </div>
+
+          <div className="space-y-4 text-sm sm:text-base text-bodytext leading-relaxed">
+            <div>
+              <h3 className="font-heading font-bold text-headline mb-1">
+                {ui.targetUsersLabel}
+              </h3>
+              <p>{userSummary}</p>
             </div>
-          )}
-
-          <div className="grid grid-cols-1 lg:grid-cols-[1fr_280px] gap-16 items-start max-w-4xl mx-auto">
-            <div className="space-y-16">
-              {study.problem && (
-                <section>
-                  <h3 className="text-2xl font-display mb-6 text-headline font-bold">The Problem</h3>
-                  <p className="text-lg text-bodytext leading-relaxed font-light">
-                    {study.problem}
-                  </p>
-                </section>
-              )}
-
-              {study.cutDirections && study.cutDirections.length > 0 && (
-                <section>
-                  <h3 className="text-2xl font-display mb-6 text-headline font-bold">Directions I considered</h3>
-                  <ul className="space-y-6">
-                    {study.cutDirections.map((dir, idx) => (
-                      <li key={idx} className="relative pl-10 border-l border-cloud">
-                        <span className="absolute left-[-5px] top-1 text-[10px] text-cta">✕</span>
-                        <strong className="block text-headline font-medium mb-2">{dir.title}</strong>
-                        <span className="text-bodytext leading-relaxed block font-light">{dir.desc}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </section>
-              )}
-
-              {study.chosen && study.chosen.desc && (
-                <section>
-                  <h3 className="text-2xl font-display mb-6 text-headline font-bold">What I built instead</h3>
-                  <p className="text-lg text-bodytext leading-relaxed font-light">
-                    {study.chosen.desc}
-                  </p>
-                </section>
-              )}
-
-              {study.outcome && (
-                <section className="p-8 bg-cloud-light/50 rounded-2xl border border-cloud/50">
-                  <span className="block text-[11px] uppercase tracking-wider text-bodytext font-medium mb-3">Outcome</span>
-                  <p className="text-lg text-headline leading-relaxed font-display">
-                    {study.outcome}
-                  </p>
-                </section>
-              )}
-
-              {(uiScreens.length > 0 || study.uiExplorations) && (
-                <section className="pt-8 border-t border-cloud">
-                  <h3 className="text-2xl font-display mb-8 text-headline font-bold">UI Explorations</h3>
-                  
-                  {study.uiExplorations && (
-                    <div className="space-y-6 mb-10">
-                      {study.uiExplorations.map((exp, idx) => (
-                        <div key={idx} className="bg-white p-6 rounded-2xl shadow-sm border border-cloud/50">
-                          <strong className="block text-headline font-semibold mb-2">{exp.title}</strong>
-                          <p className="text-bodytext leading-relaxed font-light">{exp.desc}</p>
-                        </div>
-                      ))}
-                    </div>
-                  )}
-
-                  {uiScreens.length > 0 && (
-                    <div className="columns-1 sm:columns-2 gap-4 space-y-4">
-                      {uiScreens.map((src, i) => (
-                        <img key={i} src={src} className="w-full h-auto rounded-xl shadow-sm border border-cloud break-inside-avoid" alt={`UI Screen ${i + 1}`} loading="lazy" />
-                      ))}
-                    </div>
-                  )}
-                </section>
-              )}
+            <div>
+              <h3 className="font-heading font-bold text-headline mb-1">
+                {ui.myOwnershipLabel}
+              </h3>
+              <p>{myContribution}</p>
             </div>
-
-            <aside className="lg:sticky lg:top-8 space-y-8">
-              {study.marginNotes.map((note, idx) => (
-                <div key={idx} className="bg-white p-5 rounded-2xl shadow-sm border border-cloud/30">
-                  <strong className="block text-[11px] uppercase tracking-wider text-cta font-medium mb-2">
-                    {note.label}
-                  </strong>
-                  <p className="text-sm text-bodytext leading-relaxed font-light">
-                    {note.text}
-                  </p>
-                </div>
-              ))}
-            </aside>
+            <div>
+              <h3 className="font-heading font-bold text-headline mb-1">
+                {ui.problemTitle}
+              </h3>
+              <p>{problem}</p>
+            </div>
+            <div>
+              <h3 className="font-heading font-bold text-headline mb-1">
+                {ui.solutionTitle}
+              </h3>
+              <p>{solution}</p>
+            </div>
           </div>
         </div>
-      </div>
       </div>
     </div>
   );

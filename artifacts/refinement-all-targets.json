@@ -1,0 +1,258 @@
+[
+  {
+    "route": "/",
+    "width": 320,
+    "language": "en",
+    "actualWidth": 320,
+    "overflow": false,
+    "small": []
+  },
+  {
+    "route": "/work",
+    "width": 320,
+    "language": "en",
+    "actualWidth": 320,
+    "overflow": false,
+    "small": []
+  },
+  {
+    "route": "/visuals",
+    "width": 320,
+    "language": "en",
+    "actualWidth": 320,
+    "overflow": false,
+    "small": []
+  },
+  {
+    "route": "/creative-corner",
+    "width": 320,
+    "language": "en",
+    "actualWidth": 320,
+    "overflow": false,
+    "small": []
+  },
+  {
+    "route": "/",
+    "width": 390,
+    "language": "en",
+    "actualWidth": 390,
+    "overflow": false,
+    "small": []
+  },
+  {
+    "route": "/work",
+    "width": 390,
+    "language": "en",
+    "actualWidth": 390,
+    "overflow": false,
+    "small": []
+  },
+  {
+    "route": "/visuals",
+    "width": 390,
+    "language": "en",
+    "actualWidth": 390,
+    "overflow": false,
+    "small": []
+  },
+  {
+    "route": "/creative-corner",
+    "width": 390,
+    "language": "en",
+    "actualWidth": 390,
+    "overflow": false,
+    "small": []
+  },
+  {
+    "route": "/",
+    "width": 768,
+    "language": "en",
+    "actualWidth": 768,
+    "overflow": false,
+    "small": []
+  },
+  {
+    "route": "/work",
+    "width": 768,
+    "language": "en",
+    "actualWidth": 768,
+    "overflow": false,
+    "small": []
+  },
+  {
+    "route": "/visuals",
+    "width": 768,
+    "language": "en",
+    "actualWidth": 768,
+    "overflow": false,
+    "small": []
+  },
+  {
+    "route": "/creative-corner",
+    "width": 768,
+    "language": "en",
+    "actualWidth": 768,
+    "overflow": false,
+    "small": []
+  },
+  {
+    "route": "/",
+    "width": 1440,
+    "language": "en",
+    "actualWidth": 1440,
+    "overflow": false,
+    "small": []
+  },
+  {
+    "route": "/work",
+    "width": 1440,
+    "language": "en",
+    "actualWidth": 1440,
+    "overflow": false,
+    "small": []
+  },
+  {
+    "route": "/visuals",
+    "width": 1440,
+    "language": "en",
+    "actualWidth": 1440,
+    "overflow": false,
+    "small": []
+  },
+  {
+    "route": "/creative-corner",
+    "width": 1440,
+    "language": "en",
+    "actualWidth": 1440,
+    "overflow": false,
+    "small": []
+  },
+  {
+    "route": "/",
+    "width": 320,
+    "language": "ar",
+    "actualWidth": 320,
+    "overflow": false,
+    "small": []
+  },
+  {
+    "route": "/work",
+    "width": 320,
+    "language": "ar",
+    "actualWidth": 320,
+    "overflow": false,
+    "small": []
+  },
+  {
+    "route": "/visuals",
+    "width": 320,
+    "language": "ar",
+    "actualWidth": 320,
+    "overflow": false,
+    "small": []
+  },
+  {
+    "route": "/creative-corner",
+    "width": 320,
+    "language": "ar",
+    "actualWidth": 320,
+    "overflow": false,
+    "small": []
+  },
+  {
+    "route": "/",
+    "width": 390,
+    "language": "ar",
+    "actualWidth": 390,
+    "overflow": false,
+    "small": []
+  },
+  {
+    "route": "/work",
+    "width": 390,
+    "language": "ar",
+    "actualWidth": 390,
+    "overflow": false,
+    "small": []
+  },
+  {
+    "route": "/visuals",
+    "width": 390,
+    "language": "ar",
+    "actualWidth": 390,
+    "overflow": false,
+    "small": []
+  },
+  {
+    "route": "/creative-corner",
+    "width": 390,
+    "language": "ar",
+    "actualWidth": 390,
+    "overflow": false,
+    "small": []
+  },
+  {
+    "route": "/",
+    "width": 768,
+    "language": "ar",
+    "actualWidth": 768,
+    "overflow": false,
+    "small": []
+  },
+  {
+    "route": "/work",
+    "width": 768,
+    "language": "ar",
+    "actualWidth": 768,
+    "overflow": false,
+    "small": []
+  },
+  {
+    "route": "/visuals",
+    "width": 768,
+    "language": "ar",
+    "actualWidth": 768,
+    "overflow": false,
+    "small": []
+  },
+  {
+    "route": "/creative-corner",
+    "width": 768,
+    "language": "ar",
+    "actualWidth": 768,
+    "overflow": false,
+    "small": []
+  },
+  {
+    "route": "/",
+    "width": 1440,
+    "language": "ar",
+    "actualWidth": 1440,
+    "overflow": false,
+    "small": []
+  },
+  {
+    "route": "/work",
+    "width": 1440,
+    "language": "ar",
+    "actualWidth": 1440,
+    "overflow": false,
+    "small": []
+  },
+  {
+    "route": "/visuals",
+    "width": 1440,
+    "language": "ar",
+    "actualWidth": 1440,
+    "overflow": false,
+    "small": []
+  },
+  {
+    "route": "/creative-corner",
+    "width": 1440,
+    "language": "ar",
+    "actualWidth": 1440,
+    "overflow": false,
+    "small": []
+  }
+]

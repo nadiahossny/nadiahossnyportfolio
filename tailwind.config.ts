@@ -1,6 +1,7 @@
 import type { Config } from "tailwindcss";
 
 export default {
+  future: { hoverOnlyWhenSupported: true },
   darkMode: ["class"],
   content: [
     "./index.html",
@@ -9,18 +10,24 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        sans: ["DM Sans", "sans-serif"],
-        display: ["Quicksand", "sans-serif"],
+        heading: ["Quicksand", "IBM Plex Sans Arabic", "sans-serif"],
+        sans: ["DM Sans", "IBM Plex Sans Arabic", "sans-serif"],
+        display: ["Quicksand", "IBM Plex Sans Arabic", "sans-serif"],
+        arabic: ["IBM Plex Sans Arabic", "Alexandria", "sans-serif"],
       },
       colors: {
-        background: "#f4f9ff",
+        background: "#F7FBFF",
+        "surface-warm": "#FAF5F0",
         cloud: {
-          light: "#dcedff",
-          DEFAULT: "#BFE4FF",
+          light: "#D6EEFF",
+          DEFAULT: "#BDDAF9",
+          deep: "#A8CDEF",
         },
-        headline: "#002d69",
-        bodytext: "#002D69",
-        cta: "#002d69",
+        headline: "#002461",
+        bodytext: "#1a3660",
+        cta: "#002461",
+        muted: "#456080",
+        rule: "#D6E5F2",
         white: "#FFFFFF",
       },
     },

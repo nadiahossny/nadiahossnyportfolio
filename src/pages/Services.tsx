@@ -1,345 +1,278 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useMemo, useState, useRef, useCallback } from 'react';
+import PageMeta from '../components/PageMeta';
+import SectionReveal from '../components/SectionReveal';
 import { Link } from 'react-router-dom';
-import { Helmet } from 'react-helmet-async';
-import { ArrowLeft, X, Mail } from 'lucide-react';
-import { FaWhatsapp } from 'react-icons/fa';
-import { SiFigma, SiCanva, SiKrita, SiAffinitydesigner } from 'react-icons/si';
-import { BiLogoAdobe } from 'react-icons/bi';
-import { motion, AnimatePresence } from 'framer-motion';
-import heroBg from '../assets/cloudy-bg.png';
+import { X, Mail, ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react';
+import { FaWhatsapp, FaLinkedin } from 'react-icons/fa';
+import { useLanguage } from '../context/LanguageContext';
+import { translations } from '../data/translations';
+import { visualCollections } from '../data/visualCollections';
+import { visualOffers } from '../data/visualOffers';
+import { visualInquiryHref } from '../lib/inquiry';
 
-const imageModules = import.meta.glob('../assets/graphic-design/**/*.{png,jpg,jpeg,svg,webp}', { eager: true });
-
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const bundlesMap: Record<string, any> = {};
-
-const customProjectDetails: Record<string, { title?: string; story?: string; category?: string }> = {
-  "IEEE PUA SB posts and stories": {
-    title: "IEEE PUA SB Posts & Stories",
-    story: "A collection of social media designs, posts, and stories crafted for the IEEE PUA Student Branch.",
-    category: "Social Media"
-  },
-  // You can add more overrides here for other folders! For example:
-  // "My Folder Name": { title: "Custom Title", story: "Custom Story..." }
-};
-
-for (const path in imageModules) {
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-  // @ts-expect-error
-  const url = imageModules[path].default || imageModules[path];
-  const parts = path.split('/');
-  const folderName = parts[parts.length - 2];
-  
-  if (folderName === 'graphic-design' || folderName === 'assets' || folderName === 'src') continue;
-
-  if (!bundlesMap[folderName]) {
-    const custom = customProjectDetails[folderName] || {};
-    
-    bundlesMap[folderName] = {
-      id: folderName,
-      title: custom.title || folderName.split(' ').map((word: string) => word.charAt(0).toUpperCase() + word.slice(1)).join(' '),
-      category: custom.category || "Graphic Design",
-      cover: url,
-      story: custom.story || `A collection of designs from the ${folderName} project.`,
-      images: []
-    };
-  }
-  bundlesMap[folderName].images.push({ url, path });
-}
-
-const graphicProjects = Object.values(bundlesMap).map(bundle => {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  bundle.images.sort((a: any, b: any) => a.path.localeCompare(b.path));
-  bundle.cover = bundle.images[0].url;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  bundle.images = bundle.images.map((img: any) => img.url);
-  return bundle;
-});
-
-const fadeUp: any = {
-  hidden: { opacity: 0, y: 40 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.8 } }
-};
-
-export default function Services() {
-  const [selectedProject, setSelectedProject] = useState<typeof graphicProjects[0] | null>(null);
-  const [activeModalImage, setActiveModalImage] = useState<string | null>(null);
-
-  // Scroll to top on mount
-  useEffect(() => {
-    window.scrollTo(0, 0);
+export const Services: React.FC = () => {
+  const { language, isRTL, t } = useLanguage();
+  const ui = translations[language].services;
+  const ctaUI = translations[language].servicesUI;
+  const [selectedProjectId, setSelectedProjectId] = useState<string | null>(null);
+  const [activeImageIdx, setActiveImageIdx] = useState(0);
+  const [zoomed, setZoomed] = useState(false);
+  const modalRef = useRef<HTMLDivElement | null>(null);
+  const closeBtnRef = useRef<HTMLButtonElement | null>(null);
+  const lastTriggerRef = useRef<HTMLElement | null>(null);
+  const savedScrollY = useRef(0);
+  const allCollections = useMemo(() => visualCollections.map(collection => {
+    const local = (en: string, ar: string) => isRTL ? ar : en;
+    return { id: collection.id, title: local(collection.title, collection.titleAr), category: local(collection.category, collection.categoryAr),
+      whatItIs: local(collection.description, collection.descriptionAr), contribution: local(collection.contribution, collection.contributionAr),
+      cover: collection.cover,
+      images: collection.images.map(image => image.url), captions: collection.images.map(image => local(image.caption, image.captionAr)) };
+  }), [isRTL]);
+  const selectedProject = allCollections.find(collection => collection.id === selectedProjectId) ?? null;
+  const selectedImagesLength = selectedProject?.images.length ?? 0;
+  const openCollectionModal = (id: string, index = 0, trigger?: HTMLElement | null) => {
+    lastTriggerRef.current = trigger ?? null;
+    savedScrollY.current = window.scrollY;
+    setZoomed(false); setActiveImageIdx(index); setSelectedProjectId(id);
+  };
+  const closeCollectionModal = useCallback(() => {
+    setSelectedProjectId(null);
+    requestAnimationFrame(() => {
+      window.scrollTo({top: savedScrollY.current, behavior: 'instant'});
+      lastTriggerRef.current?.focus({preventScroll: true});
+    });
   }, []);
-
-  // Lock body scroll when modal is open
+  const handlePrevImg = () => { setZoomed(false); setActiveImageIdx(previous => (previous - 1 + selectedImagesLength) % selectedImagesLength); };
+  const handleNextImg = () => { setZoomed(false); setActiveImageIdx(previous => (previous + 1) % selectedImagesLength); };
+  // Keyboard navigation + Focus trap + Scroll lock
   useEffect(() => {
-    if (selectedProject) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = 'unset';
+    if (!selectedProject) {
+      document.body.style.overflow = '';
+      return;
     }
-    return () => { document.body.style.overflow = 'unset'; };
-  }, [selectedProject]);
 
-  return (
-    <div className="min-h-screen bg-background relative selection:bg-cloud selection:text-headline overflow-hidden">
-      <Helmet>
-        <title>Nadia Hossny | Freelance Graphic Designer & Visual Artist</title>
-        <meta name="description" content="Explore the graphic design portfolio of Nadia Hossny. Specialized in brand identity, print & merch design, digital marketing, and character design." />
-        <meta name="keywords" content="Graphic Designer, Branding, Logo Design, Digital Content, Visual Identity, Freelance Designer, Nadia Hossny, Egypt" />
-        <meta property="og:title" content="Nadia Hossny | Freelance Graphic Designer" />
-        <meta property="og:description" content="Explore the graphic design portfolio of Nadia Hossny, featuring brand identity, digital marketing, and print design." />
-      </Helmet>
-      {/* Background Decorative Element */}
-      <div className="absolute top-0 left-0 w-full h-[100vh] overflow-hidden z-0 pointer-events-none">
-        <motion.img 
-          src={heroBg} 
-          alt="" 
-          className="w-full h-full object-cover opacity-60 origin-top" 
-          animate={{ 
-            scale: [1, 1.05, 1],
-            x: [0, 10, -5, 0],
-          }}
-          transition={{
-            duration: 25,
-            repeat: Infinity,
-            repeatType: "reverse",
-            ease: "easeInOut"
-          }}
-        />
-        {/* Fade out to background color */}
-        <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-background to-transparent"></div>
-      </div>
+    document.body.style.overflow = 'hidden';
+    const backgrounds = [...document.querySelectorAll<HTMLElement>('#visual-collection-content, .site-header, footer, .skip-link')];
+    backgrounds.forEach(element => { element.inert = true; });
+    closeBtnRef.current?.focus();
 
-      {/* Nav / Header */}
-      <nav className="absolute top-0 left-0 w-full z-50 pointer-events-none">
-        <div className="max-w-7xl mx-auto px-6 h-20 md:h-24 flex items-center">
-          <Link 
-            to="/" 
-            className="inline-flex items-center text-bodytext hover:text-headline transition-colors group pointer-events-auto"
-          >
-            <ArrowLeft className="w-5 h-5 mr-2 group-hover:-translate-x-1 transition-transform" />
-            <span className="font-display font-bold text-sm uppercase tracking-widest">Back to Product Design</span>
-          </Link>
-        </div>
-      </nav>
+    const len = selectedProject.images.length;
 
-      <main className="relative z-10 pt-24 md:pt-32">
-        <div className="max-w-7xl mx-auto px-8 pt-4 pb-16 md:pb-24">
-          <motion.div 
-            initial="hidden"
-            animate="visible"
-            variants={fadeUp}
-            className="max-w-3xl mx-auto text-center"
-          >
-            <h1 className="text-6xl md:text-7xl font-display font-bold text-headline mb-6 tracking-tight">Graphic Design</h1>
-            <p className="text-2xl text-bodytext font-light leading-relaxed">
-              A visual exploration of branding, illustration, and digital marketing. <br className="hidden md:block" />
-              Before diving into UI/UX, I spent years crafting visual identities and telling stories through pixels.
-            </p>
-          </motion.div>
-        </div>
-        
-        {/* Tools Strip */}
-        <section className="py-8 md:py-10 border-y border-headline/10 bg-white relative z-10">
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            className="max-w-5xl mx-auto px-6 flex flex-wrap justify-center gap-12 md:gap-20 opacity-80"
-          >
-            <div className="flex items-center gap-3 text-headline hover:text-cta transition-colors duration-300 cursor-default"><BiLogoAdobe className="w-7 h-7" /><span className="text-sm font-medium">Adobe CC</span></div>
-            <div className="flex items-center gap-3 text-headline hover:text-cta transition-colors duration-300 cursor-default"><SiAffinitydesigner className="w-6 h-6" /><span className="text-sm font-medium">Affinity</span></div>
-            <div className="flex items-center gap-3 text-headline hover:text-cta transition-colors duration-300 cursor-default"><SiFigma className="w-6 h-6" /><span className="text-sm font-medium">Figma</span></div>
-            <div className="flex items-center gap-3 text-headline hover:text-cta transition-colors duration-300 cursor-default"><SiKrita className="w-6 h-6" /><span className="text-sm font-medium">Krita</span></div>
-            <div className="flex items-center gap-3 text-headline hover:text-cta transition-colors duration-300 cursor-default"><SiCanva className="w-6 h-6" /><span className="text-sm font-medium">Canva</span></div>
-          </motion.div>
-        </section>
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        e.preventDefault();
+        closeCollectionModal();
+        return;
+      }
+      if (e.key === 'ArrowLeft' && len > 0) {
+        setZoomed(false);
+        e.preventDefault();
+        if (isRTL) {
+          setActiveImageIdx((prev) => (prev + 1) % len);
+        } else {
+          setActiveImageIdx((prev) => (prev - 1 + len) % len);
+        }
+        return;
+      }
+      if (e.key === 'ArrowRight' && len > 0) {
+        setZoomed(false);
+        e.preventDefault();
+        if (isRTL) {
+          setActiveImageIdx((prev) => (prev - 1 + len) % len);
+        } else {
+          setActiveImageIdx((prev) => (prev + 1) % len);
+        }
+        return;
+      }
+      if (e.key === 'Tab' && modalRef.current) {
+        const focusable = modalRef.current.querySelectorAll<HTMLElement>(
+          'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+        );
+        if (focusable.length === 0) return;
+        const first = focusable[0];
+        const last = focusable[focusable.length - 1];
+        if (e.shiftKey && document.activeElement === first) {
+          e.preventDefault();
+          last.focus();
+        } else if (!e.shiftKey && document.activeElement === last) {
+          e.preventDefault();
+          first.focus();
+        }
+      }
+    };
 
-        {/* What I Offer Section - bg-background */}
-        <section className="pt-16 pb-24 bg-background relative z-10">
-          <div className="max-w-7xl mx-auto px-8">
-            <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} className="mb-12 text-center md:text-left">
-              <h2 className="text-4xl md:text-5xl font-display text-headline mb-4 font-bold" style={{ marginLeft: "-0.08em" }}>What I Offer</h2>
-              <p className="text-xl text-bodytext font-light">Specialized design services tailored to your needs.</p>
-            </motion.div>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} className="bg-white p-8 md:p-10 rounded-3xl border border-cloud shadow-sm hover:shadow-md transition-shadow">
-                <h3 className="text-2xl font-display font-bold text-headline mb-4">Brand Identity</h3>
-                <p className="text-base text-bodytext font-light leading-relaxed">
-                  Crafting memorable logos, cohesive color palettes, and comprehensive brand guidelines that reflect your vision.
-                </p>
-              </motion.div>
-              <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} className="bg-white p-8 md:p-10 rounded-3xl border border-cloud shadow-sm hover:shadow-md transition-shadow">
-                <h3 className="text-2xl font-display font-bold text-headline mb-4">Print & Merch</h3>
-                <p className="text-base text-bodytext font-light leading-relaxed">
-                  From eye-catching roller banners to event flyers and business cards, I design physical touchpoints that leave a lasting impression.
-                </p>
-              </motion.div>
-              <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} className="bg-white p-8 md:p-10 rounded-3xl border border-cloud shadow-sm hover:shadow-md transition-shadow">
-                <h3 className="text-2xl font-display font-bold text-headline mb-4">Digital Content</h3>
-                <p className="text-base text-bodytext font-light leading-relaxed">
-                  Engaging social media posts, custom character designs, and digital art tailored to boost your online presence and tell your story.
-                </p>
-              </motion.div>
-            </div>
-          </div>
-        </section>
+    window.addEventListener('keydown', handleKeyDown);
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+      backgrounds.forEach(element => { element.inert = false; });
+      document.body.style.overflow = '';
+    };
+  }, [selectedProject, closeCollectionModal, isRTL]);
 
-        {/* Gallery Grid - bg-white */}
-        <section className="py-24 bg-white relative z-10">
-          <div className="max-w-6xl mx-auto px-8">
-            <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} className="mb-16 text-center md:text-left">
-              <h2 className="text-4xl md:text-5xl font-display text-headline mb-4 font-bold" style={{ marginLeft: "-0.08em" }}>Featured Collections</h2>
-              <p className="text-xl text-bodytext font-light">A collection of designs from my previous graphic design work.</p>
-            </motion.div>
-            <div className="flex flex-wrap justify-center gap-10 md:gap-16 lg:gap-20">
-              {graphicProjects.map((project, i) => (
-                <motion.div 
-                  key={project.id}
-                  initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }} transition={{ delay: i * 0.1 }} variants={fadeUp}
-                  className="w-full sm:w-[calc(50%-2.5rem)] lg:w-[calc(33%-3.5rem)] group cursor-pointer flex flex-col"
-                  onClick={() => {
-                    setSelectedProject(project);
-                    setActiveModalImage(project.cover);
-                  }}
-                >
-                  <div className={`relative w-full aspect-[3/4] mb-8 z-10 group-hover:z-20 transition-all duration-500 ${
-                    [
-                      "rotate-0 sm:rotate-2 lg:rotate-2",
-                      "rotate-0 sm:-rotate-2 lg:rotate-0",
-                      "rotate-0 sm:rotate-2 lg:-rotate-2",
-                      "rotate-0 sm:-rotate-2 lg:rotate-2",
-                      "rotate-0 sm:rotate-2 lg:rotate-0",
-                      "rotate-0 sm:-rotate-2 lg:-rotate-2",
-                    ][i % 6]
-                  } group-hover:!rotate-0`}>
-                    {/* Stack 2 */}
-                    {project.images.length > 2 && (
-                       <div className="absolute inset-0 rounded-2xl transform transition-all duration-500 origin-bottom group-hover:rotate-[5deg] group-hover:translate-x-3 group-hover:-translate-y-1 group-hover:scale-[0.95] shadow-lg border-4 border-white overflow-hidden z-0 opacity-0 group-hover:opacity-100 bg-cloud">
-                        <img src={project.images[2]} alt="" className="w-full h-full object-cover opacity-90" loading="lazy" />
-                      </div>
-                    )}
-                    {/* Stack 1 */}
-                    {project.images.length > 1 && (
-                      <div className="absolute inset-0 rounded-2xl transform transition-all duration-500 origin-bottom group-hover:-rotate-[5deg] group-hover:-translate-x-3 group-hover:-translate-y-1 group-hover:scale-[0.95] shadow-lg border-4 border-white overflow-hidden z-0 opacity-0 group-hover:opacity-100 bg-cloud">
-                        <img src={project.images[1]} alt="" className="w-full h-full object-cover opacity-90" loading="lazy" />
-                      </div>
-                    )}
-                    
-                    {/* Main Card */}
-                    <div className="absolute inset-0 rounded-2xl overflow-hidden bg-background shadow-md group-hover:shadow-xl transition-all duration-500 transform group-hover:-translate-y-2 border-[4px] border-white z-10">
-                      <img 
-                        src={project.cover} 
-                        alt={project.title} 
-                        className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700" 
-                        loading="lazy"
-                      />
-                      <div className="absolute inset-0 bg-headline/0 group-hover:bg-headline/10 transition-colors duration-300 flex items-center justify-center">
-                        <span className="opacity-0 group-hover:opacity-100 bg-white text-headline px-6 py-3 rounded-full font-medium shadow-lg transform translate-y-4 group-hover:translate-y-0 transition-all duration-300">
-                          View more
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-                  <p className="text-[10px] font-bold tracking-widest uppercase text-cta mb-1">{project.category}</p>
-                  <h3 className="text-xl font-display text-headline font-semibold group-hover:text-cta transition-colors">{project.title}</h3>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </section>
-      </main>
-
-      {/* Contact CTA */}
-      <section className="pt-24 pb-0 bg-background border-t border-cloud/30 mt-auto">
-        <div className="max-w-4xl mx-auto px-6 text-center">
-          <h2 className="text-4xl md:text-5xl font-display text-headline mb-6 font-bold">Need something designed?</h2>
-          <p className="text-xl text-bodytext font-light mb-10 max-w-2xl mx-auto">Logos, social content, planners, merch, characters — commissions and freelance work welcome.</p>
-          <div className="flex justify-center gap-4 flex-wrap mb-10">
-            <a href="mailto:nadiahossny426@gmail.com?subject=Inquiry from Portfolio: Graphic Design" className="inline-flex items-center gap-2 px-6 py-4 bg-headline text-white rounded-full font-medium hover:bg-headline/90 transition-all shadow-md">
-              <Mail className="w-5 h-5" /> Email
-            </a>
-            <a href="https://wa.me/201064943439?text=Hello!%20I'm%20reaching%20out%20from%20your%20graphic%20design%20portfolio." target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-6 py-4 bg-headline text-white rounded-full font-medium hover:bg-headline/90 transition-all shadow-md">
-              <FaWhatsapp className="w-5 h-5" /> WhatsApp
-            </a>
-            <a href="/#contact" className="inline-flex items-center gap-2 px-8 py-4 bg-headline text-white rounded-full font-medium hover:bg-headline/90 transition-all shadow-md">
-              Contact Form
-            </a>
-          </div>
-        </div>
+  return (<div className="visuals-page inner-page min-h-screen bg-white text-bodytext">
+    <PageMeta title={t('Visuals — Nadia Hossny', 'أعمال بصرية — نادية حسني')} description={t('Campaign graphics, editorial layouts, presentations, print materials, characters, and digital art by Nadia Hossny.', 'حملات بصرية وتصميم تحريري وعروض تقديمية ومطبوعات وشخصيات وأعمال فنية رقمية لنادية حسني.')} />
+    <div id="visual-collection-content">
+      <header className="visuals-opening"><SectionReveal><div className="portfolio-container"><h1>{t('Visuals', 'أعمال بصرية')}</h1><p>{t('Campaigns, publications, presentations, print, and illustration. The visual side of my work, from clear information to expressive characters.', 'حملات ومنشورات وعروض ومطبوعات ورسوم. الجانب البصري من عملي، من عرض المعلومات بوضوح إلى رسم شخصيات معبرة.')}</p></div></SectionReveal></header>
+      <div className="visual-tools" aria-label={t('Design tools', 'أدوات التصميم')}>{['Adobe CC', 'Affinity', 'Figma', 'Krita', 'Canva'].map(tool => <span key={tool}>{tool}</span>)}</div>
+      <section className="visual-offerings"><div className="portfolio-container"><SectionReveal><h2>{t('What I offer', 'ما أقدمه')}</h2><p>{t('Visual deliverables shaped around your message and audience.', 'مخرجات بصرية تناسب رسالتك وجمهورك.')}</p></SectionReveal><div className="visual-offerings-grid">{visualOffers.map(offer => <SectionReveal key={offer.id}><article><h3>{t(offer.title, offer.titleAr)}</h3><p>{t(offer.description, offer.descriptionAr)}</p></article></SectionReveal>)}</div></div></section>
+      <section className="visual-collections portfolio-container" aria-labelledby="visual-collections-title"><SectionReveal><header><h2 id="visual-collections-title">{t('Visual collections', 'مجموعات الأعمال البصرية')}</h2><p>{t('Explore the collections, then open any cover to see the complete gallery.', 'استكشف المجموعات وافتح أي غلاف لمشاهدة جميع أعمالها.')}</p></header></SectionReveal>
+      <div className="curated-visual-grid">{allCollections.map(collection => <SectionReveal key={collection.id}><article className="curated-visual-project">
+        <button type="button" className="collection-cover" onClick={event => openCollectionModal(collection.id, 0, event.currentTarget)} aria-label={t('Open collection: ', 'افتح المجموعة: ') + collection.title}>
+          {collection.images.slice(1, 3).map((url, index) => <span className={`collection-paper collection-paper-${index + 1}`} key={url} aria-hidden="true"><img src={url} alt="" loading="lazy" /></span>)}
+          <span className="collection-front"><img src={collection.cover} alt={collection.title} loading="lazy" /><span className="collection-hover-label">{t('View more', 'شاهد المزيد')}</span></span>
+        </button>
+        <h3>{collection.title}</h3>
+        <button type="button" className="text-link" onClick={event => openCollectionModal(collection.id, 0, event.currentTarget)}>{t('View ', 'شاهد ') + collection.title}<ArrowRight size={16} className={isRTL ? 'rotate-180' : ''} /></button>
+      </article></SectionReveal>)}</div>
       </section>
-
-      {/* Project Modal */}
-      <AnimatePresence>
-        {selectedProject && (
-          <motion.div 
-            initial={{ opacity: 0 }} 
-            animate={{ opacity: 1 }} 
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[100] flex items-center justify-center p-4 md:p-8 bg-headline/40 backdrop-blur-sm overflow-y-auto"
-            onClick={() => setSelectedProject(null)}
+      <section className="visual-contact" aria-labelledby="visual-contact-title"><div className="portfolio-container"><div><h2 id="visual-contact-title">{ctaUI.ctaTitle}</h2><p>{ctaUI.ctaSub}</p></div><div className="visual-contact-actions action-row"><Link to={visualInquiryHref} className="button-primary">{ctaUI.ctaButton}</Link><a href="mailto:nadiahossny426@gmail.com" className="button-secondary"><Mail size={16} aria-hidden="true"/>{t('Email me', 'راسلني')}</a></div><div className="visual-contact-socials"><a href="https://wa.me/201064943439" target="_blank" rel="noopener noreferrer" className="text-link"><FaWhatsapp aria-hidden="true"/>{t('WhatsApp', 'واتساب')}</a><a href="https://linkedin.com/in/nadiahossny" target="_blank" rel="noopener noreferrer" className="text-link"><FaLinkedin aria-hidden="true"/>LinkedIn</a></div></div></section>
+    </div>
+      {selectedProject && (
+        <div
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="collection-viewer-title"
+          className="collection-viewer fixed inset-0 z-[100] bg-headline/85 backdrop-blur-sm flex items-center justify-center p-2.5 sm:p-5 md:p-6"
+          onClick={closeCollectionModal}
+        >
+          <div
+            ref={modalRef}
+            className="w-full max-w-6xl max-h-[92vh] bg-white rounded-2xl border border-headline/20 shadow-2xl overflow-hidden flex flex-col"
+            onClick={(e) => e.stopPropagation()}
           >
-            <motion.div 
-              initial={{ y: 50, opacity: 0, scale: 0.95 }} 
-              animate={{ y: 0, opacity: 1, scale: 1 }} 
-              exit={{ y: 20, opacity: 0, scale: 0.95 }}
-              transition={{ type: "spring", damping: 25, stiffness: 300 }}
-              className="bg-white w-full max-w-5xl rounded-[2rem] shadow-2xl overflow-hidden relative my-auto max-h-[90vh] flex flex-col"
-              onClick={(e) => e.stopPropagation()}
-            >
-              {/* Modal Header */}
-              <div className="sticky top-0 bg-white/80 backdrop-blur-md z-10 px-8 py-6 border-b border-cloud/30 flex justify-between items-center">
-                <div>
-                  <p className="text-[11px] font-bold tracking-widest uppercase text-cta mb-1">{selectedProject.category}</p>
-                  <h2 className="text-3xl font-display text-headline font-bold">{selectedProject.title}</h2>
-                </div>
-                <button 
-                  onClick={() => setSelectedProject(null)}
-                  className="p-3 bg-background hover:bg-cloud-light text-headline rounded-full transition-colors"
+            {/* Sticky Modal Header */}
+            <div className="px-4 sm:px-6 py-3.5 bg-background border-b border-headline/10 flex items-center justify-between gap-4 shrink-0">
+              <div className="text-start min-w-0">
+                <p className="font-heading font-bold text-base uppercase tracking-wider text-cta">
+                  {selectedProject.category} · {ui.viewerPlateOf} {activeImageIdx + 1}{' '}
+                  {ui.viewerOf} {selectedProject.images.length}
+                </p>
+                <h2
+                  id="collection-viewer-title"
+                  className="font-heading font-bold text-base sm:text-xl text-headline truncate"
                 >
-                  <X className="w-6 h-6" />
-                </button>
+                  {selectedProject.title}
+                </h2>
               </div>
 
-              {/* Modal Content - Scrollable */}
-              <div className="p-8 overflow-y-auto flex-1 flex flex-col items-center">
-                
-                {/* Main Big Image */}
-                <div className="w-full max-w-4xl h-[45vh] min-h-[300px] md:h-[55vh] rounded-2xl overflow-hidden shadow-sm border border-cloud/20 bg-background flex justify-center items-center mb-8 relative shrink-0 p-4 md:p-8">
-                  {!activeModalImage && !selectedProject.cover && (
-                    <div className="absolute inset-0 flex items-center justify-center animate-pulse bg-cloud/20"></div>
+              <button
+                ref={closeBtnRef}
+                type="button"
+                onClick={closeCollectionModal}
+                aria-label={ui.viewerClose}
+                className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white border border-headline/15 text-base font-heading font-bold text-headline hover:border-cta hover:text-cta transition-colors cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cta shrink-0"
+              >
+                <span className="hidden sm:inline">{ui.viewerClose}</span>
+                <X className="w-4 h-4" />
+              </button>
+            </div>
+
+            {/* Scrollable Modal Content: Artwork gets largest share of space (8 cols) + Context & Thumbnails (4 cols) */}
+            <div className="collection-viewer-body flex-1 min-h-0 overflow-y-auto grid grid-cols-1 lg:grid-cols-12">
+              {/* Primary Artwork Stage (Columns 1-8) */}
+              <div className="collection-viewer-stage lg:col-span-8 bg-[#0B111E]/95 p-3 sm:p-6 flex flex-col justify-between min-h-[300px] sm:min-h-[440px] relative">
+                <div className="flex justify-between items-center gap-3 mb-3 text-white"><button type="button" className="text-link" aria-pressed={zoomed} onClick={() => setZoomed(value => !value)}>{zoomed ? t('Fit image', 'ملاءمة الصورة') : t('Zoom in', 'تكبير')}</button></div><div className={`collection-artwork flex-1 flex items-center justify-center relative min-h-0${zoomed ? ' artwork-zoomed' : ''}`} tabIndex={0} role="region" aria-label={t('Artwork; scroll to inspect when zoomed', 'العمل؛ مرّر للاستكشاف بعد التكبير')}>
+                  {selectedProject.images.length > 1 && (
+                    <button
+                      type="button"
+                      onClick={handlePrevImg}
+                      aria-label={ui.viewerPrev}
+                      className="absolute start-2 z-10 w-10 h-10 rounded-full bg-white/95 text-headline hover:bg-white flex items-center justify-center cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cta"
+                    >
+                      <ChevronLeft className={`w-5 h-5 ${isRTL ? 'rotate-180' : ''}`} />
+                    </button>
                   )}
-                  <img src={activeModalImage || selectedProject.cover} alt={selectedProject.title} className="max-w-full max-h-full object-contain" />
+
+                  <img
+                    src={selectedProject.images[activeImageIdx] || selectedProject.cover}
+                    alt={selectedProject.captions[activeImageIdx]}
+                    className="max-w-full max-h-[56vh] w-auto h-auto object-contain rounded-lg"
+                  />
+
+                  {selectedProject.images.length > 1 && (
+                    <button
+                      type="button"
+                      onClick={handleNextImg}
+                      aria-label={ui.viewerNext}
+                      className="absolute end-2 z-10 w-10 h-10 rounded-full bg-white/95 text-headline hover:bg-white flex items-center justify-center cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cta"
+                    >
+                      <ChevronRight className={`w-5 h-5 ${isRTL ? 'rotate-180' : ''}`} />
+                    </button>
+                  )}
                 </div>
 
-                {/* Description */}
-                <div className="prose prose-lg prose-p:text-bodytext prose-p:font-light w-full max-w-4xl mb-12">
-                  <p className="text-lg leading-relaxed">{selectedProject.story}</p>
-                </div>
-
-                {/* Thumbnail Strip */}
+                <p className="artwork-caption" aria-live="polite">{selectedProject.captions[activeImageIdx]}</p>
+                {/* Accessible Thumbnail Strip */}
                 {selectedProject.images.length > 1 && (
-                  <div className="w-full max-w-4xl">
-                    <h3 className="text-lg font-bold text-headline mb-4">More from this collection</h3>
-                    <div className="flex flex-wrap gap-4">
-                      {selectedProject.images.map((img: string, idx: number) => (
-                        <button 
-                          key={idx} 
-                          onClick={() => setActiveModalImage(img)}
-                          className={`relative rounded-lg overflow-hidden border-4 transition-all ${activeModalImage === img ? 'border-cloud scale-105 shadow-md' : 'border-transparent hover:border-cloud/50 opacity-70 hover:opacity-100'} w-24 h-24 md:w-32 md:h-32 flex-shrink-0 bg-background`}
+                  <div className="collection-thumbnails mt-4 pt-3 border-t border-white/15 overflow-x-auto">
+                    <div className="flex items-center gap-2 pb-1">
+                      {selectedProject.images.map((imgUrl, idx) => (
+                        <button
+                          key={`${imgUrl}-${idx}`}
+                          type="button"
+                          onClick={() => setActiveImageIdx(idx)}
+                          aria-label={`${ui.viewerPlateOf} ${idx + 1}`}
+                          aria-current={activeImageIdx === idx ? 'true' : undefined}
+                          className={`relative w-14 h-14 sm:w-16 sm:h-16 rounded-lg overflow-hidden border-2 shrink-0 transition-all cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cta ${
+                            activeImageIdx === idx
+                              ? 'border-cloud bg-white scale-105'
+                              : 'border-white/20 bg-white/10 opacity-70 hover:opacity-100'
+                          }`}
                         >
-                          <img src={img} alt={`${selectedProject.title} thumbnail ${idx + 1}`} className="w-full h-full object-cover" loading="lazy" />
+                          <img
+                            src={imgUrl}
+                            alt=""
+                            className="w-full h-full object-cover"
+                            loading="lazy"
+                          />
                         </button>
                       ))}
                     </div>
                   </div>
                 )}
               </div>
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
 
+              {/* Detailed Context & Metadata Panel (Columns 9-12) */}
+              <div className="lg:col-span-4 p-5 sm:p-6 bg-white border-t lg:border-t-0 lg:border-s border-headline/10 text-start flex flex-col justify-between space-y-5">
+                <div className="space-y-4">
+
+
+                  <div className="pt-3 border-t border-headline/10 space-y-3 text-base sm:text-base">
+                    <div>
+                      <span className="block font-heading font-bold text-headline text-base mb-0.5">
+                        {ui.whatItIsLabel}
+                      </span>
+                      <p className="text-bodytext">{selectedProject.whatItIs}</p>
+                    </div>
+
+                    <div>
+                      <span className="block font-heading font-bold text-headline text-base mb-0.5">
+                        {ui.myContributionLabel}
+                      </span>
+                      <p className="text-bodytext">{selectedProject.contribution}</p>
+                    </div>
+
+
+                  </div>
+                </div>
+
+                {/* Keyboard Hint Footer */}
+                <div className="pt-3 border-t border-headline/10 text-base text-bodytext/75 flex items-center justify-between">
+                  <span>
+                    {t(
+                      'Use ← / → arrows to switch plates',
+                      'استخدم الأسهم ← / → للتنقل بين اللوحات'
+                    )}
+                  </span>
+                  <span>Esc</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
-}
+};
+
+export default Services;

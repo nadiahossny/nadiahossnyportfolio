@@ -1,228 +1,92 @@
-import { useEffect, useRef, useState } from "react";
-import styles from "./ExperienceRow.module.css";
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { ChevronDown, CheckCircle2 } from 'lucide-react';
 
-/* -------------------------------------------------------------------------
-   EDIT YOUR CONTENT HERE
-   - bullets: what you did (shown in the popup)
-   - image:   optional, path to a certificate image in /public, e.g. "/certs/nti.png"
-   - link:    optional, credential / verification URL
-   ------------------------------------------------------------------------- */
-
-const education = [
-  {
-    id: "pharos",
-    org: "Pharos University",
-    title: "B.Sc. Computer Science & AI (Honors)",
-    date: "2026",
-    bullets: [],
-  }
-];
-
-const internships = [
-  {
-    id: "nti",
-    org: "National Telecommunication Institute (NTI)",
-    title: "Frontend Developer Intern",
-    date: "Jul 2025 – Sep 2025",
-    bullets: [
-      "Built 10+ React apps during the program, following WCAG 2.1 AA accessibility standards.",
-    ],
-  },
-  {
-    id: "depi",
-    org: "Digital Egypt Pioneers Initiative (DEPI)",
-    title: "UX/UI Designer Intern",
-    date: "Oct 2024 – May 2025",
-    bullets: [
-      "Ran usability tests on 5+ interfaces and turned the feedback into design changes.",
-    ],
-  },
-  {
-    id: "route",
-    org: "Route Academy",
-    title: "Mobile App Developer Intern",
-    date: "Jul 2024 – Oct 2024",
-    bullets: [
-      "Built 5 Flutter apps with a focus on cross-platform navigation and performance.",
-    ],
-  },
-];
-
-const certificates = [
-  {
-    id: "nti-web",
-    org: "National Telecommunication Institute (NTI)",
-    title: "Web Design Certificate",
-    date: "Dec 2025",
-    bullets: [],
-    image: null,
-    link: null,
-  },
-  {
-    id: "depi-uiux",
-    org: "Digital Egypt Pioneers Initiative (DEPI)",
-    title: "UI/UX Design",
-    date: "Jun 2025",
-    bullets: [],
-    image: null,
-    link: null,
-  },
-  {
-    id: "sprints",
-    org: "Sprints",
-    title: "Web Development Fundamentals",
-    date: "Jun 2025",
-    bullets: [],
-    image: null,
-    link: null,
-  },
-  {
-    id: "coursera",
-    org: "Coursera",
-    title: "Introduction to Android Development",
-    date: "Dec 2024",
-    bullets: [],
-    image: null,
-    link: null,
-  },
-];
-
-/* ------------------------------------------------------------------------- */
-
-interface Item {
+export interface ExperienceItem {
   id: string;
-  org: string;
-  title: string;
-  date: string;
-  place?: string;
-  bullets?: string[];
-  image?: string | null;
-  link?: string | null;
+  role: string;
+  company: string;
+  period: string;
+  description: string;
+  achievements: string[];
+  skills: string[];
 }
 
-interface RowProps {
-  heading: string;
-  items: Item[];
-  onOpen: (item: Item) => void;
-}
+export const ExperienceRow: React.FC<{ item: ExperienceItem; defaultOpen?: boolean }> = ({
+  item,
+  defaultOpen = false
+}) => {
+  const [isOpen, setIsOpen] = useState(defaultOpen);
 
-function Row({ heading, items, onOpen }: RowProps) {
   return (
-    <div className={styles.group}>
-      <h3 className={styles.groupTitle}>{heading}</h3>
-      <div className={styles.row}>
-        {items.map((item) => (
-          <button
-            key={item.id}
-            type="button"
-            className={styles.tile}
-            aria-haspopup="dialog"
-            onClick={() => onOpen(item)}
+    <div className="rounded-2xl bg-white border border-headline/10 overflow-hidden transition-colors hover:border-cta/35">
+      <button
+        type="button"
+        onClick={() => setIsOpen(!isOpen)}
+        aria-expanded={isOpen}
+        className="w-full p-6 text-start flex flex-col sm:flex-row sm:items-center justify-between gap-3"
+      >
+        <div>
+          <h3 className="font-heading text-lg sm:text-xl font-bold text-headline">
+            {item.role}
+          </h3>
+          <p className="text-sm font-medium text-cta mt-0.5">{item.company}</p>
+        </div>
+
+        <div className="flex items-center gap-3 self-start sm:self-center">
+          <span className="text-xs font-mono font-semibold text-headline/75 bg-[#f4f9ff] border border-[#BFE4FF] px-3 py-1 rounded-full">
+            {item.period}
+          </span>
+          <ChevronDown
+            className={`w-5 h-5 text-cta transition-transform duration-200 ${
+              isOpen ? 'rotate-180' : ''
+            }`}
+            aria-hidden="true"
+          />
+        </div>
+      </button>
+
+      <AnimatePresence initial={false}>
+        {isOpen && (
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: 'auto', opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.25 }}
+            className="overflow-hidden"
           >
-            <span className={styles.tileTitle}>{item.title}</span>
-            <span className={styles.tileOrg}>{item.org}</span>
-            <span className={styles.tileDate}>{item.date}</span>
-          </button>
-        ))}
-      </div>
+            <div className="px-6 pb-6 pt-2 border-t border-headline/5 space-y-4">
+              <p className="text-bodytext text-sm sm:text-base leading-relaxed">
+                {item.description}
+              </p>
+
+              {item.achievements.length > 0 && (
+                <ul className="space-y-2">
+                  {item.achievements.map((ach, idx) => (
+                    <li key={idx} className="flex items-start gap-2.5 text-xs sm:text-sm text-bodytext">
+                      <CheckCircle2 className="w-4 h-4 text-cta shrink-0 mt-0.5" aria-hidden="true" />
+                      <span>{ach}</span>
+                    </li>
+                  ))}
+                </ul>
+              )}
+
+              {item.skills.length > 0 && (
+                <div className="flex flex-wrap gap-1.5 pt-2">
+                  {item.skills.map((skill) => (
+                    <span
+                      key={skill}
+                      className="text-xs font-medium text-headline/80 bg-[#f4f9ff] border border-[#BFE4FF]/70 px-2.5 py-1 rounded-md"
+                    >
+                      {skill}
+                    </span>
+                  ))}
+                </div>
+              )}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
-}
-
-export default function ExperienceRow() {
-  const [active, setActive] = useState<Item | null>(null);
-  const dialogRef = useRef<HTMLDialogElement>(null);
-
-  // Open / close the native <dialog> when `active` changes.
-  // Native dialog gives us focus trapping, Esc to close, and returns focus
-  // to the tile you clicked.
-  useEffect(() => {
-    const dialog = dialogRef.current;
-    if (!dialog) return;
-    if (active && !dialog.open) dialog.showModal();
-    if (!active && dialog.open) dialog.close();
-  }, [active]);
-
-  // Stop the page behind the popup from scrolling.
-  useEffect(() => {
-    document.body.style.overflow = active ? "hidden" : "";
-    return () => {
-      document.body.style.overflow = "";
-    };
-  }, [active]);
-
-  const close = () => setActive(null);
-
-  return (
-    <section className={styles.section} aria-labelledby="experience-heading">
-      <h2 id="experience-heading" className={styles.heading}>
-        Experience &amp; training
-      </h2>
-
-      <Row heading="Education" items={education} onOpen={setActive} />
-      <Row heading="Internships" items={internships} onOpen={setActive} />
-      <Row heading="Certificates" items={certificates} onOpen={setActive} />
-
-      <dialog
-        ref={dialogRef}
-        className={styles.dialog}
-        aria-labelledby="experience-dialog-title"
-        onClose={close}
-        onClick={(e) => {
-          // click on the dimmed backdrop (the dialog element itself) closes it
-          if (e.target === e.currentTarget) close();
-        }}
-      >
-        {active && (
-          <div className={styles.dialogInner}>
-            <button
-              type="button"
-              className={styles.close}
-              onClick={close}
-              aria-label="Close details"
-            >
-              Close
-            </button>
-
-            <h3 id="experience-dialog-title" className={styles.dialogTitle}>
-              {active.title}
-            </h3>
-            <p className={styles.dialogMeta}>
-              {active.org}
-              <br />
-              {active.date}
-              {active.place ? `, ${active.place}` : ""}
-            </p>
-
-            {active.image && (
-              <img
-                className={styles.dialogImage}
-                src={active.image}
-                alt={`${active.title} certificate`}
-              />
-            )}
-
-            {active.bullets && active.bullets.length > 0 && (
-              <ul className={styles.dialogList}>
-                {active.bullets.map((b) => (
-                  <li key={b}>{b}</li>
-                ))}
-              </ul>
-            )}
-
-            {active.link && (
-              <a
-                className={styles.dialogLink}
-                href={active.link}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                View credential
-              </a>
-            )}
-          </div>
-        )}
-      </dialog>
-    </section>
-  );
-}
+};

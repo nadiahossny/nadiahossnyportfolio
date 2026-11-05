@@ -5,6 +5,8 @@ import { HelmetProvider } from 'react-helmet-async';
 import { SpeedInsights } from "@vercel/speed-insights/react";
 import App from './App';
 import './index.css';
+import './styles/original-deployment.css';
+import './styles/meeko-direction.css';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>

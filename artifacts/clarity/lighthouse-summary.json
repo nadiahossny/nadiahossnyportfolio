@@ -1,0 +1,110 @@
+[
+  {
+    "route": "/",
+    "lang": "en",
+    "score": 100,
+    "failures": []
+  },
+  {
+    "route": "/work",
+    "lang": "en",
+    "score": 100,
+    "failures": []
+  },
+  {
+    "route": "/about",
+    "lang": "en",
+    "score": 100,
+    "failures": []
+  },
+  {
+    "route": "/services",
+    "lang": "en",
+    "score": 100,
+    "failures": []
+  },
+  {
+    "route": "/visuals",
+    "lang": "en",
+    "score": 100,
+    "failures": []
+  },
+  {
+    "route": "/work/apms",
+    "lang": "en",
+    "score": 100,
+    "failures": []
+  },
+  {
+    "route": "/creative-corner",
+    "lang": "en",
+    "score": 100,
+    "failures": []
+  },
+  {
+    "route": "/work/taskly",
+    "lang": "en",
+    "score": 100,
+    "failures": []
+  },
+  {
+    "route": "/not-a-page",
+    "lang": "en",
+    "score": 100,
+    "failures": []
+  },
+  {
+    "route": "/",
+    "lang": "ar",
+    "score": 100,
+    "failures": []
+  },
+  {
+    "route": "/work",
+    "lang": "ar",
+    "score": 100,
+    "failures": []
+  },
+  {
+    "route": "/about",
+    "lang": "ar",
+    "score": 100,
+    "failures": []
+  },
+  {
+    "route": "/services",
+    "lang": "ar",
+    "score": 100,
+    "failures": []
+  },
+  {
+    "route": "/visuals",
+    "lang": "ar",
+    "score": 100,
+    "failures": []
+  },
+  {
+    "route": "/work/apms",
+    "lang": "ar",
+    "score": 100,
+    "failures": []
+  },
+  {
+    "route": "/creative-corner",
+    "lang": "ar",
+    "score": 100,
+    "failures": []
+  },
+  {
+    "route": "/work/taskly",
+    "lang": "ar",
+    "score": 100,
+    "failures": []
+  },
+  {
+    "route": "/not-a-page",
+    "lang": "ar",
+    "score": 100,
+    "failures": []
+  }
+]

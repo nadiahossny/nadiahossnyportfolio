@@ -1,0 +1,457 @@
+{
+  "arabic": [
+    {
+      "brokenImages": 0,
+      "headingHeight": 48,
+      "lang": "ar",
+      "overflow": false,
+      "path": "/work",
+      "width": 375
+    },
+    {
+      "brokenImages": 0,
+      "headingHeight": 48,
+      "lang": "ar",
+      "overflow": false,
+      "path": "/about",
+      "width": 375
+    },
+    {
+      "brokenImages": 0,
+      "headingHeight": 48,
+      "lang": "ar",
+      "overflow": false,
+      "path": "/work-with-me",
+      "width": 375
+    },
+    {
+      "brokenImages": 0,
+      "headingHeight": 96,
+      "lang": "ar",
+      "overflow": false,
+      "path": "/visuals",
+      "width": 375
+    },
+    {
+      "brokenImages": 0,
+      "headingHeight": 36,
+      "lang": "ar",
+      "overflow": false,
+      "path": "/creative-corner",
+      "width": 375
+    },
+    {
+      "brokenImages": 0,
+      "headingHeight": 144,
+      "lang": "ar",
+      "overflow": false,
+      "path": "/work/taskly",
+      "width": 375
+    },
+    {
+      "brokenImages": 0,
+      "headingHeight": 96,
+      "lang": "ar",
+      "overflow": false,
+      "path": "/work/apms",
+      "width": 375
+    },
+    {
+      "brokenImages": 0,
+      "headingHeight": 144,
+      "lang": "ar",
+      "overflow": false,
+      "path": "/work/ieee-web",
+      "width": 375
+    },
+    {
+      "brokenImages": 0,
+      "headingHeight": 54,
+      "lang": "ar",
+      "overflow": false,
+      "path": "/work",
+      "width": 768
+    },
+    {
+      "brokenImages": 0,
+      "headingHeight": 54,
+      "lang": "ar",
+      "overflow": false,
+      "path": "/about",
+      "width": 768
+    },
+    {
+      "brokenImages": 0,
+      "headingHeight": 54,
+      "lang": "ar",
+      "overflow": false,
+      "path": "/work-with-me",
+      "width": 768
+    },
+    {
+      "brokenImages": 0,
+      "headingHeight": 54,
+      "lang": "ar",
+      "overflow": false,
+      "path": "/visuals",
+      "width": 768
+    },
+    {
+      "brokenImages": 0,
+      "headingHeight": 48,
+      "lang": "ar",
+      "overflow": false,
+      "path": "/creative-corner",
+      "width": 768
+    },
+    {
+      "brokenImages": 0,
+      "headingHeight": 108,
+      "lang": "ar",
+      "overflow": false,
+      "path": "/work/taskly",
+      "width": 768
+    },
+    {
+      "brokenImages": 0,
+      "headingHeight": 54,
+      "lang": "ar",
+      "overflow": false,
+      "path": "/work/apms",
+      "width": 768
+    },
+    {
+      "brokenImages": 0,
+      "headingHeight": 108,
+      "lang": "ar",
+      "overflow": false,
+      "path": "/work/ieee-web",
+      "width": 768
+    },
+    {
+      "brokenImages": 0,
+      "headingHeight": 78,
+      "lang": "ar",
+      "overflow": false,
+      "path": "/work",
+      "width": 1440
+    },
+    {
+      "brokenImages": 0,
+      "headingHeight": 78,
+      "lang": "ar",
+      "overflow": false,
+      "path": "/about",
+      "width": 1440
+    },
+    {
+      "brokenImages": 0,
+      "headingHeight": 78,
+      "lang": "ar",
+      "overflow": false,
+      "path": "/work-with-me",
+      "width": 1440
+    },
+    {
+      "brokenImages": 0,
+      "headingHeight": 78,
+      "lang": "ar",
+      "overflow": false,
+      "path": "/visuals",
+      "width": 1440
+    },
+    {
+      "brokenImages": 0,
+      "headingHeight": 48,
+      "lang": "ar",
+      "overflow": false,
+      "path": "/creative-corner",
+      "width": 1440
+    },
+    {
+      "brokenImages": 0,
+      "headingHeight": 156,
+      "lang": "ar",
+      "overflow": false,
+      "path": "/work/taskly",
+      "width": 1440
+    },
+    {
+      "brokenImages": 0,
+      "headingHeight": 78,
+      "lang": "ar",
+      "overflow": false,
+      "path": "/work/apms",
+      "width": 1440
+    },
+    {
+      "brokenImages": 0,
+      "headingHeight": 156,
+      "lang": "ar",
+      "overflow": false,
+      "path": "/work/ieee-web",
+      "width": 1440
+    }
+  ],
+  "english": [
+    {
+      "lang": "en",
+      "offscreenControls": [],
+      "overflow": false,
+      "path": "/work",
+      "width": 375
+    },
+    {
+      "lang": "en",
+      "offscreenControls": [],
+      "overflow": false,
+      "path": "/about",
+      "width": 375
+    },
+    {
+      "lang": "en",
+      "offscreenControls": [],
+      "overflow": false,
+      "path": "/work-with-me",
+      "width": 375
+    },
+    {
+      "lang": "en",
+      "offscreenControls": [],
+      "overflow": false,
+      "path": "/visuals",
+      "width": 375
+    },
+    {
+      "lang": "en",
+      "offscreenControls": [],
+      "overflow": false,
+      "path": "/creative-corner",
+      "width": 375
+    },
+    {
+      "lang": "en",
+      "offscreenControls": [],
+      "overflow": false,
+      "path": "/work/taskly",
+      "width": 375
+    },
+    {
+      "lang": "en",
+      "offscreenControls": [],
+      "overflow": false,
+      "path": "/work/apms",
+      "width": 375
+    },
+    {
+      "lang": "en",
+      "offscreenControls": [],
+      "overflow": false,
+      "path": "/work/ieee-web",
+      "width": 375
+    },
+    {
+      "lang": "en",
+      "offscreenControls": [],
+      "overflow": false,
+      "path": "/work",
+      "width": 768
+    },
+    {
+      "lang": "en",
+      "offscreenControls": [],
+      "overflow": false,
+      "path": "/about",
+      "width": 768
+    },
+    {
+      "lang": "en",
+      "offscreenControls": [],
+      "overflow": false,
+      "path": "/work-with-me",
+      "width": 768
+    },
+    {
+      "lang": "en",
+      "offscreenControls": [],
+      "overflow": false,
+      "path": "/visuals",
+      "width": 768
+    },
+    {
+      "lang": "en",
+      "offscreenControls": [
+        "TEXTAREA"
+      ],
+      "overflow": false,
+      "path": "/creative-corner",
+      "width": 768
+    },
+    {
+      "lang": "en",
+      "offscreenControls": [],
+      "overflow": false,
+      "path": "/work/taskly",
+      "width": 768
+    },
+    {
+      "lang": "en",
+      "offscreenControls": [],
+      "overflow": false,
+      "path": "/work/apms",
+      "width": 768
+    },
+    {
+      "lang": "en",
+      "offscreenControls": [],
+      "overflow": false,
+      "path": "/work/ieee-web",
+      "width": 768
+    },
+    {
+      "lang": "en",
+      "offscreenControls": [],
+      "overflow": false,
+      "path": "/work",
+      "width": 1440
+    },
+    {
+      "lang": "en",
+      "offscreenControls": [],
+      "overflow": false,
+      "path": "/about",
+      "width": 1440
+    },
+    {
+      "lang": "en",
+      "offscreenControls": [],
+      "overflow": false,
+      "path": "/work-with-me",
+      "width": 1440
+    },
+    {
+      "lang": "en",
+      "offscreenControls": [],
+      "overflow": false,
+      "path": "/visuals",
+      "width": 1440
+    },
+    {
+      "lang": "en",
+      "offscreenControls": [],
+      "overflow": false,
+      "path": "/creative-corner",
+      "width": 1440
+    },
+    {
+      "lang": "en",
+      "offscreenControls": [],
+      "overflow": false,
+      "path": "/work/taskly",
+      "width": 1440
+    },
+    {
+      "lang": "en",
+      "offscreenControls": [],
+      "overflow": false,
+      "path": "/work/apms",
+      "width": 1440
+    },
+    {
+      "lang": "en",
+      "offscreenControls": [],
+      "overflow": false,
+      "path": "/work/ieee-web",
+      "width": 1440
+    }
+  ],
+  "followup": [
+    {
+      "lang": "ar",
+      "offscreenControls": 0,
+      "overflow": false,
+      "path": "/creative-corner",
+      "width": 768
+    },
+    {
+      "lang": "ar",
+      "overflow": false,
+      "path": "/work/auraleaf",
+      "width": 375
+    },
+    {
+      "lang": "ar",
+      "overflow": false,
+      "path": "/work/notes-app",
+      "width": 375
+    },
+    {
+      "lang": "ar",
+      "overflow": false,
+      "path": "/work/byto-academy",
+      "width": 375
+    },
+    {
+      "lang": "ar",
+      "overflow": false,
+      "path": "/work/simplibank",
+      "width": 375
+    },
+    {
+      "lang": "ar",
+      "overflow": false,
+      "path": "/work/bloom-gift",
+      "width": 375
+    },
+    {
+      "lang": "ar",
+      "overflow": false,
+      "path": "/work/ecomm-app",
+      "width": 375
+    },
+    {
+      "lang": "en",
+      "offscreenControls": 0,
+      "overflow": false,
+      "path": "/creative-corner",
+      "width": 768
+    },
+    {
+      "lang": "en",
+      "overflow": false,
+      "path": "/work/auraleaf",
+      "width": 375
+    },
+    {
+      "lang": "en",
+      "overflow": false,
+      "path": "/work/notes-app",
+      "width": 375
+    },
+    {
+      "lang": "en",
+      "overflow": false,
+      "path": "/work/byto-academy",
+      "width": 375
+    },
+    {
+      "lang": "en",
+      "overflow": false,
+      "path": "/work/simplibank",
+      "width": 375
+    },
+    {
+      "lang": "en",
+      "overflow": false,
+      "path": "/work/bloom-gift",
+      "width": 375
+    },
+    {
+      "lang": "en",
+      "overflow": false,
+      "path": "/work/ecomm-app",
+      "width": 375
+    }
+  ],
+  "note": "Creative Corner tablet offscreen textarea in initial audit was corrected and rechecked in followup."
+}

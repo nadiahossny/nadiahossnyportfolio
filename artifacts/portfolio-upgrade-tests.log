@@ -1,0 +1,256 @@
+TAP version 13
+# Subtest: project routes and selected trio are preserved
+ok 1 - project routes and selected trio are preserved
+  ---
+  duration_ms: 7.4826
+  type: 'test'
+  ...
+# Subtest: six curated projects drive ordering, filters, and next navigation
+ok 2 - six curated projects drive ordering, filters, and next navigation
+  ---
+  duration_ms: 3.1826
+  type: 'test'
+  ...
+# Subtest: Taskly artifacts distinguish preparation, persona, and exploratory scope
+ok 3 - Taskly artifacts distinguish preparation, persona, and exploratory scope
+  ---
+  duration_ms: 4.3136
+  type: 'test'
+  ...
+# Subtest: AuraLeaf has three real working states and Notes captions describe visible features
+ok 4 - AuraLeaf has three real working states and Notes captions describe visible features
+  ---
+  duration_ms: 1.0221
+  type: 'test'
+  ...
+# Subtest: each curated project has a bilingual purpose-led preview and a distinct narrative
+ok 5 - each curated project has a bilingual purpose-led preview and a distinct narrative
+  ---
+  duration_ms: 6.4719
+  type: 'test'
+  ...
+# Subtest: gallery images and counts include artifacts and deduplicate reused screens
+ok 6 - gallery images and counts include artifacts and deduplicate reused screens
+  ---
+  duration_ms: 2.7998
+  type: 'test'
+  ...
+# Subtest: public case-study copy contains no editing instructions or internal handoff language
+ok 7 - public case-study copy contains no editing instructions or internal handoff language
+  ---
+  duration_ms: 1.8371
+  type: 'test'
+  ...
+# Subtest: IEEE and APMS retain documented scope and team attribution
+ok 8 - IEEE and APMS retain documented scope and team attribution
+  ---
+  duration_ms: 0.8883
+  type: 'test'
+  ...
+# Subtest: sitemap promotes only the six selected case-study routes
+ok 9 - sitemap promotes only the six selected case-study routes
+  ---
+  duration_ms: 129.6393
+  type: 'test'
+  ...
+# Subtest: all selected screenshot and process-artifact sources exist
+ok 10 - all selected screenshot and process-artifact sources exist
+  ---
+  duration_ms: 27.5645
+  type: 'test'
+  ...
+# Subtest: APMS and Notes follow direct corrections in both languages
+ok 11 - APMS and Notes follow direct corrections in both languages
+  ---
+  duration_ms: 1.3858
+  type: 'test'
+  ...
+# Subtest: background has seven sourced entries and six training records per language
+ok 12 - background has seven sourced entries and six training records per language
+  ---
+  duration_ms: 0.7024
+  type: 'test'
+  ...
+# Subtest: unconfirmed project dates and metrics are omitted
+ok 13 - unconfirmed project dates and metrics are omitted
+  ---
+  duration_ms: 0.5986
+  type: 'test'
+  ...
+# Subtest: pharmacy project introduces its full name to visitors
+ok 14 - pharmacy project introduces its full name to visitors
+  ---
+  duration_ms: 0.422
+  type: 'test'
+  ...
+# Subtest: available curated collections publish only existing reviewed bilingual artworks
+ok 15 - available curated collections publish only existing reviewed bilingual artworks
+  ---
+  duration_ms: 352.9919
+  type: 'test'
+  ...
+# Subtest: Visuals retains its four offer groups while Services uses the separate commercial offers
+ok 16 - Visuals retains its four offer groups while Services uses the separate commercial offers
+  ---
+  duration_ms: 176.0404
+  type: 'test'
+  ...
+# Subtest: featured thumbnails are separate from evidence and shared between listing pages
+ok 17 - featured thumbnails are separate from evidence and shared between listing pages
+  ---
+  duration_ms: 3.1153
+  type: 'test'
+  ...
+# Subtest: without a key, prepares a draft and never calls the provider
+ok 18 - without a key, prepares a draft and never calls the provider
+  ---
+  duration_ms: 3.4798
+  type: 'test'
+  ...
+# Subtest: reports sent only after explicit provider acceptance
+ok 19 - reports sent only after explicit provider acceptance
+  ---
+  duration_ms: 82.102
+  type: 'test'
+  ...
+# Subtest: provider rejection with HTTP 200
+ok 20 - provider rejection with HTTP 200
+  ---
+  duration_ms: 1.4708
+  type: 'test'
+  ...
+# Subtest: missing acceptance field
+ok 21 - missing acceptance field
+  ---
+  duration_ms: 1.0039
+  type: 'test'
+  ...
+# Subtest: HTTP failure
+ok 22 - HTTP failure
+  ---
+  duration_ms: 1.1031
+  type: 'test'
+  ...
+# Subtest: non-boolean acceptance
+ok 23 - non-boolean acceptance
+  ---
+  duration_ms: 1.1236
+  type: 'test'
+  ...
+# Subtest: network and malformed response failures remain failures
+ok 24 - network and malformed response failures remain failures
+  ---
+  duration_ms: 1.7039
+  type: 'test'
+  ...
+# Subtest: visual enquiry links preselect the existing option without changing delivery
+ok 25 - visual enquiry links preselect the existing option without changing delivery
+  ---
+  duration_ms: 0.524
+  type: 'test'
+  ...
+# Subtest: reveal content remains accessible without a browser observer or JavaScript animation
+ok 26 - reveal content remains accessible without a browser observer or JavaScript animation
+  ---
+  duration_ms: 30.4568
+  type: 'test'
+  ...
+# Subtest: both Work rows share the same card and grid presentation
+ok 27 - both Work rows share the same card and grid presentation
+  ---
+  duration_ms: 62.1206
+  type: 'test'
+  ...
+# Subtest: motion preserves immediate focus and reduced-motion rendering
+ok 28 - motion preserves immediate focus and reduced-motion rendering
+  ---
+  duration_ms: 8.4223
+  type: 'test'
+  ...
+# Subtest: hero avoids a repeated standalone role and Home keeps three intact visual previews
+ok 29 - hero avoids a repeated standalone role and Home keeps three intact visual previews
+  ---
+  duration_ms: 24.3365
+  type: 'test'
+  ...
+# Subtest: the original sky loop can be paused and reduced motion remains static
+ok 30 - the original sky loop can be paused and reduced motion remains static
+  ---
+  duration_ms: 13.1838
+  type: 'test'
+  ...
+# Subtest: primary pages and six listed projects have distinct clean canonical URLs
+ok 31 - primary pages and six listed projects have distinct clean canonical URLs
+  ---
+  duration_ms: 3.3213
+  type: 'test'
+  ...
+# Subtest: fallback reflects July 2026 and the six curated projects
+ok 32 - fallback reflects July 2026 and the six curated projects
+  ---
+  duration_ms: 17.7601
+  type: 'test'
+  ...
+# Subtest: Creative Corner uses direct email while Work With Me retains its enquiry form
+ok 33 - Creative Corner uses direct email while Work With Me retains its enquiry form
+  ---
+  duration_ms: 3.7433
+  type: 'test'
+  ...
+# Subtest: canonical and compatibility Services routes render both approved offers in both languages
+ok 34 - canonical and compatibility Services routes render both approved offers in both languages
+  ---
+  duration_ms: 276.0884
+  type: 'test'
+  ...
+# Subtest: visual links preselect the original enquiry value on either route
+ok 35 - visual links preselect the original enquiry value on either route
+  ---
+  duration_ms: 175.9883
+  type: 'test'
+  ...
+# Subtest: homepage retains brand greeting and project order while introducing Services before About
+ok 36 - homepage retains brand greeting and project order while introducing Services before About
+  ---
+  duration_ms: 112.575
+  type: 'test'
+  ...
+# Subtest: featured stories expose verified tools and preserve design-only Taskly status
+ok 37 - featured stories expose verified tools and preserve design-only Taskly status
+  ---
+  duration_ms: 346.7281
+  type: 'test'
+  ...
+# Subtest: navigation prioritizes Work and Services and exposes the compatibility route as active
+ok 38 - navigation prioritizes Work and Services and exposes the compatibility route as active
+  ---
+  duration_ms: 74.6449
+  type: 'test'
+  ...
+# Subtest: sitemap publishes the services canonical without duplicating its compatibility route
+ok 39 - sitemap publishes the services canonical without duplicating its compatibility route
+  ---
+  duration_ms: 19.2048
+  type: 'test'
+  ...
+# Subtest: four original endorsements retain distinct sources and the confirmed CTO attribution
+ok 40 - four original endorsements retain distinct sources and the confirmed CTO attribution
+  ---
+  duration_ms: 4.4755
+  type: 'test'
+  ...
+# Subtest: carousel exposes four named selectors, one active quote, and a pause control
+ok 41 - carousel exposes four named selectors, one active quote, and a pause control
+  ---
+  duration_ms: 687.5506
+  type: 'test'
+  ...
+1..41
+# tests 41
+# suites 0
+# pass 41
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 14345.6508

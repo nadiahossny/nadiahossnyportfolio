@@ -1,496 +1,54 @@
 import { useEffect, useState } from 'react';
-import { useLocation, Link } from 'react-router-dom';
-import { Helmet } from 'react-helmet-async';
-import { caseStudies } from '../data/caseStudies';
-import CaseStudyModal from '../components/CaseStudyModal';
-import { ArrowRight, Mail, FileText } from 'lucide-react';
-import { SiFigma, SiFlutter, SiReact, SiNextdotjs } from 'react-icons/si';
+import SectionReveal from '../components/SectionReveal';
+import { visualCollections } from '../data/visualCollections';
+import { Link } from 'react-router-dom';
+import PageMeta from '../components/PageMeta';
+import { ArrowRight, Mail } from 'lucide-react';
 import { FaLinkedin, FaWhatsapp } from 'react-icons/fa';
-import { motion, AnimatePresence } from 'framer-motion';
-import profileImg from '../assets/nadia_hero_avatar.jpg';
-import aboutPhoto from '../assets/about-photo.jpg';
-import heroBg from '../assets/cloudy-bg.png';
-import MoreWorkModal from '../components/MoreWorkModal';
-import ExperienceRow from '../components/ExperienceRow';
+import { featuredProjects } from '../data/caseStudies';
+import { useLanguage } from '../context/LanguageContext';
+import ProjectPreview from '../components/ProjectPreview';
+import portrait from '../assets/about-photo.jpg';
+import CloudTheatreHero from '../components/CloudTheatreHero';
+import Testimonials from '../components/Testimonials';
+import { serviceOffers } from '../data/serviceOffers';
 
-const fadeUp: any = {
-  hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } }
-};
-
-const testimonialsData = [
-  {
-    text: "Having selected Nadia for roles in a student organization, a creative project, and my own startup, I can say without hesitation that she is one of the most reliable and passionate professionals I have ever worked with. Her ability to execute tasks flawlessly, manage her time effectively, and proactively learn new skills is remarkable.",
-    name: "Revelio",
-    role: "CTO @ Revelio"
-  },
-  {
-    text: "Nadia delivered outstanding work on our last campaign. Her creativity in design, attention to detail, and strategic approach to social media elevated the entire project. Her ability to blend strong visuals with clear messaging drove excellent engagement and results. Nadia's dedication, innovation, and leadership set a high standard.",
-    name: "Codeify Modern Development",
-    role: "Client"
-  },
-  {
-    text: "Nadia has an exceptional eye for design and a strong ability to translate abstract ideas into visuals that communicate clearly and creatively. She combines modern aesthetics with originality while maintaining consistency with brand identity. Her work always reflects professionalism, attention to detail, and a deep understanding of design principles.",
-    name: "Revelio",
-    role: "HR Manager @ Revelio"
-  },
-  {
-    text: "I had the pleasure of teaching Nadia Hossny during her training course at NTI. Nadia stood out for her attention to detail, problem-solving mindset, and ability to deliver clean, well-organized results. I highly recommend her for any opportunity related to frontend or software development.",
-    name: "Mohamed Wael",
-    role: "Full Stack Engineer @ Nervo | Web Design Instructor @ NTI"
-  }
-];
+let entrancePlayed = false;
 
 export default function Home() {
-  const { hash } = useLocation();
-  const [selectedStudy, setSelectedStudy] = useState<string | null>(null);
-  const [isMoreWorkModalOpen, setIsMoreWorkModalOpen] = useState(false);
-
-  // Testimonial Carousel State
-  const [currentTestimonial, setCurrentTestimonial] = useState(0);
-  const [isTestimonialHovered, setIsTestimonialHovered] = useState(false);
-
-  useEffect(() => {
-    if (isTestimonialHovered) return;
-    const timer = setInterval(() => {
-      setCurrentTestimonial((prev) => (prev + 1) % testimonialsData.length);
-    }, 6000);
-    return () => clearInterval(timer);
-  }, [isTestimonialHovered]);
-
-  useEffect(() => {
-    if (hash) {
-      const element = document.getElementById(hash.replace('#', ''));
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
-      }
-    } else {
-      window.scrollTo(0, 0);
-    }
-  }, [hash]);
-
-  return (
-    <div className="w-full bg-white text-bodytext min-h-screen font-sans selection:bg-cloud selection:text-headline overflow-hidden">
-      <Helmet>
-        <title>Nadia Hossny, Product Designer</title>
-        <meta name="description" content="Product designer who builds what she designs. Case studies in healthcare, education and productivity, from user research in Figma to shipped Flutter and React." />
-        <meta property="og:title" content="Nadia Hossny, Product Designer" />
-        <meta property="og:description" content="Product designer who builds what she designs. Case studies in healthcare, education and productivity, from user research in Figma to shipped Flutter and React." />
-        <meta name="twitter:title" content="Nadia Hossny, Product Designer" />
-        <meta name="twitter:description" content="Product designer who builds what she designs. Case studies in healthcare, education and productivity, from user research in Figma to shipped Flutter and React." />
-      </Helmet>
-      {selectedStudy && (
-        <CaseStudyModal 
-          id={selectedStudy} 
-          onClose={() => setSelectedStudy(null)} 
-        />
-      )}
-      <MoreWorkModal 
-        isOpen={isMoreWorkModalOpen} 
-        onClose={() => setIsMoreWorkModalOpen(false)} 
-      />
-      
-      {/* Full Screen Hero Container */}
-      <div className="flex flex-col relative z-10">
-        {/* 1. Hero Section (Takes full viewport height) */}
-        <section className="min-h-[100svh] relative w-full flex flex-col items-center justify-center pt-28 md:pt-32 pb-8 px-6 overflow-hidden">
-          
-          {/* Soft parallax cloud background - RESTORED */}
-          <div className="absolute top-0 left-0 w-full h-full overflow-hidden z-0">
-            <div className="absolute inset-0 bg-background"></div> {/* Base sky color */}
-            <motion.img 
-              src={heroBg} 
-              alt="Cloud background" 
-              className="w-full h-full object-cover opacity-80 origin-center" 
-              animate={{ 
-                scale: [1, 1.08, 1],
-                x: [0, 15, -5, 0],
-                y: [0, -15, 5, 0]
-              }}
-              transition={{
-                duration: 25,
-                repeat: Infinity,
-                ease: "easeInOut"
-              }}
-            />
-            <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-white"></div>
-          </div>
-          
-          <div className="relative z-10 w-full max-w-4xl mx-auto text-center">
-            <motion.h1 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-display text-headline font-bold mb-6 flex items-center justify-center flex-wrap gap-x-2 sm:gap-x-4 gap-y-2"
-            >
-              Hi, I'm 
-              <motion.div 
-                initial={{ opacity: 0, scale: 0.8, rotate: -15 }} 
-                animate={{ opacity: 1, scale: 1, rotate: -5 }} 
-                whileHover={{ rotate: 2, scale: 1.05 }}
-                transition={{ duration: 0.6, delay: 0.3, type: "spring" }} 
-                className="inline-block relative -mt-2 md:-mt-4 mx-2 sm:mx-3 md:mx-5 cursor-pointer z-20"
-              >
-                <img src={profileImg} alt="Nadia Hossny" className="w-12 h-12 sm:w-16 sm:h-16 md:w-24 md:h-24 lg:w-28 lg:h-28 rounded-xl sm:rounded-2xl md:rounded-[2rem] object-cover shadow-lg border-[3px] md:border-4 border-white grayscale hover:grayscale-0 transition-all duration-500" />
-              </motion.div>
-              Nadia.
-            </motion.h1>
-
-            <motion.p 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-lg md:text-xl lg:text-2xl text-bodytext font-light leading-relaxed max-w-3xl mx-auto mb-10"
-            >
-              A product designer who builds what she designs.
-            </motion.p>
-            
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              className="flex justify-center gap-4"
-            >
-              <a href="#work" className="inline-flex items-center justify-center px-8 py-4 bg-headline text-white rounded-full font-medium hover:bg-headline/90 transition-all shadow-sm text-sm sm:text-base">
-                See my work
-              </a>
-              <a href="https://drive.google.com/file/d/1RnrOnp8jSUYzBkMdGGUPAqJ1Js1jV0nP/view?usp=sharing" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center px-8 py-4 bg-white border border-cloud text-headline rounded-full font-medium hover:border-cta/30 hover:bg-cta/5 transition-all shadow-sm text-sm sm:text-base">
-                Download CV
-              </a>
-            </motion.div>
-          </div>
-        </section>
-
-        {/* 2. Trust Strip */}
-        <section className="py-6 md:py-8 border-y border-headline/10 bg-white relative z-10 shrink-0">
-          <div className="max-w-5xl mx-auto px-6 flex flex-wrap justify-center gap-8 md:gap-24">
-            <div className="flex items-center gap-3 text-headline hover:text-cta transition-colors duration-300 cursor-default"><SiFigma className="w-5 h-5 md:w-6 md:h-6" /><span className="text-sm font-medium">Figma</span></div>
-            <div className="flex items-center gap-3 text-headline hover:text-cta transition-colors duration-300 cursor-default"><SiFlutter className="w-5 h-5 md:w-6 md:h-6" /><span className="text-sm font-medium">Flutter</span></div>
-            <div className="flex items-center gap-3 text-headline hover:text-cta transition-colors duration-300 cursor-default"><SiReact className="w-5 h-5 md:w-6 md:h-6" /><span className="text-sm font-medium">React</span></div>
-            <div className="flex items-center gap-3 text-headline hover:text-cta transition-colors duration-300 cursor-default"><SiNextdotjs className="w-5 h-5 md:w-6 md:h-6" /><span className="text-sm font-medium">Next.js</span></div>
-          </div>
-        </section>
-      </div>
-
-      {/* 3. Selected Work */}
-      <section id="work" className="py-24 bg-background relative z-10">
-        <div className="max-w-6xl mx-auto px-6">
-          <motion.div 
-            initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }} variants={fadeUp}
-            className="mb-16 md:mb-24 flex flex-col items-start gap-2"
-          >
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-display text-headline mb-4 font-bold" style={{ marginLeft: "-0.08em" }}>Selected Projects</h2>
-            <p className="text-xl text-bodytext font-light">Featured case studies.</p>
-          </motion.div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12">
-            {caseStudies.filter(study => study.featured).map((study, index) => (
-              <motion.div 
-                key={study.id}
-                initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }} variants={fadeUp}
-                transition={{ delay: index * 0.1 }}
-                className="flex flex-col group"
-              >
-                <div className="w-full mb-6 md:mb-8">
-                  <button 
-                    onClick={() => setSelectedStudy(study.id)}
-                    className="w-full aspect-[4/3] rounded-3xl overflow-hidden bg-cloud relative shadow-sm hover:shadow-md transition-all block"
-                  >
-                    <div className="absolute inset-0 bg-headline/0 group-hover:bg-headline/5 transition-colors duration-500 z-10"></div>
-                    <img 
-                      src={study.image} 
-                      alt={study.title} 
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                    />
-                  </button>
-                </div>
-                <div className="flex flex-col items-start text-left flex-1">
-                  <h3 className="text-xl md:text-2xl font-display font-semibold text-headline mb-3 line-clamp-2">{study.title}</h3>
-                  <p className="text-base text-bodytext font-light leading-relaxed mb-8 line-clamp-3 flex-1">
-                    {study.hook}
-                  </p>
-                  <button 
-                    onClick={() => setSelectedStudy(study.id)}
-                    className="inline-flex items-center gap-2 text-cta font-medium border-b border-cta/30 pb-1 hover:border-cta transition-colors text-sm mt-auto group-hover:border-cta"
-                  >
-                    Read case study <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                  </button>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-
-          <div className="mt-20 flex justify-center">
-            <button 
-              onClick={() => setIsMoreWorkModalOpen(true)}
-              className="inline-flex items-center gap-2 px-8 py-4 bg-headline text-white rounded-full font-medium hover:bg-headline/90 transition-all shadow-sm group text-sm"
-            >
-              View More Work <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </button>
-          </div>
-        </div>
-      </section>
-
-      {/* 3. How I work */}
-      <section className="py-24 bg-white relative">
-        <div className="max-w-5xl mx-auto px-6">
-          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-display text-headline mb-4 font-bold" style={{ marginLeft: "-0.08em" }}>How I work.</h2>
-          </motion.div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {[
-              { title: "Understand the problem first.", desc: "Research and constraints before any pixels." },
-              { title: "Design and build together.", desc: "Wireframes, high-fidelity screens, then code, so nothing is lost in handoff." },
-              { title: "Test with real people, then ship.", desc: "Clarity over cleverness. Done beats perfect." }
-            ].map((process, i) => (
-              <motion.div 
-                key={i}
-                initial="hidden" whileInView="visible" viewport={{ once: true }} transition={{ delay: i * 0.1 }} variants={fadeUp}
-                className="flex flex-col gap-6 bg-background p-8 md:p-10 rounded-[2rem] items-start border border-cloud/30 shadow-sm hover:shadow-md transition-shadow"
-              >
-                <div>
-                  <h3 className="text-xl font-medium text-headline mb-3">{process.title}</h3>
-                  <p className="text-bodytext font-light text-base leading-relaxed">{process.desc}</p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* 4. About Me (Minimalist Layout) */}
-      <section id="about" className="py-24 bg-background relative">
-        <div className="max-w-5xl mx-auto px-6">
-          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="grid md:grid-cols-[1fr_2fr] gap-12 md:gap-16 items-center">
-            
-            {/* Left: Image */}
-            <div className="w-full max-w-[320px] mx-auto md:mx-0">
-               <div className="aspect-[4/5] rounded-3xl overflow-hidden shadow-md transition-all duration-500 hover:rotate-3 hover:scale-105 border-4 border-white">
-                 <img src={aboutPhoto} alt="Nadia Hossny" className="w-full h-full object-cover" />
-               </div>
-            </div>
-            
-            {/* Right: Text */}
-            <div>
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-display text-headline mb-4 font-bold" style={{ marginLeft: "-0.08em" }}>How I got here.</h2>
-              <div className="space-y-6 text-base text-bodytext font-light leading-relaxed mb-10">
-                <p className="text-base text-bodytext font-light leading-relaxed max-w-prose">
-                  I started with graphic design, making posts, logos and certificates for student clubs like GDSC, Dream Team and IEEE, and ended up leading design teams. Then I picked up code, studying Computer Science & AI at Pharos University (graduated 2026 with Honors), and that eye turned into products that work, not just look good. UI/UX taught me that function and beauty aren't separate jobs.
-                </p>
-                <p className="text-base text-bodytext font-light leading-relaxed max-w-prose">
-                  Then a question changed how I work: there are already a thousand apps, so why build another one? Now I only start with a problem worth solving.
-                </p>
-              </div>
-              
-              <div className="pt-6 border-t border-headline/10 text-sm font-light">
-                <p>
-                  I also design brand visuals and social content — <Link to="/graphic-design" className="text-cta hover:underline font-medium">see examples &rarr;</Link>
-                </p>
-              </div>
-            </div>
-
-          </motion.div>
-
-          {/* 5. Experience Row */}
-          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="mt-20">
-            <ExperienceRow />
-          </motion.div>
-        </div>
-      </section>
-
-      {/* 6. Testimonials Carousel */}
-      <section className="py-24 bg-white border-y border-headline/5 overflow-hidden">
-        <div className="max-w-4xl mx-auto px-6 text-center">
-          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }} variants={fadeUp} className="text-center mb-12">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-display text-headline mb-4 font-bold">Testimonials</h2>
-            <p className="text-xs font-bold tracking-widest uppercase text-cta">Collaborations & Feedback</p>
-          </motion.div>
-          
-          <div 
-            className="relative min-h-[350px] md:min-h-[250px] flex items-center justify-center w-full max-w-4xl mx-auto"
-            onMouseEnter={() => setIsTestimonialHovered(true)}
-            onMouseLeave={() => setIsTestimonialHovered(false)}
-            onTouchStart={() => setIsTestimonialHovered(true)}
-            onTouchEnd={() => setIsTestimonialHovered(false)}
-          >
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={currentTestimonial}
-                initial={{ opacity: 0, x: 20 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: -20 }}
-                transition={{ duration: 0.5, ease: "easeInOut" }}
-                className="absolute inset-0 flex flex-col items-center justify-center px-4 cursor-grab active:cursor-grabbing"
-                drag="x"
-                dragConstraints={{ left: 0, right: 0 }}
-                dragElastic={0.2}
-                onDragEnd={(_, { offset }) => {
-                  if (offset.x < -50) {
-                    setCurrentTestimonial((prev) => (prev + 1) % testimonialsData.length);
-                  } else if (offset.x > 50) {
-                    setCurrentTestimonial((prev) => (prev - 1 + testimonialsData.length) % testimonialsData.length);
-                  }
-                }}
-              >
-                <p className="text-lg md:text-xl text-headline font-light leading-relaxed mb-8 max-w-3xl">
-                  "{testimonialsData[currentTestimonial].text}"
-                </p>
-                <div className="flex flex-col items-center gap-2">
-                  <h4 className="text-headline font-medium text-sm">{testimonialsData[currentTestimonial].name}</h4>
-                  <p className="text-xs text-bodytext opacity-70 uppercase tracking-widest">{testimonialsData[currentTestimonial].role}</p>
-                </div>
-              </motion.div>
-            </AnimatePresence>
-
-            {/* Navigation Dots */}
-            <div className="absolute -bottom-8 flex gap-3 justify-center w-full">
-              {testimonialsData.map((_, idx) => (
-                <button
-                  key={idx}
-                  onClick={() => setCurrentTestimonial(idx)}
-                  className={`h-2 rounded-full transition-all duration-300 ${idx === currentTestimonial ? 'bg-cta w-8' : 'bg-headline/20 hover:bg-headline/40 w-2'}`}
-                  aria-label={`Go to testimonial ${idx + 1}`}
-                />
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 7. Cross-navigation to Other Work */}
-      <section className="py-24 bg-background border-t border-cloud/30">
-        <div className="max-w-5xl mx-auto px-6">
-          <motion.div 
-            initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} 
-          >
-            <div className="flex justify-center">
-              {/* Graphic Design */}
-              <div className="w-full max-w-2xl bg-white p-10 md:p-14 rounded-[2rem] border border-cloud/50 shadow-sm text-center flex flex-col items-center justify-center">
-                <h3 className="text-xl md:text-2xl font-display text-headline mb-4 font-semibold">Looking for brand identity?</h3>
-                <p className="text-bodytext font-light mb-8">I also do illustrations, logos, and print materials.</p>
-                <Link to="/graphic-design" className="inline-flex items-center gap-2 px-8 py-4 bg-headline text-white rounded-full font-medium hover:bg-headline/90 transition-all shadow-sm group mt-auto">
-                  Explore Graphic Design <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                </Link>
-              </div>
-            </div>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* 8. Contact Section */}
-      <section id="contact" className="relative w-full pt-32 pb-32 flex flex-col items-center justify-center px-6 overflow-hidden bg-white border-t border-headline/5">
-        <div className="relative z-10 w-full max-w-5xl mx-auto">
-          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-display text-headline mb-4 font-bold" style={{ marginLeft: "-0.08em" }}>Let's talk.</h2>
-            <p className="text-xl text-bodytext font-light max-w-2xl mx-auto">I'm open to full-time product design and frontend roles, and selected freelance projects. Email is fastest; WhatsApp works too.</p>
-          </motion.div>
-          
-          <div className="flex flex-col md:flex-row gap-12">
-            <motion.form 
-              initial="hidden" whileInView="visible" viewport={{ once: true }} transition={{ delay: 0.1 }} variants={fadeUp}
-              className="flex-[2] flex flex-col gap-4"
-              onSubmit={async (e) => {
-                e.preventDefault();
-                const form = e.currentTarget;
-                const btn = form.querySelector('button');
-                
-                if (form.checkValidity() && btn) {
-                  const originalText = btn.innerText;
-                  btn.innerText = "Sending...";
-                  
-                  try {
-                    // Extract form data
-                    const formData = new FormData(form);
-                    const name = formData.get("Name");
-                    const email = formData.get("Email");
-                    const message = formData.get("Message");
-
-                    // Web3Forms silent email integration
-                    const response = await fetch("https://api.web3forms.com/submit", {
-                      method: "POST",
-                      headers: {
-                        "Content-Type": "application/json",
-                        Accept: "application/json",
-                      },
-                      body: JSON.stringify({
-                        access_key: import.meta.env.VITE_WEB3FORMS_ACCESS_KEY || "YOUR_ACCESS_KEY_HERE",
-                        subject: "New Inquiry from Portfolio",
-                        from_name: name,
-                        replyto: email,
-                        message: message,
-                      }),
-                    });
-
-                    if (response.ok) {
-                      btn.innerText = "Message Sent! ✓";
-                      btn.classList.remove("bg-headline", "text-white");
-                      btn.classList.add("bg-cloud", "text-cta");
-                      setTimeout(() => {
-                        btn.innerText = originalText;
-                        btn.classList.remove("bg-cloud", "text-cta");
-                        btn.classList.add("bg-headline", "text-white");
-                        form.reset();
-                      }, 3000);
-                    } else {
-                      throw new Error("Failed to send");
-                    }
-                  } catch (error) {
-                    btn.innerText = "Failed to send (Check API Key)";
-                    btn.classList.remove("bg-headline");
-                    btn.classList.add("bg-red-500");
-                    setTimeout(() => {
-                      btn.innerText = originalText;
-                      btn.classList.remove("bg-red-500");
-                      btn.classList.add("bg-headline");
-                    }, 3000);
-                  }
-                }
-              }}
-            >
-              <input type="text" name="Name" placeholder="Your Name" required className="w-full px-6 py-4 rounded-3xl border border-cloud bg-white focus:outline-none focus:border-cta transition-colors" />
-              <input type="email" name="Email" placeholder="Your Email" required className="w-full px-6 py-4 rounded-3xl border border-cloud bg-white focus:outline-none focus:border-cta transition-colors" />
-              <textarea name="Message" placeholder="Tell me about your project..." required rows={5} className="w-full px-6 py-4 rounded-3xl border border-cloud bg-white focus:outline-none focus:border-cta transition-colors resize-none"></textarea>
-              <button type="submit" className="w-full py-4 bg-headline text-white rounded-full font-medium text-lg hover:bg-headline/90 transition-colors shadow-sm hover:shadow mt-2">Send Message</button>
-            </motion.form>
-            
-            <motion.div 
-              initial="hidden" whileInView="visible" viewport={{ once: true }} transition={{ delay: 0.2 }} variants={fadeUp}
-              className="flex-1 flex flex-col gap-4"
-            >
-              <a href="mailto:nadiahossny426@gmail.com?subject=Inquiry from Portfolio: Product Design" className="group flex items-center gap-4 text-bodytext hover:text-cta transition-colors p-5 rounded-2xl bg-white border border-cloud hover:border-cta/30 hover:bg-cta/5 shadow-sm hover:shadow-md">
-                <Mail className="w-7 h-7" />
-                <div className="flex flex-col text-left">
-                  <span className="font-medium text-headline group-hover:text-cta transition-colors">Email</span>
-                  <span className="text-sm opacity-70">nadiahossny426@gmail.com</span>
-                </div>
-              </a>
-              <a href="https://wa.me/201064943439?text=Hello!%20I'm%20reaching%20out%20from%20your%20product%20design%20portfolio." target="_blank" rel="noopener noreferrer" className="group flex items-center gap-4 text-bodytext hover:text-cta transition-colors p-5 rounded-2xl bg-white border border-cloud hover:border-cta/30 hover:bg-cta/5 shadow-sm hover:shadow-md">
-                <FaWhatsapp className="w-7 h-7" />
-                <div className="flex flex-col text-left">
-                  <span className="font-medium text-headline group-hover:text-cta transition-colors">WhatsApp</span>
-                  <span className="text-sm opacity-70">Send a message</span>
-                </div>
-              </a>
-              <a href="https://linkedin.com/in/nadiahossny" target="_blank" rel="noopener noreferrer" className="group flex items-center gap-4 text-bodytext hover:text-cta transition-colors p-5 rounded-2xl bg-white border border-cloud hover:border-cta/30 hover:bg-cta/5 shadow-sm hover:shadow-md">
-                <FaLinkedin className="w-7 h-7" />
-                <div className="flex flex-col text-left">
-                  <span className="font-medium text-headline group-hover:text-cta transition-colors">LinkedIn</span>
-                  <span className="text-sm opacity-70">Let's connect</span>
-                </div>
-              </a>
-
-              <a href="https://drive.google.com/file/d/1RnrOnp8jSUYzBkMdGGUPAqJ1Js1jV0nP/view?usp=sharing" target="_blank" rel="noopener noreferrer" className="group flex items-center gap-4 text-bodytext hover:text-cta transition-colors p-5 rounded-2xl bg-white border border-cloud hover:border-cta/30 hover:bg-cta/5 shadow-sm hover:shadow-md mt-2 bg-cloud/20">
-                <FileText className="w-7 h-7" />
-                <div className="flex flex-col text-left">
-                  <span className="font-medium text-headline group-hover:text-cta transition-colors">Resume</span>
-                  <span className="text-sm opacity-70">Download PDF</span>
-                </div>
-              </a>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-    </div>
-  );
+  const [playEntrance] = useState(() => !entrancePlayed);
+  useEffect(() => { entrancePlayed = true; }, []);
+  const { t, isRTL } = useLanguage();
+  const subtitle = t("I'm Nadia, a product designer who builds. I research the problem, design the interface, and build it in Flutter and React.", 'أنا نادية، مصممة منتجات أصمم وأنفذ. أبحث المشكلة، وأصمم الواجهة، وأنفذها باستخدام Flutter وReact.');
+  const steps = [
+    [t('Understand the problem', 'فهم المشكلة'), t('Research, competitive analysis, and clear user flows help me frame what needs solving.', 'أستخدم البحث وتحليل المنافسين ومسارات المستخدم لتحديد ما يحتاج إلى حل.')],
+    [t('Design the solution', 'تصميم الحل'), t('I turn those insights into wireframes, considered interfaces, and clear design deliverables.', 'أحوّل الفهم إلى مخططات وواجهات مدروسة ومخرجات تصميم واضحة.')],
+    [t('Build and refine it', 'التنفيذ والتحسين'), t('I connect design with delivery through prototypes, developer handoff, or full implementation.', 'أربط التصميم بالتسليم عبر النماذج التفاعلية، أو تسليم التصميم للمطورين، أو التنفيذ الكامل.')],
+  ];
+  return <div className={`home-page${playEntrance ? ' play-entrance' : ''}`}>
+    <PageMeta title={t('Nadia Hossny — Product Designer', 'نادية حسني — مصممة منتجات')} description={subtitle} />
+    <CloudTheatreHero />
+    <section id="selected-work" className="portfolio-section portfolio-container">
+      <SectionReveal><div className="section-heading"><h2>{t('Selected work', 'أعمال مختارة')}</h2><p>{t('Thoughtful experiences for everyday needs.', 'تجارب مدروسة لاحتياجات الحياة اليومية.')}</p></div></SectionReveal>
+      <SectionReveal variant="group" stagger><div className="featured-grid">{featuredProjects.map(project => <ProjectPreview key={project.id} project={project} featured />)}</div></SectionReveal>
+      <div className="more-work"><Link to="/work" className="button-secondary">{t('View more work', 'المزيد من الأعمال')}<ArrowRight size={16} className={isRTL ? 'rotate-180' : ''} /></Link></div>
+    </section>
+    <Testimonials />
+    <section className="portfolio-section portfolio-container home-personal">
+      <div className="personal-intro"><img src={portrait} alt={t('Nadia Hossny', 'نادية حسني')} loading="lazy" /><div><h2>{t('A little about me', 'نبذة عني')}</h2><p>{t('I’m Nadia, a product designer based in Egypt with 7 years of design work and a Computer Science and AI degree with honors. I enjoy understanding a problem, designing a useful tool, and bringing it to life. Learning, productivity, and creative tools especially interest me. Visual design supports the clarity and personality of my product work.', 'أنا نادية، مصممة منتجات مقيمة في مصر بخبرة ٧ سنوات في التصميم ودرجة علمية في علوم الحاسب والذكاء الاصطناعي مع مرتبة الشرف. أستمتع بفهم المشكلة وتصميم أداة مفيدة وتحويلها إلى واقع. أهتم خصوصاً بأدوات التعلم والإنتاجية والإبداع. يدعم التصميم البصري وضوح عملي في تصميم المنتجات وشخصيته.')}</p><Link to="/about" className="text-link">{t('More about me', 'المزيد عني')}<ArrowRight size={16} /></Link></div></div>
+    </section>
+    <section className="approach-section"><div className="portfolio-container portfolio-section">
+      <h2>{t('My approach', 'طريقتي في العمل')}</h2><div className="approach-grid">{steps.map(([title, desc], index) => <div key={title}><span className="step-number">0{index + 1}</span><h3>{title}</h3><p>{desc}</p></div>)}</div>
+    </div></section>
+    <section className="portfolio-section portfolio-container home-services" aria-labelledby="home-services-title">
+      <div className="section-heading"><h2 id="home-services-title">{t('Useful experiences. A connected presence.', 'تجارب مفيدة وحضور متناسق.')}</h2><p>{t('Two separate offers, with a clear scope before we start.', 'خدمتان منفصلتان، ونطاق واضح قبل أن نبدأ.')}</p></div>
+      <div className="home-service-grid">{serviceOffers.map(offer => <article key={offer.id}><h3>{t(offer.title, offer.titleAr)}</h3><p>{t(offer.summary, offer.summaryAr)}</p></article>)}</div>
+      <Link to="/services" className="text-link">{t('Explore services & process', 'تعرف على الخدمات والخطوات')}<ArrowRight size={16} className={isRTL ? 'rotate-180' : ''} /></Link>
+    </section>
+    <section className="portfolio-section portfolio-container home-personal home-visuals">
+      <div className="visual-heading"><h2>{t('Visuals', 'أعمال بصرية')}</h2><Link to="/visuals" className="text-link">{t('Explore visual work', 'استكشف أعمال التصميم البصري')}<ArrowRight size={16} /></Link></div>
+      <SectionReveal variant="group" stagger><div className="visual-preview-grid">{visualCollections.slice(0, 3).map(collection => <Link to="/visuals" key={collection.id}><span className="home-visual-frame"><img src={collection.cover} alt={t(collection.title, collection.titleAr)} loading="lazy" /></span><h3>{t(collection.title, collection.titleAr)}</h3></Link>)}</div></SectionReveal>
+    </section>
+    <section id="contact" className="portfolio-section home-contact"><h2>{t('Let’s talk', 'لنتحدث')}</h2><p>{t('Looking for a product designer for your team or a thoughtful partner for your next project? I’m open to roles and selected client work.', 'تبحث عن مصممة منتجات لفريقك أو شريكة لتصميم مشروعك القادم؟ أرحب بفرص العمل ومشروعات العملاء المناسبة.')}</p><div className="action-row justify-center"><a className="button-primary" href="mailto:nadiahossny426@gmail.com"><Mail size={16} />{t('Email me', 'راسلني')}</a><Link className="button-secondary" to="/services">{t('Work with me', 'اعمل معي')}</Link></div><div className="contact-links"><a href="https://linkedin.com/in/nadiahossny" target="_blank" rel="noopener noreferrer"><FaLinkedin />LinkedIn</a><a href="https://wa.me/201064943439" target="_blank" rel="noopener noreferrer"><FaWhatsapp />WhatsApp</a><a href="/resume.pdf" target="_blank" rel="noopener noreferrer">{t('Resume', 'السيرة الذاتية')}</a></div></section>
+  </div>;
 }
