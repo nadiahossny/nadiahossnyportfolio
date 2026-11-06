@@ -92,7 +92,7 @@ export default function Navigation() {
           {/* Language Toggle */}
           <button
             onClick={toggleLanguage}
-            className="nav-action inline-flex items-center gap-1.5 px-3 py-1.5 rounded border border-headline/15 bg-white text-headline font-bold text-base uppercase tracking-wider hover:border-cta hover:bg-cloud-light/40 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cta cursor-pointer"
+            className="language-toggle nav-action inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-headline/15 bg-white text-headline font-bold text-base uppercase tracking-wider hover:border-cta hover:bg-cloud-light/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cta cursor-pointer"
             aria-label={language === 'en' ? 'EN | عربي — Switch to Arabic' : 'EN | عربي — التبديل إلى الإنجليزية'}
             title={language === 'en' ? 'تغيير إلى العربية' : 'Switch to English'}
           >
@@ -110,7 +110,7 @@ export default function Navigation() {
         <div className="flex items-center gap-2 lg:hidden">
           <button
             onClick={toggleLanguage}
-            className="inline-flex items-center gap-1 px-2.5 py-1.5 rounded border border-headline/15 bg-white text-headline font-bold text-base tracking-wider focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cta"
+            className="language-toggle inline-flex items-center gap-1 px-2.5 py-1.5 rounded-full border border-headline/15 bg-white text-headline font-bold text-base tracking-wider focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cta"
             aria-label={language === 'en' ? 'EN | عربي — Switch to Arabic' : 'EN | عربي — التبديل إلى الإنجليزية'}
           >
             <span className={language === 'en' ? 'text-cta font-bold' : 'text-bodytext/50'}>EN</span>

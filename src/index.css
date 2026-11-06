@@ -91,6 +91,15 @@ main:has(> .inner-page), main:has(> .creative-page), main:has(> .not-found-page)
 .inner-page .section-heading { max-width: 780px; }
 .inner-page .filter-bar { gap: 4px 28px; }
 .inner-page .filter-bar button { flex-shrink: 0; }
+.work-filter { display: grid; grid-template-columns: auto minmax(220px, 360px) 1fr; align-items: center; gap: 12px 20px; margin-block: 24px 40px; }
+.work-filter > label { color: var(--portfolio-muted); font-weight: 600; }
+.work-filter > select { width: 100%; min-height: 48px; padding-block: 10px; padding-inline: 14px 42px; color: var(--portfolio-navy); background-color: white; border: 1px solid #b6cbe0; border-radius: 999px; font: inherit; cursor: pointer; }
+.work-filter > select:focus-visible { outline: 2px solid var(--portfolio-navy); outline-offset: 3px; }
+.work-result-count { justify-self: end; margin: 0; color: var(--portfolio-muted); font-size: .95rem; }
+.language-toggle { transition-property: color, background-color, border-color, box-shadow; transition-duration: 180ms; transition-timing-function: ease-out; }
+@media (hover: hover) {
+  .language-toggle:hover { box-shadow: 0 0 0 3px rgb(106 165 220 / 12%); }
+}
 .inner-page .text-link svg { flex-shrink: 0; }
 html[dir="rtl"] .inner-page h1, html[dir="rtl"] .inner-page h2, html[dir="rtl"] .inner-page h3 { line-height: 1.5; letter-spacing: 0; }
 
@@ -424,8 +433,10 @@ html[dir="rtl"] body {
 }
 @media (min-width: 640px) and (max-width: 1023px) { .featured-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 639px) {
-  .inner-page .filter-bar { flex-wrap: nowrap; overflow-x: auto; overscroll-behavior-x: contain; scrollbar-width: thin; padding-bottom: 8px; }
-  .inner-page .filter-bar button { white-space: nowrap; scroll-snap-align: start; }
+  .work-filter { grid-template-columns: minmax(0, 1fr) auto; gap: 8px 12px; margin-block: 18px 32px; }
+  .work-filter > label { grid-column: 1 / -1; }
+  .work-filter > select { min-width: 0; }
+  .work-result-count { justify-self: end; }
 }
 @media (max-width: 767px) {
   .cloud-hero { padding-block: 116px 40px; }

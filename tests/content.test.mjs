@@ -154,9 +154,9 @@ test('unconfirmed project dates and metrics are omitted', () => {
 
 const visualSource = (await readFile(new URL('../src/data/visualCollections.ts', import.meta.url), 'utf8')).replace(/^import (\w+) from ('[^']+');/gm, 'const $1 = $2;');
 const { visualCollections } = await import(moduleUrl(visualSource));
-test('available curated collections publish only existing reviewed bilingual artworks', async () => {
-  assert.deepEqual(visualCollections.map(collection => collection.id), ['foresight', 'ieee-campaigns', 'presentations', 'dream-team', 'revelio', 'cmd', 'gdsc', 'social-media', 'banners-flyers', 'ids-business-cards', 'certificates', 'characters', 'digital-art']);
-  assert.deepEqual(visualCollections.map(c => c.images.length), [6,8,9,12,14,6,4,11,4,6,3,5,4]);
+test('available curated collections publish only reviewed bilingual artworks in client-focused order', async () => {
+  assert.deepEqual(visualCollections.map(collection => collection.id), ['social-media', 'ieee-campaigns', 'presentations', 'foresight', 'dream-team', 'revelio', 'cmd', 'gdsc', 'banners-flyers', 'ids-business-cards', 'certificates', 'characters', 'digital-art']);
+  assert.deepEqual(visualCollections.map(c => c.images.length), [11,8,9,6,12,14,6,4,4,6,3,5,4]);
   const images = visualCollections.flatMap(c => c.images);
   assert.equal(images.length, 92);
   assert.equal(new Set(images.map(i => i.url)).size, 92);
@@ -169,8 +169,9 @@ test('available curated collections publish only existing reviewed bilingual art
   const identity = path => path.toLocaleLowerCase('en-US');
   assert.deepEqual(images.map(i => identity(i.url.split('/graphic-design/')[1])).sort(), files.map(identity).sort());
   for (const collection of visualCollections) {
-    assert.equal(collection.cover, collection.images[0].url);
+    if (collection.id !== 'social-media') assert.equal(collection.cover, collection.images[0].url);
     assert.ok(collection.titleAr && collection.descriptionAr && collection.contributionAr);
+    await access(new URL('../src/' + collection.cover.replace('../', ''), import.meta.url));
     for (const image of collection.images) {
       assert.ok(image.caption && image.captionAr);
       await access(new URL('../src/' + image.url.replace('../', ''), import.meta.url));
@@ -178,7 +179,7 @@ test('available curated collections publish only existing reviewed bilingual art
     const remaining = collection.images.slice(1).map(image => image.url.split('/').pop());
     assert.deepEqual(remaining, [...remaining].sort((a, b) => a.localeCompare(b, undefined, {numeric:true})));
   }
-  const covers = ['Black Minimalist Website Mockup Instagram Post.png', 'Siemens-gg.png', 'UIUX.png', 'DT Style Guide.png', 'facebook_post_design_revelio.png', '1 (2).png', 'gdcs_ramadan_design.png', 'Purple and Yellow Modern Website Development Solution Instagram Post.png', 'Roller_Banner_Mockup_1.png', 'Business_Card_Mockup_3.png', '1.png', 'character_design.png', 'wave_digital_art.jpg'];
+  const covers = ['social-media-campaigns-cover.png', 'Siemens-gg.png', 'UIUX.png', 'Black Minimalist Website Mockup Instagram Post.png', 'DT Style Guide.png', 'facebook_post_design_revelio.png', '1 (2).png', 'gdcs_ramadan_design.png', 'Roller_Banner_Mockup_1.png', 'Business_Card_Mockup_3.png', '1.png', 'character_design.png', 'wave_digital_art.jpg'];
   assert.deepEqual(visualCollections.map(c => c.cover.split('/').pop()), covers);
   const page = await readFile(new URL('../src/pages/Services.tsx', import.meta.url), 'utf8');
   assert.doesNotMatch(page, /import.meta.glob|archiveCollections|activeGroup/);

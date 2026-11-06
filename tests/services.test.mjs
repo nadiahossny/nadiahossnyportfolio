@@ -91,4 +91,17 @@ test('sitemap publishes the services canonical without duplicating its compatibi
   const sitemap = await readFile(new URL('../public/sitemap.xml', import.meta.url), 'utf8');
   assert.match(sitemap, /https:\/\/nadiahossny.vercel.app\/services<\/loc>/);
   assert.doesNotMatch(sitemap, /\/work-with-me<\/loc>/);
+  assert.doesNotMatch(sitemap, /<lastmod>/);
+});
+
+test('Work offers a compact bilingual category selector and live result count', () => {
+  const en = render('/work');
+  const ar = render('/work', 'ar');
+  assert.match(en, /<label for="work-category">Browse by area<\/label>/);
+  assert.match(ar, /<label for="work-category">تصفح حسب المجال<\/label>/);
+  for (const {label, labelAr} of [{label:'Healthcare &amp; Wellbeing',labelAr:'الصحة والعافية'}, {label:'Productivity &amp; Learning',labelAr:'الإنتاجية والتعلم'}, {label:'Education &amp; Kids',labelAr:'التعليم والأطفال'}, {label:'Commerce &amp; Digital Experiences',labelAr:'التجارة والتجارب الرقمية'}, {label:'Creative &amp; Interactive Tools',labelAr:'الأدوات الإبداعية والتفاعلية'}, {label:'Business &amp; Management',labelAr:'الأعمال والإدارة'}]) {
+    assert.ok(en.includes(label));
+    assert.ok(ar.includes(labelAr));
+  }
+  assert.match(en, /<p class="work-result-count" role="status" aria-live="polite">6 projects<\/p>/);
 });

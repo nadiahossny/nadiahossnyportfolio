@@ -4,23 +4,23 @@ import asset003 from '../assets/graphic-design/Magazine Covers and Pages/csD.png
 import asset004 from '../assets/graphic-design/Magazine Covers and Pages/fc2.1.png';
 import asset005 from '../assets/graphic-design/Magazine Covers and Pages/student ach copy.png';
 import asset006 from '../assets/graphic-design/Magazine Covers and Pages/Untitled design(1).png';
-import asset007 from '../assets/graphic-design/IEEE PUA SB posts and stories/comp (Billboard (Square)).png';
-import asset008 from '../assets/graphic-design/IEEE PUA SB posts and stories/Copy of Untitled.png';
-import asset009 from '../assets/graphic-design/IEEE PUA SB posts and stories/FINAL.png';
-import asset010 from '../assets/graphic-design/IEEE PUA SB posts and stories/Partnership Announcement.png';
-import asset011 from '../assets/graphic-design/IEEE PUA SB posts and stories/PES.png';
-import asset012 from '../assets/graphic-design/IEEE PUA SB posts and stories/Security Members.png';
-import asset013 from '../assets/graphic-design/IEEE PUA SB posts and stories/Siemens-gg.png';
-import asset014 from '../assets/graphic-design/IEEE PUA SB posts and stories/SIGHT RAMADAN GRAPHIC.png';
-import asset015 from '../assets/graphic-design/presentation slides/1.png';
-import asset016 from '../assets/graphic-design/presentation slides/4.png';
-import asset017 from '../assets/graphic-design/presentation slides/6.png';
-import asset018 from '../assets/graphic-design/presentation slides/66.png';
-import asset019 from '../assets/graphic-design/presentation slides/Fundamentals of Design.png';
-import asset020 from '../assets/graphic-design/presentation slides/Movie App.png';
-import asset021 from '../assets/graphic-design/presentation slides/Movie App(1).png';
-import asset022 from '../assets/graphic-design/presentation slides/network presentation.png';
-import asset023 from '../assets/graphic-design/presentation slides/UIUX.png';
+import asset007 from '../assets/graphic-design/IEEE PUA SB Posts and Stories/comp (Billboard (Square)).png';
+import asset008 from '../assets/graphic-design/IEEE PUA SB Posts and Stories/Copy of Untitled.png';
+import asset009 from '../assets/graphic-design/IEEE PUA SB Posts and Stories/FINAL.png';
+import asset010 from '../assets/graphic-design/IEEE PUA SB Posts and Stories/Partnership Announcement.png';
+import asset011 from '../assets/graphic-design/IEEE PUA SB Posts and Stories/PES.png';
+import asset012 from '../assets/graphic-design/IEEE PUA SB Posts and Stories/Security Members.png';
+import asset013 from '../assets/graphic-design/IEEE PUA SB Posts and Stories/Siemens-gg.png';
+import asset014 from '../assets/graphic-design/IEEE PUA SB Posts and Stories/SIGHT RAMADAN GRAPHIC.png';
+import asset015 from '../assets/graphic-design/Presentation Slides/1.png';
+import asset016 from '../assets/graphic-design/Presentation Slides/4.png';
+import asset017 from '../assets/graphic-design/Presentation Slides/6.png';
+import asset018 from '../assets/graphic-design/Presentation Slides/66.png';
+import asset019 from '../assets/graphic-design/Presentation Slides/Fundamentals of Design.png';
+import asset020 from '../assets/graphic-design/Presentation Slides/Movie App.png';
+import asset021 from '../assets/graphic-design/Presentation Slides/Movie App(1).png';
+import asset022 from '../assets/graphic-design/Presentation Slides/network presentation.png';
+import asset023 from '../assets/graphic-design/Presentation Slides/UIUX.png';
 import asset024 from '../assets/graphic-design/dream team posts/1.png';
 import asset025 from '../assets/graphic-design/dream team posts/DT Style Guide.png';
 import asset026 from '../assets/graphic-design/dream team posts/Exam Season With AI.png';
@@ -33,20 +33,21 @@ import asset032 from '../assets/graphic-design/dream team posts/Python.png';
 import asset033 from '../assets/graphic-design/dream team posts/ramadan.png';
 import asset034 from '../assets/graphic-design/dream team posts/تصميم بوست انستجرام عن تهنئة عيد الاضحي بسيط (Billboard (Square)).png';
 import asset035 from '../assets/graphic-design/dream team posts/كل عام وأنتم بخير.png';
-import asset036 from '../assets/graphic-design/Revelio posts/1.png';
-import asset037 from '../assets/graphic-design/Revelio posts/1(1).png';
-import asset038 from '../assets/graphic-design/Revelio posts/1(2).png';
-import asset039 from '../assets/graphic-design/Revelio posts/1(3).png';
-import asset040 from '../assets/graphic-design/Revelio posts/2(6).png';
-import asset041 from '../assets/graphic-design/Revelio posts/2(7).png';
-import asset042 from '../assets/graphic-design/Revelio posts/2(8).png';
-import asset043 from '../assets/graphic-design/Revelio posts/3(4).png';
-import asset044 from '../assets/graphic-design/Revelio posts/4(2).png';
-import asset045 from '../assets/graphic-design/Revelio posts/14.png';
-import asset046 from '../assets/graphic-design/Revelio posts/16(1).png';
-import asset047 from '../assets/graphic-design/Revelio posts/55.png';
-import asset048 from '../assets/graphic-design/Revelio posts/Black Management Business Financial Instagram Post.png';
-import asset049 from '../assets/graphic-design/Revelio posts/facebook_post_design_revelio.png';
+import asset036 from '../assets/graphic-design/Revelio Posts/1.png';
+import asset037 from '../assets/graphic-design/Revelio Posts/1(1).png';
+import asset038 from '../assets/graphic-design/Revelio Posts/1(2).png';
+import asset039 from '../assets/graphic-design/Revelio Posts/1(3).png';
+import asset040 from '../assets/graphic-design/Revelio Posts/2(6).png';
+import asset041 from '../assets/graphic-design/Revelio Posts/2(7).png';
+import asset042 from '../assets/graphic-design/Revelio Posts/2(8).png';
+import asset043 from '../assets/graphic-design/Revelio Posts/3(4).png';
+import asset044 from '../assets/graphic-design/Revelio Posts/4(2).png';
+import asset045 from '../assets/graphic-design/Revelio Posts/14.png';
+import asset046 from '../assets/graphic-design/Revelio Posts/16(1).png';
+import asset047 from '../assets/graphic-design/Revelio Posts/55.png';
+import asset048 from '../assets/graphic-design/Revelio Posts/Black Management Business Financial Instagram Post.png';
+import asset049 from '../assets/graphic-design/Revelio Posts/facebook_post_design_revelio.png';
+import socialMediaCover from '../assets/visual-covers/social-media-campaigns-cover.png';
 import asset050 from '../assets/graphic-design/CMD posts/1 (2).png';
 import asset051 from '../assets/graphic-design/CMD posts/7.png';
 import asset052 from '../assets/graphic-design/CMD posts/8 (2).png';
@@ -99,11 +100,11 @@ export interface VisualCollection {
 }
 
 /** Explicit snapshot of Nadia’s 24 October selection; new files require manifest review. */
-export const visualCollections: VisualCollection[] = [
+const visualCollectionManifest: VisualCollection[] = [
   {
     "id": "foresight",
-    "title": "Foresight editorial design",
-    "titleAr": "تصميم فورسايت التحريري",
+    "title": "Foresight editorial layouts",
+    "titleAr": "التصميم التحريري لمجلة فورسايت",
     "category": "Editorial design",
     "categoryAr": "تصميم تحريري",
     "description": "Magazine covers, chapter openings, and article layouts.",
@@ -146,8 +147,8 @@ export const visualCollections: VisualCollection[] = [
   },
   {
     "id": "ieee-campaigns",
-    "title": "IEEE campaigns",
-    "titleAr": "حملات IEEE",
+    "title": "IEEE PUA campaign graphics",
+    "titleAr": "تصميمات حملات IEEE PUA",
     "category": "Campaign design",
     "categoryAr": "تصميم الحملات",
     "description": "Event announcements, recruitment posts, and community graphics.",
@@ -200,8 +201,8 @@ export const visualCollections: VisualCollection[] = [
   },
   {
     "id": "presentations",
-    "title": "Presentation design",
-    "titleAr": "تصميم العروض التقديمية",
+    "title": "Presentations & slide design",
+    "titleAr": "العروض وتصميم الشرائح",
     "category": "Slides & storytelling",
     "categoryAr": "الشرائح والسرد البصري",
     "description": "Slides explaining interface design, color, composition, and technical topics.",
@@ -259,8 +260,8 @@ export const visualCollections: VisualCollection[] = [
   },
   {
     "id": "dream-team",
-    "title": "Dream Team graphics",
-    "titleAr": "تصميمات Dream Team",
+    "title": "Dream Team social campaigns",
+    "titleAr": "حملات Dream Team على التواصل الاجتماعي",
     "category": "Community & campaigns",
     "categoryAr": "المجتمع والحملات",
     "description": "A style guide, workshop posts, recruitment graphics, and seasonal greetings.",
@@ -333,8 +334,8 @@ export const visualCollections: VisualCollection[] = [
   },
   {
     "id": "revelio",
-    "title": "Revelio graphics",
-    "titleAr": "تصميمات Revelio",
+    "title": "Revelio social campaigns",
+    "titleAr": "حملات Revelio على التواصل الاجتماعي",
     "category": "Social campaigns",
     "categoryAr": "حملات التواصل الاجتماعي",
     "description": "Financial-themed campaign graphics, audience questions, and social layouts.",
@@ -417,8 +418,8 @@ export const visualCollections: VisualCollection[] = [
   },
   {
     "id": "cmd",
-    "title": "CMD graphics",
-    "titleAr": "تصميمات CMD",
+    "title": "CMD community campaigns",
+    "titleAr": "حملات مجتمع CMD",
     "category": "Learning & information",
     "categoryAr": "التعلم وعرض المعلومات",
     "description": "Course-roadmap templates, benefits layouts, and a partnership announcement.",
@@ -461,8 +462,8 @@ export const visualCollections: VisualCollection[] = [
   },
   {
     "id": "gdsc",
-    "title": "GDSC graphics",
-    "titleAr": "تصميمات GDSC",
+    "title": "GDSC community campaigns",
+    "titleAr": "حملات مجتمع GDSC",
     "category": "Community graphics",
     "categoryAr": "تصميمات مجتمعية",
     "description": "Seasonal greetings and an Alexandria celebration graphic.",
@@ -495,15 +496,15 @@ export const visualCollections: VisualCollection[] = [
   },
   {
     "id": "social-media",
-    "title": "Social media graphics",
-    "titleAr": "تصميمات التواصل الاجتماعي",
+    "title": "Social media & campaign design",
+    "titleAr": "تصميمات التواصل الاجتماعي والحملات",
     "category": "Digital content",
     "categoryAr": "المحتوى الرقمي",
     "description": "Promotional posts, course announcements, appreciation graphics, and illustrated messages.",
     "descriptionAr": "منشورات ترويجية وإعلانات دورات وتصميمات تقدير ورسائل مصورة.",
     "contribution": "Visual composition, typography, and layout design.",
     "contributionAr": "التكوين البصري والخطوط وتنسيق التصميم.",
-    "cover": asset069,
+    "cover": socialMediaCover,
     "images": [
       {
         "url": asset069,
@@ -564,8 +565,8 @@ export const visualCollections: VisualCollection[] = [
   },
   {
     "id": "banners-flyers",
-    "title": "Banners & flyers",
-    "titleAr": "اللافتات والمنشورات",
+    "title": "Event banners & print graphics",
+    "titleAr": "لافتات الفعاليات والمطبوعات",
     "category": "Print & events",
     "categoryAr": "المطبوعات والفعاليات",
     "description": "Vertical, horizontal, and overhead banner designs shown in mockups.",
@@ -598,8 +599,8 @@ export const visualCollections: VisualCollection[] = [
   },
   {
     "id": "ids-business-cards",
-    "title": "IDs & business cards",
-    "titleAr": "بطاقات التعريف والأعمال",
+    "title": "Business cards & IDs",
+    "titleAr": "بطاقات الأعمال والتعريف",
     "category": "Print design",
     "categoryAr": "تصميم المطبوعات",
     "description": "Business-card layouts and front/reverse ID designs.",
@@ -642,8 +643,8 @@ export const visualCollections: VisualCollection[] = [
   },
   {
     "id": "certificates",
-    "title": "Certificates",
-    "titleAr": "الشهادات",
+    "title": "Certificates & recognition",
+    "titleAr": "الشهادات والتقدير",
     "category": "Print design",
     "categoryAr": "تصميم المطبوعات",
     "description": "Achievement, appreciation, and Arabic certificate layouts.",
@@ -671,8 +672,8 @@ export const visualCollections: VisualCollection[] = [
   },
   {
     "id": "characters",
-    "title": "Character design",
-    "titleAr": "تصميم الشخصيات",
+    "title": "Character illustration",
+    "titleAr": "رسوم الشخصيات",
     "category": "Characters & illustration",
     "categoryAr": "الشخصيات والرسوم",
     "description": "Robot character artwork, pose variations, and presentations.",
@@ -710,8 +711,8 @@ export const visualCollections: VisualCollection[] = [
   },
   {
     "id": "digital-art",
-    "title": "Digital art",
-    "titleAr": "الفن الرقمي",
+    "title": "Digital illustration",
+    "titleAr": "الرسم الرقمي",
     "category": "Digital illustration",
     "categoryAr": "الرسم الرقمي",
     "description": "Cloud lettering, a wave study, a seascape, and character illustration.",
@@ -743,3 +744,14 @@ export const visualCollections: VisualCollection[] = [
     ]
   }
 ];
+
+const visualCollectionOrder = [
+  'social-media', 'ieee-campaigns', 'presentations', 'foresight', 'dream-team', 'revelio',
+  'cmd', 'gdsc', 'banners-flyers', 'ids-business-cards', 'certificates', 'characters', 'digital-art',
+];
+
+export const visualCollections: VisualCollection[] = visualCollectionOrder.map(id => {
+  const collection = visualCollectionManifest.find(item => item.id === id);
+  if (!collection) throw new Error(`Unknown Visuals collection: ${id}`);
+  return collection;
+});

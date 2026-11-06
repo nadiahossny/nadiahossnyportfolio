@@ -2,4 +2,11 @@ node_modules/
 dist/
 .env
 .env.*
+!.env.example
 .DS_Store
+.vercel/
+*.tsbuildinfo
+/artifacts/
+/tmp/
+/output/
+/docs/CONTENT_EVIDENCE.md
