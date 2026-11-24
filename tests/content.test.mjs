@@ -70,7 +70,7 @@ test('each curated project has a bilingual purpose-led preview and a distinct na
     assert.ok(project.sectionOrder?.length >= 5);
     assert.equal(new Set(project.sectionOrder).size, project.sectionOrder.length);
     assert.ok(project.sectionOrder.includes('experience'));
-    assert.ok(project.sectionOrder.includes('evaluation'));
+    if (project.id !== 'notes-app') assert.ok(project.sectionOrder.includes('evaluation'));
     for (const key of ['summary','summaryAr','contribution','contributionAr','decision','decisionAr']) assert.ok(project.preview[key]);
     assert.doesNotMatch(project.category, /React|Flutter|Next.js|Frontend/);
     for (const heading of Object.values(project.sectionTitles ?? {})) assert.ok(heading.en && heading.ar);
@@ -78,6 +78,7 @@ test('each curated project has a bilingual purpose-led preview and a distinct na
   assert.ok(!caseStudies.find(p => p.id === 'auraleaf').sectionOrder.includes('flow'));
   assert.ok(caseStudies.find(p => p.id === 'taskly').sectionOrder.includes('persona'));
   assert.ok(!caseStudies.find(p => p.id === 'notes-app').sectionOrder.includes('research'));
+  assert.ok(!caseStudies.find(p => p.id === 'notes-app').sectionOrder.includes('evaluation'));
 });
 
 test('gallery images and counts include artifacts and deduplicate reused screens', () => {
@@ -87,7 +88,7 @@ test('gallery images and counts include artifacts and deduplicate reused screens
     for (const image of project.processArtifacts?.flatMap(group => group.images) ?? []) assert.ok(images.some(slide => slide.url === image.url));
   }
   const aura = caseStudies.find(p => p.id === 'auraleaf');
-  assert.equal(getCaseStudyImages(aura).length, 4);
+  assert.equal(getCaseStudyImages(aura).length, 10);
   assert.equal(aura.preview.image, aura.heroImage);
   assert.match(aura.heroImage, /workspace.jpg$/);
 });
@@ -134,7 +135,7 @@ test('background has seven sourced entries and six training records per language
     assert.equal(data.experienceList.length, 7);
     assert.equal(data.certificationsList.length, 6);
     assert.match(data.educationList[0].details, /3\.76\/4\.0/);
-    assert.doesNotMatch(JSON.stringify(data), /SAP|DemiCode|99%|150-Hour|2022 – Present/);
+    assert.doesNotMatch(JSON.stringify(data), /SAP|DemiCode|99%|150-Hour|2022|Present/);
   }
 });
 test('unconfirmed project dates and metrics are omitted', () => {
@@ -155,8 +156,8 @@ test('unconfirmed project dates and metrics are omitted', () => {
 const visualSource = (await readFile(new URL('../src/data/visualCollections.ts', import.meta.url), 'utf8')).replace(/^import (\w+) from ('[^']+');/gm, 'const $1 = $2;');
 const { visualCollections } = await import(moduleUrl(visualSource));
 test('available curated collections publish only reviewed bilingual artworks in client-focused order', async () => {
-  assert.deepEqual(visualCollections.map(collection => collection.id), ['social-media', 'ieee-campaigns', 'presentations', 'foresight', 'dream-team', 'revelio', 'cmd', 'gdsc', 'banners-flyers', 'ids-business-cards', 'certificates', 'characters', 'digital-art']);
-  assert.deepEqual(visualCollections.map(c => c.images.length), [11,8,9,6,12,14,6,4,4,6,3,5,4]);
+  assert.deepEqual(visualCollections.map(collection => collection.id), ['social-campaign-design', 'educational-course-graphics', 'print-event-collateral', 'editorial-magazine-design', 'presentations-slide-decks', 'event-community-campaigns', 'character-digital-illustration']);
+  assert.deepEqual(visualCollections.map(c => c.images.length), [25, 6, 13, 6, 9, 24, 9]);
   const images = visualCollections.flatMap(c => c.images);
   assert.equal(images.length, 92);
   assert.equal(new Set(images.map(i => i.url)).size, 92);
@@ -179,12 +180,12 @@ test('available curated collections publish only reviewed bilingual artworks in 
     const remaining = collection.images.slice(1).map(image => image.url.split('/').pop());
     assert.deepEqual(remaining, [...remaining].sort((a, b) => a.localeCompare(b, undefined, {numeric:true})));
   }
-  const covers = ['social-media-campaigns-cover.png', 'Siemens-gg.png', 'UIUX.png', 'Black Minimalist Website Mockup Instagram Post.png', 'DT Style Guide.png', 'facebook_post_design_revelio.png', '1 (2).png', 'gdcs_ramadan_design.png', 'Roller_Banner_Mockup_1.png', 'Business_Card_Mockup_3.png', '1.png', 'character_design.png', 'wave_digital_art.jpg'];
+  const covers = ['01-revelio-social-campaign-mockup.png', '01-cmd-course-roadmap-and-benefits-template-mockup.png', '01-ieee-overhead-event-banner-mockup.png', '01-selected-foresight-covers-and-editorial-layouts.png', '01-presentation-design-overview-mockup.png', '01-ieee-pua-siemens-energy-session-announcement.png', '01-grayscale-robot-character-variations.png'];
   assert.deepEqual(visualCollections.map(c => c.cover.split('/').pop()), covers);
   const page = await readFile(new URL('../src/pages/Services.tsx', import.meta.url), 'utf8');
   assert.doesNotMatch(page, /import.meta.glob|archiveCollections|activeGroup/);
-  assert.match(page, /Visuals — Nadia Hossny/);
-  assert.match(page, /أعمال بصرية — نادية حسني/);
+  assert.match(page, /Visuals · Nadia Hossny/);
+  assert.match(page, /أعمال بصرية · نادية حسني/);
   assert.match(page, /to=\{visualInquiryHref\}/);
 });
 
@@ -196,7 +197,7 @@ test('Visuals retains its four offer groups while Services uses the separate com
   const {visualOffers} = await import(moduleUrl(await readFile(new URL('../src/data/visualOffers.ts', import.meta.url), 'utf8')));
   assert.equal(visualOffers.length, 4);
   assert.ok(visualOffers.every(o => o.title && o.titleAr && o.description && o.descriptionAr));
-  assert.match(await readFile(new URL('../src/pages/Services.tsx', import.meta.url), 'utf8'), /visualOffers.map/);
+  assert.doesNotMatch(await readFile(new URL('../src/pages/Services.tsx', import.meta.url), 'utf8'), /visualOffers\.map/);
   const commercial = await readFile(new URL('../src/pages/WorkWithMe.tsx', import.meta.url), 'utf8');
   assert.match(commercial, /serviceOffers.map/);
   assert.doesNotMatch(commercial, /visualOffers.map/);

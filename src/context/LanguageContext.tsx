@@ -12,13 +12,45 @@ interface LanguageContextType {
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
+const getSystemLanguage = (): Language => {
+  if (typeof window === 'undefined' || typeof navigator === 'undefined') {
+    return 'en';
+  }
+
+  try {
+    const candidateLanguages =
+      navigator.languages && navigator.languages.length > 0
+        ? navigator.languages
+        : [navigator.language];
+
+    for (const rawLang of candidateLanguages) {
+      if (!rawLang) continue;
+      const lang = rawLang.toLowerCase();
+      if (lang.startsWith('ar')) {
+        return 'ar';
+      }
+      if (lang.startsWith('en')) {
+        return 'en';
+      }
+    }
+  } catch {
+    // fallback if navigator is restricted
+  }
+
+  return 'en';
+};
+
 export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [language, setLanguageState] = useState<Language>(() => {
     if (typeof window !== 'undefined') {
-      const saved = localStorage.getItem('nadia_portfolio_lang') as Language;
-      if (saved === 'en' || saved === 'ar') return saved;
+      try {
+        const saved = localStorage.getItem('nadia_portfolio_lang') as Language | null;
+        if (saved === 'en' || saved === 'ar') return saved;
+      } catch {
+        // ignore localStorage access error
+      }
     }
-    return 'en';
+    return getSystemLanguage();
   });
 
   const isRTL = language === 'ar';
@@ -26,7 +58,11 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
   const setLanguage = (lang: Language) => {
     setLanguageState(lang);
     if (typeof window !== 'undefined') {
-      localStorage.setItem('nadia_portfolio_lang', lang);
+      try {
+        localStorage.setItem('nadia_portfolio_lang', lang);
+      } catch {
+        // ignore localStorage access error
+      }
     }
   };
 

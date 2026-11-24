@@ -1,20 +1,37 @@
 import React, { useEffect, useMemo, useState, useRef, useCallback } from 'react';
 import PageMeta from '../components/PageMeta';
 import SectionReveal from '../components/SectionReveal';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { X, Mail, ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react';
 import { FaWhatsapp, FaLinkedin } from 'react-icons/fa';
+import { SiFigma, SiKrita, SiCanva } from 'react-icons/si';
 import { useLanguage } from '../context/LanguageContext';
 import { translations } from '../data/translations';
 import { visualCollections } from '../data/visualCollections';
-import { visualOffers } from '../data/visualOffers';
 import { visualInquiryHref } from '../lib/inquiry';
+import clouds from '../assets/cloudy-bg.png';
+
+const AdobeIcon = () => (
+  <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true">
+    <path d="M13.966 22.624l-1.69-4.281H8.122l3.892-9.144 5.662 13.425zM8.884 1.376H0v21.248zm15.116 0h-8.884L24 22.624z" />
+  </svg>
+);
+
+const AffinityIcon = () => (
+  <svg viewBox="0 0 240 240" width="20" height="20" fill="currentColor" aria-hidden="true">
+    <path d="M112.908,165.979c-10.413,0 -17.037,-6.317 -17.037,-14.329c0,-34.287 90.164,-41.151 90.164,-77.563c0,-22.213 -25.731,-31.787 -58.577,-31.787c-19.98,0 -42.571,3.698 -63.552,10.315l0,43.438c30.919,-22.52 65.272,-32.16 87.4,-32.16c13.914,0 23.355,3.882 23.355,10.838c0,28.658 -124.353,24.117 -124.353,86.042c0,23.736 16.321,37.335 39.283,37.335c34.732,0 61.003,-33.753 80.657,-74.897l3.982,1.43c-10.351,25.143 -31.771,52.712 -35.943,70.434l44.715,0l0,-91.685l-10.327,0c-14.99,32.574 -36.957,62.59 -59.767,62.59" />
+  </svg>
+);
 
 export const Services: React.FC = () => {
   const { language, isRTL, t } = useLanguage();
+  const { search } = useLocation();
   const ui = translations[language].services;
   const ctaUI = translations[language].servicesUI;
-  const [selectedProjectId, setSelectedProjectId] = useState<string | null>(null);
+  const [selectedProjectId, setSelectedProjectId] = useState<string | null>(() => {
+    const requested = new URLSearchParams(search).get('collection');
+    return requested && visualCollections.some(collection => collection.id === requested) ? requested : null;
+  });
   const [activeImageIdx, setActiveImageIdx] = useState(0);
   const [zoomed, setZoomed] = useState(false);
   const modalRef = useRef<HTMLDivElement | null>(null);
@@ -110,22 +127,27 @@ export const Services: React.FC = () => {
   }, [selectedProject, closeCollectionModal, isRTL]);
 
   return (<div className="visuals-page inner-page min-h-screen bg-white text-bodytext">
-    <PageMeta title={t('Visuals — Nadia Hossny', 'أعمال بصرية — نادية حسني')} description={t('Campaign graphics, editorial layouts, presentations, print materials, characters, and digital art by Nadia Hossny.', 'حملات بصرية وتصميم تحريري وعروض تقديمية ومطبوعات وشخصيات وأعمال فنية رقمية لنادية حسني.')} />
+    <PageMeta title={t('Visuals · Nadia Hossny', 'أعمال بصرية · نادية حسني')} description={t('Campaign graphics, editorial layouts, presentations, print materials, characters, and digital art by Nadia Hossny.', 'حملات بصرية وتصميم تحريري وعروض تقديمية ومطبوعات وشخصيات وأعمال فنية رقمية لنادية حسني.')} />
     <div id="visual-collection-content">
-      <header className="visuals-opening"><SectionReveal><div className="portfolio-container"><h1>{t('Visuals', 'أعمال بصرية')}</h1><p>{t('Campaigns, publications, presentations, print, and illustration. The visual side of my work, from clear information to expressive characters.', 'حملات ومنشورات وعروض ومطبوعات ورسوم. الجانب البصري من عملي، من عرض المعلومات بوضوح إلى رسم شخصيات معبرة.')}</p></div></SectionReveal></header>
-      <div className="visual-tools" aria-label={t('Design tools', 'أدوات التصميم')}>{['Adobe CC', 'Affinity', 'Figma', 'Krita', 'Canva'].map(tool => <span key={tool}>{tool}</span>)}</div>
-      <section className="visual-offerings"><div className="portfolio-container"><SectionReveal><h2>{t('What I offer', 'ما أقدمه')}</h2><p>{t('Visual deliverables shaped around your message and audience.', 'مخرجات بصرية تناسب رسالتك وجمهورك.')}</p></SectionReveal><div className="visual-offerings-grid">{visualOffers.map(offer => <SectionReveal key={offer.id}><article><h3>{t(offer.title, offer.titleAr)}</h3><p>{t(offer.description, offer.descriptionAr)}</p></article></SectionReveal>)}</div></div></section>
-      <section className="visual-collections portfolio-container" aria-labelledby="visual-collections-title"><SectionReveal><header><h2 id="visual-collections-title">{t('Visual collections', 'مجموعات الأعمال البصرية')}</h2><p>{t('Explore the collections, then open any cover to see the complete gallery.', 'استكشف المجموعات وافتح أي غلاف لمشاهدة جميع أعمالها.')}</p></header></SectionReveal>
+      <header className="visuals-opening"><img className="visuals-opening-clouds" src={clouds} alt="" aria-hidden="true" /><SectionReveal><div className="portfolio-container"><h1>{t('Nadia’s graphic design side', 'الجانب الجرافيكي من أعمال نادية')}</h1><p>{t('Social campaigns, publications, presentations, print collateral, and illustration.', 'حملات التواصل الاجتماعي، المنشورات، العروض التقديمية، المطبوعات، والرسوم الرقمية.')}</p></div></SectionReveal></header>
+      <div className="visual-tools" aria-label={t('Design tools', 'أدوات التصميم')}>
+        <span><AdobeIcon />Adobe CC</span>
+        <span><AffinityIcon />Affinity</span>
+        <span><SiFigma aria-hidden="true" />Figma</span>
+        <span><SiKrita aria-hidden="true" />Krita</span>
+        <span><SiCanva aria-hidden="true" />Canva</span>
+      </div>
+      <section className="visual-collections portfolio-container" aria-labelledby="visual-collections-title"><SectionReveal><header className="section-heading"><h2 id="visual-collections-title">{t('Visual collections', 'مجموعات الأعمال البصرية')}</h2><p>{t('Explore the collections, then open any cover to see the complete gallery.', 'استكشف المجموعات وافتح أي غلاف لمشاهدة جميع أعمالها.')}</p></header></SectionReveal>
       <div className="curated-visual-grid">{allCollections.map(collection => <SectionReveal key={collection.id}><article className="curated-visual-project">
         <button type="button" className="collection-cover" onClick={event => openCollectionModal(collection.id, 0, event.currentTarget)} aria-label={t('Open collection: ', 'افتح المجموعة: ') + collection.title}>
-          {collection.images.slice(1, 3).map((url, index) => <span className={`collection-paper collection-paper-${index + 1}`} key={url} aria-hidden="true"><img src={url} alt="" loading="lazy" /></span>)}
-          <span className="collection-front"><img src={collection.cover} alt={collection.title} loading="lazy" /><span className="collection-hover-label">{t('View more', 'شاهد المزيد')}</span></span>
+          <span className="collection-front"><img src={collection.cover} alt={collection.title} loading="lazy" /></span>
         </button>
         <h3>{collection.title}</h3>
-        <button type="button" className="text-link" onClick={event => openCollectionModal(collection.id, 0, event.currentTarget)}>{t('View ', 'شاهد ') + collection.title}<ArrowRight size={16} className={isRTL ? 'rotate-180' : ''} /></button>
+        <p>{collection.whatItIs}</p>
+        <button type="button" className="text-link" onClick={event => openCollectionModal(collection.id, 0, event.currentTarget)} aria-label={t('View collection: ', 'شاهد المجموعة: ') + collection.title}>{t('View collection', 'شاهد المجموعة')}<ArrowRight size={16} aria-hidden="true" className={isRTL ? 'rotate-180' : ''} /></button>
       </article></SectionReveal>)}</div>
       </section>
-      <section className="visual-contact" aria-labelledby="visual-contact-title"><div className="portfolio-container"><div><h2 id="visual-contact-title">{ctaUI.ctaTitle}</h2><p>{ctaUI.ctaSub}</p></div><div className="visual-contact-actions action-row"><Link to={visualInquiryHref} className="button-primary">{ctaUI.ctaButton}</Link><a href="mailto:nadiahossny426@gmail.com" className="button-secondary"><Mail size={16} aria-hidden="true"/>{t('Email me', 'راسلني')}</a></div><div className="visual-contact-socials"><a href="https://wa.me/201064943439" target="_blank" rel="noopener noreferrer" className="text-link"><FaWhatsapp aria-hidden="true"/>{t('WhatsApp', 'واتساب')}</a><a href="https://linkedin.com/in/nadiahossny" target="_blank" rel="noopener noreferrer" className="text-link"><FaLinkedin aria-hidden="true"/>LinkedIn</a></div></div></section>
+      <section className="visual-contact" aria-labelledby="visual-contact-title"><div className="portfolio-container"><div><h2 id="visual-contact-title">{ctaUI.ctaTitle}</h2><p>{ctaUI.ctaSub}</p></div><div className="visual-contact-actions action-row"><Link to={visualInquiryHref} className="button-primary">{ctaUI.ctaButton}</Link><a href="mailto:nadiahossny426@gmail.com" className="button-secondary"><Mail size={16} aria-hidden="true"/>{t('Email me', 'راسلني')}</a></div><div className="visual-contact-socials"><a href="https://wa.me/201556643463" target="_blank" rel="noopener noreferrer" className="text-link"><FaWhatsapp aria-hidden="true"/>{t('WhatsApp', 'واتساب')}</a><a href="https://linkedin.com/in/nadiahossny" target="_blank" rel="noopener noreferrer" className="text-link"><FaLinkedin aria-hidden="true"/>LinkedIn</a></div></div></section>
     </div>
       {selectedProject && (
         <div

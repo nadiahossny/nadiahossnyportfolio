@@ -46,13 +46,16 @@ test('hero avoids a repeated standalone role and Home keeps three intact visual 
   assert.match(home, /visualCollections.slice\(0, 3\)/);
   assert.match(home, /className="home-visual-frame"/);
   const collections = await readFile(new URL('../src/data/visualCollections.ts', import.meta.url), 'utf8');
-  assert.match(collections, /'social-media', 'ieee-campaigns', 'presentations'/);
-  assert.match(collections, /title": "Social media & campaign design"/);
+  assert.match(collections, /'social-campaign-design', 'educational-course-graphics', 'print-event-collateral'/);
+  assert.match(collections, /"title": "Social & campaign design"/);
 });
 
 test('language switch uses a smooth rounded control on desktop and mobile', async () => {
   const navigation = await readFile(new URL('../src/components/Navigation.tsx', import.meta.url), 'utf8');
   assert.equal((navigation.match(/className="language-toggle[^\"]*rounded-full/g) ?? []).length, 2);
+  assert.match(navigation, />ENG</);
+  assert.match(navigation, />AR</);
+  assert.doesNotMatch(navigation, />عربي</);
   const css = await readFile(new URL('../src/index.css', import.meta.url), 'utf8');
   assert.match(css, /\.language-toggle \{ transition-property: color, background-color, border-color, box-shadow; transition-duration: 180ms/);
 });

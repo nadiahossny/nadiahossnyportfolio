@@ -41,7 +41,7 @@ export default function Navigation() {
           to="/"
           onClick={() => setIsOpen(false)}
           className="brand-link flex items-center gap-3 transition-opacity hover:opacity-85 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cta rounded-lg"
-          title={t('Nadia Hossny — Home', 'نادية حسني — الرئيسية')}
+          title={t('Nadia Hossny · Home', 'نادية حسني · الرئيسية')}
         >
           <img src={logo} alt="" className="h-9 md:h-10 w-auto shrink-0" />
           <div className="brand-copy flex flex-col text-start leading-tight">
@@ -92,16 +92,17 @@ export default function Navigation() {
           {/* Language Toggle */}
           <button
             onClick={toggleLanguage}
+            dir="ltr"
             className="language-toggle nav-action inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-headline/15 bg-white text-headline font-bold text-base uppercase tracking-wider hover:border-cta hover:bg-cloud-light/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cta cursor-pointer"
-            aria-label={language === 'en' ? 'EN | عربي — Switch to Arabic' : 'EN | عربي — التبديل إلى الإنجليزية'}
+            aria-label={language === 'en' ? 'ENG / AR · Switch to Arabic' : 'ENG / AR · التبديل إلى الإنجليزية'}
             title={language === 'en' ? 'تغيير إلى العربية' : 'Switch to English'}
           >
             <span className={language === 'en' ? 'text-cta font-bold' : 'text-bodytext/50 font-normal'}>
-              EN
+              ENG
             </span>
-            <span aria-hidden="true" className="text-headline/20">|</span>
+            <span aria-hidden="true" className="text-headline/20">/</span>
             <span className={language === 'ar' ? 'text-cta font-bold' : 'text-bodytext/50 font-normal'}>
-              عربي
+              AR
             </span>
           </button>
         </nav>
@@ -110,12 +111,13 @@ export default function Navigation() {
         <div className="flex items-center gap-2 lg:hidden">
           <button
             onClick={toggleLanguage}
+            dir="ltr"
             className="language-toggle inline-flex items-center gap-1 px-2.5 py-1.5 rounded-full border border-headline/15 bg-white text-headline font-bold text-base tracking-wider focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cta"
-            aria-label={language === 'en' ? 'EN | عربي — Switch to Arabic' : 'EN | عربي — التبديل إلى الإنجليزية'}
+            aria-label={language === 'en' ? 'ENG / AR · Switch to Arabic' : 'ENG / AR · التبديل إلى الإنجليزية'}
           >
-            <span className={language === 'en' ? 'text-cta font-bold' : 'text-bodytext/50'}>EN</span>
-            <span aria-hidden="true" className="text-headline/20">|</span>
-            <span className={language === 'ar' ? 'text-cta font-bold' : 'text-bodytext/50'}>عربي</span>
+            <span className={language === 'en' ? 'text-cta font-bold' : 'text-bodytext/50'}>ENG</span>
+            <span aria-hidden="true" className="text-headline/20">/</span>
+            <span className={language === 'ar' ? 'text-cta font-bold' : 'text-bodytext/50'}>AR</span>
           </button>
 
           <button

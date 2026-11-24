@@ -42,7 +42,7 @@ export const translations = {
         {
           step: '01',
           title: 'Understand the problem',
-          desc: 'Map who uses the product, their environment, and where friction happens—whether a patient submitting a prescription or a student starting a focus session.',
+          desc: 'Map who uses the product, their environment, and where friction happens, whether a patient submitting a prescription or a student starting a focus session.',
           evidence: 'Applied in Automated Pharmacy Management System (patient vs. pharmacist workflows) & Taskly (daily task horizons).',
         },
         {
@@ -199,7 +199,7 @@ export const translations = {
       trainingTitle: 'Supporting Training & Certifications',
       trainingSub: "Training in UI/UX, web design, Flutter, .NET, and freelancing.",
       hciTitle: 'Human-Computer Interaction Focus',
-      hciBody: 'I am particularly interested in human-in-the-loop interfaces and calm technology—designing clear verification steps when AI or hardware automation is involved (as in PharmaSys invoice/prescription triage and robotic dispensing) and reducing unnecessary visual noise during focused cognitive tasks (as in AuraLeaf).',
+      hciBody: 'I am particularly interested in human-in-the-loop interfaces and calm technology, designing clear verification steps when AI or hardware automation is involved (as in PharmaSys invoice/prescription triage and robotic dispensing) and reducing unnecessary visual noise during focused cognitive tasks (as in AuraLeaf).',
     },
     aboutUI: professionalBackground.en,
     workWithMeUI: {
@@ -231,7 +231,7 @@ export const translations = {
           number: '02',
           title: 'Website Design & Frontend Implementation',
           whoItHelps: 'Teams and independent creators who want their product interface or web platform designed and built in clean React & TypeScript code.',
-          whatIDeliver: 'Responsive web interfaces built with React, TypeScript, and Tailwind CSS—or cross-platform mobile interfaces built with Flutter—with implementation support appropriate to the project scope.',
+          whatIDeliver: 'Responsive web interfaces built with React, TypeScript, and Tailwind CSS, or cross-platform mobile interfaces built with Flutter, with implementation support appropriate to the project scope.',
           outputs: [
             'Responsive React / TypeScript or Flutter UI implementation',
             'Bilingual Arabic (RTL) & English (LTR) interface support',
@@ -381,7 +381,7 @@ export const translations = {
         {
           step: '01',
           title: 'فهم المشكلة',
-          desc: 'تحليل المستخدمين وبيئة عملهم ونقاط الاحتكاك—سواء كان مريضاً يرسل روشتة طبية أو طالباً يبدأ جلسة تركيز.',
+          desc: 'تحليل المستخدمين وبيئة عملهم ونقاط الاحتكاك، سواء كان مريضاً يرسل روشتة طبية أو طالباً يبدأ جلسة تركيز.',
           evidence: 'طُبّق في نظام إدارة الصيدلية الآلي (مسارات المريض والصيدلي) وتطبيق Taskly (تنظيم المهام اليومية).',
         },
         {
@@ -538,7 +538,7 @@ export const translations = {
       trainingTitle: 'التدريب والشهادات الداعمة',
       trainingSub: "تدريب في UI/UX وتصميم الويب وFlutter و.NET والعمل الحر.",
       hciTitle: 'الاهتمامات البحثية في التفاعل بين الإنسان والحاسوب (HCI)',
-      hciBody: 'أهتم بشكل خاص بواجهات التحقق البشري (Human-in-the-Loop) والتكنولوجيا الهادئة—أي تصميم خطوات مراجعة واضحة عند دمج الذكاء الاصطناعي أو الأتمتة الميكانيكية (كما في فرز الروشتات والفواتير والتحكم بالروبوت في PharmaSys)، وتقليل الضوضاء البصرية أثناء مهام التركيز الذهني (كما في AuraLeaf).',
+      hciBody: 'أهتم بشكل خاص بواجهات التحقق البشري (Human-in-the-Loop) والتكنولوجيا الهادئة، أي تصميم خطوات مراجعة واضحة عند دمج الذكاء الاصطناعي أو الأتمتة الميكانيكية (كما في فرز الروشتات والفواتير والتحكم بالروبوت في PharmaSys)، وتقليل الضوضاء البصرية أثناء مهام التركيز الذهني (كما في AuraLeaf).',
     },
     aboutUI: professionalBackground.ar,
     workWithMeUI: {
@@ -570,7 +570,7 @@ export const translations = {
           number: '02',
           title: 'تصميم المواقع وتنفيذ الواجهات البرمجية',
           whoItHelps: 'الفرق وأصحاب المشاريع الذين يريدون تصميم واجهة منتجهم أو موقعهم وبناءها برمجياً بكود نظيف باستخدام React و TypeScript أو Flutter.',
-          whatIDeliver: 'واجهات ويب متجاوبة مبنية بـ React و TypeScript و Tailwind CSS—أو واجهات موبايل بـ Flutter—تحافظ على دقة الخطوط والمسافات من التصميم إلى المتصفح.',
+          whatIDeliver: 'واجهات ويب متجاوبة مبنية بـ React و TypeScript و Tailwind CSS، أو واجهات موبايل بـ Flutter، تحافظ على دقة الخطوط والمسافات من التصميم إلى المتصفح.',
           outputs: [
             'تنفيذ برمجي متجاوب للواجهات بـ React / TypeScript أو Flutter',
             'دعم أصيل وكامل للواجهات ثنائية اللغة (العربية RTL والإنجليزية LTR)',

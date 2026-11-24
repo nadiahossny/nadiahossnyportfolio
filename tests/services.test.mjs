@@ -34,10 +34,10 @@ test('canonical and compatibility Services routes render both approved offers in
   for (const route of ['/services', '/work-with-me']) {
     const en = render(route);
     const ar = render(route, 'ar');
-    for (const copy of ['Websites &amp; web apps', 'Digital brand presence', 'Quoted after discovery', 'Timeline agreed in proposal', '50% deposit', 'One revision round', 'Discuss your project']) assert.ok(en.includes(copy), copy);
-    for (const copy of ['المواقع وتطبيقات الويب', 'الحضور البصري الرقمي', 'يُحدد السعر بعد فهم المشروع', 'تُحدد المدة في العرض', 'دفعة مقدمة ٥٠٪', 'جولة تعديلات واحدة']) assert.ok(ar.includes(copy), copy);
+    for (const copy of ['Websites &amp; web apps', 'Digital brand presence', 'Discovery and content structure', 'Reusable social media templates']) assert.ok(en.includes(copy), copy);
+    for (const copy of ['المواقع وتطبيقات الويب', 'الحضور البصري الرقمي', 'فهم الاحتياج وتنظيم المحتوى', 'قوالب قابلة لإعادة الاستخدام لمنصات التواصل']) assert.ok(ar.includes(copy), copy);
     assert.equal((en.match(/class="service-offer"/g) ?? []).length, 2);
-    assert.ok(en.includes('href="#inquiry-form"'));
+    assert.ok(en.includes('id="inquiry-form"'));
     for (const name of ['name', 'email', 'type', 'message']) assert.ok(en.includes(`name="${name}"`));
     assert.ok(en.includes('href="/resume.pdf"'));
     assert.doesNotMatch(en, /\[ADD:|starting from|EGP|USD/i);

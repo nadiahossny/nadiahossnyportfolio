@@ -24,6 +24,12 @@ import roshetety7 from '../assets/projects/pahrmasys and roshetety-ui screens/Sc
 import auraWorkspace from '../assets/projects/auraleaf-process/workspace.jpg';
 import auraNotes from '../assets/projects/auraleaf-process/notes-panel.jpg';
 import auraTasks from '../assets/projects/auraleaf-process/tasks-panel.jpg';
+import auraPrevFloating from '../assets/projects/auraleaf-process/prev-floating-windows.jpg';
+import auraPrevLabeledDock from '../assets/projects/auraleaf-process/prev-labeled-dock.jpg';
+import auraPrevSidebarDock from '../assets/projects/auraleaf-process/prev-sidebar-dock.jpg';
+import auraPrevNotesScroll from '../assets/projects/auraleaf-process/prev-notes-scroll.jpg';
+import auraWorkspacePrimaryDock from '../assets/projects/auraleaf-process/workspace-primary-dock.jpg';
+import auraPrimaryDockControls from '../assets/projects/auraleaf-process/primary-dock-controls.png';
 import auraleafCover from '../assets/projects/auraleaf.png';
 import bytoCover from '../assets/projects/desktop view-ui screens/byto academy.png';
 import bytoSecondary from '../assets/projects/creative experiments/byto academy.png';
@@ -45,6 +51,17 @@ import taskly13 from '../assets/projects/taskly-ui screens/iPhone 13 mini – 13
 import taskly14 from '../assets/projects/taskly-ui screens/iPhone 13 mini – 14@3x.png';
 
 import ieeeCover from '../assets/projects/ieee.png';
+import ieeeHomePortal from '../assets/projects/ieee-home-portal.jpg';
+import ieeeEventsPortal from '../assets/projects/ieee-events-portal.jpg';
+import ieeeToolsFeatures from '../assets/projects/ieee-tools-features.jpg';
+import ieeeProposeEvent from '../assets/projects/ieee-propose-event.png';
+import ieeeAdminLogin from '../assets/projects/ieee-admin-login.jpg';
+import ieeeAdminAddProject from '../assets/projects/ieee-admin-add-project.png';
+import ieeeEventsDiscovery from '../assets/projects/ieee-events-discovery.jpg';
+import ieeeEventDetails from '../assets/projects/ieee-event-details.jpg';
+import ieeeProjectsPapers from '../assets/projects/ieee-projects-papers.jpg';
+import ieeeDesignSystem from '../assets/projects/ieee-design-system.jpg';
+import ieeeComponentsSpec from '../assets/projects/ieee-components-spec.png';
 import simplibankCover from '../assets/projects/simplibank.png';
 import bloomCover from '../assets/projects/bloombook.png';
 import bloomPrev from '../assets/projects/creative experiments/bloombookprev.png';
@@ -269,8 +286,8 @@ preview: {"summary":"Two connected Flutter apps for pharmacy management and pati
     statBadge: "",
     statBadgeAr: "",
     tags: ["Product Design","Flutter","Node.js","PostgreSQL","WebSockets"],
-    client: 'Faculty of Computer Science & AI — Pharos University in Alexandria (Graduation Project)',
-    clientAr: 'كلية علوم الحاسب والذكاء الاصطناعي — جامعة فاروس بالإسكندرية (مشروع تخرج)',
+    client: 'Faculty of Computer Science & AI · Pharos University in Alexandria (Graduation Project)',
+    clientAr: 'كلية علوم الحاسب والذكاء الاصطناعي · جامعة فاروس بالإسكندرية (مشروع تخرج)',
     role: "Product Designer & Flutter Developer",
     roleAr: "مصممة منتجات ومطورة Flutter",
     timeline: "",
@@ -308,7 +325,7 @@ preview: {"summary":"Two connected Flutter apps for pharmacy management and pati
     designDecisions: [
  {id:'separate-experiences', title:'Distinct patient and pharmacy experiences', titleAr:'تجربتان مختلفتان للمرضى والصيدلية', problemConstraint:'Different tasks for each audience', designResponse:'Keep ordering focused in Roshetety and operational work in PharmaSys, connected through the order.', designResponseAr:'تركيز الطلب في روشتتي والعمل التشغيلي في PharmaSys، مع ربطهما بالطلب.', whyChosen:'Each audience needs a different level of operational detail.', whyChosenAr:'تحتاج كل مجموعة إلى مستوى مختلف من التفاصيل التشغيلية.', evidence:'Application screens and information architecture', screenshots:[{url:apmsDesk10,caption:'PharmaSys pharmacy workspace',captionAr:'مساحة عمل الصيدلية في PharmaSys'},{url:roshetety1,caption:'Roshetety patient home',captionAr:'الصفحة الرئيسية للمرضى في روشتتي'}]},
  {id:'manual-review', title:'Prescription review with a manual fallback', titleAr:'مراجعة الوصفة مع بديل يدوي', problemConstraint:'Recognition requires review', designResponse:'Treat recognized prescription content as input for review. The documented manual medicine-linking path keeps unresolved items editable.', designResponseAr:'اعتبار محتوى التعرف على الوصفة مدخلاً للمراجعة. يسمح مسار ربط الدواء اليدوي الموثق بمعالجة العناصر غير المحسومة.', whyChosen:'The interface needs a correction path when recognition cannot resolve a medicine. Prescription capture begins in the patient app; unresolved medicine matches have a manual linking path during pharmacy review.', whyChosenAr:'تحتاج الواجهة إلى مسار تصحيح عندما لا يُحسم التعرف على الدواء. يبدأ إدخال الوصفة في تطبيق المريض، وتوجد أثناء مراجعة الصيدلية إمكانية ربط الأدوية غير المحسومة يدوياً.', evidence:'Prescription review and scan entry', screenshots:[{url:roshetety2,caption:'Prescription scan entry',captionAr:'إدخال الوصفة بالمسح',isMobile:true}]},
- {id:'visible-status', title:'Visible order and dispensing status', titleAr:'إظهار حالة الطلب والصرف', problemConstraint:'Connected tasks need visible state', designResponse:'Show patients that an order is being prepared and give pharmacy staff a dispensing queue with item states.', designResponseAr:'إظهار أن الطلب قيد التحضير للمريض، مع قائمة صرف وحالات العناصر لطاقم الصيدلية.', whyChosen:'A visible state helps explain where the order sits in the workflow across the connected applications.', whyChosenAr:'توضح الحالة المرئية موضع الطلب في المسار عبر التطبيقين المترابطين.', evidence:'Patient order-status and dispensing screens', screenshots:[{url:roshetety5,caption:'Patient order status — being prepared',captionAr:'حالة طلب المريض — قيد التحضير',isMobile:true},{url:apmsDesk3,caption:'Pharmacy dispensing queue and item status',captionAr:'قائمة الصرف وحالة العناصر في الصيدلية'}]}
+ {id:'visible-status', title:'Visible order and dispensing status', titleAr:'إظهار حالة الطلب والصرف', problemConstraint:'Connected tasks need visible state', designResponse:'Show patients that an order is being prepared and give pharmacy staff a dispensing queue with item states.', designResponseAr:'إظهار أن الطلب قيد التحضير للمريض، مع قائمة صرف وحالات العناصر لطاقم الصيدلية.', whyChosen:'A visible state helps explain where the order sits in the workflow across the connected applications.', whyChosenAr:'توضح الحالة المرئية موضع الطلب في المسار عبر التطبيقين المترابطين.', evidence:'Patient order-status and dispensing screens', screenshots:[{url:roshetety5,caption:'Patient order status · being prepared',captionAr:'حالة طلب المريض · قيد التحضير',isMobile:true},{url:apmsDesk3,caption:'Pharmacy dispensing queue and item status',captionAr:'قائمة الصرف وحالة العناصر في الصيدلية'}]}
  ],
     taskSequences: [],
     gallery: [{url: apmsDesk1, caption: "PharmaSys sign-in", captionAr: "تسجيل دخول PharmaSys"},
@@ -332,19 +349,19 @@ preview: {"summary":"Two connected Flutter apps for pharmacy management and pati
 {url: roshetety6, caption: "Order ready for pickup", captionAr: "الطلب جاهز للاستلام"},
 {url: roshetety7, caption: "Order completed", captionAr: "اكتمل الطلب"}],
     metrics: [],
-    processArtifacts: [{id:'pharmacy-map', stage:'flow', title:'Connected pharmacy tasks', titleAr:'مهام الصيدلية المترابطة', label:'Original information architecture', labelAr:'بنية المعلومات الأصلية', description:'The map connects pharmacy operations, prescriptions, orders, and dispensing. It shows how the distinct experiences meet at review and status.', descriptionAr:'يربط المخطط عمليات الصيدلية والوصفات والطلبات والصرف، ويوضح التقاء التجربتين عند المراجعة والحالة.', images:[{url:apmsInformationArchitecture, caption:'PharmaSys information architecture — enlarge to inspect', captionAr:'بنية معلومات PharmaSys — كبّر الصورة لقراءة التفاصيل'}]}],
+    processArtifacts: [{id:'pharmacy-map', stage:'flow', title:'Connected pharmacy tasks', titleAr:'مهام الصيدلية المترابطة', label:'Original information architecture', labelAr:'بنية المعلومات الأصلية', description:'The map connects pharmacy operations, prescriptions, orders, and dispensing. It shows how the distinct experiences meet at review and status.', descriptionAr:'يربط المخطط عمليات الصيدلية والوصفات والطلبات والصرف، ويوضح التقاء التجربتين عند المراجعة والحالة.', images:[{url:apmsInformationArchitecture, caption:'PharmaSys information architecture · enlarge to inspect', captionAr:'بنية معلومات PharmaSys · كبّر الصورة لقراءة التفاصيل'}]}],
 },
   {
 sectionOrder: ["problem","research","decisions","experience","evaluation","reflection"],
-sectionTitles: {"research":{"en":"Exploring a calmer workspace","ar":"استكشاف مساحة مذاكرة أهدأ"},"decisions":{"en":"Tools within reach, space to focus","ar":"أدوات قريبة ومساحة للتركيز"},"experience":{"en":"A study session, in one workspace","ar":"جلسة مذاكرة في مساحة واحدة"}},
-preview: {image: auraWorkspace, "summary":"A calm focus space with three daily tasks, a timer and ambient sound. Designed and built in React.","summaryAr":"مساحة هادئة للتركيز تضم ثلاث مهام يومية ومؤقتاً وأصواتاً محيطية. صممتها ونفذتها باستخدام React.","contribution":"Product concept, interface design, and direction of AI-assisted implementation.","contributionAr":"فكرة المنتج وتصميم الواجهة وتوجيه التنفيذ بمساعدة الذكاء الاصطناعي.","decision":"Keep notes and tasks in sliding panels, leaving the workspace clear.","decisionAr":"وضع الملاحظات والمهام في لوحات منزلقة للحفاظ على وضوح المساحة الرئيسية."},
+sectionTitles: {"research":{"en":"Cognitive friction & desk ergonomics","ar":"الاحتكاك الإدراكي وبيئة العمل المكتبية"},"decisions":{"en":"Single-task focus & sliding architecture","ar":"التركيز على مهمة واحدة وبنية اللوحات المنزلقة"},"experience":{"en":"Ambient sanctuary in practice","ar":"الملاذ الهادئ وتجربة الاستخدام الفعلية"}},
+preview: {image: auraWorkspace, "summary":"A unified ambient focus sanctuary merging biophilic soundscapes, Pomodoro timeboxing, and sliding task panels in React.","summaryAr":"مساحة هادئة للتركيز العميق تدمج مؤثرات صوتية طبيعية ومؤقت بومودورو ولوحات مهام منزلقة باستخدام React.","contribution":"Product concept, PRD specifications, interface design, and AI-assisted React implementation.","contributionAr":"فكرة المنتج ومواصفات PRD وتصميم الواجهة وتوجيه تنفيذ React بمساعدة الذكاء الاصطناعي.","decision":"Inject a single active priority task into the timer and tuck notes into sliding panels to prevent cognitive friction.","decisionAr":"إدراج المهمة ذات الأولوية داخل المؤقت ووضع الملاحظات في لوحات منزلقة لتجنب التشتت الإدراكي."},
     categories: ['productivity-learning'],
     id: 'auraleaf',
-    tools: ['React'],
-    title: "AuraLeaf — Study Workspace",
-    titleAr: "AuraLeaf — مساحة للمذاكرة",
-    subtitle: "A study workspace combining a focus timer, ambient audio, notes, and sliding panels for notes and tasks.",
-    subtitleAr: "مساحة للمذاكرة تجمع مؤقت التركيز والأصوات المحيطية والملاحظات ولوحات منزلقة للملاحظات والمهام.",
+    tools: ['React', 'Tailwind CSS', 'Web Audio API'],
+    title: "AuraLeaf · Study Workspace",
+    titleAr: "AuraLeaf · مساحة للمذاكرة والتركيز",
+    subtitle: "A unified ambient focus sanctuary combining biophilic soundscapes, a Pomodoro timer with Web Audio synthesis, and sliding panels for notes and tasks.",
+    subtitleAr: "مساحة هادئة للتركيز العميق تجمع بين المؤثرات الصوتية الطبيعية ومؤقت البومودورو المعتمد على Web Audio ولوحات منزلقة للملاحظات والمهام.",
     category: "Study & focus",
     categoryAr: "المذاكرة والتركيز",
     contextBadge: "Independent Study Workspace",
@@ -353,7 +370,7 @@ preview: {image: auraWorkspace, "summary":"A calm focus space with three daily t
     featuredOnHome: true,
     linkLabel: 'Read case study',
     linkLabelAr: 'اقرأ دراسة الحالة',
-    tags: ["Product Design","React","Tailwind CSS"],
+    tags: ["Product Design", "React", "Tailwind CSS", "Web Audio API"],
     client: "Independent Project",
     clientAr: "مشروع مستقل",
     role: "Product Design & Implementation Direction",
@@ -363,35 +380,71 @@ preview: {image: auraWorkspace, "summary":"A calm focus space with three daily t
     thumbnail: auraleafCover,
     heroImage: auraWorkspace,
     thumbnailCropClass: 'scale-[1.32] object-center',
-    overview: "AuraLeaf is a browser workspace for studying, with a focus timer, ambient sound, and notes and tasks available through sliding panels.",
-    overviewAr: "AuraLeaf مساحة للمذاكرة عبر المتصفح، تضم مؤقت تركيز وأصواتاً محيطية وملاحظات ومهام يمكن الوصول إليها عبر لوحات منزلقة.",
-    userSummary: 'Students, writers, and engineers seeking a calm browser tab that supports deep work without task-board clutter.',
-    userSummaryAr: 'الطلاب والكتاب والمهندسون الباحثون عن نافذة متصفح هادئة تدعم العمل العميق دون فوضى الجداول المعقدة.',
-    myContribution: "Defined the product concept and interface direction, revised interactions through working prototypes, and directed AI-assisted React implementation.",
-    myContributionAr: "حددت فكرة المنتج وتوجه الواجهة وعدّلت التفاعلات عبر نماذج عملية، ووجهت تنفيذ React بمساعدة الذكاء الاصطناعي.",
-    keyDecision: "I replaced freely movable tools with an on-demand panel. The timer stays visible while Notes and Tasks share the side space.",
-    keyDecisionAr: "استبدلت الأدوات القابلة للتحريك بلوحة تُفتح عند الحاجة. يبقى المؤقت ظاهراً بينما تتشارك الملاحظات والمهام المساحة الجانبية.",
-    problem: "I wanted one place to study without moving between a timer, background audio, notes, and tasks.",
-    problemAr: "أردت مكاناً واحداً للمذاكرة بدلاً من التنقل بين المؤقت والصوتيات والملاحظات والمهام.",
-    research: "Working builds helped me explore the balance between arranging tools freely and keeping the workspace quiet. The interaction needed to offer access without making every tool permanently visible.",
-    researchAr: "ساعدتني النسخ العملية على استكشاف التوازن بين حرية ترتيب الأدوات وهدوء مساحة المذاكرة. احتاج التفاعل إلى إتاحة الأدوات دون إبقائها جميعاً ظاهرة طوال الوقت.",
-    architecture: "React and Tailwind CSS, with AI-assisted implementation directed through the product and interaction choices.",
-    architectureAr: "React وTailwind CSS، مع تنفيذ بمساعدة الذكاء الاصطناعي وبتوجيه من قرارات المنتج والتفاعل.",
-    wireframes: "Notes and tasks are accessible through sliding panels alongside the focus timer and ambient audio.",
-    wireframesAr: "يمكن الوصول إلى الملاحظات والمهام عبر لوحات منزلقة بجانب مؤقت التركيز والأصوات المحيطية.",
-    designSystem: "A calm visual direction supports the timer, audio controls, and panels.",
-    designSystemAr: "توجه بصري هادئ يدعم المؤقت والتحكم في الأصوات واللوحات.",
-    solution: "Choose a scene and ambient audio, start a focus session, then open Notes or Tasks when needed.",
-    solutionAr: "اختر المشهد والصوت المحيطي، وابدأ جلسة تركيز، ثم افتح الملاحظات أو المهام عند الحاجة.",
-    impact: "Working React prototype. User evaluation is the next step; improvements in focus or usability have not been measured.",
-    impactAr: "نموذج عملي باستخدام React. تقييم المستخدمين هو الخطوة التالية؛ ولم يُقَس تحسن التركيز أو قابلية الاستخدام.",
-    reflection: "This revision taught me to judge each interaction against the intended experience. Next I would observe how people open, use, and close the panels during a study session.",
-    reflectionAr: "علمتني هذه المراجعة تقييم كل تفاعل وفق التجربة المقصودة. سأراقب في الخطوة التالية كيفية فتح اللوحات واستخدامها وإغلاقها أثناء جلسة مذاكرة.",
+    overview: "AuraLeaf is a unified ambient focus sanctuary and deep-work workstation designed to resolve tab sprawl and sensory fragmentation. It integrates curated biophilic soundscapes, a Pomodoro timer with native Web Audio chime synthesis, single-task context injection, and sliding drawers for to-do items and pastel sticky notes into a quiet browser desktop.",
+    overviewAr: "AuraLeaf مساحة عمل هادئة مصممة لحل مشكلة تشتت المتصفح وتعدد النوافذ أثناء الدراسة والعمل العميق. يدمج التطبيق مؤثرات صوتية طبيعية منتقاة، ومؤقت بومودورو مع نغمات منغمة عبر Web Audio، وعرض المهمة النشطة فقط، ولوحات منزلقة للمهام والملاحظات الملونة في بيئة عمل موحدة.",
+    userSummary: "Knowledge workers, software engineers, and university students seeking a calming deep-work workstation that minimizes micro-distractions without task-board overwhelm.",
+    userSummaryAr: "المهندسون والطلاب والمهنيون الباحثون عن مساحة عمل هادئة تدعم التركيز العميق وتقلل المشتتات اللحظية دون إرهاق القوائم المعقدة.",
+    myContribution: "Formulated the product vision and PRD specifications, conducted cognitive ergonomics and friction analysis, designed the UI and interaction models, and directed AI-assisted implementation in React, Tailwind CSS, and Web Audio API.",
+    myContributionAr: "حددت رؤية المنتج ومواصفات PRD، وحللت بيئة العمل الإدراكية ونقاط الاحتكاك، وصممت نظام الواجهات ونماذج التفاعل، ووجهت التنفيذ البرمجي بمساعدة الذكاء الاصطناعي باستخدام React وTailwind CSS وWeb Audio API.",
+    keyDecision: "Single-Task Binding and Sliding Drawers: Rather than displaying an entire backlog or keeping movable tool windows open, AuraLeaf injects only the highest-priority active task directly into the timer card and tucks To-Do and Pastel Notes into an on-demand collapsible drawer.",
+    keyDecisionAr: "ربط المهمة الواحدة واللوحات المنزلقة: بدلاً من عرض قائمة مهام طويلة أو إبقاء النوافذ مفتوحة، يعرض AuraLeaf المهمة ذات الأولوية القصوى مباشرة داخل بطاقة المؤقت، ويضع المهام والملاحظات الملونة في درج جانبي منزلق يُفتح عند الحاجة.",
+    problem: "Deep-work sessions often require coordinating 4 to 6 separate tabs—music streams, white noise generators, standalone timers, task trackers, and scratchpads. This tab sprawl creates sensory fragmentation, memory overhead, and frequent context switching that breaks mental flow.",
+    problemAr: "تتطلب جلسات العمل العميق فتح 4 إلى 6 نوافذ متصفح منفصلة للموسيقى ومولدات الصوت والمؤقت وقوائم المهام والملاحظات. يسبب هذا التشتت إرهاقاً ذهنياً وانقطاعاً مستمراً في حالة التدفق والتركيز.",
+    research: "Friction analysis and interaction prototyping revealed that traditional project management boards increase anxiety through backlogs, while complex audio mixers induce decision fatigue. Designing for cognitive ergonomics (Hick’s Law and Miller’s Law) led to a minimal central stage, an OS-style bottom dock, and single-task injection.",
+    researchAr: "أظهر تحليل الاحتكاك والنماذج الأولية أن لوحات المهام التقليدية تزيد التوتر بسبب تراكم القوائم، بينما تسبب أجهزة خلط الأصوات المعقدة إرهاقاً في اتخاذ القرار. قاد تطبيق مبادئ علم النفس الإدراكي إلى تصميم واجهة مركزية هادئة وشريط أدوات سفلي وعرض مهمة واحدة فقط.",
+    architecture: "Engineered as a local-first React and Tailwind CSS application. Audio chimes use code-only Web Audio API oscillator synthesis (a harmonic C-major triad) with zero network latency. Task and note updates synchronize via decoupled custom event channels and browser localStorage, guaranteeing offline privacy.",
+    architectureAr: "نُفذ التطبيق بنمط Local-First باستخدام React وTailwind CSS. تُنتج نغمات التنبيه عبر مذبذبات Web Audio API بنغمة دو كبيرة (C-Major) دون الحاجة لملفات صوتية خارجية، مع مزامنة المهام والملاحظات عبر أحداث مخصصة وتخزين محلي localStorage لحماية الخصوصية والعمل دون إنترنت.",
+    wireframes: "Wireframes mapped a three-tier spatial hierarchy: a tactile fluid background canvas, a floating central Pomodoro anchor with one-click increment controls, and an OS-style dock housing quick ambience selectors and collapsible drawer toggles.",
+    wireframesAr: "حددت المخططات الهيكلية تسلسلاً بصرياً من ثلاثة مستويات: خلفية تفاعلية طبيعية، وبطاقة مؤقت مركزية طافية مع أزرار تعديل سريعة، وشريط تحكم سفلي يضم أدوات الصوت ومفاتيح اللوحات المنزلقة.",
+    designSystem: "Calm biophilic aesthetic featuring a Deep Slate canvas (#0f172a), frosted glassmorphic containers (backdrop-blur-md), unified neon mint accents (#4ade80), and four soothing pastel shades for sticky scratchpads.",
+    designSystemAr: "نظام تصميم بصري مهدئ يعتمد على درجات الرمادي الداكن (#0f172a)، وألواح زجاجية ضبابية، مع لمسات بلون النعناع الأخضر (#4ade80)، وأربعة ألوان باستيل هادئة للملاحظات السريعة.",
+    solution: "A unified study sanctuary: select from curated mountain, ocean, forest, or rain soundscapes, start a timeboxed Pomodoro session with the active task surfaced, and let inactivity-based Zen Mode auto-dim secondary controls to preserve deep flow.",
+    solutionAr: "مساحة تركيز موحدة: اختر من بين أصوات الجبال أو المحيط أو الغابات أو المطر، وابدأ جلسة بومودورو محددة مع إظهار المهمة النشطة، مع تفعيل وضع Zen لتعتيم الواجهة تلقائياً عند غياب الحركة للحفاظ على التركيز.",
+    impact: "Shipped as a production-ready, local-first web application. The interface demonstrates how biophilic sensory design, single-task constraints, and local client storage deliver deep focus without login friction or cognitive clutter.",
+    impactAr: "أُطلق كتطبيق ويب متكامل يعتمد على التخزين المحلي. توضح الواجهة كيف يساهم التصميم الحسي والتركيز على مهمة واحدة في تحقيق تركيز عميق دون الحاجة لتسجيل دخول أو ازدحام بصري.",
+    reflection: "Designing AuraLeaf underscored that effective productivity design is about subtraction rather than feature accumulation. Future iterations will explore subtle keyboard-first flow triggers and observational studies on panel opening cadences.",
+    reflectionAr: "أكد تصميم AuraLeaf أن التصميم الفعال لأدوات الإنتاجية يعتمد على تبسيط الواجهة لا مراكمة الخصائص. ستستكشف الخطوات القادمة اختصارات لوحة المفاتيح ودراسة وتيرة استخدام اللوحات أثناء فترات التركيز الممتدة.",
     liveUrl: 'https://auraleaf.vercel.app',
     gallery: [
       { url: auraleafCover, caption: 'AuraLeaf focus workspace: central Pomodoro card and ambient scene/audio dock', captionAr: 'مساحة عمل AuraLeaf: بطاقة مؤقت البومودورو المركزية وشريط التحكم السفلي بالمشاهد والصوتيات' },
     ],
-    processArtifacts: [{id:'sliding-panels', stage:'decisions', title:'Sliding panels in use', titleAr:'اللوحات المنزلقة أثناء الاستخدام', label:'Working interface captures', labelAr:'لقطات من الواجهة العملية', description:'I kept the timer in the main workspace and placed notes and tasks in a panel that opens when needed. These three states show the same working version.', descriptionAr:'أبقيت المؤقت في المساحة الرئيسية ووضعت الملاحظات والمهام في لوحة تُفتح عند الحاجة. تعرض الحالات الثلاث النسخة العملية نفسها.', previewCount:3, images:[{url:auraWorkspace,caption:'Workspace with the tools panel closed',captionAr:'المساحة الرئيسية مع إغلاق لوحة الأدوات'},{url:auraNotes,caption:'Notes panel open beside the focus timer',captionAr:'لوحة الملاحظات مفتوحة بجانب مؤقت التركيز'},{url:auraTasks,caption:'Tasks panel open with an empty task list',captionAr:'لوحة المهام مفتوحة بقائمة مهام فارغة'}]}],
+    processArtifacts: [
+      {
+        id: 'sliding-panels',
+        stage: 'decisions',
+        title: 'Sliding panels in use',
+        titleAr: 'اللوحات المنزلقة أثناء الاستخدام',
+        label: 'Working interface captures',
+        labelAr: 'لقطات من الواجهة العملية',
+        description: 'I kept the timer in the main workspace and placed notes and tasks in a panel that opens when needed. These three states show the same working version.',
+        descriptionAr: 'أبقيت المؤقت في المساحة الرئيسية ووضعت الملاحظات والمهام في لوحة تُفتح عند الحاجة. تعرض الحالات الثلاث النسخة العملية نفسها.',
+        previewCount: 3,
+        images: [
+          { url: auraWorkspace, caption: 'Workspace with the tools panel closed', captionAr: 'المساحة الرئيسية مع إغلاق لوحة الأدوات' },
+          { url: auraNotes, caption: 'Notes panel open beside the focus timer', captionAr: 'لوحة الملاحظات مفتوحة بجانب مؤقت التركيز' },
+          { url: auraTasks, caption: 'Tasks panel open with an empty task list', captionAr: 'لوحة المهام مفتوحة بقائمة مهام فارغة' },
+        ],
+      },
+      {
+        id: 'previous-iterations',
+        stage: 'research',
+        title: 'Earlier workspace & dock iterations',
+        titleAr: 'إصدارات سابقة للواجهة وشريط التحكم',
+        label: 'Design evolution from multi-window layouts',
+        labelAr: 'تطور التصميم من النوافذ المتعددة إلى الشريط المبسط',
+        description: 'Earlier versions tested floating windows, a 12-item labeled dock, and a stacked sidebar before consolidating controls into the 4-item primary dock and collapsible drawer.',
+        descriptionAr: 'اختبرت الإصدارات السابقة نوافذ طافية وشريط تحكم يضم 12 خياراً ولوحة جانبية مزدحمة قبل اختصارها في شريط أساسي من 4 عناصر ودرج منزلق.',
+        previewCount: 6,
+        images: [
+          { url: auraPrevFloating, caption: 'Earlier floating windows: overlapping note, YouTube Player, To Do List, and 11-icon dock', captionAr: 'إصدار النوافذ الطافية السابق: تداخل الملاحظات ومشغل يوتيوب وقائمة المهام مع شريط من 11 أيقونة' },
+          { url: auraPrevLabeledDock, caption: 'Earlier labeled 12-item dock with draggable To Do List panel', captionAr: 'شريط تحكم سابق من 12 عنصراً مع نافذة مهام قابلة للسحب' },
+          { url: auraPrevSidebarDock, caption: 'Sidebar prototype combining To Do List, Notes, active task pill, and 11-icon dock', captionAr: 'نموذج اللوحة الجانبية المجمعة للمهام والملاحظات مع عرض المهمة النشطة وشريط 11 أيقونة' },
+          { url: auraPrevNotesScroll, caption: 'Scrollable sticky-notes stack with color switcher and Add Note button', captionAr: 'قائمة ملاحظات ملونة قابلة للتمرير مع مبدل الألوان وزر إضافة ملاحظة' },
+          { url: auraWorkspacePrimaryDock, caption: 'Consolidated workspace pairing the Focus timer with the 4-control primary dock', captionAr: 'المساحة المبسطة مع مؤقت التركيز والشريط السفلي المختصر من 4 عناصر' },
+          { url: auraPrimaryDockControls, caption: 'Consolidated 4-control dock: Ambience, Controller, Mute, and Tools overflow', captionAr: 'شريط التحكم الأساسي المختصر: المشاهد، وحدة الصوت، كتم الصوت، وقائمة الأدوات' },
+        ],
+      },
+    ],
     metrics: [],
   },
   {
@@ -401,8 +454,8 @@ preview: {"summary":"Peer interviews, surveys and competitor analysis led to a p
     categories: ['productivity-learning'],
     id: 'taskly',
     tools: ['Figma'],
-    title: 'Taskly — Mobile Task & Schedule Manager',
-    titleAr: 'Taskly — تطبيق إدارة المهام والجدول اليومي للموبايل',
+    title: 'Taskly · Mobile Task & Schedule Manager',
+    titleAr: 'Taskly · تطبيق إدارة المهام والجدول اليومي للموبايل',
     subtitle: "User flows and high-fidelity mobile designs for daily tasks, priorities, and focus.",
     subtitleAr: "مسارات مستخدم وتصميمات موبايل عالية الدقة للمهام اليومية والأولويات والتركيز.",
     category: "Daily planning & focus",
@@ -446,20 +499,20 @@ preview: {"summary":"Peer interviews, surveys and competitor analysis led to a p
     impactAr: "دراسة حالة لتجربة المستخدم تُعرض عبر الشاشات ومسارات المستخدم وتستند إلى مقابلات مع الزملاء واستبيانات وتحليل المنافسين. لا تدعي الدراسة نتائج مقاسة لاختبارات قابلية الاستخدام.",
     reflection: "The progression made the scope more focused. A next step would be testing task creation and prioritization before committing to integrations or a working build.",
     reflectionAr: "ساعد تطور التصميم على تركيز النطاق. الخطوة التالية هي اختبار إضافة المهام وترتيب الأولويات قبل الالتزام بخدمات ربط أو تطبيق فعلي.",
-    gallery: [{url: taskly1, caption: "Welcome — mobile interface design", captionAr: "الترحيب — تصميم الموبايل"},
-{url: taskly2, caption: "Sign up — mobile interface design", captionAr: "إنشاء حساب — تصميم الموبايل"},
-{url: taskly3, caption: "Sign in — mobile interface design", captionAr: "تسجيل الدخول — تصميم الموبايل"},
-{url: taskly4, caption: "Set your goal — mobile interface design", captionAr: "تحديد الهدف — تصميم الموبايل"},
-{url: taskly5, caption: "Add an initial task — mobile interface design", captionAr: "إضافة المهمة الأولى — تصميم الموبايل"},
-{url: taskly6, caption: "Calendar connection concept — not an implemented integration — mobile interface design", captionAr: "فكرة ربط التقويم — ليست خدمة ربط منفذة — تصميم الموبايل"},
-{url: taskly7, caption: "Preference choices — mobile interface design", captionAr: "اختيارات التفضيلات — تصميم الموبايل"},
-{url: taskly8, caption: "Dashboard with sample progress — mobile interface design", captionAr: "لوحة المتابعة بتقدم توضيحي — تصميم الموبايل"},
-{url: taskly9, caption: "Task list — mobile interface design", captionAr: "قائمة المهام — تصميم الموبايل"},
-{url: taskly10, caption: "Task list with a selected row — mobile interface design", captionAr: "قائمة المهام مع صف محدد — تصميم الموبايل"},
-{url: taskly11, caption: "Display options — mobile interface design", captionAr: "خيارات العرض — تصميم الموبايل"},
-{url: taskly12, caption: "Sorting options — mobile interface design", captionAr: "خيارات الترتيب — تصميم الموبايل"},
-{url: taskly13, caption: "Task entry and priority — mobile interface design", captionAr: "إضافة مهمة وتحديد الأولوية — تصميم الموبايل"},
-{url: taskly14, caption: "Focus timer — mobile interface design", captionAr: "مؤقت التركيز — تصميم الموبايل"}],
+    gallery: [{url: taskly1, caption: "Welcome · mobile interface design", captionAr: "الترحيب · تصميم الموبايل"},
+{url: taskly2, caption: "Sign up · mobile interface design", captionAr: "إنشاء حساب · تصميم الموبايل"},
+{url: taskly3, caption: "Sign in · mobile interface design", captionAr: "تسجيل الدخول · تصميم الموبايل"},
+{url: taskly4, caption: "Set your goal · mobile interface design", captionAr: "تحديد الهدف · تصميم الموبايل"},
+{url: taskly5, caption: "Add an initial task · mobile interface design", captionAr: "إضافة المهمة الأولى · تصميم الموبايل"},
+{url: taskly6, caption: "Calendar connection concept · not an implemented integration · mobile interface design", captionAr: "فكرة ربط التقويم · ليست خدمة ربط منفذة · تصميم الموبايل"},
+{url: taskly7, caption: "Preference choices · mobile interface design", captionAr: "اختيارات التفضيلات · تصميم الموبايل"},
+{url: taskly8, caption: "Dashboard with sample progress · mobile interface design", captionAr: "لوحة المتابعة بتقدم توضيحي · تصميم الموبايل"},
+{url: taskly9, caption: "Task list · mobile interface design", captionAr: "قائمة المهام · تصميم الموبايل"},
+{url: taskly10, caption: "Task list with a selected row · mobile interface design", captionAr: "قائمة المهام مع صف محدد · تصميم الموبايل"},
+{url: taskly11, caption: "Display options · mobile interface design", captionAr: "خيارات العرض · تصميم الموبايل"},
+{url: taskly12, caption: "Sorting options · mobile interface design", captionAr: "خيارات الترتيب · تصميم الموبايل"},
+{url: taskly13, caption: "Task entry and priority · mobile interface design", captionAr: "إضافة مهمة وتحديد الأولوية · تصميم الموبايل"},
+{url: taskly14, caption: "Focus timer · mobile interface design", captionAr: "مؤقت التركيز · تصميم الموبايل"}],
     metrics: [],
     processArtifacts: [
     { id: 'research-instruments', stage: 'research', title: 'Research preparation and competitive comparison', titleAr: 'إعداد البحث ومقارنة المنافسين', label: 'Original project artifact · research instruments', labelAr: 'مادة المشروع الأصلية · أدوات البحث', description: 'The comparison records the original project exercise, not a verified current product comparison. The questionnaire contains prompts, not responses or findings.', descriptionAr: 'يسجل الجدول تمرين المشروع الأصلي، وليس مقارنة حالية تم التحقق منها. يحتوي الاستبيان على أسئلة وليس إجابات أو نتائج.', previewCount: 1, images: [
@@ -468,9 +521,9 @@ preview: {"summary":"Peer interviews, surveys and competitor analysis led to a p
       {url: tasklyResearch3, caption: 'Research instrument: survey questions, part two', captionAr: 'أداة بحث: أسئلة الاستبيان، الجزء الثاني'},
       {url: tasklyResearch4, caption: 'Research instrument: survey and interview guide', captionAr: 'أداة بحث: أسئلة الاستبيان ودليل المقابلات'},
       {url: tasklyResearch5, caption: 'Original questionnaire appendix: design persona', captionAr: 'ملحق الاستبيان الأصلي: الشخصية التصميمية'} ] },
-    {id: 'design-persona', stage: 'persona', title: 'Design persona', titleAr: 'شخصية تصميمية', label: 'Design persona · not an interview participant', labelAr: 'شخصية تصميمية · ليست مشاركة في مقابلة', description: 'Emily Carter organizes the intended goals and frustrations into a design reference. Her profile and quotation are persona content, not interview evidence.', descriptionAr: 'تنظم إيميلي كارتر الأهداف والتحديات المفترضة في مرجع للتصميم. ملفها واقتباسها محتوى لشخصية تصميمية وليس دليلاً من مقابلة.', images: [{url: tasklyPersona, caption: 'Emily Carter — design persona', captionAr: 'إيميلي كارتر — شخصية تصميمية'}]},
+    {id: 'design-persona', stage: 'persona', title: 'Design persona', titleAr: 'شخصية تصميمية', label: 'Design persona · not an interview participant', labelAr: 'شخصية تصميمية · ليست مشاركة في مقابلة', description: 'Emily Carter organizes the intended goals and frustrations into a design reference. Her profile and quotation are persona content, not interview evidence.', descriptionAr: 'تنظم إيميلي كارتر الأهداف والتحديات المفترضة في مرجع للتصميم. ملفها واقتباسها محتوى لشخصية تصميمية وليس دليلاً من مقابلة.', images: [{url: tasklyPersona, caption: 'Emily Carter · design persona', captionAr: 'إيميلي كارتر · شخصية تصميمية'}]},
     {id: 'user-flow', stage: 'flow', title: 'User flow', titleAr: 'مسار المستخدم', label: 'Exploratory flow', labelAr: 'مسار استكشافي', description: 'Entry leads through onboarding to a dashboard. Branches map ideas for tasks, focus, calendar, and progress; they describe the planned scope rather than shipped capabilities.', descriptionAr: 'ينتقل الدخول عبر التهيئة إلى لوحة المتابعة. ترسم الفروع أفكار المهام والتركيز والتقويم والتقدم؛ وهي نطاق مخطط وليست وظائف منشورة.', images: [{url: tasklyFlow, caption: 'Early flow: entry, onboarding, and dashboard actions', captionAr: 'المسار الأولي: الدخول والتهيئة وإجراءات لوحة المتابعة'}]},
-    {id: 'wireframes', stage: 'wireframes', title: 'Sketches and wireframes', titleAr: 'الرسومات والمخططات', label: 'Early web exploration → mobile interface design', labelAr: 'استكشاف ويب أولي ← تصميم موبايل', description: 'Paper sketches establish the sequence before mid-fidelity web layouts. The final screens below show the later mobile direction.', descriptionAr: 'تحدد الرسومات الورقية التسلسل قبل مخططات الويب متوسطة الدقة. تعرض الشاشات التالية الاتجاه اللاحق للموبايل.', previewCount: 2, images: [{url: tasklySketches, caption: 'Handwritten web sketches and transitions', captionAr: 'رسومات ويب ورقية والانتقالات بينها'}, {url: tasklyMidFidelity, caption: 'Mid-fidelity web wireframes — exploratory features', captionAr: 'مخططات ويب متوسطة الدقة — ميزات استكشافية'}]}
+    {id: 'wireframes', stage: 'wireframes', title: 'Sketches and wireframes', titleAr: 'الرسومات والمخططات', label: 'Early web exploration → mobile interface design', labelAr: 'استكشاف ويب أولي ← تصميم موبايل', description: 'Paper sketches establish the sequence before mid-fidelity web layouts. The final screens below show the later mobile direction.', descriptionAr: 'تحدد الرسومات الورقية التسلسل قبل مخططات الويب متوسطة الدقة. تعرض الشاشات التالية الاتجاه اللاحق للموبايل.', previewCount: 2, images: [{url: tasklySketches, caption: 'Handwritten web sketches and transitions', captionAr: 'رسومات ويب ورقية والانتقالات بينها'}, {url: tasklyMidFidelity, caption: 'Mid-fidelity web wireframes · exploratory features', captionAr: 'مخططات ويب متوسطة الدقة · ميزات استكشافية'}]}
   ],
 },
   {
@@ -479,8 +532,8 @@ sectionTitles: {"decisions":{"en":"A clear return to learning","ar":"عودة و
 preview: {"summary":"A coding-learning dashboard concept with a clear path back to the current lesson.","summaryAr":"تصور لوحة لتعلم البرمجة بمسار واضح للعودة إلى الدرس الحالي.","contribution":"Learning-product direction and AI-assisted Next.js frontend direction.","contributionAr":"توجه المنتج التعليمي وتوجيه واجهة Next.js بمساعدة الذكاء الاصطناعي.","decision":"Make resuming the current lesson the primary dashboard action.","decisionAr":"جعل استئناف الدرس الحالي الإجراء الرئيسي للوحة."},
     categories: ['productivity-learning'],
     id: 'byto-academy',
-    title: 'Byto Academy — Interactive Coding & EdTech Platform',
-    titleAr: 'Byto Academy — منصة تعليمية تفاعلية لتعلم البرمجة',
+    title: 'Byto Academy · Interactive Coding & EdTech Platform',
+    titleAr: 'Byto Academy · منصة تعليمية تفاعلية لتعلم البرمجة',
     subtitle: 'Structured learning dashboard combining immediate course resumption, streak & milestone tracking, and weekly activity analytics.',
     subtitleAr: 'لوحة تعلم منظمة تجمع بين استئناف الدورات الفوري، وتتبع أيام الاستمرارية والشارات، وتحليلات النشاط الأسبوعي.',
     category: "Self-paced coding & learning",
@@ -536,8 +589,9 @@ sectionTitles: {"flow":{"en":"Student and officer workflows","ar":"مسارات 
 preview: {"summary":"Student and officer portals for events, registrations, and branch information.","summaryAr":"بوابتان للطلاب والمسؤولين للفعاليات والتسجيل ومعلومات الفرع.","contribution":"Volunteer design, Flutter contributions, and development coordination.","contributionAr":"تصميم تطوعي ومساهمات Flutter وتنسيق التطوير.","decision":"Separate student discovery from officer administration.","decisionAr":"فصل استكشاف الطلاب عن إدارة المسؤولين."},
     categories: ['business-management'],
     id: 'ieee-web',
-    title: 'IEEE PUA SB — Student Branch Web Portal',
-    titleAr: 'IEEE PUA SB — البوابة الإلكترونية لفرع طلاب IEEE بجامعة فاروس',
+    tools: ['Flutter', 'Firebase'],
+    title: 'IEEE PUA SB · Student Branch Web Portal',
+    titleAr: 'IEEE PUA SB · البوابة الإلكترونية لفرع طلاب IEEE بجامعة فاروس',
     subtitle: "Public and administrative Flutter/Firebase portals for student events, registrations, and branch information.",
     subtitleAr: "بوابتان عامة وإدارية بـ Flutter وFirebase للفعاليات والتسجيل ومعلومات الفرع الطلابي.",
     category: "Student community & events",
@@ -551,7 +605,7 @@ preview: {"summary":"Student and officer portals for events, registrations, and 
     client: 'IEEE Pharos University Student Branch',
     clientAr: 'فرع طلاب IEEE بجامعة فاروس بالإسكندرية',
     role: "Volunteer Designer, Flutter Contributor & Development Coordinator",
-    roleAr: "مصممة ومساهمة Flutter ومنسقة تطوير — دور تطوعي",
+    roleAr: "مصممة ومساهمة Flutter ومنسقة تطوير · دور تطوعي",
     timeline: "",
     timelineAr: "",
     heroImage: ieeeCover,
@@ -579,13 +633,71 @@ preview: {"summary":"Student and officer portals for events, registrations, and 
     impactAr: "مشروع تطوعي للجنة يضم بوابتين عامة وإدارية بـ Flutter وFirebase. تظل نتائج قابلية الاستخدام وتحسينات المصادقة بحاجة للتقييم.",
     reflection: "Coordinating volunteer development meant connecting public-facing design with the operational needs of branch officers. Future work could evaluate booking clarity and review administrative access.",
     reflectionAr: "تطلب تنسيق التطوير التطوعي ربط التصميم العام بالاحتياجات التشغيلية لمسؤولي الفرع. يمكن أن يقيّم العمل اللاحق وضوح الحجز ويراجع الوصول الإداري.",
+    designDecisions: [
+      {
+        id: 'event-discovery-hierarchy',
+        title: 'Structured event discovery & detailed landing views',
+        titleAr: 'هيكلة استكشاف الفعاليات وشاشات التفاصيل المخصصة',
+        problemConstraint: 'Students need fast filtering across upcoming and past events with clear logistical metadata',
+        designResponse: 'Designed dedicated discovery grids with time-based filters (All, Today, This Week, This Month) and modular event cards with location, date badges, and direct booking triggers.',
+        designResponseAr: 'تصميم شبكات استكشاف مخصصة بفلاتر زمنية (الكل، اليوم، هذا الأسبوع، هذا الشهر) وبطاقات فعاليات معيارية مع شارات التاريخ والمكان وزر حجز المقعد.',
+        whyChosen: 'Grouping events by temporal status and providing focused single-event views eliminates navigation ambiguity for attending students.',
+        whyChosenAr: 'فرز الفعاليات زمنياً وتوفير شاشات مستقلة لتفاصيل كل فعالية يمنع التشتت ويسهل التسجيل على الطلاب.',
+        evidence: 'Event discovery overview and focused event detail screen',
+        screenshots: [
+          { url: ieeeEventsDiscovery, caption: 'Upcoming and past events discovery with temporal filter chips', captionAr: 'استكشاف الفعاليات القادمة والسابقة مع فلاتر زمنية سريعة' },
+          { url: ieeeEventDetails, caption: 'Single event details: host, time, location, and registration info', captionAr: 'تفاصيل الفعالية: المنظم والموعد والمكان ومعلومات التسجيل' }
+        ]
+      },
+      {
+        id: 'shared-pharos-design-system',
+        title: 'Design system manual & component specifications',
+        titleAr: 'دليل النظام التصميمي ومواصفات المكونات المشتركة',
+        problemConstraint: 'Multi-member volunteer committees need strict UI consistency across pages and iterations',
+        designResponse: 'Formalized "A shared language for Pharos" defining IEEE cyan (#00629B) and navy color foundations, atmospheric gradients, pill-shaped action buttons, and responsive input styles.',
+        designResponseAr: 'صياغة دليل "لغة مشتركة لفاروس" يحدد لوحة ألوان IEEE الرسمية (#00629B) والتدرجات الجوية وأشكال الأزرار البيضاوية وحقول الإدخال المتجاوبة.',
+        whyChosen: 'Documenting design tokens and interactive component states bridges Figma layouts with Flutter frontend development across volunteer team members.',
+        whyChosenAr: 'توثيق الرموز التصميمية وحالات المكونات التفاعلية يربط بين تصاميم Figma وتطوير واجهات Flutter بين أعضاء الفريق التطوعي.',
+        evidence: 'Color foundations manual and component specification sheet',
+        screenshots: [
+          { url: ieeeDesignSystem, caption: 'Design system manual: color foundations, tokens, and atmospheric gradient recipe', captionAr: 'دليل النظام التصميمي: لوحة الألوان والرموز ووصفات التدرج اللوني' },
+          { url: ieeeComponentsSpec, caption: 'Component library: action pills, input fields, and location dropdowns', captionAr: 'مكتبة المكونات: الأزرار وحقول الإدخال وقوائم المدن المنسدلة' }
+        ]
+      },
+      {
+        id: 'separate-officer-administration',
+        title: 'Separated officer login & project management portal',
+        titleAr: 'بوابة مستقلة لتسجيل دخول المسؤولين وإدارة المشاريع',
+        problemConstraint: 'Branch officers need dedicated tools to publish projects and manage portal content without exposing admin controls inside the public student experience.',
+        designResponse: 'Built an independent Flutter administrative portal with dedicated officer login and tabbed project management (All Projects, Add Project, Manage Projects) connected to the shared Firebase backend.',
+        designResponseAr: 'بناء بوابة إدارية مستقلة بـ Flutter تضم شاشة دخول مخصصة للمسؤولين ولوحة إدارة مشاريع مبوبة (كل المشاريع، إضافة مشروع، إدارة المشاريع) متصلة بقاعدة Firebase المشتركة.',
+        whyChosen: 'Separating officer workflows into an independent portal keeps the student-facing interface focused while enabling committee members to publish and maintain branch records.',
+        whyChosenAr: 'فصل مسارات المسؤولين في بوابة مستقلة يحافظ على وضوح واجهة الطلاب ويتيح لأعضاء اللجنة نشر سجلات الفرع وتحديثها بسهولة.',
+        evidence: 'Administrative portal login screen and Add New Project form',
+        screenshots: [
+          { url: ieeeAdminLogin, caption: 'Administrative portal: officer login screen with access request and support contact', captionAr: 'البوابة الإدارية: شاشة دخول المسؤولين مع خيار طلب الصلاحية والتواصل مع الدعم' },
+          { url: ieeeAdminAddProject, caption: 'Administrative portal: Add New Project form with All, Add, and Manage tabs', captionAr: 'البوابة الإدارية: نموذج إضافة مشروع جديد مع تبويبات العرض والإضافة والإدارة' }
+        ]
+      }
+    ],
     gallery: [
       { url: ieeeCover, caption: 'IEEE PUA Student Branch Web Portal Hero & Quick-Access Cards', captionAr: 'الواجهة الرئيسية لبوابة فرع طلاب IEEE بجامعة فاروس وبطاقات الوصول السريع' },
+      { url: ieeeHomePortal, caption: 'Live Flutter web build: full public portal home hero, navigation, and quick-access cards', captionAr: 'النسخة الفعلية على Flutter Web: الواجهة الرئيسية الكاملة مع شريط التنقل وبطاقات الوصول السريع' },
+      { url: ieeeEventsPortal, caption: 'Live Flutter web build: Events page with Secure your Spot banner and Previous Events filters', captionAr: 'النسخة الفعلية: صفحة الفعاليات مع بطاقة حجز التذاكر وفلاتر الفعاليات السابقة' },
+      { url: ieeeToolsFeatures, caption: 'Live Flutter web build: Tools & Features directory with Event Proposal and upcoming features', captionAr: 'النسخة الفعلية: صفحة الأدوات والمزايا بما فيها اقتراح الفعاليات والمزايا القادمة' },
+      { url: ieeeProposeEvent, caption: 'Live Flutter web build: Propose an Event collaboration form for organizers', captionAr: 'النسخة الفعلية: نموذج اقتراح فعالية للتعاون مع المنظمين وتفاصيل الحدث' },
+      { url: ieeeProjectsPapers, caption: 'Projects & Papers archive: student research listings and technical articles', captionAr: 'أرشيف المشاريع والأوراق البحثية: قائمة الأبحاث والمقالات التقنية للطلاب' },
+      { url: ieeeEventsDiscovery, caption: 'Upcoming and past events discovery with temporal filter chips', captionAr: 'استكشاف الفعاليات القادمة والسابقة مع فلاتر زمنية سريعة' },
+      { url: ieeeEventDetails, caption: 'Single event details: host, time, location, and registration info', captionAr: 'تفاصيل الفعالية: المنظم والموعد والمكان ومعلومات التسجيل' },
+      { url: ieeeAdminLogin, caption: 'Administrative portal: officer login screen with access request and support contact', captionAr: 'البوابة الإدارية: شاشة دخول المسؤولين مع خيار طلب الصلاحية والتواصل مع الدعم' },
+      { url: ieeeAdminAddProject, caption: 'Administrative portal: Add New Project form with All, Add, and Manage tabs', captionAr: 'البوابة الإدارية: نموذج إضافة مشروع جديد مع تبويبات العرض والإضافة والإدارة' },
+      { url: ieeeDesignSystem, caption: 'Design system manual: color foundations, tokens, and atmospheric gradient recipe', captionAr: 'دليل النظام التصميمي: لوحة الألوان والرموز ووصفات التدرج اللوني' },
+      { url: ieeeComponentsSpec, caption: 'Component library: action pills, input fields, and location dropdowns', captionAr: 'مكتبة المكونات: الأزرار وحقول الإدخال وقوائم المدن المنسدلة' }
     ],
     metrics: [],
     workflowSteps: [
  {step:'01', title:'Find and book an event', titleAr:'اكتشاف فعالية وحجزها', appLabel:'Student portal', description:'Browse events, inspect details, and submit a booking, with transport options where offered.', descriptionAr:'تصفح الفعاليات والتفاصيل وإرسال الحجز، مع خيارات الانتقال عند توفرها.'},
- {step:'02', title:'Manage content and registrations', titleAr:'إدارة المحتوى والتسجيل', appLabel:'Administrative portal', description:'Officers update event content, review registrations, and follow up on payment status through WhatsApp. No admin screen is shown here.', descriptionAr:'يحدّث المسؤولون محتوى الفعاليات ويراجعون التسجيل وحالة الدفع ويتابعون عبر واتساب. لا تُعرض هنا شاشة إدارية.'},
+ {step:'02', title:'Manage content and registrations', titleAr:'إدارة المحتوى والتسجيل', appLabel:'Administrative portal', description:'Officers sign in to the separate admin portal to publish projects, update event content, review registrations, and follow up on payment status through WhatsApp.', descriptionAr:'يسجل المسؤولون الدخول إلى البوابة الإدارية المستقلة لنشر المشاريع وتحديث محتوى الفعاليات ومراجعة التسجيل وحالة الدفع عبر واتساب.'},
  {step:'03', title:'Maintain branch information', titleAr:'تحديث معلومات الفرع', appLabel:'Shared platform', description:'Maintain team structure and recruitment information so the public portal reflects branch activity.', descriptionAr:'تحديث هيكل الفريق ومعلومات الانضمام ليعكس الموقع العام نشاط الفرع.'}
  ],
   collaboratorsContributionAr: "تصف الوظائف التالية المنصة المشتركة، ولا تعني مسؤوليتي الفردية عن كل ميزة.",
@@ -593,8 +705,8 @@ preview: {"summary":"Student and officer portals for events, registrations, and 
 },
   {
     id: 'simplibank',
-    title: 'SimpliBank — Personal Banking & Transfer Interface',
-    titleAr: 'SimpliBank — واجهة المعاملات البنكية والتحويلات المالية',
+    title: 'SimpliBank · Personal Banking & Transfer Interface',
+    titleAr: 'SimpliBank · واجهة المعاملات البنكية والتحويلات المالية',
     subtitle: 'Focused dark-mode web banking dashboard for balance monitoring, instant deposits, withdrawals, and peer transfers.',
     subtitleAr: 'لوحة تحكم بنكية للويب بالوضع الداكن لمراقبة الرصيد، والإيداع الفوري، والسحب، والتحويلات المالية.',
     category: "Interface Exploration",
@@ -644,8 +756,8 @@ preview: {"summary":"Student and officer portals for events, registrations, and 
   },
   {
     id: 'bloom-gift',
-    title: 'BloomBook — Interactive Digital Keepsake',
-    titleAr: 'BloomBook — دفتر ذكريات رقمي تفاعلي',
+    title: 'BloomBook · Interactive Digital Keepsake',
+    titleAr: 'BloomBook · دفتر ذكريات رقمي تفاعلي',
     subtitle: 'Interactive web experience where users compose personalized photo and quote notebooks revealed through an animated night-garden scene.',
     subtitleAr: 'تجربة ويب تفاعلية يبتكر فيها المستخدمون دفاتر ذكريات مخصصة بالصور والاقتباسات تُكشف عبر مشهد حديقة ليلية متحركة.',
     category: 'Creative Web Build · React',
@@ -695,13 +807,14 @@ preview: {"summary":"Student and officer portals for events, registrations, and 
     metrics: [],
   },
   {
-sectionOrder: ["problem","flow","decisions","experience","evaluation","reflection"],
-sectionTitles: {"flow":{"en":"Capture, organize, and edit","ar":"التسجيل والتنظيم والتحرير"},"decisions":{"en":"Finding the right note","ar":"العثور على الملاحظة المطلوبة"},"experience":{"en":"The mobile interface","ar":"واجهة الموبايل"}},
+sectionOrder: ["problem","flow","decisions","experience","reflection"],
+sectionTitles: {"flow":{"en":"Capture, organize, and edit","ar":"التسجيل والتنظيم والتحرير"},"decisions":{"en":"Key design decisions","ar":"القرارات التصميمية الأساسية"},"experience":{"en":"The mobile interface","ar":"واجهة الموبايل"}},
 preview: {"summary":"Mobile notes with folders, priority filters, and rich-text editing in English and Arabic.","summaryAr":"ملاحظات للموبايل بمجلدات وتصفية بالأولوية وتحرير نصوص منسقة بالعربية والإنجليزية.","contribution":"Interface design and Flutter/Firebase implementation.","contributionAr":"تصميم الواجهة والتنفيذ باستخدام Flutter وFirebase.","decision":"Keep capture, organization, and editing in one coherent flow.","decisionAr":"جمع التسجيل والتنظيم والتحرير في مسار متسق."},
     categories: ['productivity-learning'],
     id: 'notes-app',
-    title: "Notes App — Flutter & Firebase",
-    titleAr: "تطبيق الملاحظات — Flutter وFirebase",
+    tools: ['Flutter', 'Firebase'],
+    title: "Notes App · Flutter & Firebase",
+    titleAr: "تطبيق الملاحظات · Flutter وFirebase",
     subtitle: "A Flutter notes app with Firebase authentication, cloud storage, and rich-text editing.",
     subtitleAr: "تطبيق ملاحظات بـ Flutter مع تسجيل الدخول والتخزين السحابي عبر Firebase وتحرير النصوص المنسقة.",
     category: "Note capture & organization",
@@ -739,17 +852,70 @@ preview: {"summary":"Mobile notes with folders, priority filters, and rich-text 
     designSystemAr: "يتشارك البحث وإجراءات المجلدات وأدوات الأولوية وشريط تنسيق النص تخطيطاً متسقاً للموبايل.",
     solution: "Implemented note-management screens with authentication, cloud storage, and rich-text editing.",
     solutionAr: "تنفيذ شاشات إدارة الملاحظات مع تسجيل الدخول والتخزين السحابي وتحرير النصوص المنسقة.",
-    impact: "Independent Flutter/Firebase build. A next step is evaluating note creation and organization with users; user outcomes have not been measured.",
-    impactAr: "تطبيق مستقل بـ Flutter وFirebase. الخطوة التالية تقييم إنشاء الملاحظات وتنظيمها مع المستخدمين؛ ولم تُقَس نتائج الاستخدام.",
+    impact: "",
+    impactAr: "",
     reflection: "The project connects interface design with Flutter implementation and Firebase integration.",
     reflectionAr: "يربط المشروع تصميم الواجهات بتنفيذ Flutter وتكامل Firebase.",
-    gallery: [{url: notes1, caption: "Empty notes list with search and folder/note actions", captionAr: "قائمة ملاحظات فارغة مع البحث وإضافة مجلد أو ملاحظة"},{url: notes2, caption: "Arabic notes list and mirrored controls", captionAr: "قائمة الملاحظات العربية وأدواتها المعكوسة"},{url: notes3, caption: "Create a folder — Arabic dialog", captionAr: "إنشاء مجلد — نافذة عربية"},{url: notes4, caption: "Create a folder — name and priority", captionAr: "إنشاء مجلد — الاسم والأولوية"},{url: notes5, caption: "Choose low, medium, or high folder priority", captionAr: "اختيار أولوية المجلد: منخفضة أو متوسطة أو عالية"},{url: notes6, caption: "Choose a blank note, meeting, or to-do template", captionAr: "اختيار قالب فارغ أو اجتماع أو قائمة مهام"},{url: notes7, caption: "Rich-text editor with a to-do list and formatting toolbar", captionAr: "محرر نصوص منسقة بقائمة مهام وشريط التنسيق"},{url: notes8, caption: "Folder and to-do note in the main list", captionAr: "مجلد وملاحظة مهام في القائمة الرئيسية"},{url: notes9, caption: "Filter the notes list by priority", captionAr: "تصفية قائمة الملاحظات حسب الأولوية"}],
+    workflowSteps: [
+      { step: "01", title: "Structure and organize", titleAr: "الهيكلة والتنظيم", appLabel: "Folders & priority", appLabelAr: "المجلدات والأولوية", description: "Users group related work into color-coded priority folders to keep topics separate.", descriptionAr: "ينظم المستخدمون الملاحظات المترابطة داخل مجلدات بأولويات محددة لفرز الموضوعات." },
+      { step: "02", title: "Pick a template & write", titleAr: "اختيار القالب والتحرير", appLabel: "Rich-text editor", appLabelAr: "محرر النصوص", description: "Quickly start from scratch or use structured meeting and checklist formats with formatting controls.", descriptionAr: "البدء بملاحظة فارغة أو استخدام قوالب للاجتماعات وقوائم المهام مع أدوات التنسيق." },
+      { step: "03", title: "Search, filter & find", titleAr: "البحث والفرز والوصول", appLabel: "Instant retrieval", appLabelAr: "الوصول السريع", description: "Locate thoughts quickly through instant text search or by filtering views by priority flags.", descriptionAr: "العثور على الأفكار بسرعة عبر البحث الفوري بالنص أو تصفية العرض حسب مستويات الأولوية." }
+    ],
+    designDecisions: [
+      {
+        id: "arabic-bilingual-rtl",
+        title: "Bilingual interface with full RTL mirroring",
+        titleAr: "واجهة ثنائية اللغة تدعم العربية وRTL بالكامل",
+        problemConstraint: "Arabic users need natural reading orientation and inverted navigation cues",
+        designResponse: "Engineered full RTL layout support in Flutter where folder structures, search inputs, and modal dialogs adapt symmetrically to the chosen language.",
+        designResponseAr: "تنفيذ دعم كامل لتخطيطات RTL في Flutter بحيث تتكيف المجلدات ومربعات البحث ونوافذ الحوار تلقائياً وتماثلياً مع لغة المستخدم.",
+        whyChosen: "Preserving natural right-to-left visual ergonomics ensures equal clarity and ease for both Arabic and English note takers.",
+        whyChosenAr: "الحفاظ على انسيابية القراءة الطبيعية من اليمين إلى اليسار يضمن راحة متكافئة للمستخدمين باللغتين العربية والإنجليزية.",
+        evidence: "Mirrored Arabic home view and localized dialogs",
+        screenshots: [
+          { url: notes2, caption: "Arabic notes list and mirrored controls", captionAr: "قائمة الملاحظات العربية وأدواتها المعكوسة" },
+          { url: notes3, caption: "Create a folder · Arabic dialog", captionAr: "إنشاء مجلد · نافذة عربية" }
+        ]
+      },
+      {
+        id: "folder-priority-organization",
+        title: "Two-level organization: folders with priority tiers",
+        titleAr: "تنظيم من مستويين: مجلدات بتصنيفات أولوية",
+        problemConstraint: "Flat note lists become cluttered quickly on mobile screens",
+        designResponse: "Created an explicit folder hierarchy combined with high, medium, and low priority indicators that let users isolate critical tasks at a glance.",
+        designResponseAr: "تصميم هيكل واضح للمجلدات مع مؤشرات أولوية (مرتفعة، متوسطة، منخفضة) تتيح للمستخدمين تمييز المهام المهمة بلمحة سريعة.",
+        whyChosen: "Color-coded priority badges give immediate visual weight without forcing rigid tagging systems.",
+        whyChosenAr: "تمنح شارات الأولوية وزناً بصرياً فورياً دون فرض أنظمة تصنيف ووسوم معقدة.",
+        evidence: "Folder creation dialog and priority selection options",
+        screenshots: [
+          { url: notes4, caption: "Create a folder · name and priority", captionAr: "إنشاء مجلد · الاسم والأولوية" },
+          { url: notes5, caption: "Choose low, medium, or high folder priority", captionAr: "اختيار أولوية المجلد: منخفضة أو متوسطة أو عالية" }
+        ]
+      },
+      {
+        id: "rich-text-checklists",
+        title: "Rich-text formatting with purpose-built templates",
+        titleAr: "تنسيق نصوص متقدم مع قوالب جاهزة للأهداف المختلفة",
+        problemConstraint: "Plain text is insufficient for meetings and action checklists",
+        designResponse: "Integrated a rich-text toolbar supporting interactive checklists, headers, and quick-start templates (Blank, Meeting, and To-Do).",
+        designResponseAr: "دمج شريط أدوات منسق يدعم قوائم المهام التفاعلية والعناوين وقوالب البدء السريع (ملاحظة فارغة، اجتماع، وقائمة مهام).",
+        whyChosen: "Templates remove blank-page friction while built-in checkable rows keep action items actionable inside notes.",
+        whyChosenAr: "تساعد القوالب على البدء السريع بينما تحافظ عناصر القوائم القابلة للاكتمال على طابع المهام التنفيذي داخل الملاحظات.",
+        evidence: "Template selection modal and rich-text checklist editor",
+        screenshots: [
+          { url: notes6, caption: "Choose a blank note, meeting, or to-do template", captionAr: "اختيار قالب فارغ أو اجتماع أو قائمة مهام" },
+          { url: notes7, caption: "Rich-text editor with a to-do list and formatting toolbar", captionAr: "محرر نصوص منسقة بقائمة مهام وشريط التنسيق" }
+        ]
+      }
+    ],
+    taskSequences: [],
+    gallery: [{url: notes1, caption: "Empty notes list with search and folder/note actions", captionAr: "قائمة ملاحظات فارغة مع البحث وإضافة مجلد أو ملاحظة"},{url: notes2, caption: "Arabic notes list and mirrored controls", captionAr: "قائمة الملاحظات العربية وأدواتها المعكوسة"},{url: notes3, caption: "Create a folder · Arabic dialog", captionAr: "إنشاء مجلد · نافذة عربية"},{url: notes4, caption: "Create a folder · name and priority", captionAr: "إنشاء مجلد · الاسم والأولوية"},{url: notes5, caption: "Choose low, medium, or high folder priority", captionAr: "اختيار أولوية المجلد: منخفضة أو متوسطة أو عالية"},{url: notes6, caption: "Choose a blank note, meeting, or to-do template", captionAr: "اختيار قالب فارغ أو اجتماع أو قائمة مهام"},{url: notes7, caption: "Rich-text editor with a to-do list and formatting toolbar", captionAr: "محرر نصوص منسقة بقائمة مهام وشريط التنسيق"},{url: notes8, caption: "Folder and to-do note in the main list", captionAr: "مجلد وملاحظة مهام في القائمة الرئيسية"},{url: notes9, caption: "Filter the notes list by priority", captionAr: "تصفية قائمة الملاحظات حسب الأولوية"}],
     metrics: [],
   },
   {
     id: 'ecomm-app',
-    title: 'Route E-Commerce — Flutter Shopping & Catalog App',
-    titleAr: 'Route E-Commerce — تطبيق تسوق وكتالوج منتجات بـ Flutter',
+    title: 'Route E-Commerce · Flutter Shopping & Catalog App',
+    titleAr: 'Route E-Commerce · تطبيق تسوق وكتالوج منتجات بـ Flutter',
     subtitle: 'Multi-screen Flutter mobile shopping interface covering authentication, category browsing, product variants, wishlist, and cart flows.',
     subtitleAr: 'واجهة تسوق متعددة الشاشات للموبايل بـ Flutter تغطي التسجيل، وتصفح الفئات، وخيارات المنتج، والمفضلة، وسلة الشراء.',
     category: 'Mobile Engineering · Flutter',

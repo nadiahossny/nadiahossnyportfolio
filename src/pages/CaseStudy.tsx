@@ -99,7 +99,7 @@ function CaseStudyContent({ id }: { id: string | undefined }) {
   const artifacts = (stage: ProcessArtifactGroup['stage']) => project.processArtifacts?.filter(group => group.stage === stage).map(group => {
     const previewCount = group.previewCount ?? 1;
     const figures = (images: typeof group.images) => images.map(image => <figure key={image.url}>{visual(image.url, t(image.caption, image.captionAr))}<figcaption>{t(image.caption, image.captionAr)}</figcaption></figure>);
-    return <div className="process-artifacts" key={group.id}><p className="artifact-label">{t(group.label, group.labelAr)}</p><p>{t(group.description, group.descriptionAr)}</p><div className="artifact-grid">{figures(group.images.slice(0, previewCount))}</div>{group.images.length > previewCount && <details className="mt-5"><summary>{t('Full questionnaire and additional artifacts', 'الاستبيان الكامل والمواد الإضافية')}</summary><div className="artifact-grid">{figures(group.images.slice(previewCount))}</div></details>}</div>;
+    return <div className="process-artifacts" key={group.id}><p className="artifact-label">{t(group.label, group.labelAr)}</p><p>{t(group.description, group.descriptionAr)}</p><div className="artifact-grid">{figures(group.images.slice(0, previewCount))}</div>{group.images.length > previewCount && <details className="mt-5 artifact-details"><summary className="details-pill-toggle">{t('Full questionnaire and additional artifacts', 'الاستبيان الكامل والمواد الإضافية')}</summary><div className="artifact-grid">{figures(group.images.slice(previewCount))}</div></details>}</div>;
   });
   const decisionImages = new Set(project.designDecisions?.flatMap(d => d.screenshots.map(s => s.url)) ?? []);
   const previewIndices = isTaskly ? [7, 12, 13] : isAPMS ? [7, 10, 6] : null;
@@ -118,30 +118,46 @@ function CaseStudyContent({ id }: { id: string | undefined }) {
       case 'research': return <><p>{localized('research')}</p>{artifacts('research')}</>;
       case 'persona': return artifacts('persona');
       case 'flow': return <>{project.workflowSteps?.length ? <ol className="case-flow">{project.workflowSteps.map(step => <li key={step.step}><h3>{t(step.title, step.titleAr)}</h3><p>{t(step.description, step.descriptionAr)}</p></li>)}</ol> : !isTaskly && <p>{localized('wireframes')}</p>}{artifacts('flow')}</>;
-      case 'decisions': return <>{project.designDecisions?.length ? project.designDecisions.map(decision => <article className="case-decision" key={decision.id}><div><h3>{t(decision.title, decision.titleAr)}</h3><p>{t(decision.designResponse, decision.designResponseAr)}</p><details className="mt-4"><summary>{t('Why this choice', 'لماذا هذا القرار')}</summary><p>{t(decision.whyChosen, decision.whyChosenAr)}</p></details></div><div className="decision-screens">{decision.screenshots.map(screen => <figure key={screen.url}>{visual(screen.url, t(screen.caption, screen.captionAr))}<figcaption>{t(screen.caption, screen.captionAr)}</figcaption></figure>)}</div></article>) : <><p>{localized('keyDecision')}</p>{isTaskly && <p>{localized('wireframes')}</p>}</>}{artifacts('decisions')}{artifacts('wireframes')}</>;
-      case 'experience': return <><p>{localized('solution')}</p>{finalScreens.length > 0 && <div className="case-gallery">{finalScreens.map(screen => <figure key={screen.url}>{visual(screen.url, screen.caption)}<figcaption>{screen.caption}</figcaption></figure>)}</div>}<details className="mt-6"><summary>{t(`View all images (${slides.length})`, `استعرض كل الصور (${slides.length})`)}</summary><div className="case-gallery">{slides.map(screen => <figure key={screen.url}>{visual(screen.url, screen.caption)}<figcaption>{screen.caption}</figcaption></figure>)}</div></details></>;
+      case 'decisions': return <>{project.designDecisions?.length ? project.designDecisions.map(decision => <article className="case-decision" key={decision.id}><div><h3>{t(decision.title, decision.titleAr)}</h3><p>{t(decision.designResponse, decision.designResponseAr)}</p><div className="decision-rationale"><span className="rationale-label">{t('Why this choice', 'لماذا هذا القرار')}</span><p>{t(decision.whyChosen, decision.whyChosenAr)}</p></div></div><div className="decision-screens">{decision.screenshots.map(screen => <figure key={screen.url}>{visual(screen.url, t(screen.caption, screen.captionAr))}<figcaption>{t(screen.caption, screen.captionAr)}</figcaption></figure>)}</div></article>) : <><p>{localized('keyDecision')}</p>{isTaskly && <p>{localized('wireframes')}</p>}</>}{artifacts('decisions')}{artifacts('wireframes')}</>;
+      case 'experience': return <><p>{localized('solution')}</p>{finalScreens.length > 0 && <div className="case-gallery">{finalScreens.map(screen => <figure key={screen.url}>{visual(screen.url, screen.caption)}<figcaption>{screen.caption}</figcaption></figure>)}</div>}<details className="mt-6 gallery-details"><summary className="details-pill-toggle">{t(`View all images (${slides.length})`, `استعرض كل الصور (${slides.length})`)}</summary><div className="case-gallery">{slides.map(screen => <figure key={screen.url}>{visual(screen.url, screen.caption)}<figcaption>{screen.caption}</figcaption></figure>)}</div></details></>;
       case 'evaluation': return <p>{localized('impact')}</p>;
       case 'reflection': return <p>{localized('reflection')}</p>;
     }
   };
   return <div className="portfolio-container inner-page case-content" key={id}>
-    <PageMeta title={`${localized('title')} — ${t('Nadia Hossny', 'نادية حسني')}`} description={t(project.subtitle, project.subtitleAr)} />
+    <PageMeta title={`${localized('title')} · ${t('Nadia Hossny', 'نادية حسني')}`} description={t(project.subtitle, project.subtitleAr)} />
     <Link to="/work" className="text-link mb-6"><ArrowLeft size={16} />{t('All work', 'كل الأعمال')}</Link>
     <header>
       <p className="text-sm mb-3">{t(project.contextBadge, project.contextBadgeAr)}</p>
       <h1>{isAuraLeaf ? 'AuraLeaf' : localized('title')}</h1>
       <p>{localized('overview')}</p>
-      <div className="action-row">{[[project.liveUrl, t('Open live app', 'افتح التطبيق')], [project.prototypeUrl, t('View prototype', 'عرض النموذج التفاعلي')], [project.githubUrl, t('Source code', 'الكود المصدري')]].map(([url, label]) => url ? <a href={url} key={label} className="text-link" target="_blank" rel="noopener noreferrer">{label} ↗</a> : null)}</div>
+      <div className="action-row">{[[project.liveUrl, t('Open live app', 'افتح التطبيق')], [project.prototypeUrl, t('View prototype', 'عرض النموذج التفاعلي')], [project.githubUrl, t('Source code', 'الكود المصدري')]].map(([url, label]) => url ? <a href={url} key={label} className="text-link" target="_blank" rel="noopener noreferrer">{label}<ArrowRight size={16} aria-hidden="true" /></a> : null)}</div>
       <div className={project.secondaryHeroImage ? 'apms-preview my-7' : 'my-7'}>{visual(project.heroImage, t(project.subtitle, project.subtitleAr))}{project.secondaryHeroImage && visual(project.secondaryHeroImage, t('Roshetety patient app', 'تطبيق روشتتي للمرضى'))}</div>
-      <dl className="case-meta"><div><dt>{t('My role', 'دوري')}</dt><dd>{localized('role')}</dd></div><div><dt>{t('Context', 'السياق')}</dt><dd>{t(project.client, project.clientAr)}</dd></div>{project.tools?.length ? <div><dt>{t('Tools & technology', 'الأدوات والتقنيات')}</dt><dd className="case-tools">{project.tools.map(tool => <span key={tool} dir="ltr">{tool}</span>)}</dd></div> : null}{project.timeline && <div><dt>{t('Timeline', 'المدة')}</dt><dd>{localized('timeline')}</dd></div>}</dl>
-      {project.myContribution && <p><strong>{t('My contribution. ', 'مساهمتي. ')}</strong>{localized('myContribution')}</p>}
-      {project.collaboratorsContribution && <p><strong>{t('Team contribution. ', 'مساهمة الفريق. ')}</strong>{t(project.collaboratorsContribution, project.collaboratorsContributionAr)}</p>}
+      <div className="case-meta-card">
+        <dl className="case-meta"><div><dt>{t('My role', 'دوري')}</dt><dd>{localized('role')}</dd></div><div><dt>{t('Context', 'السياق')}</dt><dd>{t(project.client, project.clientAr)}</dd></div>{project.tools?.length ? <div><dt>{t('Tools & technology', 'الأدوات والتقنيات')}</dt><dd className="case-tools">{project.tools.map(tool => <span key={tool} dir="ltr">{tool}</span>)}</dd></div> : null}{project.timeline && <div><dt>{t('Timeline', 'المدة')}</dt><dd>{localized('timeline')}</dd></div>}</dl>
+        {(project.myContribution || project.collaboratorsContribution) && (
+          <div className="case-contributions">
+            {project.myContribution && (
+              <div className="case-contribution-item">
+                <span className="case-contribution-label">{t('My contribution', 'مساهمتي')}</span>
+                <p className="case-contribution-text">{localized('myContribution')}</p>
+              </div>
+            )}
+            {project.collaboratorsContribution && (
+              <div className="case-contribution-item">
+                <span className="case-contribution-label">{t('Team contribution', 'مساهمة الفريق')}</span>
+                <p className="case-contribution-text">{t(project.collaboratorsContribution, project.collaboratorsContributionAr)}</p>
+              </div>
+            )}
+          </div>
+        )}
+      </div>
     </header>
     {(project.sectionOrder ?? defaultCaseSections).map(kind => {
       const heading = project.sectionTitles?.[kind];
       return <section className="case-section" key={kind} data-case-section={kind}><h2>{heading ? t(heading.en, heading.ar) : t(...headings[kind])}</h2>{renderSection(kind)}</section>;
     })}
-    <details className="case-section"><summary>{t('Implementation & design notes', 'تفاصيل التنفيذ والتصميم')}</summary><p>{localized('myContribution')}</p>{project.collaboratorsContribution && <p>{t(project.collaboratorsContribution, project.collaboratorsContributionAr)}</p>}<p>{localized('architecture')}</p><p>{localized('designSystem')}</p></details>
+    <section className="case-section case-notes-card"><h2>{t('Implementation & design notes', 'تفاصيل التنفيذ والتصميم')}</h2><div className="case-notes-body"><p>{localized('myContribution')}</p>{project.collaboratorsContribution && <p>{t(project.collaboratorsContribution, project.collaboratorsContributionAr)}</p>}<p>{localized('architecture')}</p><p>{localized('designSystem')}</p></div></section>
     <nav className="case-end" aria-label={t('Project navigation', 'التنقل بين المشاريع')}><Link to="/work" className="text-link">{t('All work', 'كل الأعمال')}</Link><Link to={`/work/${next.id}`} className="text-link">{t('Next project', 'المشروع التالي')}<ArrowRight size={16} /></Link></nav>
     {active !== null && slides[active] && <div ref={dialog} className="image-dialog" role="dialog" aria-modal="true" aria-label={t('Project image viewer', 'عارض صور المشروع')} onClick={event => { if (event.target === event.currentTarget) setActive(null); }}><button ref={close} className="dialog-close" onClick={() => setActive(null)} aria-label={t('Close image viewer', 'إغلاق عارض الصور')}><X /></button><button className="dialog-zoom" onClick={() => setZoomed(value => !value)} aria-pressed={zoomed}>{zoomed ? t('Fit image', 'ملاءمة الصورة') : t('Zoom in', 'تكبير')}</button><button className="dialog-prev" onClick={() => changeSlide(-1)} aria-label={t('Previous image', 'الصورة السابقة')}><ChevronLeft /></button><div ref={canvas} className={`image-canvas${zoomed ? ' is-zoomed' : ''}`} tabIndex={0} role="region" aria-label={t('Image; scroll to inspect when zoomed', 'الصورة؛ مرّر لاستكشافها بعد التكبير')}><img src={slides[active].url} alt={slides[active].caption} /></div><p aria-live="polite">{active + 1} / {slideCount} · {slides[active].caption}</p><button className="dialog-next" onClick={() => changeSlide(1)} aria-label={t('Next image', 'الصورة التالية')}><ChevronRight /></button></div>}
   </div>;

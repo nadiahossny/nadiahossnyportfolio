@@ -20,7 +20,7 @@ export default function Footer() {
           <Link
             to="/"
             className="inline-flex items-center gap-3 mb-2.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cta rounded-xl"
-            aria-label={t('Nadia Hossny · Product Designer — Home', 'نادية حسني · مصممة منتجات رقمية — الرئيسية')}
+            aria-label={t('Nadia Hossny · Product Designer · Home', 'نادية حسني · مصممة منتجات رقمية · الرئيسية')}
           >
             <img
               src={logo}
@@ -74,7 +74,7 @@ export default function Footer() {
             <Mail className="w-4 h-4" />
           </a>
           <a
-            href="https://wa.me/201064943439"
+            href="https://wa.me/201556643463"
             target="_blank"
             rel="noopener noreferrer"
             className="w-10 h-10 rounded-full bg-white border border-headline/15 text-headline hover:text-cta hover:border-cta flex items-center justify-center transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cta"
